@@ -1,0 +1,732 @@
+\documentclass[14pt,t,dvipsnames]{beamer}
+\input{slides}
+\usepackage[acronym]{glossaries}
+\makeglossaries
+\input{documents/physics-glossary}
+% \usepackage{enumitem}
+\setbeamerfont{alerted text}{series=\bfseries\large}
+% \usepackage{randomize}
+\setlength{\parskip}{6pt}
+\usepackage{circuitikz}
+\ctikzset{bipoles/cuteswitch/thickness=0.3,bipoles/cuteswitch/shape=circ}
+
+\ctikzset{bipoles/battery1/height=0.70}
+\ctikzset{bipoles/battery1/width=0.35}
+\ctikzset{bipoles/resistor/height=0.25}
+\ctikzset{bipoles/resistor/width=0.625}
+\ctikzset{bipoles/bulb/height=0.4,bipoles/bulb/width=0.4}
+
+\newcommand{\OhmsTriangle}{
+\begin{tikzpicture}[x=1.5cm,y=1.5cm]
+    \coordinate (V) at (0,1);
+    \coordinate (I) at ({cos(210)},{sin(210)});
+    \coordinate (R) at ({cos(330)},{sin(330)});
+    \draw (V) -- (I) -- (R) -- (V);
+    
+    % Midpoints
+    \coordinate (M1) at ($(V)!0.5!(I)$);
+    \coordinate (M2) at ($(V)!0.5!(R)$);
+    \coordinate (M3) at ($(M1)!0.5!(M2)$);
+    \coordinate (M4) at ($(I)!0.5!(R)$);
+    
+    % Lines between midpoints
+    \draw (M1) -- (M2) node[pos=0.5,above=0.03] {$V$};
+    \draw (M3) -- (M4) node[pos=0.5,left=0.1] {$I$} node[pos=0.5,right=0.06] {$R$};
+\end{tikzpicture}
+}
+
+
+
+\renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}} %...without this, glossary terms are colored blue in Beamer
+
+
+\title{Unit 11: Conservation of Electric Charge}
+\subtitle{Physics}
+\author{}
+\date{Updated on \today}
+
+\AtBeginSection[]
+{
+  \begin{frame}{Table of Contents}
+        \tableofcontents[currentsection]
+  \end{frame}
+}
+
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+% \begin{frame} %...Mock question
+% What's your favorite season?
+
+% \begin{enumerate}[A.]
+%     \item Spring
+%     \item Summer
+%     \item Fall
+%     \item Winter
+% \end{enumerate}
+% \end{frame}
+
+% \begin{frame} %...Mock question
+% Which of the following does not belong?
+
+% \begin{enumerate}[A.]
+%     \item John
+%     \item Paul
+%     \item \alert<2->{Michael}
+%     \item George
+% \end{enumerate}
+
+
+% \uncover<3->{\color{red} The fourth member of The Beatles is Ringo.}
+
+% \end{frame}
+
+\section{Electric Charge}
+
+
+\begin{frame}
+In what year was the electron discovered?
+
+
+\begin{enumerate}[A.]
+    \item 1913
+    \item 1807
+    \item \alert<2->{1897}
+    \item 1945
+\end{enumerate}
+\end{frame}
+
+% \begin{frame}
+% What was the purpose of Millikan and Fletcher's oil drop experiment?
+
+% \medskip
+
+% \begin{enumerate}[A.]
+%     \item To discover the electron.
+%     \item To discover electric charge.
+%     \item To measure the mass of an electron.
+%     \item \alert<2->{To measure the charge of an electron.}
+% \end{enumerate}
+% \end{frame}
+
+\begin{frame}
+Electric charge is a property of matter that can be\ldots
+
+
+\begin{enumerate}[A.]
+    \item positive ($+$) only
+    \item \alert<2->{positive ($+$) or negative ($-$)}
+    \item negative ($-$) only
+    \item only neutral
+\end{enumerate}
+\end{frame}
+
+
+
+\begin{frame}
+The base SI unit of electric charge is the\ldots
+
+\begin{enumerate}[A.]
+    \item \alert<2->{coulomb (C)}
+    \item joule (J)
+    \item newton (N)
+    \item ampere (A)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+Opposite charges \rule{4cm}{0.4pt}.
+
+\begin{center}
+\begin{tikzpicture}[x=8mm,y=8mm]
+    \draw[fill=cyan!40] (-3,0) circle (1) node {\large $\boldsymbol{-}$};
+    \draw[fill=red!40] (+3,0) circle (1) node {\large $\boldsymbol{+}$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[A.]
+    \item repel
+    \item both attract and repel
+    \item \alert<2->{attract}
+    \item neither attract nor repel
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+Like charges \rule{4cm}{0.4pt}.
+
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[fill=cyan!40] (-1.5,0) circle (1) node {\large $\boldsymbol{-}$};
+    \draw[fill=cyan!40] (+1.5,0) circle (1) node {\large $\boldsymbol{-}$};
+\end{tikzpicture}
+\hspace{3cm}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[fill=red!40] (-1.5,0) circle (1) node {\large $\boldsymbol{+}$};
+    \draw[fill=red!40] (+1.5,0) circle (1) node {\large $\boldsymbol{+}$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[A.]
+    \item \alert<2->{repel}
+    \item both attract and repel
+    \item attract
+    \item neither attract nor repel
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+What is the charge on 1 electron?
+
+\begin{center}
+\begin{minipage}{6cm}
+\centering
+\begin{enumerate}[A.]
+    \item $-\SI{1.6}{C}$
+    \item $+\SI{1.6}{C}$
+    \item \alert<2->{\SI{-1.6e-19}{C}}
+    \item $+\SI{1.6e-19}{C}$
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{3cm}
+\centering
+\begin{tikzpicture}[y=1.5cm,x=1.5cm]
+    \draw[fill=cyan!50] (0,0) circle (1);
+    \draw[thick,cyan,fill=white] (-0.5,-0.12) rectangle (0.5,0.12);
+\end{tikzpicture}
+\end{minipage}
+\end{center}
+
+
+
+\end{frame}
+
+\begin{frame}
+What is the charge on 1 proton?
+\begin{center}
+\begin{minipage}{6cm}
+\centering
+\begin{enumerate}[A.]
+    \item $-\SI{1.6}{C}$
+    \item $+\SI{1.6}{C}$
+    \item \alert<2->{\SI{-1.6e-19}{C}}
+    \item $+\SI{1.6e-19}{C}$
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{3cm}
+\centering
+\begin{tikzpicture}[y=1.5cm,x=1.5cm]
+    \draw[fill=red!50] (0,0) circle (1);
+    % \fill[white] (-0.5,0) circle (0.05);
+    % \fill[white] (+0.5,0) circle (0.05);
+    % \fill[white] (0,-0.5) circle (0.05);
+    % \fill[white] (0,+0.5) circle (0.05);
+    \draw[thick,red,fill=white] (0.5,0) -- (0.5,0.1) -- (0.1,0.1) -- (0.1,0.5) -- (-0.1,0.5) -- (-0.1,0.1) -- (-0.5,0.1) -- (-0.5,-0.1) -- (-0.1,-0.1) -- (-0.1,-0.5) -- (0.1,-0.5) -- (0.1,-0.1) -- (0.5,-0.1) -- cycle;
+    % \fill[white] (-0.5,0) circle (0.2);
+\end{tikzpicture}
+\end{minipage}
+\end{center}
+\end{frame}
+
+\section{Coulomb's Law}
+
+\begin{frame}
+Which of the following equations represents Coulomb's law?
+
+\begin{enumerate}[A.]
+    \item $\displaystyle F = \frac{G m_1 m_2}{r^2}$ \vspace{6pt}
+    \item $F = m a$ \vspace{6pt}
+    \item \alert<2->{$\displaystyle F = \frac{k q_1 q_2}{r^2}$} \vspace{6pt}
+    \item $\displaystyle F = \frac{\Delta p}{\Delta t}$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+Coulomb's constant $k$ is equal to 
+
+\begin{enumerate}[A.]
+    \item \alert<2->{$9 \times 10^9\,\frac{\mathrm{N\cdot m^2}}{\mathrm{C^2}}$} \vspace{6pt}
+    \item $6.67 \times 10^{-11}\,\frac{\mathrm{N\cdot m^2}}{\mathrm{C^2}}$ \vspace{6pt}
+    \item $9.8\,\frac{\mathrm{N\cdot m^2}}{\mathrm{C^2}}$ \vspace{6pt}
+    \item $1 \times 10^5\,\frac{\mathrm{N\cdot m^2}}{\mathrm{C^2}}$ \vspace{6pt}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+Calculate the magnitude of the electric force between the charges.
+
+
+\begin{center}
+\begin{tikzpicture}
+
+% --- Ruler ---
+\draw[thick,fill=black!10] (-0.2,0) rectangle (10.3,1.3);
+
+% Major ticks (cm)
+\foreach \x in {0,1,...,10} {
+    \draw[thick] (\x,0) -- (\x,0.3);
+    \node[above] at (\x,0.3) {\small \x};
+    \draw[thick] (\x,1.3) -- (\x,1);
+    \node[above] at (0.35,0.3) {\footnotesize cm};
+}
+
+% Minor ticks (mm)
+\foreach \x in {0,0.2,...,10} {
+    \draw[thin] (\x,0) -- (\x,0.15);
+    \draw[thin] (\x,1.3) -- (\x,1.15);
+}
+
+% % --- Circles (charges) ---
+\draw[fill=blue!20] (4,2.5) circle (0.8) node {\SI{-4}{\micro C}};
+\draw[fill=red!40] (7,2.5) circle (0.8) node {\SI{8}{\micro C}};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[A.]
+    \item \SI{120}{N}
+    \item \alert<2->{\SI{320}{N}}
+    \item \SI{400}{N}
+    \item \SI{500}{N}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+If the distance between two charges doubles, the electric force between them is cut in half.
+
+\begin{center}
+\begin{tikzpicture}
+
+% --- Ruler ---
+\draw[thick,fill=black!10] (-0.2,0) rectangle (10.3,1.3);
+
+% Major ticks (cm)
+\foreach \x in {0,1,...,10} {
+    \draw[thick] (\x,0) -- (\x,0.3);
+    \node[above] at (\x,0.3) {\small \x};
+    \draw[thick] (\x,1.3) -- (\x,1);
+    \node[above] at (0.35,0.3) {\footnotesize cm};
+}
+
+% Minor ticks (mm)
+\foreach \x in {0,0.2,...,10} {
+    \draw[thin] (\x,0) -- (\x,0.15);
+    \draw[thin] (\x,1.3) -- (\x,1.15);
+}
+
+% % --- Circles (charges) ---
+\draw[fill=blue!20] (4,2.5) circle (0.8) node {\Large $\boldsymbol{-}$};
+
+\draw[fill=red!40] (7,2.5) circle (0.8) node {\Large $\boldsymbol{+}$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[A.]
+    \item True
+    \item \alert<2->{False}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+Calculate the magnitude of the electric force between the charges.
+
+\begin{tikzpicture}
+% --- Ruler ---
+\draw[thick,fill=black!10] (-0.2,0) rectangle (10.3,1.3);
+
+% Major ticks (cm)
+\foreach \x in {0,1,...,10} {
+    \draw[thick] (\x,0) -- (\x,0.3);
+    \node[above] at (\x,0.3) {\small \x};
+    \draw[thick] (\x,1.3) -- (\x,1);
+    \node[above] at (0.35,0.3) {\footnotesize cm};
+}
+
+% Minor ticks (mm)
+\foreach \x in {0,0.2,...,10} {
+    \draw[thin] (\x,0) -- (\x,0.15);
+    \draw[thin] (\x,1.3) -- (\x,1.15);
+}
+
+% % --- Circles (charges) ---
+\draw[fill=red!40] (3,2.5) circle (0.8) node {\SI{9}{\micro C}};
+\draw[fill=red!40] (8,2.5) circle (0.8) node {\SI{6}{\micro C}};
+\end{tikzpicture}
+
+\uncover<2->{
+\begin{enumerate}[A.]
+    \item \SI{86}{N}
+    \item \SI{540}{N}
+    \item \alert<3->{\SI{194}{N}}
+    \item \SI{150}{N}
+\end{enumerate}}
+\end{frame}
+
+\begin{frame}
+Calculate the magnitude of the electric force between the charges.
+
+\begin{tikzpicture}
+% --- Ruler ---
+\draw[thick,fill=black!10] (-0.2,0) rectangle (10.3,1.3);
+
+% Major ticks (cm)
+\foreach \x in {0,1,...,10} {
+    \draw[thick] (\x,0) -- (\x,0.3);
+    \node[above] at (\x,0.3) {\small \x};
+    \draw[thick] (\x,1.3) -- (\x,1);
+    \node[above] at (0.35,0.3) {\footnotesize cm};
+}
+
+% Minor ticks (mm)
+\foreach \x in {0,0.2,...,10} {
+    \draw[thin] (\x,0) -- (\x,0.15);
+    \draw[thin] (\x,1.3) -- (\x,1.15);
+}
+
+% % --- Circles (charges) ---
+\draw[fill=blue!40] (6,2.5) circle (0.8) node {\SI{-7}{\micro C}};
+\draw[fill=red!40] (8,2.5) circle (0.8) node {\SI{4}{\micro C}};
+\end{tikzpicture}
+
+\uncover<2->{
+\begin{enumerate}[A.]
+    \item \alert<3->{\SI{630}{N}}
+    \item \SI{520}{N}
+    \item \SI{712}{N}
+    \item \SI{816}{N}
+\end{enumerate}}
+\end{frame}
+
+\section{Ohm's Law: Electric Current, Voltage, and Resistance}
+
+\begin{frame}
+What is electric current ($I$)?
+
+\begin{enumerate}[A.]
+    \item \glsdesc{voltage2}
+    \item \glsdesc{resistance}
+    \item \alert<2->{\glsdesc{electric current}}
+    \item \glsdesc{electric charge}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+What is the SI unit of electric current?
+
+\begin{enumerate}[A.]
+    \item coulomb (C)
+    \item \alert<2->{ampere (A)}
+    \item newton (N)
+    \item volt (V)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+5 nanocoulombs (\SI{5}{nC}) is the same as
+
+\begin{enumerate}[A.]
+    \item \SI{5e-3}{C}
+    \item \SI{9e-5}{C}
+    \item \alert<2->{\SI{5e-9}{C}}
+    \item \SI{5e-6}{C}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+Which metric prefix represents the smallest value?
+
+\begin{enumerate}[A.]
+    \item milli
+    \item micro
+    \item kilo
+    \item \alert<2->{nano}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+8 milliseconds (\SI{8}{ms}) is the same as
+
+\begin{enumerate}[A.]
+    \item \SI{8}{s}
+    \item \SI{0.0008}{s}
+    \item \alert<2->{\SI{0.008}{s}}
+    \item \SI{8e3}{s}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+Find the electric current when \SI{12}{nC} of charge pass through a portion of wire in 3 milliseconds.
+
+\begin{enumerate}[A.]
+    \item \SI{4}{A}
+    \item \SI{0.25}{A}
+    \item \alert<2->{\SI{4e-6}{A}}
+    \item \SI{3.6e-11}{A}
+\end{enumerate}
+\end{frame}
+
+
+
+\begin{frame}
+Which particle carries charge throughout an electric circuit?
+
+\begin{enumerate}[A.]
+    \item proton
+    \item \alert<2->{electron}
+    \item neutron
+    \item lithium
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+Which circuit component does the following schematic symbol represent?
+
+\begin{center}
+\begin{tikzpicture}[x=2cm,scale=3,transform shape]
+    \draw (0,0) to[R] (1,0);
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[A.]
+    \item battery
+    \item saw
+    \item \alert<2->{resistor}
+    \item light bulb
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+Which circuit component does the following schematic symbol represent?
+
+\begin{center}
+\begin{tikzpicture}[x=2cm,scale=3,transform shape]
+    \draw (0,0) to[battery1,invert] (1,0);
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[A.]
+    \item wire
+    \item light bulb
+    \item switch
+    \item \alert<2->{battery}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+Which circuit component does the following schematic symbol represent?
+
+\begin{center}
+\begin{tikzpicture}[x=2cm,scale=3,transform shape]
+    \draw (0,0) to[bulb] (1,0);
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[A.]
+    \item resistor
+    \item battery
+    \item switch
+    \item \alert<2->{light bulb}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+Which circuit component does the following schematic symbol represent?
+
+\begin{center}
+\begin{tikzpicture}[x=2cm,scale=2,transform shape]
+    \draw (0,0) to[cute open switch] (1,0);
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[A.]
+    \item \alert<2->{switch}
+    \item battery
+    \item capacitor
+    \item resistor
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+Which of the following is a correct expression for current?
+
+\begin{center}
+    \OhmsTriangle
+\end{center}
+
+\begin{enumerate}[A.]
+    \item $I = V R$ \vspace{6pt}
+    \item $I = \frac{R}{V}$ \vspace{6pt}
+    \item \alert<2->{$I = \frac{V}{R}$} \vspace{6pt}
+    \item $I = I R$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+Which of the following is a correct expression for voltage?
+
+\begin{center}
+    \OhmsTriangle
+\end{center}
+
+\begin{enumerate}[A.]
+    \item $V = I + R$ \vspace{6pt}
+    \item \alert<2->{$V = I R$} \vspace{6pt}
+    \item $V = \frac{I}{V}$ \vspace{6pt}
+    \item $V = \frac{V}{I}$ 
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+Which of the following is a correct expression for resistance?
+
+\begin{center}
+    \OhmsTriangle
+\end{center}
+
+\begin{enumerate}[A.]
+    \item \alert<2->{$R = \frac{V}{I}$} \vspace{6pt}
+    \item $R = V - I$ \vspace{6pt}
+    \item $R = I V$ \vspace{6pt}
+    \item $R = \frac{I}{V}$ 
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+What is the current in the circuit?
+
+\begin{center}
+\begin{tikzpicture}[x=2.5cm,y=2.7cm]
+    \draw (0,0)  to[battery1,invert,l={\SI{24}{V}}] (0,1) -- (1,1) to[R={\SI{8.0}{\ohm}}] (1,0) -- (0,0);
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[A.]
+    \item \SI{0.33}{A}
+    \item \SI{25}{A}
+    \item \alert<2->{\SI{3.0}{A}}
+    \item \SI{200}{A}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+Find the battery's voltage in the circuit.
+
+\begin{center}
+\begin{tikzpicture}[x=6cm,y=2cm]
+    \draw (0,0) -- (0,1) to[battery1,invert,i_>={\SI{0.50}{A}}] (1,1) -- (1,0) to[R,l_={\SI{30}{\ohm}}] (0,0);
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[A.]
+    \item \SI{0.0167}{V}
+    \item \alert<2->{\SI{15}{V}}
+    \item \SI{60}{V}
+    \item \SI{0.50}{V}
+\end{enumerate}
+\end{frame}
+
+\section{Equivalent Resistance}
+
+\begin{frame}
+These resistors are in\ldots
+
+\begin{center}
+\begin{tikzpicture}[y=2cm,x=2cm]
+    \draw (1,1) to[R] (1,0);
+    \draw (1,1) -- (2,1) to[R] (2,0) -- (1,0);
+    \draw (2,1) -- (3,1) to[R] (3,0) -- (2,0);
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[A.]
+    \item series
+    \item \alert<2->{parallel}
+    \item both series and parallel
+    \item neither series nor parallel
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+These resistors are in\ldots
+
+\begin{center}
+\begin{tikzpicture}[y=2cm,x=2cm]
+    \draw (0,0) to[R] (1,0) to[R] (2,0) to[R=] (3,0);
+\end{tikzpicture}    
+\end{center}
+\begin{enumerate}[A.]
+    \item \alert<2->{series}
+    \item parallel
+    \item both series and parallel
+    \item neither series nor parallel
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+Find the equivalent resistance.
+
+\begin{center}
+\begin{tikzpicture}[y=2cm,x=2.5cm]
+    \draw (0,0) to[R={\SI{4}{\ohm}}] (1,0) to[R={\SI{3}{\ohm}}] (2,0);
+\end{tikzpicture}    
+\end{center}
+\begin{enumerate}[A.]
+    \item \alert<2->{\SI{7}{\ohm}}
+    \item \SI{12}{\ohm}
+    \item \SI{1.33}{\ohm}
+    \item \SI{1}{\ohm}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+What is the equivalent resistance?
+
+\begin{center}
+\begin{tikzpicture}[y=2cm,x=2cm]
+    \draw (1,1) to[R={\SI{10}{\ohm}}] (1,0);
+    \draw (1,1) -- (2,1) to[R={\SI{6}{\ohm}}] (2,0) -- (1,0);
+    \draw (2,1) -- (3,1) to[R={\SI{15}{\ohm}}] (3,0) -- (2,0);
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[A.]
+    \item \SI{31}{\ohm}
+    \item \SI{0.33}{\ohm}
+    \item \alert<2->{\SI{3}{\ohm}}
+    \item \SI{11}{\ohm}
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+Find the equivalent resistance.
+
+\vspace{-6pt}
+
+\begin{center}
+\begin{tikzpicture}[x=3cm,y=2cm]
+    \draw (0,0) to[battery1,l={\SI{6}{V}},invert] (0,1) to[R={\SI{5}{\ohm}}] (1,1) to[R={\SI{3}{\ohm}}] (2,1) to[R={\SI{8}{\ohm}}] (2,0) to[R={\SI{2}{\ohm}}] (0,0);
+\end{tikzpicture}
+\end{center}
+\vspace{-2em}
+
+\begin{enumerate}[A.]
+    \item \SI{24}{\ohm}
+    \item \SI{0.86}{\ohm}
+    \item \SI{0.75}{\ohm}
+    \item \alert<2->{\SI{18}{\ohm}}
+\end{enumerate}
+\end{frame}
+
+
+
+
+
+
+
+
+\end{document}

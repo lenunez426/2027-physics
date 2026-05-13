@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage[margin=1cm,landscape]{geometry}
+\usepackage{tikz}
+\usepackage{lmodern}
+\usepackage{contour}
+\usepackage{xcolor}
+\usetikzlibrary{calc}
+
+\contourlength{4pt} % outline thickness
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{tikzpicture}[remember picture,overlay]
+
+    % Define quadrant corner coordinates
+    \coordinate (NW) at (current page.north west);
+    \coordinate (NE) at (current page.north east);
+    \coordinate (SW) at (current page.south west);
+    \coordinate (SE) at (current page.south east);
+    \coordinate (C)  at (current page.center);
+
+    % Amount to inset the colored boxes (controls whitespace)
+    \def\inset{1cm}
+
+    % Light red background boxes (slightly inset)
+    \fill[red!50]
+        ($(NW)+( \inset,-\inset)$) rectangle ($(C)+(-\inset,\inset)$);
+
+    \fill[green!50]
+        ($(C)+( \inset,\inset)$) rectangle ($(NE)+(-\inset,-\inset)$);
+
+    \fill[yellow!50]
+        ($(SW)+( \inset,\inset)$) rectangle ($(C)+(-\inset,-\inset)$);
+
+    \fill[cyan!50]
+        ($(C)+( \inset,-\inset)$) rectangle ($(SE)+(-\inset,\inset)$);
+
+    % Draw dividing lines
+    \draw[line width=1pt] (current page.north) -- (current page.south);
+    \draw[line width=1pt] (current page.west) -- (current page.east);
+
+    % Command for outlined letters
+    \newcommand{\outlined}[1]{%
+        {\fontsize{150}{150}\selectfont
+        \textcolor{white}{\contour{black}{#1}}}
+    }
+
+    % Place letters
+    \node at ($(NW)!0.5!(C)$) {\outlined{A}};
+    \node at ($(NE)!0.5!(C)$) {\outlined{B}};
+    \node at ($(SW)!0.5!(C)$) {\outlined{C}};
+    \node at ($(SE)!0.5!(C)$) {\outlined{D}};
+
+\end{tikzpicture}
+
+\end{document}
+
+
+% \documentclass{article}
+% \usepackage[margin=1cm,landscape]{geometry}
+% \usepackage{tikz}
+% \usepackage{lmodern}
+% \usepackage{contour}
+% \contourlength{4pt} % thickness of outline
+% \usetikzlibrary{calc}
+
+% \pagestyle{empty}
+
+% \begin{document}
+
+% \begin{tikzpicture}[remember picture,overlay]
+%     % Draw dividing lines
+%     \draw[line width=1pt]
+%         (current page.north) -- (current page.south);
+%     \draw[line width=1pt]
+%         (current page.west) -- (current page.east);
+
+%     % Command for outlined letters
+%     \newcommand{\outlined}[1]{%
+%         {\fontsize{150}{150}\selectfont
+%         \textcolor{white}{\contour{black}{#1}}}
+%     }
+
+%     % Place letters
+%     \node at ($(current page.north west)!0.5!(current page.center)$)
+%         {\outlined{A}};
+
+%     \node at ($(current page.north east)!0.5!(current page.center)$)
+%         {\outlined{B}};
+
+%     \node at ($(current page.south west)!0.5!(current page.center)$)
+%         {\outlined{C}};
+
+%     \node at ($(current page.south east)!0.5!(current page.center)$)
+%         {\outlined{D}};
+
+% \end{tikzpicture}
+
+% \end{document}

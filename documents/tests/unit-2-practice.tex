@@ -1,0 +1,199 @@
+\documentclass[answers]{exam}
+\input{global}
+\input{problem-sets}
+
+
+\setrandomizerseed{1}
+\bracketedpoints
+
+\setlength{\columnsep}{2cm}
+\setlength{\columnseprule}{1pt}
+\usepackage[none]{hyphenat}
+
+\firstpageheader{Physics}{Unit 2: Force Interactions}{Practice Quiz}
+\runningheader{}{}{}
+
+\begin{document}
+\begin{questions}
+
+\question %...originally in unit 5: force analysis
+The free body diagram below represents the forces acting on the box in the image beside it. Given the scenario in the image, which force is missing from the free body diagram?
+
+\begin{randomizechoices}[norandomize]
+    \correctchoice frictional force
+    \choice weight force
+    \choice tension force
+    \choice normal force    
+\end{randomizechoices}
+
+
+\question
+The graph below shows the velocity of a car that is moving in a straight line.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=7cm,
+            height=5cm,
+            xmin=0,xmax=50,
+            ymin=0,ymax=35,
+            xlabel={Time (s)},
+            ylabel={Velocity (m/s)},
+            xtick={0,10,...,50},
+            ytick={0,10,...,30},
+            axis lines=left,
+            grid=both,
+            clip=false,
+            minor tick num=1,
+            ]
+            \coordinate (q) at (0,0);
+            \fill (q) circle (2pt);
+            \node[above] at (4.5,0) {$q$};
+            \coordinate (r) at (10,10);
+            \fill (r) circle (2pt);
+            \node at (r) [above=2pt] {$r$};
+            \coordinate (s) at (20,30);
+            \fill (s) circle (2pt);
+            \node at (s) [above=2pt] {$s$};
+            \coordinate (t) at (30,30);
+            \fill (t) circle (2pt);
+            \node at (t) [above=2pt] {$t$};
+            \coordinate (u) at (40,10);
+            \fill (u) circle (2pt);
+            \node at (u) [right=2pt] {$u$};
+            \draw[thick] (q) -- (r) -- (s) -- (t) -- (u);
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+During which of the following intervals are forces on the car balanced?
+
+\begin{randomizeoneparchoices}[norandomize]
+    \choice $q$ to $r$
+    \choice $r$ to $s$
+    \correctchoice $s$ to $t$
+    \choice $t$ to $u$
+\end{randomizeoneparchoices}
+
+\question 
+A paper is sitting at rest on your desk.  Which of the following statements best describes this situation?
+
+\begin{randomizechoices}[norandomize]
+    \choice There are no forces acting on your paper.
+    \choice Your paper has momentum and kinetic energy.
+    \choice Your paper exerts no force on the desk since all the forces are balanced.
+    \correctchoice There are forces acting on the paper, but they are all balanced.
+\end{randomizechoices}
+
+\question
+A hockey player swings her hockey stick and strikes a puck.  Which of the following is the force pair to the stick pushing on the puck?
+
+\begin{randomizechoices}[norandomize]
+    \correctchoice The puck pushing on the stick.
+    \choice The stick pushing on the player.
+    \choice The player pushing on the stick.
+    \choice The puck pushing on the player.
+\end{randomizechoices}
+
+\clearpage
+\question 
+Which of the following best describes the following person's motion?
+
+% \begin{center}
+%     \includegraphics[width=6cm]{physics/figures/figure-unit-2-skater.png}
+% \end{center}
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw (0,0) node {\reflectbox{\twemoji[height=2.5cm]{delivery truck}}};
+        \draw[thick,<-,left=1.5cm] (0,0) -- (-4,0) node[above,pos=0.5] {400\,N};  
+        \draw[thick,<-,right=1.5cm] (0,0) -- (+3,0) node[above,pos=0.5] {300\,N};  
+    \end{tikzpicture}
+\end{center}
+
+\begin{randomizechoices}[norandomize]
+    \correctchoice Moving and increasing their velocity, due to unbalanced forces.
+    \choice Moving and decreasing their velocity, due to unbalanced forces.
+    \choice Moving and increasing their velocity, up due to balanced forces.
+    \choice Moving at a constant velocity, due to balanced forces.
+\end{randomizechoices}
+
+
+\question 
+When a bug hits the windshield of a car traveling at \SI{40}{mph}, the force of the bug on the windshield is
+
+\begin{randomizechoices}[norandomize]
+    \choice Greater than the force of the windshield on the bug.
+    \choice Less than the force of the windshield on the bug.
+    \correctchoice The same as the force of the windshield on the bug.
+\end{randomizechoices}
+
+\question
+A student measuring the velocity and time of a toy car wrote down the following data.
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        \textbf{Velocity} (m/s) & \SI{4}{m/s} &  \SI{4}{m/s} & \SI{2}{m/s} & \SI{2}{m/s} & \SI{2}{m/s} & \SI{2}{m/s} \\ \hline
+        \textbf{Time} (s) & \SI{0}{s} & \SI{2}{s} & \SI{4}{s} & \SI{6}{s} & \SI{8}{s} & \SI{10}{s} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+What happened during the time interval between 2--4 seconds?
+
+\begin{randomizechoices}[norandomize]
+    \choice An unbalanced force was applied to the car increasing the car’s velocity.
+    \correctchoice An unbalanced force was applied to the car, decreasing the car’s velocity.
+    \choice A balanced force was applied to the car increasing the car’s velocity.
+    \choice A balanced force was applied to the car, decreasing the car’s velocity.   
+\end{randomizechoices}
+
+
+\question 
+Which of the following graphs represents an object with no kinetic energy?
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw[->] (0,0) -- (0,2.5) node[above,rotate=90,pos=0.5] {Velocity (m/s)};
+        \draw[->] (0,0) -- (2.5,0) node[below,pos=0.5] {Time (s)};
+        \draw[ultra thick] (0,1.5) -- ++(2,0);
+        \node at (1.25,2.8) {\textbf{Graph A}};
+    \end{tikzpicture}
+    \hspace{2em}
+    \begin{tikzpicture}
+        \draw[->] (0,0) -- (0,2.5) node[above,rotate=90,pos=0.5] {Velocity (m/s)};
+        \draw[->] (0,0) -- (2.5,0) node[below,pos=0.5] {Time (s)};
+        \draw[ultra thick] (0,0) -- (2,2);
+        \node at (1.25,2.8) {\textbf{Graph B}};
+    \end{tikzpicture}
+    \hspace{2em}
+    \begin{tikzpicture}
+        \draw[->] (0,0) -- (0,2.5) node[above,rotate=90,pos=0.5] {Position (m)};
+        \draw[->] (0,0) -- (2.5,0) node[below,pos=0.5] {Time (s)};
+        \draw[ultra thick] (0,1.5) -- ++(2,0);
+        \node at (1.25,2.8) {\textbf{Graph C}};
+    \end{tikzpicture}
+    \hspace{2em}
+    \begin{tikzpicture}
+        \draw[->] (0,0) -- (0,2.5) node[above,rotate=90,pos=0.5] {Position (m)};
+        \draw[->] (0,0) -- (2.5,0) node[below,pos=0.5] {Time (s)};
+        \draw[ultra thick] (0,2) -- (2,0);
+        \node at (1.25,2.8) {\textbf{Graph D}};
+    \end{tikzpicture}
+\end{center}
+
+\begin{randomizeoneparchoices}[norandomize]
+    \choice Graph A
+    \choice Graph B
+    \correctchoice Graph C
+    \choice Graph D
+\end{randomizeoneparchoices}
+
+\clearpage
+
+\printkeytable
+
+
+\end{questions}
+\end{document}
+

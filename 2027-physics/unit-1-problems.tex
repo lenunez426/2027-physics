@@ -1,0 +1,183 @@
+\documentclass[answers]{exam}
+\input{global}
+\input{problem-sets}
+
+\firstpageheader{{Name:\enspace\makebox[6cm]{\hrulefill}}\\Physics}{}{Problems\\Unit 1: Constant Velocity}
+\runningheader{Physics}{}{Problems on Unit 1: Constant Velocity}
+
+
+\begin{document}
+
+\begin{questions}
+\question
+Two vectors are graphed below. Each square in the grid below represents 1 unit. 
+
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[gray,step=1] (0,0) grid (10,3);
+    \draw[very thick,->] (0,2) -- ++(3,0) node[left,pos=0] {$\vec{a}$};
+    \draw[very thick,->] (0,1) -- ++(7,0) node[left,pos=0] {$\vec{b}$};
+\end{tikzpicture}
+\end{center}
+
+\begin{parts}
+\part What is the direction of $\vec{a}$?
+
+\begin{solution}
+    rightward
+\end{solution}
+
+\part What is the magnitude of $\vec{a}$?
+
+\begin{solution}
+
+\begin{flalign*}
+    |\vec{a}| = \SI{3}{units} &&
+\end{flalign*}
+\end{solution}
+
+\part Add vectors $\vec{a}$ and $\vec{b}$ graphically. 
+
+\begin{solution}
+
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[gray,step=1] (0,0) grid (10,2);
+    \draw[very thick,->] (0,1) -- ++(3,0) node[above=0.2,pos=0.5,fill=black!10] {$\vec{a}$};
+    \draw[very thick,->] (3,1) -- ++(7,0) node[above=0.2,pos=0.5,fill=black!10] {$\vec{b}$};
+    \draw[red,thick] (3,1) circle (0.7) node[below=0.6] {head-to-tail};
+\end{tikzpicture}
+\hspace{5mm}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[gray,step=1] (0,0) grid (10,2);
+    \draw[very thick,->] (0,1) -- ++(10,0) node[above=0.2,pos=0.5,fill=black!10] {$\vec{a} + \vec{b}$};
+\end{tikzpicture}
+\end{solution}
+
+\part Add vectors $\vec{a}$ and $\vec{b}$ algebraically. 
+
+\begin{solution}
+\begin{equation*}
+    \vec{a} + \vec{b} = |\vec{a}| + |\vec{b}| = \SI{3}{units} + \SI{7}{units} = \SI{10}{units}
+\end{equation*}
+\end{solution}
+\end{parts}
+
+\question
+Two vectors are graphed below. Each square in the grid below represents 1 unit. 
+
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[gray,step=1] (0,0) grid (10,3);
+    \draw[very thick,->] (0,2) -- ++(3,0) node[left,pos=0] {$\vec{a}$};
+    \draw[very thick,<-] (0,1) -- ++(7,0) node[left,pos=0] {$\vec{b}$};
+\end{tikzpicture}
+\end{center}
+
+\begin{parts}
+\part What is the direction of $\vec{b}$?
+
+\begin{solution}
+    leftward
+\end{solution}
+
+\part What is the magnitude of $\vec{b}$?
+
+\begin{solution}
+
+\begin{flalign*}
+    |\vec{b}| = \SI{7}{units} &&
+\end{flalign*}
+\end{solution}
+
+\part Add vectors $\vec{a}$ and $\vec{b}$ graphically. 
+
+\begin{solution}
+
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[gray,step=1] (0,0) grid (10,3);
+    \draw[very thick,->] (7,2) -- ++(3,0) node[above=0.2,pos=0.5,fill=black!10] {$\vec{a}$};
+    \draw[very thick,<-] (3,1) -- ++(7,0) node[above=0.2,pos=0.3,fill=black!10] {$\vec{b}$};
+\end{tikzpicture}
+\hspace{5mm}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[gray,step=1] (0,0) grid (10,3);
+    \draw[very thick,->] (7,2) -- ++(3,0);
+    \draw[very thick,<-] (3,1) -- ++(7,0);
+    \draw[ultra thick,->,red] (7,3) -- ++(-4,0) node[above=0.2,pos=0.5,fill=black!10] {$\vec{a} + \vec{b}$};
+    \draw[red,thick] (10,1.5) circle (0.9) node[below=0.9] {head-to-tail};
+\end{tikzpicture}
+\end{solution}
+
+\part Add vectors $\vec{a}$ and $\vec{b}$ algebraically. 
+
+\begin{solution}
+\begin{equation*}
+    \vec{a} + \vec{b} = |\vec{a}| - |\vec{b}| = \SI{3}{units} - \SI{7}{units} = -\SI{4}{units}
+\end{equation*}
+
+Therefore, the resultant vector $\vec{a} + \vec{b}$ has a magnitude of \SI{4}{units} and points to the left.
+\end{solution}
+\end{parts}
+
+\question
+Add vectors $\vec{a}$ and $\vec{b}$ graphically and algebraically.
+
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[gray,step=1] (0,0) grid (10,3);
+    \draw[very thick,<-] (0,2) -- ++(3,0) node[left,pos=0] {$\vec{a}$};
+    \draw[very thick,->] (0,1) -- ++(7,0) node[left,pos=0] {$\vec{b}$};
+\end{tikzpicture}
+\end{center}
+
+\question
+Add vectors $\vec{a}$ and $\vec{b}$ graphically and algebraically.
+
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[gray,step=1] (0,0) grid (10,3);
+    \draw[very thick,<-] (0,2) -- ++(3,0) node[left,pos=0] {$\vec{a}$};
+    \draw[very thick,<-] (0,1) -- ++(7,0) node[left,pos=0] {$\vec{b}$};
+\end{tikzpicture}
+\end{center}
+
+\question
+Draw and label the position vector for an object located at $\vec{x} = -\SI{4}{m}$.
+
+\begin{center}
+    \begin{tikzpicture}[y=1cm,x=1cm]
+        \foreach \x in {-5,-4,...,5} {
+            \draw[ultra thin] (\x,-0.09) -- (\x,0.09) node[below=0.2] {$\x$};
+        }
+        \draw[->] (-5,0) -- (5,0) node[below=0.6,pos=0.5] {Position (m)};
+        \ifprintanswers
+            \draw[thick,->,red] (0,0.3) -- ++(-4,0) node[above,pos=0.5] {$\vec{x}$};
+        \fi
+    \end{tikzpicture}
+\end{center}
+
+\question
+Draw and label the displacement vector for an object that starts at $\vec{x}_i = \SI{-4}{m}$ and ends at $\vec{x}_f = \SI{2}{m}$. Then calculate the displacement, stating the answer with the correct sign, numerical value, and units.
+
+\begin{center}
+    \begin{tikzpicture}[y=1cm,x=1cm]
+        \foreach \x in {-5,-4,...,5} {
+            \draw[ultra thin] (\x,-0.09) -- (\x,0.09) node[below=0.2] {$\x$};
+        }
+        \draw[->] (-5,0) -- (5,0) node[below=0.6,pos=0.5] {Position (m)};
+        \ifprintanswers
+            \draw[thick,->,red] (-4,0.3) -- ++(6,0) node[above,pos=0.5] {$\Delta \vec{x}$};
+        \fi
+    \end{tikzpicture}
+\end{center}
+
+\begin{solution}
+
+\begin{equation*}
+    \Delta x = x_f - x_i = +\SI{2}{m} - (-\SI{4}{m}) = \boxed{+\SI{6}{m}}
+\end{equation*}
+\end{solution}
+    
+\end{questions}
+
+\end{document}

@@ -1,0 +1,599 @@
+\documentclass[dvipsnames]{article}
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {Unit \thesection:}{1em}{}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+\usepackage{marvosym}
+\input{global}
+\input{notes}
+\input{documents/physics-glossary}
+\usepackage{figchild}
+\makenoidxglossaries
+
+\usepackage{circuitikz}
+\ctikzset{bipoles/battery1/height=0.5}
+\ctikzset{bipoles/battery1/width=0.25}
+\ctikzset{bipoles/resistor/height=0.15}
+\ctikzset{bipoles/resistor/width=0.4}
+\ctikzset{bipoles/cuteswitch/thickness=0.3,bipoles/cuteswitch/shape=circ}
+\ctikzset{bipoles/bulb/height=0.4,bipoles/bulb/width=0.4}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%...Hide or show unit contents below:            
+\newif\ifShowUnitI                               
+\newif\ifShowUnitII                                      
+\newif\ifShowUnitIII                                     
+\newif\ifShowUnitIV                                      
+\newif\ifShowUnitV                                       
+\newif\ifShowUnitVI                                      
+\newif\ifShowUnitVII                                     
+\newif\ifShowUnitVIII                                    
+\newif\ifShowUnitIX                                      
+\newif\ifShowUnitX                                       
+\newif\ifShowUnitXI                                      
+\newif\ifShowUnitXII
+\newif\ifShowUnitXIII
+\newif\ifShowUnitXIV
+\ShowUnitIfalse                                  
+\ShowUnitIIfalse                                 
+\ShowUnitIIIfalse                                
+\ShowUnitIVfalse                                 
+\ShowUnitVfalse                                  
+\ShowUnitVItrue                                 
+\ShowUnitVIItrue                              
+\ShowUnitVIIIfalse                               
+\ShowUnitIXfalse                                 
+\ShowUnitXfalse                                  
+\ShowUnitXIfalse                                 
+\ShowUnitXIItrue  
+% \ShowUnitXIIItrue
+% \ShowUnitXIVtrue  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\title{Physics}
+\author{The Curriculum}
+\date{Updated on \today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\clearpage
+
+
+
+\section{Constant Velocity}
+
+\textbf{Vocabulary}
+
+\begin{itemize}[itemsep=0pt,topsep=-3pt]
+    \item Define \textbf{\gls{magnitude}} as \glsdesc{magnitude}.
+    \item Define \textbf{\gls{scalar}} as \glsdesc{scalar}.
+    \item Define \textbf{\gls{vector}} as \glsdesc{vector}.
+    \item Define \textbf{\gls{component}} as \glsdesc{component}.
+    \item Define \textbf{\gls{tail}} as \glsdesc{tail}.
+    \item Define \textbf{\gls{head}} as \glsdesc{head}.
+    \item Define \textbf{\gls{head-to-tail method}} as \glsdesc{head-to-tail method}.
+    \item Define \textbf{\gls{vector sum}} as \glsdesc{vector sum}.
+    \item Define \textbf{\gls{position}} ($x$) as \glsdesc{position}.
+    \item Define \textbf{\gls{motion}} as \glsdesc{motion}.
+    \item Define \textbf{\gls{reference frame}} as \glsdesc{reference frame}.
+    \item Define \textbf{\gls{one-dimensional motion}} as \glsdesc{one-dimensional motion}.
+    \item Define \textbf{\gls{displacement}} ($\Delta x$) as \glsdesc{displacement}.
+    \item Define \textbf{\gls{distance}} ($d$) as \glsdesc{distance}.
+    \item Define \textbf{\gls{position vs. time graph}} as \glsdesc{position vs. time graph}.
+    \item Define \textbf{\gls{speed}} as \glsdesc{speed}.
+    \item Define \textbf{\gls{average speed}} as \glsdesc{average speed}.
+    \item Define \textbf{\gls{velocity1}} as \glsdesc{velocity1}.
+    \item Define \textbf{\gls{velocity2}} ($v$) as \glsdesc{velocity2}.
+    \item Define \textbf{\gls{average velocity}} ($\bar{v}$) as \glsdesc{average velocity}.
+    \item Define \textbf{\gls{velocity vs. time graph}} as \glsdesc{velocity vs. time graph}.
+\end{itemize}
+
+\bigskip
+
+\textbf{Core Principles}
+
+% Students must articulate the following physical rules governing one-dimensional motion:
+
+\begin{itemize}[itemsep=0pt,topsep=-3pt]
+    \item \textbf{Know} that, by convention, positive direction is to the right on a horizontal position axis, and negative direction is to the left.
+    \begin{center}
+        \begin{tikzpicture}[y=1cm,x=1cm]
+            \foreach \x in {-5,-4,...,5} {
+                \draw[ultra thin] (\x,-0.09) -- (\x,0.09) node[below=0.2] {$\x$};
+            }
+            \draw[->] (-5,0) -- (5,0) node[below=0.6,pos=0.5] {Position, $x$ (m)};
+            \draw[->,ultra thick] (-1.5,0.4) -- (1.5,0.4) node[above,pos=0.5] {positive direction};
+            \draw[->,ultra thick] (1.5,1.2) -- (-1.5,1.2) node[above,pos=0.5] {negative direction};
+            % \draw[thick,<-] (0,0.15) -- ++(0,0.5);
+        \end{tikzpicture}
+    \end{center}
+    \item \textbf{Understand} that an object is in motion if its position is changing.
+
+    \begin{center}
+        \begin{tikzpicture}[y=1cm,x=1cm]
+            \foreach \x in {-5,-4,...,5} {
+                \draw[ultra thin] (\x,-0.09) -- (\x,0.09) node[below=0.2] {$\x$};
+            }
+            \draw[->] (-5,0) -- (5,0) node[below=0.6,pos=0.5] {Position (m)};
+            \node[above,black!20] at (0,0) {\Strichmaxerl[2]};
+            \node[above,black!40] at (1.5,0) {\Strichmaxerl[2]};
+            \node[above] at (3,0) {\Strichmaxerl[2]};
+            \draw[black!80] (2.5,0.4) -- ++(0.3,0) (2.4,0.3) -- ++(0.4,0) (2.5,0.2) -- ++(0.3,0);
+            \draw[thick,->] (2.8,0.8) -- ++(0.6,0) node[above,pos=0.5] {$\vec{v}$};
+        \end{tikzpicture}
+    \end{center}
+    \item \textbf{Understand} that constant velocity implies that displacement is constant across equal time intervals.
+    \item \textbf{Understand} that a vector's direction is indicated by a positive ($+$) or negative ($-$) sign\\(e.g., $\vec{v} = \SI{-3}{m/s}$,  $\vec{x} = \SI{8}{m}$).
+    
+    \item \textbf{Understand} that an object is moving away from the origin if its position and velocity vectors point in the same directions (both positive or both negative).
+
+    \begin{center}
+        \begin{tikzpicture}[y=1cm,x=1cm]
+            \foreach \x in {-5,-4,...,5} {
+                \draw[ultra thin] (\x,-0.09) -- (\x,0.09) node[below=0.2] {$\x$};
+            }
+            \draw[->] (-5,0) -- (5,0) node[below=0.6,pos=0.5] {Position (m)};
+            \draw[thick,->] (0,0.3) -- ++(-1.9,0) node[above,pos=0.5] {$\vec{x}$};
+            \node[above] at (-2,0) {\Strichmaxerl[2]};
+            \draw[very thick,->] (-2,0.7) -- ++(-1,0) node[above,pos=0.5] {$\vec{v}$};
+        \end{tikzpicture}
+    \end{center}
+    \item \textbf{Understand} that an object is moving towards the origin if its position and velocity vectors point in opposite directions (one is positive, the other is negative).
+    % \begin{center}
+    %     \begin{tikzpicture}[y=1cm,x=1cm]
+    %         \foreach \x in {-5,-4,...,5} {
+    %             \draw[ultra thin] (\x,-0.09) -- (\x,0.09) node[below=0.2] {$\x$};
+    %         }
+    %         \draw[->] (-5,0) -- (5,0) node[below=0.6,pos=0.5] {Position (m)};
+    %         \draw[thick,->] (0,0.3) -- ++(2.9,0) node[above,pos=0.5] {$\vec{x}$};
+    %         \node[above] at (3,0) {\Strichmaxerl[2]};
+    %         \draw[very thick,->] (3,0.7) -- ++(-1,0) node[above,pos=0.5] {$\vec{v}$};
+    %     \end{tikzpicture}
+    % \end{center}
+    \item \textbf{Distinguish} between distance (a scalar) and displacement (a vector).
+    \item \textbf{Understand} that an object can have a position of zero but still be moving (e.g., at the origin of the reference frame).
+    \item \textbf{Distinguish} between speed (a scalar) and velocity (a vector).
+\end{itemize}
+
+\bigskip
+
+\textbf{Mathematical Formulas}
+
+% Students must memorize the four core kinematic equations for constant acceleration and identify which variables are present and missing in each:
+
+
+
+\begin{itemize}[itemsep=0pt,topsep=-3pt]
+    \item \textbf{Know} the variables used to represent physical quantities, including knowing that $x$ stands position, $\Delta x$ stands for displacement, $t$ stands for time, $v$ stands for velocity.
+    \item \textbf{Know} that the subscripts $i$ and $f$ are used to denote initial and final variables, respectively (e.g.,\\$v_i$ = initial velocity, $x_f$ = final position, etc.).
+    \item \textbf{Know} that the base SI unit of position is the meter (m), the base SI unit of time is the second (s), and the base SI unit of velocity is the meter per second (m/s).
+    \item \textbf{Know} that average speed is given by distance divided by time.
+    \item \textbf{Know} that average velocity is given by $\displaystyle \bar{v} = \frac{\Delta x}{\Delta t}$.
+    \item \textbf{Know} that slope is rise over run.
+\end{itemize}
+
+\bigskip
+
+
+
+\textbf{Learning Goals}
+
+% Students must demonstrate mastery of the concepts and equations by performing the following specific tasks:
+
+\begin{itemize}[itemsep=0pt,topsep=-3pt]
+    \item \textbf{Calculate} a vector sum using the head-to-tail method for two or more vectors.
+    \item \textbf{Identify} the origin in a position reference frame.
+    \item \textbf{Draw} the position vector for an object on a position axis.
+    \item \textbf{Draw} a motion map for an object undergoing constant velocity.
+    \begin{center}
+    \begin{tikzpicture}
+        \foreach \x in {-5,-4,...,5} {
+            \fill (\x,0) circle (0.07);
+        } 
+    \end{tikzpicture}
+    \end{center}
+    \item \textbf{Predict} data in a table containing position and time values.
+    \item \textbf{Combine} one-dimensional vectors using both graphical vector addition.
+    \item \textbf{Apply} correct sign (positive or negative) appropriately on vectors quantities based on the established reference frame.
+    \item \textbf{Extract} given values from a word problem and correctly assign them to the variables $v_i$, $v_f$, $a$, $t$, and $\Delta x$.
+    \item \textbf{Identify} the single missing variable requested by the problem and select the correct kinematic equation that contains the knowns and the unknown.
+    \item \textbf{Isolate} the unknown variable algebraically before plugging in numerical values.
+    \item \textbf{Find} average velocity ($\bar{v}$) on a position vs.\,time graph by calculating the slope using two points on the line. 
+    \begin{center}
+    \begin{tikzpicture}[x=2cm,y=2cm]
+        \draw[->] (0,0) -- (0,1.2) node[left,pos=0.5] {$x$};
+        \draw[->] (0,0) -- (1.2,0) node[below,pos=0.5] {$t$};
+        \draw[thick] (0,0) -- ($(0,0)!1.1!(1,0.8)$);
+        \fill (0.4,0.32) circle (0.03);
+        \fill (0.9,0.72) circle (0.03);
+        \draw (0.4,0.32) -- (0.4,0.72) node[pos=0.5,left] {$\Delta x$} -- (0.9,0.72) node[above,pos=0.5] {$\Delta t$};
+        \node[overlay] at (1.1,0.4) {$\displaystyle \bar{v} = \frac{\Delta x}{\Delta x}$};
+    \end{tikzpicture}
+    \end{center}
+    \item \textbf{Find} displacement on a velocity vs.\,time graph by calculating the rectangular area bounded by the line.
+    \begin{center}
+    \begin{tikzpicture}[x=2cm,y=2cm]
+        \fill[black!10] (0,0.5) -- (1,0.5) -- (1,0) -- (0,0) -- cycle;
+        \node at (1.1,0.25) {$\Delta x = \text{base} \times \text{height}$};
+        \draw[->] (0,0) -- (0,1) node[left,pos=0.8] {$v$};
+        \draw[->] (0,0) -- (1.2,0) node[below,pos=0.5] {$t$};
+        \draw[thick] (0,0.5) -- (1,0.5);
+    \end{tikzpicture}
+    \end{center}
+\end{itemize}
+
+\textbf{Checking for Understanding}
+
+\begin{enumerate}[topsep=-3pt,itemsep=0pt]
+    \item Find the vector sum of all vectors shown below. Each square represents 1 unit of magnitude.
+    \begin{center}
+        \begin{tikzpicture}[x=5mm,y=5mm]
+            \draw[step=1,lightgray] (0,0) grid (10,4);
+            \draw[->,line width=0.6mm,-{Triangle}] (5,4) -- ++(-3,0);
+            \draw[->,line width=0.6mm,-{Triangle}] (9,3) -- ++(-8,0);
+            \draw[->,line width=0.6mm,-{Triangle}] (2,2) -- ++(6,0);
+            \draw[->,line width=0.6mm,-{Triangle}] (6,1) -- ++(-4,0);
+            \draw[->,line width=0.6mm,-{Triangle}] (0,0) -- ++(5,0);
+        \end{tikzpicture}
+    \end{center}
+    \item Predict the last row of the data table below, assuming constant velocity.
+    \begin{center}
+        \begin{tabular}{|c|c|}
+            \hline
+            \thead{Position (m)} & \thead{Time (s)} \\ \hline
+            0 & 0 \\ \hline
+            3 & 1 \\ \hline
+            6 & 2 \\ \hline
+            9 & 3 \\ \hline
+              & 4 \\ \hline
+        \end{tabular}
+    \end{center}
+\end{enumerate}
+
+\clearpage
+
+\section{Acceleration}
+
+\textbf{Vocabulary}
+
+\begin{itemize}[itemsep=0pt,topsep=-3pt]
+    \item Define \textbf{\gls{acceleration}} as \glsdesc{acceleration}; or as \glsdesc{acceleration2}.
+    \item Define \textbf{average acceleration} as \glsdesc{average acceleration}.
+    \item Define \textbf{acceleration vs. time graph} as \glsdesc{acceleration vs. time graph}.
+\end{itemize}
+
+\medskip
+
+\textbf{Core Principles}
+
+% Students must articulate the following physical rules governing one-dimensional motion:
+
+\begin{itemize}[itemsep=0pt,topsep=-3pt]
+    \item \textbf{Recall} that $x$ stands for position, $v$ stands for velocity, and $t$ stands for time.
+    \item \textbf{Recall} that the position axis conventionally determines the sign (direction) of velocity and acceleration vectors.
+    \item \textbf{Know} that an object is accelerating if its velocity is changing.
+    \item \textbf{Recognize} that this unit (and course) deals only with constant (uniform) acceleration.
+    \item \textbf{Know} that acceleration is a vector, so that the sign ($+$ or $-$) of acceleration indicates the direction.
+    \item \textbf{Understand} that an object is speeding up if its velocity and acceleration vectors point in the same direction (both positive or both negative).
+    \item \textbf{Understand} that an object is slowing down if its velocity and acceleration vectors point in opposite directions (one is positive, the other is negative).
+    \item \textbf{Understand} that constant velocity implies that acceleration is exactly zero.
+    \item \textbf{Understand} that an object can have a velocity of zero but still be accelerating (e.g., at the peak of a thrown ball's trajectory).
+    \item \textbf{Understand} that, if an object is accelerating, the velocity vs.\,time graph has a slope that is constant.
+    \item \textbf{Know} that the slope of a velocity vs.\,time graph is acceleration.
+    \item \textbf{Understand} that, if an object is accelerating, the position vs.\,time graph has a slope that is changing.
+    \item \textbf{Know} that the area bounded by a line in a velocity vs.\,time graph is displacement.
+    \item \textbf{Know} that the area bounded by a line in an acceleration vs.\,time graph is change in velocity.
+\end{itemize}
+
+\medskip
+
+\textbf{Learning Goals}
+
+\begin{enumerate}[itemsep=0pt,topsep=-3pt]
+    \item \textbf{Justify} whether or not an object is accelerating given a data table of velocity and time.
+    \item \textbf{Justify} whether or not an object is accelerating given a data table of position and time.
+    \item \textbf{Draw} a motion map for an object undergoing positive or negative acceleration.
+    \item \textbf{Identify} whether or not an object is accelerating from a velocity vs.\,time graph.
+    \item \textbf{Identify} the direction of acceleration from a velocity vs.\,time graph.
+    \item \textbf{Identify} the sign (positive or negative) of the slope of a point in a position vs.\,time graph, and associate it with the direction of the object's velocity.
+    % \item \textbf{Identify} whether an object is speeding up or slowing down from a positive vs.\,time graph.
+    \item \textbf{Estimate} changes (increasing or decreasing) in slope across time in a position vs.\,time, to \textbf{determine} (a) whether an object is speeding up or slowing down and (b) the sign of acceleration.
+    \item \textbf{Pair} position vs.\,time and velocity vs.\,time graphs of a common object undergoing acceleration.
+    \item \textbf{Calculate} change in velocity given a particle's initial and final velocities.
+    \item \textbf{Calculate} average acceleration given a particle's initial and final velocities and the time of travel.
+    \item \textbf{Calculate} average acceleration by finding the slope in a velocity vs.\,time graph.
+    \begin{center}
+    \begin{tikzpicture}[x=2cm,y=2cm]
+        \draw[->] (0,0) -- (0,1.2) node[left,pos=0.5] {$v$};
+        \draw[->] (0,0) -- (1.2,0) node[below,pos=0.5] {$t$};
+        \draw[thick] (0,0) -- ($(0,0)!1.1!(1,0.8)$);
+        \fill (0.4,0.32) circle (0.03);
+        \fill (0.9,0.72) circle (0.03);
+        \draw (0.4,0.32) -- (0.4,0.72) node[pos=0.5,left] {$\Delta v$} -- (0.9,0.72) node[above,pos=0.5] {$\Delta t$};
+        \node[overlay] at (1.1,0.4) {$\displaystyle \bar{a} = \frac{\Delta v}{\Delta x}$};
+    \end{tikzpicture}
+    \end{center}
+    \item \textbf{Calculate} displacement of an accelerating object by finding the triangular area bounded by a line in a velocity vs.\,time graph.
+    \begin{center}
+    \begin{tikzpicture}[x=2cm,y=2cm]
+        \fill[black!10] (0,0) -- (0.8,0) -- ($(0,0)!0.8!(1,0.8)$) -- cycle;
+        \draw[->] (0,0) -- (0,1) node[left,pos=0.5] {$v$};
+        \draw[->] (0,0) -- (1,0) node[below,pos=0.5] {$t$};
+        \draw[thick] (0,0) -- ($(0,0)!0.8!(1,0.8)$);
+        \node at (1.4,0.2) {$\Delta x = \frac{1}{2} \times \text{base} \times \text{height}$};
+    \end{tikzpicture}
+    \end{center}
+    \item \textbf{Calculate} change in velocity ($\Delta v$) on an acceleration vs.\,time graph by finding the rectangular area bounded by the line.
+    \begin{center}
+    \begin{tikzpicture}[x=2cm,y=2cm]
+        \fill[black!10] (0,0.5) -- (1,0.5) -- (1,0) -- (0,0) -- cycle;
+        \node at (1.1,0.25) {$\Delta v = \text{base} \times \text{height}$};
+        \draw[->] (0,0) -- (0,1) node[left,pos=0.8] {$a$};
+        \draw[->] (0,0) -- (1.2,0) node[below,pos=0.5] {$t$};
+        \draw[thick] (0,0.5) -- (1,0.5);
+    \end{tikzpicture}
+    \end{center}
+\end{enumerate}
+
+\bigskip
+
+\textbf{Mathematical Formulas}
+
+\begin{itemize}[itemsep=0pt,topsep=-3pt]
+    \item \textbf{Know} variables used to represent physical quantities, including: $a$ = acceleration; $\Delta v$ = change in velocity; $\Delta t$ = change in time.
+    \item \textbf{Know} that the base SI unit of acceleration is the meter per second per second (m/s/s), or the meter per second squared ($\mathrm{m/s^2}$).
+    \item \textbf{Know} that average acceleration is given by $\displaystyle a = \frac{\Delta v}{\Delta t}$.
+    \item \textbf{Know} that the area of a triangle is given by $\frac{1}{2}\times \text{base} \times \text{height}$.
+\end{itemize}
+
+\medskip
+
+\textbf{Checking for Understanding}
+
+\begin{enumerate}[itemsep=0pt,topsep=-3pt]
+    \item An object's motion is summarized in the table below. Is the object accelerating?
+    \begin{center}
+        \begin{tabular}{|c|c|}
+            \hline
+            \thead{Velocity (m/s)} & \thead{Time (s)} \\ \hline
+            0 & 0 \\ \hline
+            2 & 1 \\ \hline
+            4 & 2 \\ \hline
+            6 & 3 \\ \hline
+            8 & 4 \\ \hline
+        \end{tabular}
+    \end{center}
+    
+    \item Give the data below, is the object accelerating?
+    \begin{center}
+        \begin{tabular}{|c|c|}
+            \hline
+            \thead{Position (m)} & \thead{Time (s)} \\ \hline
+            4 & 0 \\ \hline
+            8 & 1 \\ \hline
+            12 & 2 \\ \hline
+            16 & 3 \\ \hline
+            20 & 4 \\ \hline
+        \end{tabular}
+    \end{center}
+    
+    \item True or false? The graph below represents accelerating motion.
+    \begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=5cm,height=4cm,
+            axis lines=left,
+            xlabel = {Time (s)},
+            ylabel = {Velocity (m/s)},
+            ymin=0, ymax=8,
+            xmin=0, xmax=8,
+            ytick={0,2,...,8},
+            xtick={0,2,...,8},
+            grid=both,
+            minor x tick num = 1,
+            minor y tick num = 1,
+        ]
+            \addplot[very thick,black,domain=0:8] {5};
+            \end{axis}
+    \end{tikzpicture}
+    \end{center}
+    
+    \item What is the direction of the object's velocity as depicted in the figure below?
+    \begin{center}
+    \begin{tikzpicture}[x=2cm,y=1.5cm]
+        \draw[->] (0,-1) -- (0,1) node[pos=0.8,left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+        \draw[->] (0,0) -- (1,0) node[right] {$t$};
+        \draw[very thick,domain=0:0.7,smooth] plot(\x,{-1.1*(\x-0.8)^2});
+    \end{tikzpicture}
+    \end{center}
+    
+    \item Does the graph below represent an object speeding up or slowing down?
+    \begin{center}
+    \begin{tikzpicture}[x=2cm,y=2cm]
+        \draw[->] (0,0) -- (0,1) node[pos=0.5,left] {$x$} node[pos=0,shift={(-0.05,-0.05)}] {\footnotesize $0$};
+        \draw[->] (0,0) -- (1,0) node[pos=0.5,below] {$t$};
+        \draw[very thick,domain=0:0.8,smooth] plot(\x,{(\x-0.8)^2});
+    \end{tikzpicture}
+    \end{center}
+
+    \item What is the direction of the object's acceleration?
+    \begin{center}
+    \begin{tikzpicture}[x=2.5cm,y=1.5cm]
+        \draw[->] (0,-1) -- (0,1) node[pos=0.8,left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+        \draw[->] (0,0) -- (1,0) node[right] {$t$};
+        \draw[very thick,domain=0:1,smooth] plot(\x,{6*(\x-0.5)^2 - 0.8});
+    \end{tikzpicture}
+    \end{center}
+
+    \item An accelerating particle starts at a speed of \SI{9}{m/s} in the positive $x$ direction. Some time later, it moves at \SI{4}{m/s} in the negative direction. Calculate the change in velocity.
+
+    \item An accelerating particle starts at a speed of \SI{3}{m/s} in the negative $x$ direction. After 4 seconds, it moves at \SI{5}{m/s} in the positive direction. Calculate the average acceleration.
+    
+    \item Calculate acceleration from the velocity vs.\,time graph below.
+    \begin{center}
+    \begin{tikzpicture}
+    \begin{axis}[width=5.2cm,height=4.2cm,
+        axis lines=left,
+        % axis x line=center,
+        xlabel = {Time (s)},
+        ylabel = {Velocity (m/s)},
+        ymin=0, ymax=14,
+        xmin=0, xmax=10,
+        ytick={0,2,...,14},
+        xtick={0,1,...,10},
+        ymajorgrids=true,
+        xmajorgrids=true,
+        ]
+        \addplot[very thick,black,domain=0:10] {-3/2*\x+18};
+        \end{axis}
+    \end{tikzpicture}
+    \end{center}
+
+    \item Calculate the object's displacement across the entire time interval shown below.
+    \begin{center}
+    \begin{tikzpicture}
+    \begin{axis}[width=5.2cm,height=4.2cm,
+        axis lines=left,
+        xlabel = {Time (s)},
+        ylabel = {Velocity (m/s)},
+        ymin=0, ymax=8,
+        xmin=0, xmax=8,
+        ytick={0,2,...,8},
+        xtick={0,2,...,8},
+        minor y tick num=1,
+        minor x tick num=1,
+        grid=both,
+        ]
+        \addplot[very thick,domain=0:8] {6/8*x};
+        \end{axis}
+    \end{tikzpicture}
+    \end{center}
+
+    \item What is the change in the object's velocity?
+    \begin{center}
+    \begin{tikzpicture}
+    \begin{axis}[width=5.5cm,height=4.5cm,
+        axis lines=center,
+        xlabel = {Time (s)},
+        ylabel = {Acceleration ($\mathrm{m/s^2}$)},
+        y label style={at={(axis description cs: 0,1.05)},above},
+        x label style={at={(axis description cs: 1.05,0.5)},right},
+        ymin=-4, ymax=4,
+        xmin=0, xmax=8,
+        ytick={-4,-2,...,4},
+        xtick={0,2,...,8},
+        minor y tick num=1,
+        minor x tick num=1,
+        grid=both,
+        clip=false,
+        ]
+        \node[left] at (0,0) {0};
+        \addplot[very thick,domain=0:8] {-2};
+        \end{axis}
+    \end{tikzpicture}
+    \end{center}
+\end{enumerate}
+
+\clearpage
+
+\section{Forces}
+
+\textbf{Vocabulary}
+
+\begin{itemize}[itemsep=-3pt,topsep=0pt]
+    \item Define \textbf{\gls{system}} as \glsdesc{system}.
+    \item Define \textbf{\gls{force}} as \glsdesc{force}.
+    \item Define \textbf{\gls{net force}} ($F_\text{\scriptsize net}$) as \glsdesc{net force}.
+    \item Define \textbf{\gls{external force}} as \glsdesc{external force}.
+    \item Define \textbf{\gls{net external force}} ($F_\text{\scriptsize net}$) as \glsdesc{net external force}.
+    \item Define \textbf{\gls{tension}} as \glsdesc{tension}.
+    \item Define \textbf{\gls{friction}} as \glsdesc{friction}.
+    \item Define \textbf{\gls{normal force}} as \glsdesc{normal force}.
+    \item Define \textbf{\gls{gravity}} as \glsdesc{gravitational force} (later, \glsdesc{gravity}).
+    \item Define \textbf{\gls{applied force}} as \glsdesc{applied force}.
+    \item Define \textbf{\gls{free body diagram}} as \glsdesc{free body diagram}.
+    \item Define \textbf{\gls{mass}} as \glsdesc{mass}.
+    \item Define \textbf{\gls{Newton's first law of motion}} as stating that \glsdesc{Newton's first law of motion}.
+    \item Define \textbf{\gls{inertia}} as \glsdesc{inertia}.
+    \item Define \textbf{\gls{Newton's second law of motion}} as stating that \glsdesc{Newton's second law of motion}.
+    \item Define \textbf{\gls{Newton's third law of motion}} as stating that \glsdesc{Newton's third law of motion}.
+\end{itemize}
+
+\textbf{Core Principles}
+
+\begin{itemize}[itemsep=0pt,topsep=-3pt]
+    \item \textbf{Know} that an object will not speed up, slow down, or change direction on its own, and that it takes a net external force to change motion.
+\end{itemize}
+
+\textbf{Mathematical Formulas}
+
+\begin{itemize}[topsep=-3pt,itemsep=0pt]
+    \item \textbf{Know} that Newton's second law of motion is give by $\displaystyle a = \frac{F_\mathrm{net}}{m}$ or equivalently as $F_\text{\scriptsize net} = ma$.
+\end{itemize}
+
+\clearpage
+
+\section{One-Dimensional Kinematics}
+
+\textbf{Vocabulary}
+
+\begin{itemize}[topsep=-3pt,itemsep=0pt]
+    \item Define \textbf{\gls{kinematic equations}} as \glsdesc{kinematic equations}.
+    \item Define \textbf{\gls{free fall}} as \glsdesc{free fall}.
+\end{itemize}
+
+\textbf{Mathematical Formulas}
+
+\begin{itemize}[topsep=-3pt,itemsep=0pt]
+    \item \textbf{Know} velocity as a function of time: $\displaystyle v_f = v_i + at$
+    \item \textbf{Know} position as a function of time: $\displaystyle \Delta x = v_i t + \frac{1}{2}at^2$
+    \item \textbf{Know} velocity as a function of position: $\displaystyle v_f^2 = v_i^2 + 2a\Delta x$
+    \item \textbf{Know} average velocity to find displacement: $\displaystyle \Delta x = \frac{1}{2}(v_i + v_f)t$
+\end{itemize}
+
+\clearpage
+
+\section{Two-Dimensional Motion}
+
+\clearpage
+
+\section{Momentum}
+
+\clearpage
+
+\section{Energy}
+
+\clearpage
+
+\section{Oscillations and Mechanical Waves}
+
+\clearpage
+
+\section{Electrostatics and Circuits}
+
+\clearpage
+
+\section{Electromagnetism}
+
+\clearpage
+
+\section{Electromagnetic Waves and Quantum Physics}
+
+
+\clearpage
+
+\phantomsection
+\addcontentsline{toc}{section}{Glossary}
+\printnoidxglossaries
+
+
+
+\end{document}

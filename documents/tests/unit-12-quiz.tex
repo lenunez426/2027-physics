@@ -1,0 +1,231 @@
+\documentclass[answers]{exam}
+\input{global}
+\input{problem-sets}
+
+
+\setrandomizerseed{1}
+\bracketedpoints
+
+
+\firstpageheader{{Name:\enspace\makebox[6cm]{\hrulefill}}\\Physics}{}{Quiz on Unit 12: Electromagnetic Induction\\}
+\runningheader{Physics}{}{Quiz on Unit 12: Electromagnetic Induction}
+
+\begin{document}
+
+\begin{questions}
+
+\question
+The lines shown below are called 
+
+% \fbox{
+\begin{minipage}{7cm}
+\centering
+\begin{randomizechoices}
+    \correctchoice magnetic field lines
+    \choice electric field lines
+    \choice gravitational field lines
+    \choice tensor field lines
+\end{randomizechoices}
+\end{minipage}%}%
+% \fbox{
+\begin{minipage}{6cm}
+\centering
+\begin{tikzpicture}
+    \node at (0,0) {\includegraphics[width=5cm]{documents/figures/magnetic-field-lines-1.pdf}};
+\end{tikzpicture}
+\end{minipage}%}
+
+
+
+\question
+What are the labels of the poles of a bar magnet?
+
+\begin{randomizechoices}
+\choice North only
+\choice North, south, east, and west
+\choice East and west
+\CorrectChoice North and south
+\end{randomizechoices}
+
+\question
+What do you get when you cut a bar magnet in half?
+
+\begin{randomizechoices}
+\choice One magnet with two south poles, and one magnet with two north poles.
+\choice Two objects that are not magnetic anymore.
+\choice It’s impossible to cut a magnet in half.
+\CorrectChoice Two magnets, each with a north and south pole.
+\end{randomizechoices}
+
+\question
+True or False? Earth generates a surrounding magnetic field.
+
+\begin{randomizechoices}[norandomize]
+    \correctchoice True
+    \choice False
+\end{randomizechoices}
+
+\question
+The south geographic pole of Earth (in Antarctica) is near what type of \textit{magnetic} pole?
+
+\begin{randomizechoices}
+    \correctchoice north
+    \choice south
+    \choice east
+    \choice west
+\end{randomizechoices}
+
+
+\question
+What type of \textit{magnetic} pole is close to Earth's north \textit{geographic} pole (near Alaska)? 
+
+\begin{randomizechoices}
+\choice north
+\CorrectChoice south
+\choice east
+\choice west
+\end{randomizechoices}
+
+% \question
+% The \textit{magnetic} pole of Earth that is close to the \textit{geographic} South Pole is a\\ magnetic \fillin Pole.
+
+% \begin{randomizechoices}
+% \CorrectChoice North
+% \choice South
+% \choice East
+% \choice West
+% \end{randomizechoices}
+
+% \question
+% The \textit{magnetic} North Pole of Earth is close to the \textit{geographic} \fillin Pole.
+
+% \begin{randomizechoices}
+% \choice North
+% \CorrectChoice South
+% \choice East
+% \choice West
+% \end{randomizechoices}
+
+\clearpage
+
+\question
+Which of the following diagrams correctly shows the Earth's magnetic field lines?
+
+\begin{EnvUplevel}
+\centering
+\begin{minipage}{4cm}
+\centering
+\ifprintanswers
+    \color{red}
+\fi
+\begin{tikzpicture}
+    \node at (0,0) {\rotatebox{-90}{\fcolorbox{black}{white}{\includegraphics[width=3.5cm]{documents/figures/magnetic-field-lines-1.pdf}}}};
+    \node at (0,0) {\twemoji[width=1cm]{globe showing Americas}};
+    \node[above] at (current bounding box.north) {Diagram A};
+\end{tikzpicture}
+
+\end{minipage}%
+\begin{minipage}{4cm}
+\centering
+\begin{tikzpicture}
+    \node at (0,0) {\rotatebox{-180}{\fcolorbox{black}{white}{\includegraphics[width=3.5cm]{documents/figures/magnetic-field-lines-1.pdf}}}};
+    \node at (0,0) {\twemoji[width=1cm]{globe showing Americas}};
+    \node[above] at (current bounding box.north) {Diagram B};
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{4cm}
+\centering
+\begin{tikzpicture}
+    \node at (0,0) {\rotatebox{-270}{\fcolorbox{black}{white}{\includegraphics[width=3.5cm]{documents/figures/magnetic-field-lines-1.pdf}}}};
+    \node at (0,0) {\twemoji[width=1cm]{globe showing Americas}};
+    \node[above] at (current bounding box.north) {Diagram C};
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{4cm}
+\centering
+\begin{tikzpicture}
+    \node at (0,0) {\rotatebox{0}{\fcolorbox{black}{white}{\includegraphics[width=3.5cm]{documents/figures/magnetic-field-lines-1.pdf}}}};
+    \node at (0,0) {\twemoji[width=1cm]{globe showing Americas}};
+    \node[above] at (current bounding box.north) {Diagram D};
+\end{tikzpicture}
+\end{minipage}%
+\end{EnvUplevel}
+
+\scalebox{0}{
+\begin{randomizeoneparchoices}[norandomize]
+    \correctchoice Diagram A
+    \choice Diagram B
+    \choice Diagram C
+    \choice Diagram D
+\end{randomizeoneparchoices}
+}
+
+
+% \question
+% The \textit{magnetic} South Pole of Earth is close to the \textit{geographic} \fillin Pole.
+
+% \begin{randomizechoices}
+% \CorrectChoice North
+% \choice South
+% \choice East
+% \choice West
+% \end{randomizechoices}
+
+\question
+One way to visualize magnetic field lines around a magnet is by\ldots 
+
+\begin{randomizechoices}
+\choice using certified electromagnetic goggles.
+\choice attracting or repelling the magnet with a second magnet.
+\CorrectChoice sprinkling iron filings around the magnet.
+\choice brushing the magnet with glow-in-the-dark liquid and turning off the lights.
+\end{randomizechoices}
+
+\question
+Besides magnets, what other thing creates a magnetic field?
+
+\begin{randomizechoices}[norandomize]
+\choice Water.
+\choice The gravitational force.
+\CorrectChoice electric current (i.e., moving charges)
+\choice Nothing. Only magnets can create magnetic fields.
+\end{randomizechoices}
+
+
+
+\question
+What is a magnetic field?
+
+\begin{randomizechoices}
+\choice a field of magnets
+\CorrectChoice directional lines around a magnetic material that indicate the direction and magnitude of the magnetic force
+\choice a material or object that produces a magnetism
+\choice part of a magnet that exerts the strongest force on other magnets or magnetic material
+\end{randomizechoices}
+
+
+\question
+True or false? Monopoles exist in nature.
+
+\begin{randomizechoices}[norandomize]
+    \choice True
+    \correctchoice False 
+\end{randomizechoices}
+
+\question
+Why do two north poles of magnets repel each other?
+
+\begin{randomizechoices}
+    \correctchoice Their magnetic fields push in opposite directions and do not connect easily.
+    \choice North poles contain positive electric charge.
+    \choice The magnets lose energy when close together.
+    \choice Air pressure forces them apart.
+\end{randomizechoices}
+
+
+
+
+
+
+\end{questions}
+\end{document}

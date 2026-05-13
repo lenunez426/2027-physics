@@ -1,0 +1,2873 @@
+\documentclass[]{exam}
+\input{global}
+\input{problem-sets}
+\renewcommand{\thesubsubsection}{\thesubsection\alph{subsubsection}}
+\setcounter{section}{8}
+\usepackage{multirow}
+\usepackage{fontawesome}
+
+\usepackage{xcolor}
+
+\newcommand{\anscolor}{%
+  \ifprintanswers
+    \color{red}%
+  \else
+    \color{white}%
+  \fi
+}
+
+
+\begin{document}
+
+\firstpageheader{{Name:\enspace\makebox[6cm]{\hrulefill}}\\{Physics}}{}{Unit 8:\\Conservation in Mechanical Systems}
+\runningheader{{Name:\enspace\makebox[6cm]{\hrulefill}}}{}{}
+% \runningheader{Physics}{}{Unit 8}
+
+
+\subsection*{Desmos: Gravitational Potential Energy}
+
+\begin{questions}
+\question
+\textit{Warm-up}. Recall Newton's universal law of gravitation, which calculates the force of attraction:
+
+\begin{equation*}
+    F_g = \frac{G m_1 m_2}{r^2}
+\end{equation*}
+
+where $m_1$ and $m_2$ are masses in kilograms, $r$ is the distance in meters between the centers of mass, and $G = \SI{6.67e-11}{N\cdot m^2/kg^2}$ is the universal gravitational constant.
+
+\textbf{\underline{Calculate}} the gravitational force by Earth on a 1.0 kilogram object resting on the surface of Earth. Earth's mass is \SI{5.97e24}{kg}, and the separation distance between Earth and object is Earth's radius, \SI{6.378e6}{m}. \textbf{\underline{Round}} your answer to the nearest whole number.
+
+\begin{solutionorbox}[1.5cm]
+
+\begin{equation*}
+    F_g = \frac{G m_1 m_2}{r^2} = \frac{(\SI{6.67e-11}{N\cdot m^2/kg})(\SI{1.00}{kg})(\SI{5.97e24}{kg})}{(\SI{6.378e6}{m})^2} = \SI{9.78}{N} \approx \boxed{\SI{10}{N}}
+\end{equation*}
+\end{solutionorbox}
+
+\question
+\textit{Intro to GPE}. When two masses are separated by some distance, energy is stored in the configuration. This stored energy is called gravitational potential energy. The equation and figure below show that raising a bowling ball ($m_1$) above the surface of the Earth ($m_2$) stores energy ($E_g$).
+
+\bigskip
+
+\begin{minipage}{0.4\textwidth}
+\Large 
+\begin{equation*}
+    E_g = -\frac{G m_1 m_2}{r}
+\end{equation*}
+\end{minipage}%
+\begin{minipage}{0.4\textwidth}
+\centering
+\begin{tikzpicture}[x=7mm,y=7mm,transform shape]
+    \draw (0,0) node[opacity=0.3] {\twemoji[width=3.5cm]{globe showing Americas}};
+    \draw (0,0) circle (2.5) node[right=2.5] {$m_2$};
+    \draw[<->] (0,0) -- (0,2.5) node[right,pos=0.5] {$R$};
+    \draw[<->,xshift=-4mm] (0,0) -- (0,3.5) node[left,pos=0.5] {$r$};
+    \begin{scope}[shift={(0,2.5)}]
+        \draw[<->] (0,0) -- (0,1) node[right,pos=0.5] {$h$};
+        \fill[yshift=4pt] (0,1) circle (4pt) node[right=4pt] {$m_1$};
+    \end{scope}
+\end{tikzpicture}
+\end{minipage}
+
+Go to \href{https://www.desmos.com/scientific}{desmos.com/scientific}. Type the following variables in each cell:
+
+\bgroup
+\begin{center}
+\def\arraystretch{2.3}
+\begin{tabular}{|l|l|}
+    \hline
+    \thead{\textbf{Type this in Desmos}} & \thead{\textbf{What it means}} \\ \hline
+    $G = \num{6.8139e-11}$ \hspace{1cm} & slightly modified universal gravitational constant \\ \hline
+    $m_1 = 1.00$ & mass of a bowling ball (test mass) \\ \hline
+    $m_2 = \num{5.97e24}$ & mass of Earth \\ \hline
+    $R = \num{6.378e6}$ & radius of Earth \\ \hline
+    $h = 0 $ & height of $m_1$ above Earth's surface (initially zero) \\ \hline
+    $\displaystyle E_i = -\frac{G m_1 m_2}{R}$ & gravitational potential energy when $m_1$ is on Earth's surface \\ \hline
+    $\displaystyle E_f = - \frac{G m_1 m_2}{R+h}$ & gravitational potential energy when $m_1$ is raised to height $h$ \\ \hline
+    $E_{\mathrm{change}} = E_f - E_i$ & the \textit{exact} change in gravitational potential energy from $E_i$ to $E_f$ \\ \hline
+\end{tabular}
+\end{center}
+\egroup
+
+%Note: \footnote{Setting $G = \num{6.814e-11}$ makes $g = 10$.}
+
+\ifprintanswers
+\else
+\clearpage
+\fi
+
+
+
+\textbf{\underline{NOTE}:} For all answers below, \textbf{\underline{ROUND}} to the nearest whole number.
+
+\begin{parts}
+\part 
+\textbf{\underline{Set}} the object position to $h = 0$, and \textbf{\underline{list}} the initial, final, and change in gravitational potential energies below:
+
+\begin{center}
+\bgroup
+\def\arraystretch{1.5}
+\begin{tabular}{|c|c|c|}
+    \hline 
+     \hspace{2.0cm} $E_i$ \hspace{2.0cm} & \hspace{2.0cm} $E_f$ \hspace{2.0cm} & \hspace{1cm} $E_\mathrm{change}$ \hspace{1.5cm} \phantom{.}\\ \hline
+     \ifprintanswers \color{red} $-63780155$ \fi & \ifprintanswers \color{red} $-63780155$ \fi & \ifprintanswers \color{red} $0$ \fi \\ \hline
+\end{tabular}
+\egroup
+\end{center}
+
+\part 
+\textbf{\underline{Set}} $h = 1$, and \textbf{\underline{list}} the energies below.
+
+\begin{center}
+\bgroup
+\def\arraystretch{1.5}
+\begin{tabular}{|c|c|c|}
+    \hline 
+     \hspace{2.0cm} $E_i$ \hspace{2.0cm} & \hspace{2.0cm} $E_f$ \hspace{2.0cm} & \hspace{1cm} $E_\mathrm{change}$ \hspace{1.5cm} \phantom{.}\\ \hline
+     \ifprintanswers \color{red} $-63780155$ \fi & \ifprintanswers \color{red} $-63780145$ \fi & \ifprintanswers \color{red} $10$ \fi \\ \hline
+\end{tabular}
+\egroup
+\end{center}
+
+\part \textbf{\textit{}}
+\textbf{\underline{Set}} $h = 2$, and \textbf{\underline{list}} the energies below.
+
+\begin{center}
+\bgroup
+\def\arraystretch{1.5}
+\begin{tabular}{|c|c|c|}
+    \hline 
+     \hspace{2.0cm} $E_i$ \hspace{2.0cm} & \hspace{2.0cm} $E_f$ \hspace{2.0cm} & \hspace{1cm} $E_\mathrm{change}$ \hspace{1.5cm} \phantom{.}\\ \hline
+     \ifprintanswers \color{red} $-63780155$ \fi & \ifprintanswers \color{red} $-63780135$ \fi & \ifprintanswers \color{red} $20$ \fi \\ \hline
+\end{tabular}
+\egroup
+\end{center}
+
+
+\part 
+\textbf{\underline{Change}} test mass $m_1$ and vertical position $h$ according to the following tables, and \textbf{\underline{record}} the change in gravitational potential energy, $E_\mathrm{change}$, in each case.
+
+\begin{center}
+\bgroup
+\def\arraystretch{2}
+\begin{tabular}{|c|c|c|}
+    \hline
+    $m_1$ & $h$ & $E_\mathrm{change}$ \\ \hline
+     1 & 0 & \ifprintanswers \textcolor{red}{0} \fi \\ \hline
+     1 & 1 & \ifprintanswers \textcolor{red}{10} \fi \\ \hline
+     1 & 2 & \ifprintanswers \textcolor{red}{20} \fi \\ \hline
+     1 & 3 & \ifprintanswers \textcolor{red}{30} \fi \\ \hline
+     1 & 4 & \ifprintanswers \textcolor{red}{40} \fi \\ \hline
+     1 & 5 & \ifprintanswers \textcolor{red}{50} \fi \\ \hline
+\end{tabular}%
+\hspace{1cm}
+\begin{tabular}{|c|c|c|}
+    \hline
+    $m_1$ & $h$ & $E_\mathrm{change}$ \\ \hline
+     2 & 0 & \ifprintanswers \textcolor{red}{0} \fi \\ \hline
+     2 & 1 & \ifprintanswers \textcolor{red}{20} \fi \\ \hline
+     2 & 2 & \ifprintanswers \textcolor{red}{40} \fi \\ \hline
+     2 & 3 & \ifprintanswers \textcolor{red}{60} \fi \\ \hline
+     2 & 4 & \ifprintanswers \textcolor{red}{80} \fi \\ \hline
+     2 & 5 & \ifprintanswers \textcolor{red}{100} \fi \\ \hline
+\end{tabular}%
+\hspace{1cm}
+\begin{tabular}{|c|c|c|}
+    \hline
+    $m_1$ & $h$ & $E_\mathrm{change}$ \\ \hline
+     3 & 0 & \ifprintanswers \textcolor{red}{0} \fi \\ \hline
+     3 & 1 & \ifprintanswers \textcolor{red}{30} \fi \\ \hline
+     3 & 2 & \ifprintanswers \textcolor{red}{60} \fi \\ \hline
+     3 & 3 & \ifprintanswers \textcolor{red}{90} \fi \\ \hline
+     3 & 4 & \ifprintanswers \textcolor{red}{120} \fi \\ \hline
+     3 & 5 & \ifprintanswers \textcolor{red}{150} \fi \\ \hline
+\end{tabular}
+\egroup
+\end{center}
+
+\medskip
+
+\part \textit{Synthesis.} Do you see the pattern in your data table above? \textbf{\underline{Create}} an equation for the change in gravitational potential energy $\Delta E_g$ in terms of mass $m_1$, height $h$, and any additional constants.
+
+\bgroup
+\Large
+\begin{equation*}
+    \Delta E_g = \ifprintanswers \color{red} \else \color{white} \fi mh \times 10
+\end{equation*}
+\egroup
+
+\part
+\textbf{\underline{Express}} the equation you created in the previous step, in words. Use the sentence stem below.
+
+\ifprintanswers
+{\color{red} The change in gravitational potential energy equals mass multiplied by height multiplied by 10.
+
+\medskip}
+\else
+
+\medskip
+
+\textit{The change in gravitational potential energy equals}
+\vspace{-1.5em}
+\fillwithlines{14mm}
+\fi
+
+\part
+What physical quantity do you think the factor of 10 represents?
+
+\ifprintanswers
+\textcolor{red}{``In the past, 10 has been associated with $g = \SI{10}{N/kg} = \SI{10}{m/s^2}$, the strength of the gravitational field or gravitational acceleration, so I think the 10 is $g$. Therefore, $\Delta E_g = mgh$.''}
+\else
+\fillwithlines{14mm}
+\fi
+
+\end{parts}
+
+\ifprintanswers
+\else
+\clearpage
+\fi
+
+
+\question
+\textit{Change in GPE relative to a reference line.} Let $h_0$ be a variable reference point above Earth's surface from which we may measure a change in gravitational potential energy. 
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9,transform shape]
+    \begin{scope}
+        \clip (-3,0) -- (3,0) arc (0:180:3);
+        \draw (0,0) node[opacity=0.3] {\twemoji[width=6cm]{globe showing Americas}};
+    \end{scope}
+    \draw (3,0) arc (0:180:3);
+    \draw[densely dashed] (-2,3) -- (2,3);
+    \draw[densely dashed] (-2,4.5) -- (2,4.5);
+    \draw[<->] (0,0) -- (0,3) node[right,pos=0.5] {$R$};
+    \draw[|<->|] (0,3) -- (0,4.5) node[right,pos=0.5] {$h_0$};
+    \draw[<->|] (0,4.5) -- (0,5.5) node[right,pos=0.5] {$h$};
+    \fill[yshift=3.5pt] (0,5.5) circle (3pt) node[right=3pt] {$m_1$};
+\end{tikzpicture}
+\end{center}
+
+For example, if the reference point is at sea level, then $h_0 = \SI{0}{m}$. If it's at the top of a 100-meter building, then $h_0 = \SI{100}{m}$, etc. 
+
+In Desmos, \textbf{\underline{set}} $m_1 = 1$ and  \textbf{\underline{update}} the cells for the initial and final gravitational potential energies:
+
+\bgroup
+\begin{center}
+\def\arraystretch{3}
+\begin{tabular}{|c|l|}
+    \hline
+    \thead{\textbf{Update these cells in Desmos}} & \thead{\textbf{What it means}} \\ \hline
+    $\displaystyle E_i = -\frac{G m_1 m_2}{R + h_0}$ & gravitational PE starting from reference $h_0$ \\ \hline
+    $\displaystyle E_f = - \frac{G m_1 m_2}{R + h_0 + h}$ & gravitational PE ending at $h_0 + h$ \\ \hline
+\end{tabular}
+\end{center}
+\egroup
+
+
+Houston is 15 meters above sea level, and the tallest building in Houston, the JP Morgan Chase Tower, is 305 meters tall. So, the top of the Chase Tower is 320 meters above sea level. Imagine standing on top of the tower and raising the bowling ball ($m_1$) to a height of 10 meters relative to the reference line.
+
+\begin{center}
+\begin{tikzpicture}
+    \draw[rounded corners=2mm] (0,0) -- (3,0)  -- (5,1) -- (9,1) node[above,pos=0.3,align=left] {Houston\\ground level};
+    \draw[densely dashed] (3,0) -- (8.9,0) node[above,pos=0.5] {Sea level} node[below=5mm,pos=0.5] {\footnotesize Note: Figure is not to scale.};
+    \draw[|-|] (9.5,0) -- (9.5,5) node[pos=0.8,right,align=left] {$h_0 = \SI{320}{m}$\\reference height};
+    \fill (8.8,6) circle (1.5mm) node[left=1.5mm] {$m_1$};
+    \draw[thick,fill=gray] (8,1) rectangle (9,5) node[rotate=90,black,pos=0.5] {\bfseries \large Chase Tower};
+    \draw[|-|] (9.15,5) -- (9.15,6) node[right,pos=0.5] {$h = \SI{10}{m}$};
+    \node at (8.5,5.2) {\Strichmaxerl[1.5]};
+    \begin{pgfonlayer}{background}
+        \fill[cyan!20] (0,-1) rectangle (3,0) node[pos=0.5] {\reflectbox{\twemoji[width=6mm]{fish}}};
+    \end{pgfonlayer}
+\end{tikzpicture}
+\end{center}
+
+\ifprintanswers
+\else
+\clearpage
+\fi
+
+Make the following changes in Desmos:
+
+\bgroup
+\begin{center}
+\def\arraystretch{1.5}
+\begin{tabular}{|c|l|}
+    \hline
+    \thead{\textbf{Update these cells in Desmos}} & \thead{\textbf{What it means}} \\ \hline
+    $\displaystyle h_0 = 320$ & the new reference point is at the top of the Chase Tower \\ \hline
+    $\displaystyle h = 10$ & raise the bowling ball 10 meters above the reference \\ \hline
+\end{tabular}
+\end{center}
+\egroup
+
+\smallskip
+
+\begin{parts}
+\part 
+The \textit{exact} change in gravitational potential energy (PE) for this configuration is given by the cell containing $E_\mathrm{change}$ in Desmos. What is the change in gravitational PE? (Round to nearest whole.)
+
+\begin{center}
+    $E_\mathrm{change} = $ \fillin[100] \quad joules
+\end{center}
+
+\part
+What is the change in gravitational potential energy according to the formula $\Delta E_g = m g h$?
+
+\ifprintanswers
+\textcolor{red}{$\Delta E_g = mgh = (\SI{1}{kg})(\SI{10}{m/s^2})(\SI{10}{m}) = \SI{100}{J}$, so also 100 joules.}
+\else
+\fillwithlines{7mm}
+\fi
+
+\part 
+Is $mgh$ a good representation of the exact value $E_\mathrm{change}$? Why or why not?
+
+\ifprintanswers
+\textcolor{red}{Yes because $E_\mathrm{change}$ in Desmos and $mgh$ both give the same answer of 100 joules.}
+\else
+\fillwithlines{14mm}
+\fi
+
+\end{parts}
+
+\question
+Mount Everest is \SI{8850}{m} above sea level ($h_0 = 8850$).
+
+\begin{parts}
+\part What is the \textit{exact} change in gravitational potential energy when the 1-kg ball is raised 10 meters above Mount Everest? (Round to the nearest whole number.)
+
+\ifprintanswers
+\textcolor{red}{$E_\mathrm{change} = 100$}
+\else
+\fillwithlines{7mm}
+\fi
+
+\part 
+Is $mgh$ a good representation of the exact value $E_\mathrm{change}$? Why or why not?
+
+\ifprintanswers
+\textcolor{red}{Since $\Delta E_g = mgh = (\SI{1}{kg})(\SI{10}{m/s^2})(\SI{10}{m}) = \SI{100}{J}$, the equation $mgh$ is a good representation of the exact value.}
+\else
+\fillwithlines{14mm}
+\fi
+
+\end{parts}
+
+\question
+The International Space Station (ISS) orbits 400 kilometers above the surface of the Earth ($h_0 = \num{400000}$).
+
+\begin{parts}
+    
+\part What is the \textit{exact} change in gravitational potential energy when the 1-kg ball is raised 10 meters above the ISS? (Round to the nearest whole number.)
+
+\ifprintanswers
+\textcolor{red}{$E_\mathrm{change} = 89$}
+\else
+\fillwithlines{7mm}
+\fi
+
+
+\part 
+Is $mgh$ a good representation of the exact value $E_\mathrm{change}$? Why or why not?
+
+\ifprintanswers
+\textcolor{red}{No. The true value is $E_\mathrm{change} = 89$ but $\Delta E_g = mgh$ still predicts \SI{100}{J}, so equation $mgh$ is a no longer a good representation of the exact value.}
+\else
+\fillwithlines{14mm}
+\fi
+\end{parts}
+
+\question \textit{Checking for understanding.} The expression $\Delta E_g = mgh$ is a good approximation for the \textit{exact} change in the gravitational potential energy\ldots
+
+\begin{randomizechoices}[norandomize]
+    \choice only if the reference line is at sea level.
+    \choice only if the reference line is below the International Space Station. 
+    \correctchoice only if the reference line is sufficiently near sea level (e.g., below Mount Everest).
+    \choice only if the reference line is far from sea level (e.g., above the ISS).
+    \choice at any distance beyond the Earth's surface.
+\end{randomizechoices}
+
+
+\clearpage
+
+
+
+\subsection*{Demos: Mechanical Energy}
+
+\begin{questions}
+\question
+A 1-kilogram bowling ball is launched vertically upwards at \SI{18}{m/s}. During a time interval of 3.6 seconds, the ball reaches the apex and travels back to the launch point. Below you'll \textbf{\underline{make}} the following graphs:
+
+\begin{itemize}[itemsep=0pt]
+    \item kinetic energy vs. time ($K$ vs.\:$t$)
+    \item gravitational potential energy vs. time ($P$ vs.\:$t$), assuming the launch point is the zero line
+    \item mechanical energy vs. time ($E$ vs.\:$t$)
+\end{itemize}
+
+\textbf{\underline{Access}} the Desmos graphing calculator at \href{https://www.desmos.com/calculator}{desmos.com/calculator}. \textbf{\underline{Type}} the following variables and equations in each cell:
+
+\begin{EnvUplevel}
+\centering
+\begin{minipage}{2.5cm}
+\centering
+\begin{tikzpicture}
+    \draw[ultra thick,->] (0,0) -- (0,1) node[left,pos=0.8] {$v_0$};
+    \draw[densely dashed] (0,0) node[below,align=center] {launch\\point} -- (0,6.1) node[above] {apex};
+    \fill (0,4) circle (2mm) node[right=2mm] {\SI{1}{kg}};
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{13cm}
+\centering
+\def\arraystretch{2}
+\begin{tabular}{|l|l|}
+    \hline
+    \thead{\textbf{Type this in Desmos}} & \thead{\textbf{What it means}} \\ \hline
+    $m = 1$ & mass of launched object \\ \hline
+    $g = 10 $ & magnitude of gravitational acceleration \\ \hline
+    $v_0 = 18$ & vertical launch speed \\ \hline
+    $v(t) = v_0 - gt$ & vertical velocity as a function of time $t$ \\ \hline
+    $K(t) = \frac{1}{2} m \left(v\left(t\right)\right)^2 $ & kinetic energy (KE) as a function of time $t$ \\ \hline
+    $h(t) = v_0 t - \frac{1}{2}g t^2$ & height as a function of time $t$ \\ \hline
+    $P(t) = mg h(t)$ & gravitational potential energy (PE) as a function of time $t$ \\ \hline
+    $E(t) = K(t) + P(t) $ & mechanical energy (ME) as a function of time $t$ \\ \hline
+\end{tabular}
+\end{minipage}
+\end{EnvUplevel}
+
+\bigskip
+
+\textbf{\underline{Disable}} the graphs for $v(t)$ and $h(t)$ by clicking the left margin of each cell so that only $K(t)$, $P(t)$, and $E(t)$ are visible. Next, \textbf{\underline{click}} the graph settings (\faWrench) and set the X-Axis and Y-Axis limits to
+
+\begin{equation*}
+    0 \leq x \leq 4 \qquad \text{and} \qquad
+    0 \leq y \leq 180
+\end{equation*}
+
+Finally, \textbf{\underline{sketch}} the kinetic energy, gravitational potential energy, and mechanical energy vs. time graphs in the space below.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[height=7cm,width=8cm,
+    axis lines=left,
+    ylabel={Energy (J)},
+    xlabel={Time (s)},
+    ymin=0,ymax=180,
+    xmin=0,xmax=4,
+    ytick={0,20,...,180},
+    xtick={0,0.5,...,4},
+    grid=both,
+    legend cell align=left,        % <---
+    legend style={
+        at={(0.45,0.5)},
+        anchor=center,
+        font=\small,
+    },
+]
+    \ifprintanswers
+    \addplot[very thick,domain=0:3.6,variable=t,red] {0.5*1*(18-10*t)^2};
+    \addplot[very thick,domain=0:3.6,variable=t,blue] {1*10*(18*t-0.5*10*t^2)};
+    \addplot[very thick,domain=0:3.6,variable=t] {0.5*1*(18-10*t)^2 + 1*10*(18*t-0.5*10*t^2)};
+    \legend{KE, GPE, ME}
+    \fi
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{questions}
+
+\clearpage
+
+\subsection*{PhET Simulation: Energy Skate Park [UNDER CONSTRUCTION]}
+
+
+
+%Today, you will use the Energy Skate Park Lab to explore energy transformations and determine how the position of a skater affects his speed, potential energy and kinetic energy. http://bit.ly/3ucY9zW
+
+\textbf{Beginning Observations}
+
+\begin{questions}
+
+\question
+Open the Energy Skate Park PhET Simulation. What can you change about the scenario within the simulation? 
+
+\begin{solution}
+    Mass, friction and gravity, speed, track
+\end{solution}
+
+\question
+There are two types of energy representations available. Open both. Draw or describe the two types.
+
+\begin{solution}
+- bar graphs () and pie charts ()
+\end{solution}
+  
+\question
+Select the track of your choice. Select “Pie Chart”  and click on  .   What storage forms of energy are shown in the graph and chart? List below as well as the definition of each.
+
+\begin{solution}
+- Kinetic (Energy due to motion); Potential (Energy due to position); Thermal (energy due to heat) and Total Mechanical (sum of PE and KE)
+\end{solution}
+
+
+\uplevel{\bfseries Part 1: Energy Transformations }
+
+\question
+Create your own track or select one of the pre-made tracks. make sure to turn off friction. Draw four points on your track that you would like to investigate.  Place a screenshot of your track below.
+
+\question
+Fill in the predictions column by sketching what you think the Energy pie chart will look like for the ball at your four points. Then, use the simulation to test your ideas and explain any differences. 
+Point	Prediction	Simulation	Explain Differences
+
+\begin{solution}
+1	
+ 	No difference, or just a little KE since it’s difficult to pause at the exact point.
+2	
+ 	Almost the same, more KE than PE since closer to the valley.
+3	
+ 	Equal amounts of PE and KE since 3 is half way down from 1.
+4	
+ 	Very similar. More PE since we went past the middle path.
+\end{solution}
+
+\question
+The Law of Conservation of Energy states that energy cannot be created or destroyed. Therefore, energy can only be transformed. Use this statement to answer the questions that follow.
+a) What type(s) of energy did the skater have at the skater’s highest point? 
+
+\begin{solution}
+    Only PE
+\end{solution}
+    
+\question    
+What type(s) of energy did the skater at his lowest point?
+
+\begin{solution}
+    Only KE
+\end{solution}
+
+\question   
+What type of energy transformation did you see between the highest and lowest point in the motion of the skater? 
+
+\begin{solution}
+    The PE was being transformed to KE
+\end{solution}
+
+\question
+What is the definition of mechanical energy? Was mechanical energy conserved?
+
+\begin{solution}
+    Sum of KE and PE in a system. Yes, the TME stayed the same at any of the 4 points.
+\end{solution}
+
+\question
+turn on friction and redo your predictions. then run the simulation again and fill out the table below
+Point	Prediction	Simulation	Explain Differences
+
+\begin{solution}
+1	
+ 	No difference
+2	
+ 	Had not experienced friction long enough as I thought.
+3	
+ 	No difference. Equal amounts of PE and KE, while thermal is less than both.
+4	
+ 	No Difference
+\end{solution}
+
+\question
+Did adding friction allow for conservation of mechanical energy? Did this violate the law of conservation of energy? why or why not.
+
+\begin{solution}
+    No. Because as time went on, the sum of PE and KE does not give us the total. This indicate that some of the energy is lost as heat. However, this did not violate the law since the total energy stayed constant.
+\end{solution}
+
+\uplevel{\bfseries Part 2: Relating Speed to Potential and Kinetic Energy}
+
+\question
+Label on the track where you predict the skater will is 
+
+a) at his maximum speed
+b) stopped
+c) going his average speed
+d) going slow
+e) going fast
+
+\question
+On the graph to the right label where you predict the skater is 
+a) at his maximum speed
+b) stopped
+c) going his average speed
+d) going slow
+e) going fast
+
+\question
+Test your ideas using the Double Well Roller Coaster track. 
+a) Make any modifications to your answers in RED on the images for Questions 4 and 5. 
+
+\question
+If one of your friends asked you for help in making sense of the type of graph in Question 5. How would you explain what it is showing? *Consider: What is on each axis?  What types of energy are being graphed?
+
+\begin{solution}
+    The graph shoes the transformation between KE and PE with position and indicates that as one decreases, the other increases with an equal amount, thus keeping the TME conserved. There is more PE at higher elevation positions and more KE at positions with lower elevation.
+\end{solution}
+
+\question
+Using the graph in Question 5, what can you say about the total energy of the skater? 
+
+\begin{solution}
+      It stays the same all the time. 
+\end{solution}
+
+\uplevel{\bfseries Post Lab}
+
+\question
+The diagram below shows a frictionless track. 
+
+Assume a skater were to complete the track. At which positions is the sum of the potential and kinetic energy the same? Explain. 
+
+\begin{solution}
+    At every position, since there is only a transformation from one into the other.
+\end{solution}
+
+\question
+Using the diagram in Question 7, assume that the skater moves from point 1 to point 2. What type of energy transformation would exist in the movement between those two points?
+
+\begin{solution}
+    As the skater moves from point 1-2, their PE continually decreases while their KE continually increases.
+\end{solution}
+\end{questions}
+
+
+\clearpage
+
+\subsection*{Lab: Momentum and Collisions}
+
+\begin{mdframed}
+\textbf{Setting up the collision lab.}
+\begin{enumerate}[topsep=0pt]
+    \item Set up the Dynamics Track so that it reads \SI{0}{cm} to \SI{121}{cm} from left to right.
+    \item Place the two carts on the track, with the $+x$ arrow pointing towards \SI{120}{cm}.
+
+    \begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=15cm,
+            axis y line=none,
+            axis x line=left,
+            ymin=0,ymax=1,
+            xmin=0,xmax=122,
+            xtick={0,10,...,120},
+            minor x tick num=9]
+            \draw[thick] (5,0) rectangle ++(20,1cm) node[pos=0.5,align=center] {Cart 1\\$\rightarrow +x$};
+            \draw[thick] (60,0) rectangle ++(20,1cm) node[pos=0.5,align=center] {Cart 2\\$\rightarrow +x$};
+        \end{axis}
+    \end{tikzpicture}
+    \end{center}
+
+    \item Label the left one \textit{Cart 1} and the other \textit{Cart 2}. Do \textbf{\underline{NOT}} change their order or direction.
+    \item Launch Graphical Analysis at \href{https://graphicalanalysis.app/}{graphicalanalysis.app/}.
+    \begin{itemize}
+        \item Click ``Sensor Data Collection'' and connect with ``Wireless'' using the Carts' barcode ID.
+        \item Enable ``Light Mode'' in the app preferences.
+        \item Select the ``1 Graph'' option, and change the $y$-axis to Velocity.
+        \item \textit{Test cart direction.} Press ``Collect'' and move each cart from left to right. Their velocities should be positive. If velocities are negative, reverse the axis in the app settings.
+    \end{itemize}
+    \item Locate the magnetic tabs on a cart's bumper. Practice reversing the magnets so that the carts stick together (inelastic collision) or repel each other (elastic collision).
+\end{enumerate}
+\textbf{\underline{Note}}: In the tables below, record \textbf{\underline{ALL}} values to at least 3 decimal places (e.g., \SI{0.391}{m/s}).
+\end{mdframed}
+
+\textbf{Inelastic Collisions}
+
+\textbf{\underline{Setup}:} For an inelastic collision, set the magnets so that the carts stick together. 
+
+\begin{questions}
+\question \label{nLPqE}
+\textit{Inelastic collision with Cart 2 initially at rest}. 
+
+\begin{parts}
+\part Measure the mass of Carts 1 and 2. Convert to kilograms (e.g., \SI{213}{g} equals \SI{0.213}{kg}), and record values in the table below.
+
+
+\part
+Place Cart 2 at rest in the middle of the track, and Cart 1 near \SI{0}{cm}. Click ``Collect'' and push Cart 1 so it rolls toward Cart 2. The carts will collide, stick together, and roll together.
+
+\begin{EnvUplevel}
+\centering
+\begin{tikzpicture}
+    \begin{axis}[width=15cm,
+        axis y line=none,
+        axis x line=left,
+        ymin=0,ymax=1,
+        xmin=0,xmax=122,
+        xtick={0,10,...,120},
+        minor x tick num=9]
+        \draw (5,0) rectangle ++(20,8mm) node[pos=0.5] {Cart 1 ($m_1$)};
+        \draw[very thick,->] (27,4mm) -- ++(10,0) node[pos=0.5,above] {$\vec{v}_{1i}$};
+        \draw (60,0) rectangle ++(20,8mm) node[pos=0.5,align=center] {Cart 2 ($m_2$)} node[pos=0.5,right=11] {$\vec{v}_{2i} = 0$};
+    \end{axis}
+    \node[above=1mm] at (current bounding box.north) {\bfseries Before Collision};
+\end{tikzpicture}
+
+\bigskip
+
+\begin{tikzpicture}
+    \begin{axis}[width=15cm,
+        axis y line=none,
+        axis x line=left,
+        ymin=0,ymax=1,
+        xmin=0,xmax=122,
+        xtick={0,10,...,120},
+        minor x tick num=9]
+        \draw (45,0) rectangle ++(20,8mm) node[pos=0.5] {Cart 1};
+        \draw (65,0) rectangle ++(20,8mm) node[pos=0.5,align=center] {Cart 2};
+        \draw[very thick,->] (88,4mm) -- ++(10,0) node[pos=0.5,above] {$\vec{v}_f$};
+    \end{axis}
+    \node[above=1mm] at (current bounding box.north) {\bfseries After Collision};
+\end{tikzpicture}
+\end{EnvUplevel}
+
+
+\part 
+Collect velocity data from graphical analysis and record values in the data table below.\\(See part (d) below for guidance on calculating momentum values.)
+
+\begin{EnvUplevel}
+\centering
+\def\arraystretch{2}
+%...This table was powered by ChatGPT.
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \thead{Run\\number} 
+    & \thead{Cart ID} 
+    & \thead{Mass of\\cart\\(kg)} 
+    & \thead{Velocity\\before\\collision\\(m/s)} 
+    & \thead{Velocity\\after\\collision\\(m/s)} 
+    & \thead{Momentum\\before\\collision\\(\SI{}{kg\cdot m/s})} 
+    & \thead{Momentum\\after\\collision\\(\SI{}{kg\cdot m/s})} 
+    & \thead{Total\\momentum\\before\\collision\\(\SI{}{kg\cdot m/s})} 
+    & \thead{Total\\momentum\\after\\collision\\(\SI{}{kg\cdot m/s})} \\ 
+    \hline
+
+    \multirow{2}{*}{1}
+      & Cart 1
+      & {\anscolor \hspace{2mm} 0.29242 \hspace{2mm}} & {\anscolor 0.388} & \multirow{2}{*}{{\anscolor 0.195}}
+      & {\anscolor 0.1135} & \multirow{2}{*}{{\anscolor 0.1145}}
+      & \multirow{2}{*}{{\anscolor 0.1135}}
+      & \multirow{2}{*}{{\anscolor 0.1145}} \\
+    \cline{2-4}\cline{6-6}
+      & Cart 2
+      & {\anscolor 0.29486} & {\anscolor 0.000} &
+      & {\anscolor 0.000} & & & \\ 
+    \hline
+\end{tabular}
+\end{EnvUplevel}
+
+\part Calculate momentum ($p=mv$) values and record them in the table above, as follows:
+
+\begin{align*}
+    m_1 \text{ momentum before collision} &= m_1 \vec{v}_{1i} \\[1ex]
+    m_2 \text{ momentum before collision} &= m_2 \vec{v}_{2i} \\[1ex]
+    \text{total momentum before collision} &= m_1 \vec{v}_{1i} + m_2 \vec{v}_{2i} \\[1ex]
+    \text{total momentum after collision} &= (m_1 + m_2) \vec{v}_f
+\end{align*}
+
+
+\end{parts}
+
+
+\question
+\textit{Inelastic collision with Cart 2 initially in motion}.
+
+\begin{parts}
+\part Copy mass values to the table below from the previous table. 
+
+\part
+Place the Cart 2 in the middle of the track, and Cart 1 near \SI{0}{cm}. Click ``Collect'' and release both Carts 1 and 2 to roll to the right with Cart 2 at a slower velocity, so they collide.
+
+\begin{EnvUplevel}
+\centering
+\begin{tikzpicture}
+    \begin{axis}[width=15cm,
+        axis y line=none,
+        axis x line=left,
+        ymin=0,ymax=1,
+        xmin=0,xmax=122,
+        xtick={0,10,...,120},
+        minor x tick num=9]
+        \draw (5,0) rectangle ++(20,8mm) node[pos=0.5] {Cart 1};
+        \draw[very thick,->] (27,4mm) -- ++(10,0) node[pos=0.5,above] {$\vec{v}_{1i}$};
+        \draw (60,0) rectangle ++(20,8mm) node[pos=0.5,align=center] {Cart 2};
+        \draw[very thick,->] (82,4mm) -- ++(5,0) node[pos=0.5,above] {$\vec{v}_{2i}$};
+    \end{axis}
+    \node[above=1mm] at (current bounding box.north) {\bfseries Before Collision};
+\end{tikzpicture}
+
+\bigskip
+
+\begin{tikzpicture}
+    \begin{axis}[width=15cm,
+        axis y line=none,
+        axis x line=left,
+        ymin=0,ymax=1,
+        xmin=0,xmax=122,
+        xtick={0,10,...,120},
+        minor x tick num=9]
+        \draw (45,0) rectangle ++(20,8mm) node[pos=0.5] {Cart 1};
+        \draw (65,0) rectangle ++(20,8mm) node[pos=0.5,align=center] {Cart 2};
+        \draw[very thick,->] (88,4mm) -- ++(10,0) node[pos=0.5,above] {$\vec{v}_f$};
+    \end{axis}
+    \node[above=1mm] at (current bounding box.north) {\bfseries After Collision};
+\end{tikzpicture}
+\end{EnvUplevel}
+
+\part 
+Collect velocity data from graphical analysis and record values in the data table below.
+
+\part
+Calculate momentum ($p=mv$) values and record them in the table.
+
+\begin{EnvUplevel}
+\centering
+\def\arraystretch{2}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \thead{Run\\number} 
+    & \thead{Cart ID} 
+    & \thead{Mass of\\cart\\(kg)} 
+    & \thead{Velocity\\before\\collision\\(m/s)} 
+    & \thead{Velocity\\after\\collision\\(m/s)} 
+    & \thead{Momentum\\before\\collision\\(\SI{}{kg\cdot m/s})} 
+    & \thead{Momentum\\after\\collision\\(\SI{}{kg\cdot m/s})} 
+    & \thead{Total\\momentum\\before\\collision\\(\SI{}{kg\cdot m/s})} 
+    & \thead{Total\\momentum\\after\\collision\\(\SI{}{kg\cdot m/s})} \\ 
+    \hline
+
+    \multirow{2}{*}{2}
+      & Cart 1
+      & {\anscolor \hspace{2mm} 0.29242 \hspace{2mm}} & {\anscolor 0.450} & \multirow{2}{*}{{\anscolor 0.300}}
+      & {\anscolor 0.1316} & \multirow{2}{*}{{\anscolor 0.1762}}
+      & \multirow{2}{*}{{\anscolor 0.1761}}
+      & \multirow{2}{*}{{\anscolor 0.1762}} \\
+    \cline{2-4}\cline{6-6}
+      & Cart 2
+      & {\anscolor 0.29486} & {\anscolor 0.151} &
+      & {\anscolor 0.04452} & & & \\ 
+    \hline
+\end{tabular}
+\end{EnvUplevel}
+\end{parts}
+
+\medskip
+
+\question
+\textit{Inelastic collision with mass added to Cart 2}.
+
+\begin{parts}
+\part
+Add two weights to Cart 2. Measure the new mass of Cart 2, and update mass values in the table below.
+
+\part
+Place Cart 2 at rest in the middle of the track, and Cart 1 near \SI{0}{cm}. Click ``Collect'' and push Cart 1 so it rolls toward Cart 2, like in Question \ref{nLPqE}(b) above.
+
+\part 
+Collect velocity data from graphical analysis and record values in the data table below.
+
+\part Calculate momentum ($p=mv$) values and record them in the table.
+
+
+\begin{EnvUplevel}
+\def\arraystretch{2}
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \thead{Run\\number} 
+    & \thead{Cart ID} 
+    & \thead{Mass of\\cart\\(kg)} 
+    & \thead{Velocity\\before\\collision\\(m/s)} 
+    & \thead{Velocity\\after\\collision\\(m/s)} 
+    & \thead{Momentum\\before\\collision\\(\SI{}{kg\cdot m/s})} 
+    & \thead{Momentum\\after\\collision\\(\SI{}{kg\cdot m/s})} 
+    & \thead{Total\\momentum\\before\\collision\\(\SI{}{kg\cdot m/s})} 
+    & \thead{Total\\momentum\\after\\collision\\(\SI{}{kg\cdot m/s})} \\ 
+    \hline
+
+    \multirow{2}{*}{3}
+      & Cart 1
+      & {\anscolor \hspace{2mm} 0.29242 \hspace{2mm}} & {\anscolor 0.480} & \multirow{2}{*}{{\anscolor 0.172}}
+      & {\anscolor 0.1404} & \multirow{2}{*}{{\anscolor 0.1439}}
+      & \multirow{2}{*}{{\anscolor 0.1404}}
+      & \multirow{2}{*}{{\anscolor 0.1439}} \\
+    \cline{2-4}\cline{6-6}
+      & Cart 2
+      & {\anscolor 0.54416} & {\anscolor 0.000} &
+      & {\anscolor 0.000} & & & \\ 
+    \hline
+\end{tabular}
+\end{EnvUplevel}
+\end{parts}
+
+
+\begin{EnvUplevel}
+\textbf{Elastic Collisions}
+
+\textbf{\underline{Setup}:} For an elastic collision, set the magnets so that the carts bounce away from each other. 
+\end{EnvUplevel}
+
+
+\question \label{HrRIK}
+\textit{Elastic collision with Cart 2 initially at rest}. 
+
+\begin{parts}
+\part 
+Copy the original mass values for Carts 1 and 2 to the table below.
+
+\part
+Place Cart 2 at rest in the middle of the track, and Cart 1 near \SI{0}{cm}. Click ``Collect'' and gently push Cart 1 so it rolls toward Cart 2. The carts will collide and bounce off each other.
+
+\begin{EnvUplevel}
+\centering
+\begin{tikzpicture}
+    \begin{axis}[width=15cm,
+        axis y line=none,
+        axis x line=left,
+        ymin=0,ymax=1,
+        xmin=0,xmax=122,
+        xtick={0,10,...,120},
+        minor x tick num=9]
+        \draw (5,0) rectangle ++(20,8mm) node[pos=0.5] {Cart 1};
+        \draw[very thick,->] (27,4mm) -- ++(10,0) node[pos=0.5,above] {$\vec{v}_{1i}$};
+        \draw (60,0) rectangle ++(20,8mm) node[pos=0.5,align=center] {Cart 2} node[pos=0.5,right=11] {$\vec{v}_{2i} = 0$};
+    \end{axis}
+    \node[above=1mm] at (current bounding box.north) {\bfseries Before Collision};
+\end{tikzpicture}
+
+\bigskip
+
+\begin{tikzpicture}
+    \begin{axis}[width=15cm,
+        axis y line=none,
+        axis x line=left,
+        ymin=0,ymax=1,
+        xmin=0,xmax=122,
+        xtick={0,10,...,120},
+        minor x tick num=9]
+        \draw (45,0) rectangle ++(20,8mm) node[pos=0.5] {Cart 1};
+        \draw[very thick,->] (67,4mm) -- ++(10,0) node[pos=0.5,above] {$\vec{v}_{1f}$};
+        \draw (85,0) rectangle ++(20,8mm) node[pos=0.5,align=center] {Cart 2};
+        \draw[very thick,->] (107,4mm) -- ++(10,0) node[pos=0.5,above] {$\vec{v}_{2f}$};
+    \end{axis}
+    \node[above=1mm] at (current bounding box.north) {\bfseries After Collision};
+\end{tikzpicture}
+\end{EnvUplevel}
+
+
+\part 
+Collect velocity data from graphical analysis and record values in the data table below.
+
+\part Calculate momentum ($p=mv$) values and record them in the table. This time,
+
+\begin{equation*}
+    \text{total momentum after collision} = m_1 \vec{v}_{1f} + m_2 \vec{v}_{2f}
+\end{equation*}
+
+\begin{EnvUplevel}
+\centering
+\def\arraystretch{2}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \thead{Run\\number} 
+    & \thead{Cart ID} 
+    & \thead{Mass of\\cart\\(kg)} 
+    & \thead{Velocity\\before\\collision\\(m/s)} 
+    & \thead{Velocity\\after\\collision\\(m/s)} 
+    & \thead{Momentum\\before\\collision\\(\SI{}{kg\cdot m/s})} 
+    & \thead{Momentum\\after\\collision\\(\SI{}{kg\cdot m/s})} 
+    & \thead{Total\\momentum\\before\\collision\\(\SI{}{kg\cdot m/s})} 
+    & \thead{Total\\momentum\\after\\collision\\(\SI{}{kg\cdot m/s})} \\ 
+    \hline
+
+    % Run 1
+    \multirow{2}{*}{4}
+      & Cart 1
+      & {\anscolor \hspace{2mm} 0.29242 \hspace{2mm}} & {\anscolor 0.342} & {\anscolor 0.000}
+      & {\anscolor 0.1000} & {\anscolor 0.000}
+      & \multirow{2}{*}{{\anscolor 0.1000}}
+      & \multirow{2}{*}{{\anscolor 0.09907}} \\
+    \cline{2-7}
+      & Cart 2
+      & {\anscolor 0.29486} & {\anscolor 0.000} & {\anscolor 0.336}
+      & {\anscolor 0.000} & {\anscolor 0.09907}
+      & & \\ 
+    \hline
+\end{tabular}
+\end{EnvUplevel}
+\end{parts}
+
+\medskip
+
+\question
+\textit{Elastic collision with Cart 2 initially in motion}.
+
+\begin{parts}
+\part Copy mass values to the table below from the previous table. 
+
+\part
+Place Cart 1 near \SI{0}{cm} and Cart 2 on the opposite end. Click ``Collect'' and release both Carts 1 and 2 to roll towards each other, so that the carts move in opposite directions after the collision.
+
+\begin{EnvUplevel}
+\centering
+\begin{tikzpicture}
+    \begin{axis}[width=15cm,
+        axis y line=none,
+        axis x line=left,
+        ymin=0,ymax=1,
+        xmin=0,xmax=122,
+        xtick={0,10,...,120},
+        minor x tick num=9]
+        \draw (15,0) rectangle ++(20,8mm) node[pos=0.5] {Cart 1};
+        \draw[very thick,->] (37,4mm) -- ++(10,0) node[pos=0.5,above] {$\vec{v}_{1i}$};
+        \draw (85,0) rectangle ++(20,8mm) node[pos=0.5,align=center] {Cart 2};
+        \draw[very thick,->] (83,4mm) -- ++(-10,0) node[pos=0.5,above] {$\vec{v}_{2i}$};
+    \end{axis}
+    \node[above=1mm] at (current bounding box.north) {\bfseries Before Collision};
+\end{tikzpicture}
+
+\bigskip
+
+\begin{tikzpicture}
+    \begin{axis}[width=15cm,
+        axis y line=none,
+        axis x line=left,
+        ymin=0,ymax=1,
+        xmin=0,xmax=122,
+        xtick={0,10,...,120},
+        minor x tick num=9]
+        \draw (35,0) rectangle ++(20,8mm) node[pos=0.5] {Cart 1};
+        \draw[very thick,->] (33,4mm) -- ++(-10,0) node[pos=0.5,above] {$\vec{v}_{1f}$};
+        \draw (65,0) rectangle ++(20,8mm) node[pos=0.5,align=center] {Cart 2};
+        \draw[very thick,->] (87,4mm) -- ++(10,0) node[pos=0.5,above] {$\vec{v}_{2f}$};
+    \end{axis}
+    \node[above=1mm] at (current bounding box.north) {\bfseries After Collision};
+\end{tikzpicture}
+\end{EnvUplevel}
+
+\part 
+Collect velocity data from graphical analysis and record values in the data table below.
+
+\part
+Calculate momentum ($p=mv$) values and record them in the table.
+
+\begin{EnvUplevel}
+\centering
+\def\arraystretch{2}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \thead{Run\\number} 
+    & \thead{Cart ID} 
+    & \thead{Mass of\\cart\\(kg)} 
+    & \thead{Velocity\\before\\collision\\(m/s)} 
+    & \thead{Velocity\\after\\collision\\(m/s)} 
+    & \thead{Momentum\\before\\collision\\(\SI{}{kg\cdot m/s})} 
+    & \thead{Momentum\\after\\collision\\(\SI{}{kg\cdot m/s})} 
+    & \thead{Total\\momentum\\before\\collision\\(\SI{}{kg\cdot m/s})} 
+    & \thead{Total\\momentum\\after\\collision\\(\SI{}{kg\cdot m/s})} \\ 
+    \hline
+    
+    % Run 2
+    \multirow{2}{*}{5}
+      & Cart 1
+      & {\anscolor \hspace{2mm} 0.29242 \hspace{2mm}} & {\anscolor 0.677} & {\anscolor 0.254}
+      & {\anscolor 0.1980} & {\anscolor 0.07427}
+      & \multirow{2}{*}{{\anscolor 0.2740}}
+      & \multirow{2}{*}{{\anscolor 0.2709}} \\
+    \cline{2-7}
+      & Cart 2
+      & {\anscolor 0.29486} & {\anscolor 0.258} & {\anscolor 0.667}
+      & {\anscolor 0.07607} & {\anscolor 0.1967}
+      & & \\ 
+    \hline
+\end{tabular}
+\end{EnvUplevel}
+\end{parts}
+
+\medskip
+
+\question
+\textit{Elastic collision with mass added to Cart 2}.
+
+\begin{parts}
+\part
+Add two weights to Cart 2. Measure the new mass of Cart 2, and update mass values in the table below.
+
+\part
+Place Cart 2 at rest in the middle of the track, and Cart 1 near \SI{0}{cm}. Click ``Collect'' and push Cart 1 so it rolls toward Cart 2. The carts will collide and bounce off each other, like in Question \ref{HrRIK}(b). 
+
+\part 
+Collect velocity data from graphical analysis and record values in the data table below.
+
+\part Calculate momentum ($p=mv$) values and record them in the table.
+
+\begin{EnvUplevel}
+\centering
+\def\arraystretch{2}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \thead{Run\\number} 
+    & \thead{Cart ID} 
+    & \thead{Mass of\\cart\\(kg)} 
+    & \thead{Velocity\\before\\collision\\(m/s)} 
+    & \thead{Velocity\\after\\collision\\(m/s)} 
+    & \thead{Momentum\\before\\collision\\(\SI{}{kg\cdot m/s})} 
+    & \thead{Momentum\\after\\collision\\(\SI{}{kg\cdot m/s})} 
+    & \thead{Total\\momentum\\before\\collision\\(\SI{}{kg\cdot m/s})} 
+    & \thead{Total\\momentum\\after\\collision\\(\SI{}{kg\cdot m/s})} \\ 
+    \hline
+    
+    % Run 3
+    \multirow{2}{*}{6}
+      & Cart 1
+      & {\anscolor \hspace{2mm} 0.29242 \hspace{2mm}} & {\anscolor 0.401} & {\anscolor $-0.107$}
+      & {\anscolor 0.1173} & {\anscolor $-0.03129$}
+      & \multirow{2}{*}{{\anscolor 0.1173}}
+      & \multirow{2}{*}{{\anscolor 0.1200}} \\
+    \cline{2-7}
+      & Cart 2
+      & {\anscolor 0.54416} & {\anscolor 0.000} & {\anscolor 0.278}
+      & {\anscolor 0.000} & {\anscolor 0.1513}
+      & & \\ 
+    \hline
+\end{tabular}
+\end{EnvUplevel}
+
+\end{parts}
+
+\medskip
+
+\question
+\textit{Analysis.}
+If the total momentum for a system is the same before and after the collision, we say that momentum is conserved. Let's look for evidence of momentum conservation.
+
+Look at the last 2 columns of each of the tables above. For the two-cart system, let
+
+\begin{align*}
+    p_i &= \text{total momentum before collision} \\
+    p_f &= \text{total momentum after collision}
+\end{align*}
+
+\begin{parts}
+\part Use the formula
+
+\begin{equation*}
+    \text{percent difference} = \frac{\left|p_f - p_i\right|}{\frac{1}{2}\left(\left|p_i\right| + \left|p_f\right|\right)} \times 100
+\end{equation*}
+
+to calculate the percent difference in total momentum for each of the 6 trials, and record your values below. \textit{Tip:} Define variables in \href{https://www.desmos.com/scientific}{desmos.com/scientific} to streamline your calculations.
+
+\begin{center}
+\def\arraystretch{2}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+     & Run 1 & Run 2 & Run 3 & Run 4 & Run 5 & Run 6 \\ \hline
+    \% difference & {\anscolor 0.93} & {\anscolor 0.04} & {\anscolor 2.5} & {\anscolor 0.94} & {\anscolor 1.1} & {\anscolor 2.3} \\ \hline
+\end{tabular}
+\end{center}
+
+\part If the percent difference is less than 5\%, there is good evidence that momentum is conserved. Was momentum conserved in the 6 runs in this lab? Cite evidence from the table above.
+
+\ifprintanswers
+\else
+\fillwithlines{21mm}
+\fi
+
+\end{parts}
+
+
+\end{questions}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+%     \hline
+%     \thead{Run\\number} 
+%     & \thead{Cart ID} 
+%     & \thead{Mass of\\cart\\(kg)} 
+%     & \thead{Velocity\\before\\collision\\(m/s)} 
+%     & \thead{Velocity\\after\\collision\\(m/s)} 
+%     & \thead{Momentum\\before\\collision\\(\SI{}{kg\cdot m/s})} 
+%     & \thead{Momentum\\after\\collision\\(\SI{}{kg\cdot m/s})} 
+%     & \thead{Total\\momentum\\before\\collision\\(\SI{}{kg\cdot m/s})} 
+%     & \thead{Total\\momentum\\after\\collision\\(\SI{}{kg\cdot m/s})} \\ 
+%     \hline
+
+%     1 & Cart 1 & & & \multirow{2}{*}{} & & & & \\ \cline{1-4}\cline{6-9}
+%     1 & Cart 2 & & &                 & & & & \\ \hline
+
+%     2 & Cart 1 & & & & & & & \\ \hline
+%     2 & Cart 2 & & & & & & & \\ \hline
+%     3 & Cart 1 & & & & & & & \\ \hline
+%     3 & Cart 2 & & & & & & & \\ \hline
+% \end{tabular}
+
+% \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+%     \hline
+%     \thead{Run\\number} 
+%     & \thead{Cart ID} 
+%     & \thead{Mass of\\cart\\(kg)} 
+%     & \thead{Velocity\\before\\collision\\(m/s)} 
+%     & \thead{Velocity\\after\\collision\\(m/s)} 
+%     & \thead{Momentum\\before\\collision\\(\SI{}{kg\cdot m/s})} 
+%     & \thead{Momentum\\after\\collision\\(\SI{}{kg\cdot m/s})} 
+%     & \thead{Total\\momentum\\before\\collision\\(\SI{}{kg\cdot m/s})} 
+%     & \thead{Total\\momentum\\after\\collision\\(\SI{}{kg\cdot m/s})}  \\ \hline
+%     1 & Cart 1 & & & & & & & \\ \hline
+%     1 & Cart 2 & & & & & & & \\ \hline
+%     2 & Cart 1 & & & & & & & \\ \hline
+%     2 & Cart 2 & & & & & & & \\ \hline
+%     3 & Cart 1 & & & & & & & \\ \hline
+%     3 & Cart 2 & & & & & & & \\ \hline
+% \end{tabular}
+
+
+\clearpage
+
+\subsection{Energy is Conserved}
+
+\begin{questions}
+    
+
+
+\question \label{xxSTEr}
+What is the equation for gravitational potential energy? What is the SI unit of gravitational potential energy?
+
+
+\question
+What is the magnitude of acceleration due to gravity on Earth, $g$?
+
+
+\question \label{9p9meZ}
+Determine the gravitational potential energy gained by a 4.0-kg rock that is raised to a height of \SI{18.00}{m}.
+%\correctchoice \SI{705.6}{J}
+
+\begin{solution}
+\SI{705.6}{J}
+\end{solution}
+
+
+\question \label{i6NTnH}
+Spots, the leopard whose mass is \SI{55.0}{kg}, climbs 12.0 meters up a tree. What is Spots's gravitational potential energy relative to the ground?
+
+\begin{solution}
+\SI{6468}{J}
+\end{solution}
+
+\question \label{FAhPt5}
+Santi, the soccer player, kicks a 2-kilogram ball up to a height of 15 meters. At this peak height, what is the ball's gravitational potential energy?
+
+\begin{solution}
+\SI{294}{J}
+\end{solution}
+
+
+\question \label{Nn51QC}
+A 5-kilogram ball gets kicked in the air to a maximum height of 39 meters. At the peak, what is the ball's gravitational potential energy?
+
+\begin{solution}
+\SI{1911}{J}
+\end{solution}
+
+\textbf{\ref{4S1RQ9}--\ref{Y0v7pI}} Calculate gravitational potential energy.
+
+\question \label{4S1RQ9}
+Mass is \SI{15}{kg}. Height is \SI{12}{m}.
+
+\begin{solution}
+\SI{1764}{J}
+\end{solution}
+
+
+\question \label{NS8TFJ}
+Mass is \SI{50}{kg}. Height is \SI{26}{m}.
+
+\begin{solution}
+\SI{1.27e4}{J}
+\end{solution}
+
+
+\question \label{29XPZj}
+$m = \SI{9}{kg}$. $h = \SI{51}{m}$.
+
+\begin{solution}
+\SI{4498}{J}
+\end{solution}
+
+
+\question \label{Fv0opf}
+$m = \SI{87}{kg}$. $h = \SI{2}{m}$.
+
+\begin{solution}
+\SI{1705}{J}
+\end{solution}
+
+
+\question \label{Y0v7pI}
+Mass is 2000 kilograms. Height is 3 kilometers.
+
+\begin{solution}
+\SI{5.88e7}{J}
+\end{solution}
+
+
+\question \label{CdBjWD}
+Milo, the \SI{4.5}{kg} cat, while attempting to catch a fly on the wall, leaps as high as he can and gains \SI{66.15}{J} of gravitational potential energy. How high did Milo jump?
+
+\begin{solution}
+\SI{1.5}{m}
+\end{solution}
+
+
+\question \label{M8oc7x}
+How high above the ground is an object with a mass of \SI{100}{kg} whose gravitational potential energy is \SI{49000}{J}?
+
+\begin{solution}
+\SI{50}{m}
+\end{solution}
+
+\question \label{4S3f3k}
+A motorcycle gains 2.5 meters in height after riding off a ramp. If it's gravitational potential energy at that instant is \SI{9500}{J}, what is the motorcycle's mass?
+
+\begin{solution}
+\SI{387.8}{kg}
+\end{solution}
+
+\question \label{JangCo}
+What is the mass of an object that has a gravitational potential energy of \SI{275}{J} when it is \SI{14}{m} above the ground?
+
+\begin{solution}
+\SI{2.0}{kg}
+\end{solution}
+
+
+
+
+\end{questions}
+
+
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=7cm,height=6cm,
+    % axis lines=left,
+    ybar,
+    symbolic x coords={initial, final},
+    xtick=data,
+    ylabel={Kinetic Energy (J)},
+    ymin=0, ymax=10,
+    ytick={0,1,...,10},
+    bar width=35pt,
+    enlarge x limits=0.5,
+    ymajorgrids=true,
+    tick pos=left,
+    title={Change in Kinetic Energy}
+]
+\addplot[black,fill=black!20] coordinates {(initial,8) (final,2)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\clearpage
+
+\end{questions}
+
+\subsubsection{Law of Conservation of Energy}
+
+\begin{questions}
+
+\question 
+\href{https://phet.colorado.edu/en/simulations/energy-forms-and-changes}{Click here} to access the \texttt[red]{PhET Simulation: Energy Forms and Changes} (or Google it). Press the play ({\tiny \faPlay}) button in the center of the page. Click the \texttt[red]{Systems} panel. Check the \texttt[red]{Energy Symbols} box in the upper right-hand corner. Slide the slider under the bicycle to the right, remembering to periodically feed the cyclist, whom we will call Angelica. Answer Exercises \ref{UVgdHj}--\ref{IPOKOY} below.
+
+
+\question \label{UVgdHj}
+What are the 5 forms of energy shown in the simulation?
+
+
+\question
+What form of energy comes from within Angelica? (This is the energy she gets from food.)
+
+
+\question
+What form of energy does Angelica exert on the bike pedals?
+
+
+\question
+What form of energy is released by contact between the tire and the belt? 
+
+
+\question
+What form of energy causes the wooden turbine to rotate?
+
+
+\question
+The turbine coverts mechanical energy to what form of energy?
+
+
+\question
+Simulate a configuration in which light energy from the Sun gets transformed to electrical energy and then back to light energy (plus a bit of thermal energy). Draw a sketch of the final configuration and label the parts on your sketch.
+
+
+\question
+Simulate a configuration where energy transforms from light to electrical to mechanical energy. Draw a sketch of the configuration and label the parts.
+
+
+\question
+Simulate a configuration where energy transforms from thermal to mechanical to electrical and finally to light energy. Draw a sketch of the configuration and label the parts.
+
+
+\question \label{IPOKOY}
+Simulate a configuration where all 5 forms of energy are involved. Draw a sketch of the configuration and label all parts.
+
+\question
+Write the law of conservation of mechanical energy, both in words and in equation form. (There are 3 ways to write the equation.)
+
+
+\question \label{kfZAyg}
+Xena, the \SI{63}{kg} skateboarder, stars from rest from the top of a \SI{12}{m} parabolic ramp, like the one shown in Example \ref{mUfgIz}. What is her kinetic energy at the bottom of the ramp?
+
+\begin{solution}
+\SI{7408.9}{J}
+\end{solution}
+
+
+\question \label{5Nd1zt}
+How fast is Xena, from Exercise \ref{kfZAyg}, going at the bottom of the ramp?
+
+\begin{solution}
+\SI{15.3}{m/s}
+\end{solution}
+
+
+\question \label{FWuV0W}
+A 1.25-kg bowling ball is dropped from the top of the \href{https://en.wikipedia.org/wiki/JPMorgan_Chase_Tower_(Houston)}{JPMorgan Chase Tower}, the tallest building in Houston and in Texas. (Don't worry: all people and objects were safely cleared out below.) What is the kinetic energy of the bowling ball the instant before it impacts the ground? Assume there is no air resistance.
+
+\begin{solution}
+\SI{3741}{J}
+\end{solution}
+
+\question \label{c4eP75}
+Calculate the speed of the bowling ball from Exercise \ref{FWuV0W} the instant before it hits the ground.
+
+\begin{solution}
+\ref{c4eP75}. \SI{77.37}{m/s}
+\end{solution}
+
+\question
+Imagine a ball on a track starts from rest at the position labeled \texttt{start} and moves down the track towards other positions. Assume no energy is transferred between the ball and the track or between the ball and the air around it. What is the highest position the ball will reach before stopping and going back down the track? 
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=8cm,height=5cm,
+    clip=false,
+    xmin=-3,xmax=3,ymin=0,ymax=6,
+    axis lines=right,
+    axis line style={draw=none},
+    %ticks=none,
+    xtick style={draw=none},
+    xticklabels={,,},
+    ymajorgrids=true,
+    ytick={0,1,...,6},
+]
+
+\addplot[ultra thick,samples=100,
+    domain=-2.5:2.5
+]{x^2}; 
+\fill (-2*0.9,4) circle (2mm) node[left=2mm] {\texttt{start}};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{randomizechoices}[keeplast]
+    \correctchoice 4
+    \choice 3
+    \choice 2
+    \choice 5
+    \choice None of the above
+\end{randomizechoices}
+
+
+
+\question
+A \SI{12.5}{kg} glider is observed flying at an altitude of \SI{1510}{m} at a constant velocity of \SI{18}{m/s}. The glider dives to a new altitude of \SI{1250}{m}. Neglecting the effects of air resistance, what is the change in the glider's gravitational potential energy?
+
+\begin{randomizechoices}
+\choice \SI{338000}{J}
+\choice \SI{185000}{J}
+\correctchoice \SI{-31850}{J}
+\choice \SI{-15300}{J}
+\end{randomizechoices}
+
+\question
+A diver with a mass of \SI{80.0}{kg} dives off a \SI{10.0}{m} platform. His velocity just before striking the water is \SI{14.0}{m/s}. What is his kinetic energy at that moment?
+
+\begin{randomizechoices}
+\choice \SI{800}{m/s}
+\choice \SI{8000}{m/s}
+\correctchoice \SI{7840}{m/s}
+\choice \SI{7500}{m/s}
+\end{randomizechoices}
+
+\question
+A ball is dropped from the top of a tall cliff. As the ball falls freely (without air resistance) toward the ground, its total mechanical energy\ldots 
+
+\begin{randomizechoices}
+\choice increases.
+\choice decreases.
+\correctchoice remains the same.
+\end{randomizechoices}
+
+\question
+Using ground level as the reference height with zero potential energy, which object has the GREATEST gravitational potential energy?
+
+\begin{randomizechoices}
+\choice a \SI{40}{kg} object at a \SI{2}{m} height
+\choice a \SI{2}{kg} object at a \SI{60}{m} height
+\choice a \SI{5}{kg} object at a \SI{5}{m} height
+\correctchoice a \SI{20}{kg} object at a \SI{50}{m} height
+\end{randomizechoices}
+
+\question
+What is the kinetic energy of a \SI{2.0}{kg} toy car moving at \SI{5}{m/s}?
+
+\begin{randomizechoices}
+\choice \SI{10}{J}
+\correctchoice \SI{25}{J}
+\choice \SI{50}{J}
+\choice \SI{5}{J}
+\end{randomizechoices}
+
+\question
+How high can a worker on a construction crane lift a \SI{40}{kg} bag of sand if the crane uses \SI{4,000}{J} of energy? Assume no energy is used to overcome friction.
+
+\begin{randomizechoices}
+\choice \SI{160000}{m}
+\choice \SI{1020}{m}
+\correctchoice \SI{10.2}{m}
+\choice \SI{16.0}{m}
+\end{randomizechoices}
+
+\question
+Three hikers take three different paths to the top of a mountain, Paths 1, 2, and 3. The hikers are all have the same height and weight. When all of the hikers are at the finish point at the top of the mountain, which hiker will have the greatest amount of gravitational potential energy?
+
+\begin{randomizechoices}
+\choice The hiker who took Path 1. 
+\choice The hiker who took Path 2.
+\choice The hiker who took Path 3.
+\choice The gravitational potential energy is the same for all the hikers.
+\end{randomizechoices}
+
+\question
+A high diver steps off a diving platform that is 10 meters above the water. Assume there is no air resistance. During the fall, there will be a decrease in the diver's \fillin\ .
+
+\begin{randomizechoices}
+\choice kinetic energy
+\choice total mechanical energy
+\correctchoice gravitational potential energy
+\choice momentum
+\end{randomizechoices}
+
+
+\question
+The amount of potential energy possessed by an elevated object is equal to \fillin\ .
+
+\begin{randomizechoices}
+\choice the distance it is lifted
+\choice the power used to lift it
+\correctchoice the work done in lifting it
+\choice the force needed to lift it
+\choice the value of the acceleration due to gravity
+\end{randomizechoices}
+
+\question
+A  ball is thrown into the air with \SI{100}{J} of kinetic energy, which is transformed to gravitational potential energy at the top of its trajectory. When it returns to its original level (neglecting air resistance), its kinetic energy is \fillin\ .
+
+\begin{randomizechoices}
+\choice less than \SI{100}{J}
+\choice more than \SI{100}{J}
+\correctchoice \SI{100}{J}
+\choice not possible to calculate
+\end{randomizechoices}
+
+\question
+An object that has kinetic energy must be \fillin\ .
+
+\begin{randomizechoices}
+\correctchoice moving
+\choice at rest
+\choice falling
+\choice elevated
+\end{randomizechoices}
+
+
+\question
+Mechanical energy can be in the form of
+
+\begin{randomizechoices}
+\choice kinetic energy only
+\choice neither kinetic nor potential energy
+\correctchoice both kinetic and potential energy
+\choice potential energy only
+\end{randomizechoices}
+
+\question
+Gravitational potential energy is the energy an object has stored due to its \fillin\ .
+
+\begin{randomizechoices}
+\choice density
+\correctchoice height above ground
+\choice color
+\choice speed and direction
+\end{randomizechoices}
+
+
+\end{questions}
+
+\subsubsection{Power (Revisited)}
+
+\begin{questions}
+\question
+The SI unit of power is the \fillin\ .
+
+\begin{randomizechoices}
+\choice meter (m)
+\choice joule (J)
+\correctchoice watt (W)
+\choice second (s)
+\choice newton (N)
+\end{randomizechoices}
+
+
+\question
+How much power is required to do \SI{40}{J} of work on an object in 5 seconds?
+
+\begin{randomizechoices}
+\choice \SI{200}{W}
+\choice \SI{5}{W}
+\choice \SI{40}{W}
+\choice \SI{0}{W}
+\correctchoice \SI{8}{W}
+\end{randomizechoices}
+
+\question
+How much power is expended if you lift a \SI{60}{N} crate 10 meters in 1 second?
+
+\begin{randomizechoices}
+\choice \SI{6}{W}
+\choice \SI{0}{W}
+\correctchoice \SI{600}{W}
+\choice \SI{10}{W}
+\choice \SI{60}{W}
+\end{randomizechoices}
+\end{questions}
+
+\clearpage
+
+\subsection{Momentum is Conserved}
+
+\subsubsection{Momentum, Force, and Impulse in Collisions and Explosions}
+
+\subsubsection{Total Momentum Before and After Collisions and Explosions}
+
+\begin{questions}
+\question
+A \SI{3}{kg} cannonball is shot from a \SI{200}{kg} cannon initially at rest. The cannon recoils backwards at \SI{0.4}{m/s}.
+
+\begin{center}
+\begin{tikzpicture}
+    \draw (0,-0.4) rectangle (2.5,0.4);
+    \fill (2.5,0) ellipse (0.12 and 0.4);
+    \draw (0.8,-0.1) node {\resizebox{1cm}{!}{\textlinb{\BPwheel}}};
+\end{tikzpicture}
+\hspace{3cm}
+\begin{tikzpicture}
+    \draw (0,-0.4) rectangle (2.5,0.4);
+    \fill (2.5,0) ellipse (0.12 and 0.4);
+    \draw (0.8,-0.1) node {\resizebox{1cm}{!}{\textlinb{\BPwheel}}};
+    \draw[->,thick] (-0.1,0) -- ++(-1,0) node[above,pos=0.9] {\SI{0.4}{m/s}};
+    \begin{scope}[shift={(3.5,0)}]
+        \draw[fill=lightgray] (0,0) circle (0.3);
+        \draw[->,thick] (0.4,0) -- ++(1,0);
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+\end{questions}
+
+\subsubsection{Law of Conservation of Momentum}
+
+\begin{questions}
+\question
+State the law of conservation of momentum.
+
+
+\question
+When is momentum said to be conserved?
+
+
+\question
+What is an isolated system?
+
+
+\question
+A ball is hit by a racket and its momentum changes. Under what conditions is momentum conserved?
+\end{questions}
+
+\subsubsection{Solving for Unknown Quantities using Conservation of Momentum}
+
+\clearpage
+
+\begin{questions}
+\question
+A 11\,kg cube of bricks moving to the right at 12\,m/s collides with a 17\,kg cube of metal moving to the left at 19\,m/s. The objects slide on level ice, so you can ignore friction. (a) If the brick cube recoils at 24\,m/s to the left, what is the speed of the metal cube after collision? (b) In what direction does the metal cube move after collision? How do you know?
+
+
+\begin{solution}
+We are given 
+
+\vspace{-1em}
+\begin{align*}
+    m_1 &= \SI{11}{kg} \\[1ex]
+    v_1 &= \SI{12}{m/s} \\[1ex]
+    m_2 &= \SI{17}{kg} \\[1ex]
+    v_2 &= \SI{-19}{m/s} \\[1ex]
+    v_1^{\prime} &= \SI{-24}{m/s}
+\end{align*}
+
+Conservation of energy states
+
+\begin{equation*}
+    m_1v_1 + m_2 v_2 = m_1 v_1^{\prime} + m_2 v_2^{\prime}
+\end{equation*}
+
+Solving for $v_2^{\prime}$ and plugging in known values leads to a velocity of
+
+\begin{equation*}
+    v_2 = \frac{m_1 v_1 + m_2 v_2 - m_1 v_1^{\prime}}{m_2} = \boxed{\SI{4.3}{m/s}}
+\end{equation*}
+
+(b) The metal cube will recoil backwards and travel to the right, because our velocity value in the previous calculation is positive, indicating rightward motion.
+\end{solution}
+
+\question
+A \SI{1.00}{kg} marble moving to the right at \SI{0.80}{m/s} collides with a \SI{3.00}{kg} marble moving to the left at \SI{0.25}{m/s}. After the collision, the second marble recoils to the right at \SI{0.275}{m/s}. What is the velocity of the first marble after collision? 
+%\hfill \rotatebox[origin=c]{180}{\scriptsize \textcolor{lightgray}{\SI{-0.775}{m/s}}}
+
+\begin{solution}
+    \SI{-0.775}{m/s}
+\end{solution}
+
+\question
+After the elastic collision below, Ball 2 recoils at \SI{0.274}{m/s} to the right. Find the velocity of Ball 1 after collision. 
+%\hfill \rotatebox[origin=c]{180}{\scriptsize \textcolor{lightgray}{\SI{-4.75}{m/s}}}
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw[very thick,->] (0,0) -- (2.5,0) node[above] {\SI{3.76}{m/s}}; 
+        \draw[fill=white] (0,0) circle (1) node {\SI{1.54}{kg}};
+        \begin{scope}[shift={(8,0)}]
+            \draw[very thick,->] (0,0) -- ++(-2.5,0) node[above] {\SI{1.26}{m/s}}; 
+            \draw[fill=white] (0,0) circle (1) node {\SI{8.54}{kg}};
+        \end{scope}
+    \end{tikzpicture}
+\end{center}
+
+\begin{solution}
+    \SI{-4.75}{m/s}
+\end{solution}
+
+\question
+After the following elastic collision, Ball 2 moves at \SI{2.98}{m/s}. Find the final speed of Ball 1.
+
+%\hfill \rotatebox[origin=c]{180}{\scriptsize \textcolor{lightgray}{\SI{1.27}{m/s}}}
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw[very thick,->] (0,0) -- (2.5,0) node[above] {\SI{3.30}{m/s}}; 
+        \draw[fill=white] (0,0) circle (1) node {\SI{3.66}{kg}};
+        \begin{scope}[shift={(6,0)}]
+            \draw[very thick,->] (0,0) -- ++(2.5,0) node[above] {\SI{1.59}{m/s}}; 
+            \draw[fill=white] (0,0) circle (1) node {\SI{5.34}{kg}};
+        \end{scope}
+    \end{tikzpicture}
+\end{center}
+
+
+\begin{solution}
+    \SI{1.27}{m/s}
+\end{solution}
+
+\question
+After the following elastic collision, Ball 1 moves at \SI{6.38}{m/s} to the left. What is the velocity of Ball 2 after collision? %\hfill \rotatebox[origin=c]{180}{\scriptsize \textcolor{lightgray}{\SI{-1.63}{m/s}}}
+
+
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw[very thick,->] (0,0) -- (2.5,0) node[above] {\SI{1.10}{m/s}}; 
+        \draw[fill=white] (0,0) circle (1) node {\SI{2.01}{kg}};
+        \begin{scope}[shift={(8,0)}]
+            \draw[very thick,->] (0,0) -- ++(-2.5,0) node[above] {\SI{3.65}{m/s}}; 
+            \draw[fill=white] (0,0) circle (1) node {\SI{7.34}{kg}};
+        \end{scope}
+    \end{tikzpicture}
+\end{center}
+
+
+\begin{solution}
+    \SI{-1.60}{m/s}
+\end{solution}
+
+
+\question 
+After an elastic collision, Ball 1 moves with a velocity of \SI{-0.125}{m/s}. What is the velocity of Ball 2?
+
+% \hfill \rotatebox[origin=c]{180}{\scriptsize \textcolor{lightgray}{\SI{1.375}{m/s}}}
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw[very thick,->] (0,0) -- (2.5,0) node[above] {\SI{1.00}{m/s}}; 
+        \draw[fill=white] (0,0) circle (1) node {\SI{2.50}{kg}};
+        \begin{scope}[shift={(8,0)}]
+            \draw[very thick,->] (0,0) -- ++(-2.5,0) node[above] {\SI{0.50}{m/s}}; 
+            \draw[fill=white] (0,0) circle (1) node {\SI{1.50}{kg}};
+        \end{scope}
+    \end{tikzpicture}
+\end{center}
+
+
+\begin{solution}
+    \SI{1.375}{m/s}
+\end{solution}
+
+\clearpage
+
+\question \label{W5BnBq} %%% Refer to this example at the beginning of the unit to motivate a better understanding of momentum. Our object is to scaffold up 
+Nancy the ice skater, whose mass is \SI{70}{kg}, stands at rest with ice skates on an icy (frictionless) surface. She uses superhero strength to throw a \SI{5}{kg} sack of potatoes horizontally away from her body at \SI{50}{m/s} (\SI{112}{mph}). As a result of both the frictionless surface and the law of conservation of momentum, she will accelerate in the direction opposite the sack. The speed she gains as a result throwing the object is known as the \textbf{recoil velocity}. Calculate Nancy's recoil velocity.
+
+\begin{center}
+\begin{tikzpicture}
+    \draw[fill=lightgray] (0,0) circle (6mm) node[left=6mm] {\SI{70}{kg}};
+    \draw[fill=lightgray] (0.9,0) circle (3mm) node[right=3mm] {\SI{5}{kg}};
+\end{tikzpicture}%
+\hspace{2cm}
+\begin{tikzpicture}
+    \draw[->] (0,0) -- (-1.2,0) node[left] {$v_1^\prime$};
+    \draw[fill=lightgray] (0,0) circle (6mm); %node[below=6mm] {\SI{70}{kg}};
+    \begin{scope}[xshift=2cm]
+        \draw[->] (0,0) -- (+2.2,0) node[right] {$v_2^\prime = \SI{50}{m/s}$};
+        \draw[fill=lightgray] (0,0) circle (3mm); %node[below=3mm] {\SI{5}{kg}};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+
+
+\begin{solution}
+We are given Nancy's mass, the sack's mass, and the final velocity of the sack: $m_1 = \SI{70}{kg}$, $m_2 = \SI{5}{kg}$, and $v_2^{\prime} = \SI{50}{m/s}$. Furthermore, the initial velocities of both objects is zero: $v_1 = 0$ and $v_2 = 0$. The unknown quantity we're looking for is Nancy's final (recoil) velocity: $v_1^{\prime} =\ ?$ All these quantities are related by the law of conservation of momentum:
+
+\begin{equation*}
+    m_1 v_1 + m_2 v_2 = m_1 v_1^{\prime} + m_2 v_2^{\prime}
+\end{equation*}
+
+Substituting the known values leads to 
+
+\begin{equation*}
+    0 = 70\,v_1^{\prime} + (5)(50)
+\end{equation*}
+
+ which simplifies to 
+
+ \begin{equation*}
+     0 = 70\,v_1^{\prime} + 250
+ \end{equation*}
+
+ Solve for the recoil velocity ($v_1^{\prime}$) as follows:
+
+ \begin{align*}
+     \textbf{Write $v_1^{\prime}$ on left} \qquad & 70\,v_1^{\prime} + 250 = 0\\[0.5ex]
+     \textbf{Subtract 250} \qquad & 70\,v_1^{\prime} + \cancel{250} \mathbin{\color{red} - } \textcolor{red}{\cancel{250}} = \mathbin{\color{red} - } \textcolor{red}{250}\\[0.5ex]
+     \textbf{Simplify} \qquad &  70\,v_1^{\prime} = -250\\[0.5ex]
+     \textbf{Divide by 70} \qquad & \frac{\cancel{70}\,v_1^{\prime}}{\textcolor{red}{\cancel{70}}} = \frac{-250}{\textcolor{red}{70}}\\[0.5ex]
+     \textbf{Simplify} \qquad & v_1^{\prime} = -3.57\\
+ \end{align*}
+
+Therefore, Nancy's recoil velocity is \SI{-3.57}{m/s}. She slides backwards as a result of throwing the object forward, all while the momentum of the system remains conserved.
+\end{solution}
+
+\begin{EnvUplevel} %...APP1-8.32
+    \textbf{Questions \ref{MLfZn}--\ref{Gw24a}.} During an ice show, a 55\,kg skater leaps into the air and is caught by an initially stationary 79\,kg skater. 
+\end{EnvUplevel}
+     
+\question \label{MLfZn}
+What is their final velocity assuming negligible friction and that the 55\,kg skater's original horizontal velocity is 5.75\,m/s? 
+ 
+\begin{randomizechoices}
+    \correctchoice \SI{2.36}{m/s}
+    \choice \SI{14.0}{m/s}
+    \choice \SI{4.00}{m/s}
+    \choice \SI{8.24}{m/s}
+\end{randomizechoices}
+ 
+\question \label{Gw24a}
+How much kinetic energy is lost?
+ 
+\begin{randomizechoices}
+    \correctchoice \SI{536}{J}
+    \choice \SI{1278}{J}
+    \choice \SI{906}{J}
+    \choice \SI{0}{J}
+\end{randomizechoices}
+
+\bigskip
+
+\hrule
+
+\question \label{copy of 4.4 Q7 Inelastic collisions - final kinetic energy}
+
+A \SI{6}{kg} penguin sliding at \SI{4}{m/s} collides and sticks to a second \SI{10}{kg} penguin that is initially stationary. What is the kinetic energy of the system of penguins after the collision?
+
+\ifprintanswers
+{\color{red}
+$\displaystyle \frac{1}{2} \left(\frac{m_1^2}{m_1 + m_2}\right) v^2$
+}
+\medskip
+\fi
+
+\begin{randomizechoices}
+    \correctchoice \SI{18}{J}
+    \choice \SI{48}{J}
+    \choice \SI{1.5}{J}
+    \choice \SI{128}{J}
+\end{randomizechoices}
+
+
+
+\question
+Two objects moving towards each other experience an inelastic collision. After the collision, the kinetic energy of the system\dots    
+ 
+\begin{randomizechoices}[keeplast]
+    \choice remains constant
+    \choice increases
+    \correctchoice decreases
+    \choice may increase or decrease depending on the speeds of the objects
+\end{randomizechoices}
+
+\question %...Example 8.1 
+Calculate the momentum of a \SI{116}{kg} football player running at \SI{7.0}{m/s}. 
+
+\begin{randomizechoices}
+    \correctchoice \SI{812}{kg\,m/s}
+    \choice \SI{123}{kg\,m/s}
+    \choice \SI{16.6}{kg\,m/s}
+    \choice \SI{2842}{kg\,m/s}
+\end{randomizechoices}
+
+
+\question \label{yEzMEO}
+A billiards ball rolling on the table has momentum $p_1$. It hits another stationary ball, which then starts rolling. Considering friction to be negligible, what will happen to the momentum of the first ball?
+
+\begin{solution}
+It will decrease.
+\end{solution}
+
+
+
+
+
+\question \label{rhrGbz}
+What is an elastic collision?
+
+
+
+\question \label{Hjk6xk}
+What is an inelastic collision?
+
+
+\question \label{3Fptzi}
+An object with a mass of \SI{1.25}{kg} moving at a velocity of \SI{2.11}{m/s} experiences an inelastic collision with a \SI{3.00}{kg} object that is moving at \SI{-1.90}{m/s}. Draw a sketch of the objects, including given and unknown quantities. What is the final velocity of the combined system after the collision, $v^{\prime}$? 
+
+\begin{solution}
+\SI{-0.72}{m/s}
+\end{solution}
+
+
+\question \label{17GLnY}
+In which direction does the system in Exercise \ref{3Fptzi} above move after the collision?
+
+\begin{solution}
+To the left
+\end{solution}
+
+
+\question \label{yJLtfh}
+A \SI{604}{kg} object that is moving at a velocity of \SI{21.0}{m/s} inelastically collides with a \SI{934}{kg} object that is moving at \SI{-8.31}{m/s}. What is the final velocity of the combined system after the collision?
+
+\begin{solution}
+\SI{3.20}{m/s}
+\end{solution}
+
+
+\question \label{ViY0SX}
+In which direction does the system in Exercise \ref{yJLtfh} above move after the collision?
+
+\begin{solution}
+To the right
+\end{solution}
+
+
+\question \label{jA5zHj}
+Find the magnitude of the recoil velocity of a \SI{65}{kg} ice hockey goalie who catches a \SI{0.15}{kg} hockey puck slapped at him at a velocity of \SI{53}{m/s}. Assume that the goalie is at rest before catching the puck, and that friction between the ice and the puck-goalie system is negligible.
+
+\begin{solution}
+\SI{0.12}{m/s}
+\end{solution}
+
+
+
+
+
+% Joules and \href{https://www.cancer.gov/sites/g/files/xnrzdm211/files/styles/cgov_enlarged/public/cgov_image/media_image/2020-05/changes-nutrition-facts-label.jpg?h=54378ca5&itok=zYh4n-kk}{Calories} are the same type of unit: they measure energy.
+
+
+
+
+
+
+
+
+\clearpage
+
+\question
+What is momentum?
+
+\begin{randomizechoices}
+\choice The product of a system's net force and time.
+\choice The product of a system's mass and change in velocity.
+\correctchoice The product of system's mass and velocity.
+\choice The product of a system's mass and acceleration.
+\end{randomizechoices}
+
+\question
+A \SI{70}{kg} skier leaves a ski jump at a velocity of \SI{14}{m/s}. What is the skier's momentum at that instant?
+
+\begin{randomizechoices}
+\choice \SI{50}{kg\,m/s}
+\choice \SI{9800}{kg\,m/s}
+\correctchoice \SI{980}{kg\,m/s}
+\choice \SI{5}{kg\,m/s}
+\end{randomizechoices}
+
+\question
+A child on a sled moves down a hill at 20 meters per second. The combined mass of the child-sled system is 100 kilograms. What is the momentum of the system?
+
+\begin{randomizechoices}
+\choice \SI{20}{kg\,m/s}
+\correctchoice \SI{2000}{kg\,m/s}
+\choice \SI{5}{kg\,m/s}
+\choice \SI{1000}{kg\,m/s}
+\end{randomizechoices}
+
+\question
+Which of the following vehicles has the greatest momentum?
+
+\begin{randomizechoices}
+\correctchoice a car with a mass of \SI{1210}{kg} moving at a velocity of \SI{51}{m/s}
+\choice a truck with a mass of \SI{6120}{kg} moving at a velocity of \SI{10}{m/s}
+\choice a car with a mass of \SI{1540}{kg} moving at a velocity of \SI{38}{m/s}
+\choice a truck with a mass of \SI{2250}{kg} moving at a velocity of \SI{25}{m/s}
+\end{randomizechoices}
+
+\question
+A ball is hit with a bat. A student determines that the momentum of the ball is \SI{1.0}{kg\,m/s}. If the ball's velocity is 2.0 meters per second, what is the ball's mass?
+
+\begin{randomizechoices}
+\choice \SI{1.0}{kg}
+\choice \SI{2.0}{kg}
+\correctchoice \SI{0.5}{kg}
+\choice \SI{0.0}{kg}
+\end{randomizechoices}
+
+\question
+Freddy, the \SI{2.0}{kg} fish, travels through the Pacific Ocean at a velocity of \SI{5.0}{m/s} when a temporary force causes Freddy to slow down to a velocity of \SI{2.0}{m/s}. What is Freddy's change in momentum?
+
+\begin{randomizechoices}
+\choice \SI{6.0}{kg\,m/s}
+\choice \SI{3.0}{kg\,m/s}
+\correctchoice \SI{-6.0}{kg\,m/s}
+\choice \SI{-3.0}{kg\,m/s}
+\end{randomizechoices}
+
+\question
+Robbie Ray throws a \SI{0.145}{kg} baseball at a velocity of \SI{-43}{m/s}, and Yordan Alvarez hits the ball back at \SI{37}{m/s}. Assuming the ball travels in one dimension only, what is the baseball's change in momentum?
+
+\begin{randomizechoices}
+\choice \SI{5.36}{kg\,m/s}
+\choice \SI{6.23}{kg\,m/s}
+\correctchoice \SI{11.6}{kg\,m/s}
+\choice \SI{0.87}{kg\,m/s}
+\end{randomizechoices}
+
+\question
+Impulse is the product of \fillin\ .
+
+\begin{randomizechoices}
+\choice mass and velocity ($mv$)
+\choice mass and acceleration ($ma$)
+\correctchoice net force and time ($F_{\text{net}}\,\Delta t$)
+\choice net force and velocity ($F_{\text{net}}\,v$)
+\end{randomizechoices}
+
+\question
+According to the impulse-momentum theorem, the impulse experienced by an object is equivalent to the object's \fillin\ .
+
+\begin{randomizechoices}
+\choice momentum
+\correctchoice change in momentum
+\choice velocity
+\choice force
+\end{randomizechoices}
+
+% \question
+% What is the impulse-momentum theorem in equation form?
+
+% \begin{randomizechoices}
+% \choice $p=mv$
+% \choice $F_{\text{net}} = ma$
+% \choice $\Delta p = m (v_f - v_i)$
+% \correctchoice $\Delta p = F_{\text{net}}\,\Delta t$
+% \end{randomizechoices}
+
+% \question
+% Which two quantities can be expressed using the same units?
+
+% \begin{randomizechoices}
+% \choice momentum and energy
+% \correctchoice impulse and momentum
+% \choice energy and force
+% \choice force and impulse
+% \end{randomizechoices}
+
+\question
+According to the impulse-momentum theorem, why is it that, if you fall off your roof, you will experience a lesser net force ($F_{\text{net}}$) when you land on a trampoline compared to when you land on the ground?
+
+\begin{randomizechoices}
+\choice The trampoline decreases the elapsed time ($\Delta t$) during which you come to a stop.
+\correctchoice The trampoline increases the elapsed time ($\Delta t$) during which you come to a stop.
+\choice The trampoline increases your change in momentum ($\Delta p$).
+\choice The trampoline decreases your change in momentum ($\Delta p$).
+\end{randomizechoices}
+
+% \question
+% An egg dropped on the road usually breaks, while one dropped on the grass usually does not break. The impulse-momentum theorem suggests that for the egg dropped on the grass 
+
+% \begin{randomizechoices}
+% \choice the time interval for stopping is less.
+% \correctchoice the time interval for stopping is greater.
+% \choice the change in momentum is greater.
+% \choice the change in momentum is less.
+% \end{randomizechoices}
+
+\question
+A ball is hit with a force of \SI{40}{N}. It is in contact with the bat for 0.02 seconds. What is the change in momentum of the ball?
+
+\begin{randomizechoices}
+\choice \SI{2000}{kg\,m/s}
+\choice \SI{0.08}{kg\,m/s}
+\choice \SI{8.0}{kg\,m/s}
+\correctchoice \SI{0.8}{kg\,m/s}
+\end{randomizechoices}
+
+% \question
+% What impulse will a \SI{25}{kg} cart experience if it starts at rest and accelerates to a speed of \SI{12}{m/s}?
+
+% \begin{randomizechoices}
+% \choice \SI{2.10}{N\,s}
+% \correctchoice \SI{300}{N\,s}
+% \choice \SI{0.48}{N\,s}
+% \choice \SI{13.0}{N\,s}
+% \end{randomizechoices}
+
+% \question
+% A \SI{0.45}{kg} football traveling at a speed of \SI{22}{m/s} is caught by an \SI{84}{kg} stationary receiver. If the football comes to rest in the receiver's arms, what is the magnitude of the impulse imparted on the ball by the receiver's hands?
+
+% \begin{randomizechoices}
+% \choice \SI{3.8}{N\,s}
+% \choice \SI{4.4}{N\,s}
+% \correctchoice \SI{9.9}{N\,s}
+% \choice \SI{1800}{N\,s}
+% \end{randomizechoices}
+
+\question
+The law of conservation of momentum states that
+
+\begin{randomizechoices}
+    \choice the total momentum of all objects interacting with one another is zero
+    \correctchoice the total initial momentum of all objects before an interaction equals the total final momentum after the interaction
+    \choice the total initial momentum of all objects interacting with one another does not equal the total final momentum  
+    \choice the total initial momentum of all objects is zero 
+\end{randomizechoices}
+
+\clearpage
+\question
+Soccer ball 1 collides with soccer ball 2, which was at rest. The total momentum of the two-object system after the collision \fillin\ .
+
+\begin{randomizechoices}
+    \choice is zero
+    \choice increases
+    \correctchoice remains constant
+    \choice decreases
+\end{randomizechoices}
+
+\question
+A \SI{60}{kg} student on ice skates stands at rest on a frictionless frozen pond holding a \SI{10}{kg} brick. He throws the brick eastward with a speed of \SI{18}{m/s}. What is the student's recoil velocity?
+
+\begin{randomizechoices}
+\choice \SI{3.0}{m/s} east
+\correctchoice \SI{3.0}{m/s} west
+\choice \SI{18}{m/s} west
+\choice \SI{18}{m/s} east
+\end{randomizechoices}
+
+\question
+A \SI{1000}{kg} cannon fires a \SI{10}{kg} projectile horizontally at a velocity of \SI{300}{m/s}. What is the recoil velocity of the cannon?
+
+\begin{randomizechoices}
+\choice \SI{0.3}{m/s}
+\correctchoice \SI{3.0}{m/s}
+\choice \SI{300}{m/s}
+\choice \SI{30}{m/s}
+\end{randomizechoices}
+
+\question
+Two shopping carts stick together and move with the same velocity after colliding. This collision is \fillin\ one.
+
+\begin{randomizechoices}
+\choice an impulse
+\correctchoice an inelastic
+\choice an elastic
+\choice a momentum
+\end{randomizechoices}
+
+\question
+After two billiard balls collide, they veer off in different directions. This is \fillin\ collision.
+
+\begin{randomizechoices}
+\choice an impulse
+\choice an inelastic
+\correctchoice an elastic
+\choice a momentum
+\end{randomizechoices}
+
+\question
+A car is hit by a train. The car sticks to the front of the train and is dragged down the tracks. What type of collision is this?
+
+\begin{randomizechoices}
+\choice impulse
+\choice elastic collision
+\correctchoice inelastic collision
+\choice momentum
+\end{randomizechoices}
+
+\clearpage
+
+
+\begin{EnvUplevel}
+\textbf{Questions \ref{SGv3JM} and \ref{jlNXIi}.} Two medicine balls elastically collide. Their masses and velocities before the collision are shown in the figure below.
+\end{EnvUplevel}
+
+\begin{center}
+\def\xa{1.5}
+\def\xb{8.5}
+\def\y{3}
+\def\rb{6mm}
+\begin{tikzpicture}
+\begin{axis}[width=8cm, height=3cm,
+    ticks=none,
+    axis line style={draw=none},
+    clip=false,
+    xmin=0,xmax=10,
+    ymin=0,ymax=10,
+]
+    \draw[thick,->] (\xa,\y) -- ++(axis direction cs: 3,0) node[above] {$\SI{2.75}{m/s}$};
+    \fill[black!15] (\xa-0.3,\y) circle (3mm);
+    \fill[black!30] (\xa-0.15,\y) circle (3mm);
+    \draw[fill=black] (\xa,\y) circle (3mm) node[below=3mm] {$\SI{2.00}{kg}$} node[above=3mm] {$m_1$};
+    \fill[black!15] (\xb+0.3,\y) circle (\rb);
+    \fill[black!30] (\xb+0.15,\y) circle (\rb);
+    \draw[thick,->] (\xb,\y) -- ++(axis direction cs: -2.3,0) node[below] {$\SI{-1.00}{m/s}$};
+    \draw[fill=black] (\xb,\y) circle (\rb) node[below=\rb] {$\SI{3.00}{kg}$} node[above=\rb] {$m_2$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\question \label{SGv3JM}
+If the first object's velocity after the collision is \SI{-1.75}{m/s}, how fast will the second ball move after the collision?
+
+\begin{randomizechoices}
+\choice \SI{1.00}{m/s}
+\correctchoice \SI{2.00}{m/s} 
+\choice \SI{1.75}{m/s}
+\choice \SI{3.25}{m/s}
+\end{randomizechoices}
+
+\question \label{jlNXIi}
+In which direction will the second ball travel after the collision?
+
+\begin{randomizechoices}
+\correctchoice right
+\choice left
+\choice no direction (it will stop moving)
+\choice It's not possible to determine with the given information.
+\end{randomizechoices}
+
+\bigskip
+
+\hrule
+
+\begin{EnvUplevel}
+\textbf{Questions \ref{first_question}--\ref{last_question}.} A \SI{32}{kg} object moving at \SI{6.7}{m/s} to the RIGHT collides with a \SI{220}{kg} object moving with a speed of \SI{5.9}{m/s} to the LEFT. The objects undergo an elastic collision.
+\end{EnvUplevel}
+
+\question \label{first_question}
+ If after the collision the first object bounces backward with a speed of \SI{15.3}{m/s}, what is speed of the second object? (\textit{Hint}: Draw a sketch. Remember that velocity is speed AND direction, and speed does not indicate direction.)
+
+\begin{randomizechoices}
+\correctchoice \SI{2.7}{m/s}
+\choice \SI{3.6}{m/s}
+\choice \SI{0.0}{m/s}
+\choice \SI{7.6}{m/s}
+\end{randomizechoices}
+
+ \question \label{last_question}
+ In which direction does the second object move after the collision?
+
+\begin{randomizechoices}
+\correctchoice Left
+\choice Right
+\choice No direction (it stops moving).
+\choice Up
+\end{randomizechoices}
+
+\bigskip
+
+\hrule
+
+\clearpage
+\question
+Each croquet ball in a set has a mass of \SI{0.50}{kg}. The \textbf{green} ball travels at \SI{10.5}{m/s} and strikes a stationary \textbf{red} ball. If the \textbf{green} ball stops moving after colliding with the \textbf{red} one, what is the final speed of the \textbf{red} ball after the collision?
+
+\begin{randomizechoices}
+\choice \SI{12.0}{m/s}
+\choice \SI{9.6}{m/s}
+\correctchoice \SI{10.5}{m/s}
+\choice \SI{6.0}{m/s}
+\end{randomizechoices}
+
+\question 
+Jennifer loads a shopping cart with \SI{75}{kg} of groceries. She launches the cart at \SI{15}{m/s} into another \SI{315}{kg} shopping cart that is initially at rest. The two carts stick together after the collision. What is the final velocity of the two-object system?
+
+\begin{randomizechoices}
+\correctchoice \SI{2.9}{m/s}
+\choice \SI{12}{m/s}
+\choice \SI{19}{m/s}
+\choice \SI{3.6}{m/s}
+\end{randomizechoices}
+
+\bigskip
+
+\hrule
+
+\begin{EnvUplevel}
+\textbf{Questions \ref{kfiru}--\ref{gR47a}.} Two football players undergo an inelastic collision. The figure below shows their masses and their velocities before the collision.
+\end{EnvUplevel}
+
+
+\begin{center}
+\def\xa{1.5}
+\def\xb{8.5}
+\def\y{3}
+\def\rb{6mm}
+\begin{tikzpicture}
+\begin{axis}[width=8cm, height=3cm,
+    ticks=none,
+    axis line style={draw=none},
+    clip=false,
+    xmin=0,xmax=10,
+    ymin=0,ymax=10,
+]
+    \draw[thick,->] (\xa,\y) -- ++(axis direction cs: 3,0) node[above] {$\SI{7.23}{m/s}$};
+    \fill[black!15] (\xa-0.3,\y) circle (3mm);
+    \fill[black!30] (\xa-0.15,\y) circle (3mm);
+    \draw[fill=black] (\xa,\y) circle (3mm) node[below=3mm] {$\SI{110}{kg}$} node[above=3mm] {$m_1$};
+    \fill[black!15] (\xb+0.3,\y) circle (\rb);
+    \fill[black!30] (\xb+0.15,\y) circle (\rb);
+    \draw[thick,->] (\xb,\y) -- ++(axis direction cs: -2.2,0) node[below] {$\SI{-3.55}{m/s}$};
+    \draw[fill=black] (\xb,\y) circle (\rb) node[below=\rb] {$\SI{135}{kg}$} node[above=\rb] {$m_2$};
+\end{axis}
+\end{tikzpicture}%
+\end{center}
+
+\question \label{kfiru}
+At what speed is the combined system moving after the collision?
+
+\begin{randomizechoices}
+\correctchoice \SI{1.29}{m/s} 
+\choice \SI{0.00}{m/s}
+\choice \SI{3.68}{m/s}
+\choice \SI{10.35}{m/s}
+\end{randomizechoices}
+
+\question \label{gR47a}
+In what direction are the players moving after the collision?
+
+\begin{randomizechoices}
+\choice To the left.
+\choice No direction: the players cancel each other's momentum.
+\choice The law of conservation of momentum cannot indicate direction.
+\correctchoice To the right.
+\end{randomizechoices}
+
+\bigskip
+
+\hrule
+
+
+\question
+Describe what happens to the energy of the car-earth system as the car moves down the ramp from point A to point B. Assume friction is negligible. 
+
+\begin{center}
+    \begin{tikzpicture}[scale=0.8]
+        \draw (0,0) -- (2,-2) -- ++(3,0) -- ++(2,2);
+        \node[rotate=-45,above=-1mm] at (0.2,-0.2) {\reflectbox{\twemoji[width=8mm]{automobile}}} node[above right=3mm] {\textbf{A}};
+        \node[rotate=-45,above=-1mm] at (1.5,-1.5) {\reflectbox{\twemoji[width=8mm]{automobile}}}; 
+        \node[above right=3mm] at (1.5,-1.5) {\textbf{B}};
+    \end{tikzpicture}
+\end{center}
+
+\begin{randomizechoices}
+    \choice The car's kinetic energy stays the same, gravitational potential energy stays the same, and total energy stays the same
+    \correctchoice The car's kinetic energy increases, gravitational potential energy decreases, and total energy stays the same
+    \choice The car's kinetic energy stays the same, gravitational potential energy increases, and total energy increases
+    \choice The car's kinetic energy increases, gravitational potential energy increases, and total energy stays the same
+\end{randomizechoices}
+
+\question
+A skater starts at the top of a skating ramp and skates down the ramp and up the other side. If we ignore the effect of friction, which energy bar graph best describes the energy of the skater-earth system when the skater is halfway down the ramp?
+
+\begin{minipage}{0.6\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \draw[thick,domain=0:4] plot (\x,{0.8*(\x-2)^2});
+        \draw (0,3.2) node[above right=-1.5mm,rotate=-55] {\Strichmaxerl[2.5]};
+    \end{tikzpicture}    
+\end{minipage}%
+\begin{minipage}{0.35\textwidth}
+    \centering
+    \begin{randomizechoices}
+        \choice Graph A
+        \choice Graph B
+        \correctchoice Graph C
+        \choice Graph D
+    \end{randomizechoices}    
+\end{minipage}%
+
+\bigskip
+
+\begin{center}
+    \begin{tikzpicture}
+    \begin{axis}[width=4cm,height=4cm,ymin=0,ymax=90,title=\textbf{Graph A},
+        symbolic x coords={$E_k$,$E_g$,$E_\mathrm{total}$},
+        xtick=data,
+        yticklabel=\empty]
+        \addplot[ybar,fill=blue] coordinates {
+            ($E_k$,80)
+            ($E_g$,0)
+            ($E_\mathrm{total}$,80)
+        };
+    \end{axis}
+    \end{tikzpicture}%
+        \begin{tikzpicture}
+    \begin{axis}[width=4cm,height=4cm,ymin=0,ymax=90,title=\textbf{Graph B},
+        symbolic x coords={$E_k$,$E_g$,$E_\mathrm{total}$},
+        xtick=data,
+        yticklabel=\empty]
+        \addplot[ybar,fill=blue] coordinates {
+            ($E_k$,0)
+            ($E_g$,80)
+            ($E_\mathrm{total}$,80)
+        };
+    \end{axis}
+    \end{tikzpicture}%
+    \begin{tikzpicture}
+    \begin{axis}[width=4cm,height=4cm,ymin=0,ymax=90,title=\textbf{Graph C},
+        symbolic x coords={$E_k$,$E_g$,$E_\mathrm{total}$},
+        xtick=data,
+        yticklabel=\empty]
+        \addplot[ybar,fill=blue] coordinates {
+            ($E_k$,40)
+            ($E_g$,40)
+            ($E_\mathrm{total}$,80)
+        };
+    \end{axis}
+    \end{tikzpicture}%
+    \begin{tikzpicture}
+    \begin{axis}[width=4cm,height=4cm,ymin=0,ymax=90,title=\textbf{Graph D},
+        symbolic x coords={$E_k$,$E_g$,$E_\mathrm{total}$},
+        xtick=data,
+        yticklabel=\empty]
+        \addplot[ybar,fill=blue] coordinates {
+            ($E_k$,60)
+            ($E_g$,20)
+            ($E_\mathrm{total}$,80)
+        };
+    \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\question
+The box is about to fall off the building. How much kinetic energy will the box have right before hitting the ground? Assume air resistance is negligible.
+
+\begin{minipage}{0.3\textwidth}
+    \centering
+    \begin{randomizechoices}
+        \choice \SI{1500}{J}
+        \choice \SI{4500}{J}
+        \choice \SI{300}{J}
+        \correctchoice \SI{3000}{J}
+    \end{randomizechoices}
+\end{minipage}%
+\begin{minipage}{0.4\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \draw[fill=black!10] (0,0) rectangle ++(1,3);
+        \draw[<->,dashed] (-0.2,0) -- ++(0,3) node[pos=0.5,left] {\SI{30}{m}};
+        \draw[fill=yellow!30] (0.8,3) rectangle ++(1,1) node[pos=0.5] {\SI{10}{kg}};
+    \end{tikzpicture}
+\end{minipage}
+
+\question
+You drop a \SI{5}{kg} bowling ball from \SI{2}{meters} above a trampoline. When it bounces, it only bounces up \SI{1}{meter}. How much of the ball's energy was turned into thermal energy when it hit the trampoline?
+
+\begin{randomizechoices}
+    \choice \SI{1}{J}
+    \correctchoice \SI{50}{J}
+    \choice \SI{25}{J}
+    \choice \SI{10}{J}
+\end{randomizechoices}
+
+\question
+Stickman pushes a \SI{20}{kg} box up a hill. It takes him 10 seconds to reach the top. At the top of the hill, the box has 1200 joules of gravitational potential energy. What was Stickman's power output?
+
+\begin{minipage}{0.3\textwidth}
+    \begin{randomizechoices}
+        \correctchoice \SI{120}{W}
+        \choice \SI{20}{W}
+        \choice \SI{200}{W}
+        \choice \SI{240}{W}
+    \end{randomizechoices}
+\end{minipage}%
+\begin{minipage}{0.6\textwidth}
+    \begin{tikzpicture}
+        \draw (0,0) -- (2,2) -- ++(1,0);
+        \begin{scope}[rotate=45]
+            \draw[ultra thick] (0.5,0) rectangle ++(0.5,0.5);
+            \draw[->] (1,0.25) -- ++(0.75,0);
+        \end{scope}
+    \end{tikzpicture}
+\end{minipage}
+
+\question
+A truck is driving down the freeway when it hits a bird. The truck experiences a force of 100 Newtons and a change in momentum of \SI{2.5}{kg\,m/s}. If the truck has $1000\times$ the mass of the bird, the bird will experience a force of \fillin\ Newtons and a change in momentum of \fillin\,\SI{}{kg\,m/s}.
+
+\begin{randomizechoices}
+    \correctchoice 100; 2.5
+    \choice 100,000; 2500
+    \choice 100; 2500
+    \choice 100,000; 2.5
+\end{randomizechoices}
+
+\question
+An army is shooting a cannon at a castle. When the cannon shoots a \SI{1}{kg} cannon ball, the ball leaves the cannon with a velocity of \SI{150}{m/s}. The cannon moves backwards at \SI{1}{m/s}. What is the mass of the cannon?
+
+\begin{randomizechoices}
+    \choice \SI{3}{kg}
+    \correctchoice \SI{150}{kg}
+    \choice \SI{1}{kg}
+    \choice \SI{50}{kg}
+\end{randomizechoices}
+
+\question
+Object A is moving with the momentum shown in the momentum vs time graph. Between 4 and 6 seconds, object A has a collision with object B. How much momentum does object B gain during the collision?
+
+\begin{minipage}{0.3\textwidth}
+\centering
+    \begin{randomizechoices}
+        \correctchoice \SI{60}{kg\,m/s}
+        \choice \SI{30}{kg\,m/s}
+        \choice \SI{-40}{kg\,m/s}
+        \choice \SI{-60}{kg\,m/s}
+    \end{randomizechoices}
+\end{minipage}%
+\begin{minipage}{0.6\textwidth}
+\centering
+    \begin{tikzpicture}
+        \begin{axis}[width=8cm,height=6cm,
+            ymin=0,ymax=120,
+            xmin=0,xmax=10,
+            ylabel={Momentum (\SI{}{kg\,m/s})},
+            xlabel={Time (s)},
+            title={Momentum vs.~Time Graph},
+            xtick={0,2,...,10},
+            ytick={0,20,...,120},
+            axis lines=left,
+            grid=both,
+            ]
+            \draw[ultra thick,blue] (0,100) -- (4,100) -- (6,40) -- (10,40); 
+        \end{axis}
+    \end{tikzpicture}
+\end{minipage}
+
+\question
+A \SI{5100}{kg} airplane is flying 1300 meters above the ground. The plane's velocity is \SI{245}{m/s}. Which of the following represents how to calculate the total mechanical energy of the airplane-earth system?
+
+\begin{randomizechoices}
+    \smallskip
+    \correctchoice $(5100)(10)(1300) + \frac{1}{2}(5100)(245)^2\,\text{joules}$ \smallskip
+    \choice $(5100)(10)(1300) + \frac{1}{2}(5100)(245)^2\,\text{joules}$ \smallskip
+    \choice $ \frac{1}{2}(5100)(245)^2\,\text{joules}$\smallskip
+    \choice $(5100)(10)(1300)\,\text{joules}$\smallskip
+\end{randomizechoices}
+
+\question
+Three mountain climbers of equal weight travel up a mountain, but each one takes a different path. Which climber has acquired the most GPE upon reaching the top of the mountain? (Use a system consisting of the climber and the earth).
+
+\begin{minipage}{0.4\textwidth}
+    \begin{randomizechoices}[norandomize]
+        \choice Climber 1
+        \choice Climber 2
+        \choice Climber 3
+        \correctchoice GPE's would all be equal.
+    \end{randomizechoices}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+    \centering
+    \begin{tikzpicture}
+        \coordinate (origin) at (-2,-2);
+        \coordinate (peak) at (0,1.8);
+        \draw (0,0) node[opacity=0.6] {\twemoji[height=4cm]{snow-capped mountain}};
+        \draw[ultra thick,rounded corners=5mm,red] (origin) node[left,black] {Start} -- (-1,-0.8) -- (peak) ;
+        \draw[ultra thick,rounded corners=5mm,red] (origin) -- (0,-1) -- (-0.5,0) -- (0.5,0.5)-- (peak);
+        \draw[ultra thick,rounded corners=5mm,red] (origin) -- (1,-1.5) -- (1.1,0.5) -- (peak) node[above,black] {Finish};
+        \node[red] at (-0.5,1.3) {\textbf{1}};
+        \node[red,fill=white] at (0,-0.2) {\textbf{2}};
+        \node[red] at (0.8,1.4) {\textbf{3}};
+    \end{tikzpicture}
+\end{minipage}
+
+\question 
+You need to lift a heavy weight. How can you increase your power without changing the amount of work you do?
+
+\begin{randomizechoices}
+    \choice Lift the weight slowly
+    \correctchoice Lift the weight quickly
+    \choice Make the weight lighter
+    \choice Make the weight heavier
+\end{randomizechoices}
+
+\question
+Two students are asked to move their desks across the room. Student A gets it done in 10 seconds, but student B takes 20 seconds to get it done. What can be said about the power of Student A?
+
+\begin{randomizechoices}
+    \correctchoice Student A has twice ($2\times$) the power of Student B
+    \choice Student A has half ($\frac{1}{2}\times$) the power of Student B
+    \choice Student A has quadruple ($4\times$) the power of Student B
+\end{randomizechoices}
+
+
+\question
+A brave monkey stands on the edge of a high-dive diving board. If the monkey-earth system has \SI{3000}{J} of GPE when the monkey is at the top of the board, then how much kinetic energy would the monkey have at the bottom, right before he lands in the water? Assume air resistance is negligible.
+
+\begin{randomizechoices}
+    \correctchoice \SI{3000}{J} of KE
+    \choice \SI{0}{J} of KE
+    \choice \SI{-3000}{J} of KE
+    \choice \SI{1500}{J} of KE
+\end{randomizechoices}
+
+
+
+% \question
+% A \SI{2}{kg} brick falls to the ground from a \SI{3}{m} high roof. What is the work done of the brick by the force of gravity?
+
+% \begin{randomizechoices}
+%     \choice \SI{600}{J}
+%     \correctchoice \SI{60}{J}
+%     \choice \SI{0}{J}
+%     \choice \SI{6}{J}
+% \end{randomizechoices}
+
+\question 
+For an object sliding on a surface with friction, what effect will the frictional force have on this system?
+
+\begin{randomizechoices}
+    \choice It will not affect the energy of the system.
+    \choice Not enough information is given to know the effects of friction on the system.
+    \choice It will do work to add energy to the system.
+    \correctchoice It will do work to remove energy from the system.
+\end{randomizechoices}
+
+\question
+A \SI{6}{kg} book is resting on a shelf that is \SI{2}{m} above the floor. How much gravitational potential energy does the book-earth system have?
+
+\begin{randomizechoices}
+    \choice \SI{12}{J}
+    \correctchoice \SI{120}{J}
+    \choice \SI{3}{J}
+    \choice \SI{30}{J}
+\end{randomizechoices}
+
+\question
+The graphs below show the initial and final energies of a rock-earth system as the rock falls towards the earth. Which of the following statements could be inferred from the data in the graphs below?
+
+\begin{center}
+    \begin{tikzpicture}
+    \begin{axis}[width=4cm,height=4cm,ymin=0,ymax=12,title=\textbf{Initial},
+        symbolic x coords={$E_g$,$E_k$,$E_\mathrm{T}$},
+        xtick=data,
+        yticklabel=\empty]
+        \addplot[ybar,fill=blue] coordinates {
+            ($E_g$,8)
+            ($E_k$,4)
+            ($E_\mathrm{T}$,12)
+        };
+    \end{axis}
+    \end{tikzpicture}%
+    \hspace{1cm}
+    \begin{tikzpicture}
+    \begin{axis}[width=4cm,height=4cm,ymin=0,ymax=12,title=\textbf{Final},
+        symbolic x coords={$E_g$,$E_k$,$E_\mathrm{T}$},
+        xtick=data,
+        yticklabel=\empty]
+        \addplot[ybar,fill=blue] coordinates {
+            ($E_g$,6)
+            ($E_k$,4)
+            ($E_\mathrm{T}$,8)
+        };
+    \end{axis}
+    \end{tikzpicture}%
+\end{center}
+
+\begin{randomizechoices}
+    \correctchoice The decrease in total energy is due to the external work of air resistance.
+    \choice Since the kinetic energy was constant, there was no external work done on the system.
+    \choice The decrease in kinetic energy is due to the external work of air resistance.
+\end{randomizechoices}
+
+
+\question
+A father (\SI{100}{kg}) and his son (\SI{50}{kg}) are jogging at the same speed. Which statement is true about the kinetic energies (KE) of the father and the son? The father's KE is\dots
+
+\begin{randomizechoices}
+    \choice Two times smaller than the son's KE.
+    \choice Four times smaller than the son's KE.
+    \correctchoice Two times larger than the son's KE.
+    \choice Four times larger than the son's KE.
+\end{randomizechoices}
+
+\question
+The diagram below depicts a 2-kg mass colliding with and sticking to a second box. What is the mass of the second box?
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw (0,0) -- (6,0) node[below,pos=0.5] {Before collision};
+        \draw[thick] (1,0) rectangle ++(1.5,1) node[pos=0.5] {\SI{2}{kg}};
+        \draw[thick,->] (2.5,0.5) -- ++(1.5,0) node[above,pos=0.7] {\SI{3}{m/s}};
+        \draw[fill=gray] (4.5,0) rectangle ++(1,1);
+
+        \begin{scope}[xshift=7cm]
+            \draw (0,0) -- (6,0) node[below,pos=0.5] {After collision};
+            \draw[thick] (1,0) rectangle ++(1.5,1) node[pos=0.5] {\SI{2}{kg}};
+            \draw[fill=gray] (2.5,0) rectangle ++(1,1);
+            \draw[thick,->] (3.5,0.5) -- ++(0.5,0) node[right] {\SI{1}{m/s}};
+        \end{scope}
+    \end{tikzpicture}
+\end{center}
+
+\begin{randomizechoices}[norandomize]
+    \choice \SI{1}{kg}
+    \choice \SI{2}{kg}
+    \choice \SI{3}{kg}
+    \correctchoice \SI{4}{kg}
+\end{randomizechoices}
+
+\clearpage
+\question
+In the diagram shown, a \SI{10}{kg} ball is fired with a velocity of \SI{500}{m/s} from a \SI{1000}{kg} cannon. What is the momentum of the system before the ball is fired and after the ball is fired?
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw[fill=lightgray] (0,-0.5) rectangle ++(2,1) node[pos=0.5] {cannon} node[below=0.5cm,pos=0.5] {$m = \SI{1000}{kg}$};
+        \draw[thick,->] (0,0) -- ++(-0.5,0);
+        \draw[fill] (4,0) circle (4pt) node[below=4pt] {$m = \SI{10}{kg}$};
+        \draw[thick,->] (4,0) -- ++(2,0);
+    \end{tikzpicture}
+\end{center}
+
+\begin{randomizechoices}
+    \choice \SI{0}{kg\,m/s};\ \  \SI{5000}{kg\,m/s}
+    \correctchoice \SI{0}{kg\,m/s};\ \  \SI{0}{kg\,m/s}
+    \choice \SI{5000}{kg\,m/s};\ \  \SI{5000}{kg\,m/s}
+    \choice \SI{1500}{kg\,m/s};\ \  \SI{500}{kg\,m/s}
+\end{randomizechoices}
+
+\question
+In the diagram below, scaled vectors represent the momentum of each of two masses, A and B, sliding toward each other on a frictionless, horizontal surface. Which scaled vector best represents the momentum of the system after the masses collide?
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw (0,0) -- (12,0) node[below,pos=0.5] {Frictionless surface};
+        \draw[fill=gray] (1,0) rectangle ++(1,1) node[pos=0.5,below=0.5cm] {Mass A} (10,0) rectangle ++(1,1) node[pos=0.5,below=0.5cm] {Mass B};
+        \draw[->,thick] (2,0.5) -- ++(4,0); 
+        \draw[->,thick] (10,0.5) -- ++(-1,0);
+    \end{tikzpicture}
+\end{center}
+
+\begin{randomizeoneparchoices}[norandomize]
+    \choice \tikz{\draw[->,thick] (0,0) -- (-1,0);}
+    \choice \tikz{\draw[->,thick] (0,0) -- (-4,0);}
+    \correctchoice \tikz{\draw[->,thick] (0,0) -- (+3,0);}
+    \choice \tikz{\draw[->,thick] (0,0) -- (+4,0);}
+\end{randomizeoneparchoices}
+
+
+
+
+
+
+
+
+\end{questions}
+
+\end{document}

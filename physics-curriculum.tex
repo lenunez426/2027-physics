@@ -1,0 +1,153 @@
+\documentclass[]{article}
+\input{global}
+\input{notes}
+\input{documents/physics-glossary}
+\usepackage{figchild}
+\makenoidxglossaries
+
+\begin{document}
+
+%....Inspired by Gemini
+
+% To continue applying E.D. Hirsch’s "Core Knowledge" philosophy, we must transform the broad directives of standard 5(B) into an explicit, sequential checklist of facts, definitions, and mathematical procedures. A Hirsch-aligned curriculum leaves no ambiguity about exactly what constitutes "combining vectors."
+
+% Here is the specific, knowledge-based curriculum breakdown for TEKS 5(B):
+
+Standard 5(B): Scalars, Vectors, and Vector Addition
+
+1. Explicit Vocabulary and Categorization
+
+Students must memorize the definitions of scalars and vectors and correctly categorize physical quantities into these two distinct groups:
+
+\begin{itemize}[itemsep=0pt,topsep=0pt]
+\item Scalar Quantity: Define as a measurement that has only a magnitude (an amount or size) and a unit. Required Memorization: Distance, speed, time, and mass are scalars.
+
+\item Vector Quantity: Define as a measurement that has both a magnitude and a specific spatial direction.
+Required Memorization: Displacement, velocity, and acceleration are vectors.
+
+\item Resultant ($\vec{R}$): Define as the single vector that represents the mathematical sum of two or more individual vectors. 
+
+\item Components: Define as the independent horizontal ($x$) and vertical ($y$) projections of a two-dimensional vector.
+\end{itemize}
+
+2. Procedural Knowledge: Graphical Vector Addition (Tip-to-Tail Method)
+
+Students must demonstrate the ability to combine vectors visually using standard drafting tools (ruler and protractor) by executing the following exact sequence:
+
+\begin{itemize}[itemsep=0pt,topsep=0pt]
+    \item Scaling: Establish and state a proportional scale (e.g., 1 cm = 5 m/s).
+    \item Placement: Draw the first vector originating from a defined starting point. Draw the second vector placing its "tail" (starting point) exactly at the "tip" (arrowhead) of the first vector.
+    \item The Resultant: Draw the resultant vector starting from the tail of the first vector and ending at the tip of the final vector.
+    \item Measurement: Use a ruler to measure the resultant's length (converting back to standard units using the scale) to find its magnitude. Use a protractor to measure the angle from a designated axis to find its direction.
+\end{itemize}
+
+
+3. Mathematical Knowledge: The Pythagorean Theorem and Right-Angle Vectors
+
+
+When adding two perpendicular vectors (e.g., one perfectly horizontal, one perfectly vertical), students must bypass graphical estimation and calculate the exact resultant using specific formulas:
+
+\begin{itemize}[itemsep=0pt,topsep=0pt]
+    \item  Magnitude: Calculate the magnitude of the resultant vector ($R$) using the Pythagorean theorem, where the perpendicular vectors act as the legs ($R_x$ and $R_y$) of a right triangle:
+
+    \begin{equation*}
+        R = \sqrt{R_x^2 + R_y^2}
+    \end{equation*}
+
+    \item Direction: Because a vector is incomplete without a direction, students must calculate the specific angle ($\theta$) of the resultant using the inverse tangent function:
+
+    \begin{equation*}
+        \theta = \tan^{-1}\left(\frac{R_y}{R_x}\right)
+    \end{equation*}
+
+    \item Convention: Express the final direction using standard compass headings (e.g., \ang{30} North of East) or standard coordinate planes (e.g., \ang{30} above the positive x-axis).
+\end{itemize}
+
+4. Goal-Centered Application: 1D vs. 2D Motion
+
+Students must be able to recognize the physical geometry of a problem and select the correct addition method:
+
+\begin{itemize}[itemsep=0pt,topsep=0pt]
+    \item  One-Dimensional (Collinear) Vectors: If vectors act along the exact same line, students must simply add their magnitudes if they point in the same direction, or subtract them if they point in opposite directions. (The Pythagorean theorem is not to be used here).
+    \item Two-Dimensional (Perpendicular) Vectors: If vectors act at right angles to one another, students must use the Pythagorean theorem to find the true displacement or velocity across a 2D plane.
+\end{itemize}
+
+
+
+% ---
+
+%  Why this earns Hirsch's approval:
+
+% This breakdown eliminates the guesswork of "how deep" the teacher should go into vector math. By explicitly stating that students must know the "Tip-to-Tail" method, the Pythagorean theorem, and inverse tangent for the angle, it guarantees that students are acquiring the precise mathematical foundation required for later physics units (like forces and projectile motion). It treats the standard as a concrete checklist of skills rather than a loose conceptual guideline.
+
+\clearpage
+
+% To align TEKS standard 5(C) with E.D. Hirsch’s educational philosophy, we must translate the broad mandate to "describe and analyze" into a precise, unambiguous list of declarative facts and procedural skills. Hirsch’s "Core Knowledge" approach argues that vague skill descriptors leave too much to interpretation, resulting in gaps in student knowledge.
+
+% A Hirsch-approved standard explicitly states the exact vocabulary, formulas, and problem-solving parameters a student must master.
+
+% Here is a specific, knowledge-based curriculum breakdown for TEKS 5(C):
+
+ Standard 5(C): Kinematics in One Dimension
+
+1. Vocabulary and Conceptual Foundations
+
+Students must memorize, define, and contrast the following terms, specifically distinguishing between scalars (magnitude only) and vectors (magnitude and direction):
+
+\begin{itemize}[itemsep=0pt,topsep=0pt]
+    \item  Frame of Reference: Define as a coordinate system used to define position. Identify the origin (zero point) and the designated positive and negative directions (typically standard Cartesian $x$ or $y$ axes).
+    \item Distance ($d$): Define as a scalar quantity representing the total path length traveled, regardless of direction. Measured in meters (m).
+    \item Displacement ($\Delta x$): Define as a vector quantity representing the straight-line change in position from the starting point to the ending point. Calculated as $\Delta x = x_f - x_i$. Measured in meters (m).
+    \item Speed: Define as a scalar quantity representing the rate at which distance is covered ($s = d/t$). Measured in meters per second (m/s).
+    \item Velocity ($v$): Define as a vector quantity representing the rate of change of displacement ($\Delta x / \Delta t$). Measured in meters per second (m/s).
+    \item Acceleration ($a$): Define as a vector quantity representing the rate of change of velocity ($\Delta v / \Delta t$). Measured in meters per second squared ($\mathrm{m/s^2}$).
+\end{itemize}
+
+
+
+2. Core Principles of 1D Motion
+
+Students must articulate the following physical rules governing one-dimensional motion:
+
+\begin{itemize}[itemsep=0pt,topsep=0pt]
+    \item An object is speeding up if its velocity and acceleration vectors point in the same direction (both positive or both negative).
+    \item An object is slowing down if its velocity and acceleration vectors point in opposite directions (one is positive, the other is negative).
+    \item Constant velocity implies that acceleration is exactly zero.
+    \item An object can have a velocity of zero but still be accelerating (e.g., at the peak of a thrown ball's trajectory).
+\end{itemize}
+
+
+
+3. Mathematical Formulas (The Kinematic Equations)
+
+Students must memorize the four core kinematic equations for constant acceleration and identify which variables are present and missing in each:
+
+
+\begin{itemize}[itemsep=0pt,topsep=0pt]
+    \item  Velocity as a function of time: $v_f = v_i + at$
+    \item Position as a function of time: $\Delta x = v_i t + \frac{1}{2}at^2$
+    \item Velocity as a function of position: $v_f^2 = v_i^2 + 2a\Delta x$
+    \item Average velocity to find displacement: $\Delta x = \frac{1}{2}(v_i + v_f)t$
+\end{itemize}
+
+
+(Note: $v_i$ = initial velocity, $v_f$ = final velocity, $a$ = acceleration, $t$ = time, $\Delta x$ = displacement)
+
+4. Goal-Centered Application and Analysis
+
+Students must demonstrate mastery of the concepts and equations by performing the following specific tasks:
+
+\begin{itemize}[itemsep=0pt,topsep=0pt]
+    \item  Translation: Extract given values from a word problem and correctly assign them to the variables $v_i$, $v_f$, $a$, $t$, and $\Delta x$, applying negative signs appropriately based on the established frame of reference.
+    \item Equation Selection: Identify the single missing variable requested by the problem and select the correct kinematic equation that contains the knowns and the unknown.
+    \item Algebraic Manipulation: Isolate the unknown variable algebraically before plugging in numerical values.
+    \item Free Fall: Apply the kinematic equations to vertical motion, explicitly substituting acceleration $a$ with the acceleration due to gravity ($\vec{g} = -\SI{9.8}{m/s^2}$), assuming upward is the positive frame of reference and air resistance is negligible.
+\end{itemize}
+
+
+%  Why this earns Hirsch's approval:
+
+% Instead of relying on a teacher's subjective interpretation of what it means to "analyze motion," this version provides an exhaustive checklist. A teacher, a student, and a parent know exactly which four equations must be memorized, the precise difference between scalar and vector quantities, and the exact analytical steps required to solve a problem. It leaves no room for the curriculum to be watered down.
+
+
+\end{document}
