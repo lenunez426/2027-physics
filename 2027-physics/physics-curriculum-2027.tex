@@ -10,7 +10,7 @@
 \usepackage{marvosym}
 \input{global}
 \input{notes}
-\input{documents/physics-glossary}
+\input{physics-glossary}
 \usepackage{figchild}
 \makenoidxglossaries
 
@@ -58,7 +58,7 @@
 
 
 \title{Physics}
-\author{The Curriculum}
+\author{The Curriculum at Cypress Springs High School}
 \date{Updated on \today}
 
 \begin{document}
@@ -67,11 +67,32 @@
 \tableofcontents
 \clearpage
 
+\section*{Mission Statement}
+
+The following are goals we value Cypress Springs High School:
+
+\begin{enumerate}[itemsep=0pt]
+    \item To provide students with foundational knowledge in physics.
+\end{enumerate}
+
+We value a curriculum that
+
+\begin{itemize}[itemsep=0pt]
+    \item is clear
+    \item is coherent
+    \item is based on knowledge and fundamental principles
+    \item equips students with basic vocabulary terms all physics students should know
+    \item has a robust sequence that parallels the curricular development of the field's best textbooks
+    \item connects students to history and to notable figures like Newton and Faraday
+    \item strikes a balance between abstract and concrete principles; between mathematical and conceptual problems; between words and images
+    \item aims to reduce cognitive overload in students
+    \item exposes students to geometric and graphical figures of the highest quality
+\end{itemize}
 
 
 \section{Constant Velocity}
 
-\textbf{Vocabulary}
+\subsection*{Vocabulary}
 
 \begin{itemize}[itemsep=0pt,topsep=-3pt]
     \item Define \textbf{\gls{magnitude}} as \glsdesc{magnitude}.
@@ -99,12 +120,16 @@
 
 \bigskip
 
-\textbf{Core Principles}
+\subsection*{Fundamental Principles}
 
 % Students must articulate the following physical rules governing one-dimensional motion:
 
 \begin{itemize}[itemsep=0pt,topsep=-3pt]
-    \item \textbf{Know} that, by convention, positive direction is to the right on a horizontal position axis, and negative direction is to the left.
+    \item \textbf{Know} that a vector is graphically represented as an arrow.
+    \item \textbf{Know} that a vector is positive if it is directed to the right, and negative if it is directed to the left.
+    \item \textbf{Know} that position, velocity, and displacement are vectors.
+    \item \textbf{Know} that distance, speed, and time are scalars.
+    \item \textbf{Know} that positive direction for position or velocity is to the right on a horizontal position axis, and negative direction is to the left.
     \begin{center}
         \begin{tikzpicture}[y=1cm,x=1cm]
             \foreach \x in {-5,-4,...,5} {
@@ -116,6 +141,7 @@
             % \draw[thick,<-] (0,0.15) -- ++(0,0.5);
         \end{tikzpicture}
     \end{center}
+    \item \textbf{Know} that an object's position vector starts at the origin (at zero) and ends at the object's location on the position axis.
     \item \textbf{Understand} that an object is in motion if its position is changing.
 
     \begin{center}
@@ -166,7 +192,7 @@
 
 \bigskip
 
-\textbf{Mathematical Formulas}
+\subsection*{Mathematical Formulas}
 
 % Students must memorize the four core kinematic equations for constant acceleration and identify which variables are present and missing in each:
 
@@ -185,12 +211,12 @@
 
 
 
-\textbf{Learning Goals}
+\subsection*{Learning Goals}
 
 % Students must demonstrate mastery of the concepts and equations by performing the following specific tasks:
 
 \begin{itemize}[itemsep=0pt,topsep=-3pt]
-    \item \textbf{Calculate} a vector sum using the head-to-tail method for two or more vectors.
+    \item \textbf{Calculate} a vector sum for two or more vectors (1) by the head-to-tail method and (2) arithmetically.
     \item \textbf{Identify} the origin in a position reference frame.
     \item \textbf{Draw} the position vector for an object on a position axis.
     \item \textbf{Draw} a motion map for an object undergoing constant velocity.
@@ -201,12 +227,13 @@
         } 
     \end{tikzpicture}
     \end{center}
+    \item \textbf{Calculate} displacement given initial and final positions.
     \item \textbf{Predict} data in a table containing position and time values.
-    \item \textbf{Combine} one-dimensional vectors using both graphical vector addition.
-    \item \textbf{Apply} correct sign (positive or negative) appropriately on vectors quantities based on the established reference frame.
-    \item \textbf{Extract} given values from a word problem and correctly assign them to the variables $v_i$, $v_f$, $a$, $t$, and $\Delta x$.
-    \item \textbf{Identify} the single missing variable requested by the problem and select the correct kinematic equation that contains the knowns and the unknown.
-    \item \textbf{Isolate} the unknown variable algebraically before plugging in numerical values.
+    % \item \textbf{Combine} one-dimensional vectors using both graphical vector addition.
+    \item \textbf{Apply} correct sign (positive or negative) appropriately on vector quantities based on the established reference frame.
+    % \item \textbf{Extract} given values from a word problem and correctly assign them to the variables $v_i$, $v_f$, $a$, $t$, and $\Delta x$.
+    % \item \textbf{Identify} the single missing variable requested by the problem and select the correct kinematic equation that contains the knowns and the unknown.
+    % \item \textbf{Isolate} the unknown variable algebraically before plugging in numerical values.
     \item \textbf{Find} average velocity ($\bar{v}$) on a position vs.\,time graph by calculating the slope using two points on the line. 
     \begin{center}
     \begin{tikzpicture}[x=2cm,y=2cm]
@@ -231,11 +258,12 @@
     \end{center}
 \end{itemize}
 
-\textbf{Checking for Understanding}
+\subsection*{Assessment}
 
 \begin{enumerate}[topsep=-3pt,itemsep=0pt]
     \item Find the vector sum of all vectors shown below. Each square represents 1 unit of magnitude.
     \begin{center}
+        %...PRO TIP: Use a random number generator to generate random vectors between -10 and 10
         \begin{tikzpicture}[x=5mm,y=5mm]
             \draw[step=1,lightgray] (0,0) grid (10,4);
             \draw[->,line width=0.6mm,-{Triangle}] (5,4) -- ++(-3,0);
@@ -245,6 +273,33 @@
             \draw[->,line width=0.6mm,-{Triangle}] (0,0) -- ++(5,0);
         \end{tikzpicture}
     \end{center}
+
+    \item Charlie moves from point A to point B. Calculate (a) the distance traveled and (b) the displacement. (c) Compare and contrast the distance and displacement.
+
+    \begin{center}
+        \begin{tikzpicture}[y=1cm,x=1cm]
+            \foreach \x in {-5,-4,...,5} {
+                \draw[ultra thin] (\x,-0.09) -- (\x,0.09) node[below=0.2] {$\x$};
+            }
+            \draw[->] (-5,0) -- (5,0) node[below=0.6,pos=0.5] {Position (m)};
+            \fill (3,0) circle (0.1) node[above=0.1] {A};
+            \fill (-4,0) circle (0.1) node[above=0.1] {B};
+        \end{tikzpicture}
+    \end{center}
+
+    \item Dana moves from point A to point B in 10 seconds. Calculate (a) the average speed and (b) the average velocity. (c) Compare and contrast the average speed and average velocity.
+
+    \begin{center}
+        \begin{tikzpicture}[y=3mm,x=3mm]
+            \foreach \x in {-20,-15,...,20} {
+                \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+            }
+            \draw[->] (-20,0) -- (20,0) node[below=7mm,pos=0.5] {Position (m)};
+            \fill (10,0) circle (1mm) node[above=1mm] {A};
+            \fill (-20,0) circle (1mm) node[above=1mm] {B};
+        \end{tikzpicture}
+    \end{center}
+    
     \item Predict the last row of the data table below, assuming constant velocity.
     \begin{center}
         \begin{tabular}{|c|c|}
@@ -263,7 +318,7 @@
 
 \section{Acceleration}
 
-\textbf{Vocabulary}
+\subsection*{Vocabulary}
 
 \begin{itemize}[itemsep=0pt,topsep=-3pt]
     \item Define \textbf{\gls{acceleration}} as \glsdesc{acceleration}; or as \glsdesc{acceleration2}.
@@ -273,7 +328,7 @@
 
 \medskip
 
-\textbf{Core Principles}
+\subsection*{Fundamental Principles}
 
 % Students must articulate the following physical rules governing one-dimensional motion:
 
@@ -294,14 +349,24 @@
     \item \textbf{Know} that the area bounded by a line in an acceleration vs.\,time graph is change in velocity.
 \end{itemize}
 
-\medskip
+\subsection*{Mathematical Formulas}
 
-\textbf{Learning Goals}
+\begin{itemize}[itemsep=0pt,topsep=-3pt]
+    \item \textbf{Know} variables used to represent physical quantities, including: $a$ = acceleration; $\Delta v$ = change in velocity; $\Delta t$ = change in time.
+    \item \textbf{Know} that the base SI unit of acceleration is the meter per second per second (m/s/s), or the meter per second squared ($\mathrm{m/s^2}$).
+    \item \textbf{Know} that average acceleration is given by $\displaystyle a = \frac{\Delta v}{\Delta t}$.
+    \item \textbf{Know} that the area of a triangle is given by $\frac{1}{2}\times \text{base} \times \text{height}$.
+\end{itemize}
+
+
+
+\subsection*{Learning Goals}
 
 \begin{enumerate}[itemsep=0pt,topsep=-3pt]
     \item \textbf{Justify} whether or not an object is accelerating given a data table of velocity and time.
     \item \textbf{Justify} whether or not an object is accelerating given a data table of position and time.
     \item \textbf{Draw} a motion map for an object undergoing positive or negative acceleration.
+    \item \textbf{Indicate} whether an object is speeding up or slowing down from a motion map.
     \item \textbf{Identify} whether or not an object is accelerating from a velocity vs.\,time graph.
     \item \textbf{Identify} the direction of acceleration from a velocity vs.\,time graph.
     \item \textbf{Identify} the sign (positive or negative) of the slope of a point in a position vs.\,time graph, and associate it with the direction of the object's velocity.
@@ -344,20 +409,7 @@
     \end{center}
 \end{enumerate}
 
-\bigskip
-
-\textbf{Mathematical Formulas}
-
-\begin{itemize}[itemsep=0pt,topsep=-3pt]
-    \item \textbf{Know} variables used to represent physical quantities, including: $a$ = acceleration; $\Delta v$ = change in velocity; $\Delta t$ = change in time.
-    \item \textbf{Know} that the base SI unit of acceleration is the meter per second per second (m/s/s), or the meter per second squared ($\mathrm{m/s^2}$).
-    \item \textbf{Know} that average acceleration is given by $\displaystyle a = \frac{\Delta v}{\Delta t}$.
-    \item \textbf{Know} that the area of a triangle is given by $\frac{1}{2}\times \text{base} \times \text{height}$.
-\end{itemize}
-
-\medskip
-
-\textbf{Checking for Understanding}
+\subsection*{Assessment}
 
 \begin{enumerate}[itemsep=0pt,topsep=-3pt]
     \item An object's motion is summarized in the table below. Is the object accelerating?
@@ -404,6 +456,17 @@
             \addplot[very thick,black,domain=0:8] {5};
             \end{axis}
     \end{tikzpicture}
+    \end{center}
+
+    \item The motion map below depicts an object moving with positive velocity. Is the object speeding up, slowing down, or moving at constant speed?
+
+    \begin{center}
+        \begin{tikzpicture}[y=15cm,x=15cm]
+            \foreach \x in {0,0.1,...,1} {
+                \fill (-\x*\x,0) circle (1mm);
+            }
+            \draw[thick,->] (-0.81,0.05) -- ++(0.07,0) node[right] {$+x$};
+        \end{tikzpicture}
     \end{center}
     
     \item What is the direction of the object's velocity as depicted in the figure below?
@@ -457,7 +520,7 @@
     \end{tikzpicture}
     \end{center}
 
-    \item Calculate the object's displacement across the entire time interval shown below.
+    \item (a) Calculate the object's displacement across the entire time interval shown below. (b) Calculate the average acceleration.
     \begin{center}
     \begin{tikzpicture}
     \begin{axis}[width=5.2cm,height=4.2cm,
@@ -480,23 +543,23 @@
     \item What is the change in the object's velocity?
     \begin{center}
     \begin{tikzpicture}
-    \begin{axis}[width=5.5cm,height=4.5cm,
-        axis lines=center,
-        xlabel = {Time (s)},
-        ylabel = {Acceleration ($\mathrm{m/s^2}$)},
-        y label style={at={(axis description cs: 0,1.05)},above},
-        x label style={at={(axis description cs: 1.05,0.5)},right},
-        ymin=-4, ymax=4,
-        xmin=0, xmax=8,
-        ytick={-4,-2,...,4},
-        xtick={0,2,...,8},
-        minor y tick num=1,
-        minor x tick num=1,
-        grid=both,
-        clip=false,
-        ]
-        \node[left] at (0,0) {0};
-        \addplot[very thick,domain=0:8] {-2};
+        \begin{axis}[width=5.5cm,height=4.5cm,
+            axis lines=center,
+            xlabel = {Time (s)},
+            ylabel = {Acceleration ($\mathrm{m/s^2}$)},
+            y label style={at={(axis description cs: 0,1.05)},above},
+            x label style={at={(axis description cs: 1.05,0.5)},right},
+            ymin=-4, ymax=4,
+            xmin=0, xmax=8,
+            ytick={-4,-2,...,4},
+            xtick={0,2,...,8},
+            minor y tick num=1,
+            minor x tick num=1,
+            grid=both,
+            clip=false,
+            ]
+            \node[left] at (0,0) {0};
+            \addplot[very thick,domain=0:8] {-2};
         \end{axis}
     \end{tikzpicture}
     \end{center}
@@ -504,9 +567,9 @@
 
 \clearpage
 
-\section{Forces}
+\section{Force Interactions}
 
-\textbf{Vocabulary}
+\subsection*{Vocabulary}
 
 \begin{itemize}[itemsep=-3pt,topsep=0pt]
     \item Define \textbf{\gls{system}} as \glsdesc{system}.
@@ -514,43 +577,310 @@
     \item Define \textbf{\gls{net force}} ($F_\text{\scriptsize net}$) as \glsdesc{net force}.
     \item Define \textbf{\gls{external force}} as \glsdesc{external force}.
     \item Define \textbf{\gls{net external force}} ($F_\text{\scriptsize net}$) as \glsdesc{net external force}.
+    \item Define \textbf{\gls{free-body diagram}} as \glsdesc{free-body diagram}.
+    \item Define \textbf{\gls{Newton's first law of motion}} as stating that \glsdesc{Newton's first law of motion}.
+    \item Define \textbf{\gls{inertia}} as \glsdesc{inertia}.
     \item Define \textbf{\gls{tension}} as \glsdesc{tension}.
     \item Define \textbf{\gls{friction}} as \glsdesc{friction}.
     \item Define \textbf{\gls{normal force}} as \glsdesc{normal force}.
     \item Define \textbf{\gls{gravity}} as \glsdesc{gravitational force} (later, \glsdesc{gravity}).
     \item Define \textbf{\gls{applied force}} as \glsdesc{applied force}.
-    \item Define \textbf{\gls{free body diagram}} as \glsdesc{free body diagram}.
     \item Define \textbf{\gls{mass}} as \glsdesc{mass}.
-    \item Define \textbf{\gls{Newton's first law of motion}} as stating that \glsdesc{Newton's first law of motion}.
-    \item Define \textbf{\gls{inertia}} as \glsdesc{inertia}.
-    \item Define \textbf{\gls{Newton's second law of motion}} as stating that \glsdesc{Newton's second law of motion}.
     \item Define \textbf{\gls{Newton's third law of motion}} as stating that \glsdesc{Newton's third law of motion}.
 \end{itemize}
 
-\textbf{Core Principles}
+\subsection*{Fundamental Principles}
+
+
 
 \begin{itemize}[itemsep=0pt,topsep=-3pt]
     \item \textbf{Know} that an object will not speed up, slow down, or change direction on its own, and that it takes a net external force to change motion.
+    \item \textbf{Know} that two interacting objects exert equal and opposite forces on each other.
 \end{itemize}
 
-\textbf{Mathematical Formulas}
+\subsection*{Mathematical Formulas}
 
 \begin{itemize}[topsep=-3pt,itemsep=0pt]
-    \item \textbf{Know} that Newton's second law of motion is give by $\displaystyle a = \frac{F_\mathrm{net}}{m}$ or equivalently as $F_\text{\scriptsize net} = ma$.
+    \item \textbf{Know} that the base SI unit of force is the newton (N).
+    \item \textbf{Know} that the base SI unit of mass is the kilogram (kg).
+    \item \textbf{Know} that a newton (N) is equivalent to a kilogram times a meter per second squared ($\mathrm{kg\cdot m/s^2}$).
 \end{itemize}
+
+\subsection*{Learning Goals}
+
+\begin{enumerate}[itemsep=0pt]
+    \item \textbf{Indicate} whether forces are balanced or unbalanced in a free-body diagram.
+    \item \textbf{Indicate} whether forces are balanced or unbalanced from graphs of position, velocity, or acceleration vs.\,time.
+    \item \textbf{Indicate} whether forces are balanced or unbalanced from a motion map.
+    \item \textbf{Calculate} the vector sum of forces on a free-body diagram in one dimension, to find both the direction and magnitude of the net force vector.
+    \item \textbf{Identify} when a tension force is exerted on an object.
+    \item \textbf{Identify} the direction of the normal force for a box on an inclined surface.
+\end{enumerate}
+
+\subsection*{Assessment}
+
+\begin{enumerate}
+    \item Are the forces balanced or unbalanced?
+    
+    \begin{center}
+    \begin{tikzpicture}[x=5mm,y=5mm]
+        \draw[step=1,lightgray] (-3,-3) grid (3,3);
+        \fill (0,0) circle (0.4);
+        \draw[ultra thick,->] (0,0) -- (+2,0);
+        \draw[ultra thick,->] (0,0) -- (-3,0);
+        \draw[ultra thick,->] (0,0) -- (0,-2);
+        \draw[ultra thick,->] (0,0) -- (0,+2);
+    \end{tikzpicture}
+    \end{center}
+
+    \item In the figure below, are forces balanced or unbalanced?
+
+    \begin{center}
+        \begin{tikzpicture}
+        \begin{axis}[width=5.2cm,height=4.2cm,
+            axis lines=left,
+            xlabel = {Time (s)},
+            ylabel = {Position (m)},
+            ymin=0, ymax=8,
+            xmin=0, xmax=8,
+            ytick={0,2,...,8},
+            xtick={0,2,...,8},
+            minor y tick num=1,
+            minor x tick num=1,
+            grid=both,
+            ]
+            \addplot[very thick,domain=0:8] {6/8*x};
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+
+    \item Are forces balanced or unbalanced?
+
+    \begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=5.5cm,height=4.5cm,
+            axis lines=center,
+            xlabel = {Time (s)},
+            ylabel = {Acceleration ($\mathrm{m/s^2}$)},
+            y label style={at={(axis description cs: 0,1.05)},above},
+            x label style={at={(axis description cs: 1.05,0.5)},right},
+            ymin=-4, ymax=4,
+            xmin=0, xmax=8,
+            ytick={-4,-2,...,4},
+            xtick={0,2,...,8},
+            minor y tick num=1,
+            minor x tick num=1,
+            grid=both,
+            clip=false,
+            ]
+            \node[left] at (0,0) {0};
+            \addplot[very thick,domain=0:8] {3};
+        \end{axis}
+    \end{tikzpicture}
+    \end{center}
+
+    \item Are forces balanced or unbalanced?
+
+    \begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=5.4cm,height=4.5cm,
+            axis lines=center,
+            xlabel = {Time (s)},
+            ylabel = {Velocity ($\mathrm{m/s}$)},
+            y label style={at={(axis description cs: 0,1.05)},above},
+            x label style={at={(axis description cs: 1.05,0.5)},right},
+            ymin=-20, ymax=20,
+            xmin=0, xmax=8,
+            ytick={-20,-12,...,20},
+            xtick={0,2,...,10},
+            minor y tick num=1,
+            minor x tick num=1,
+            grid=both,
+            clip=false,
+            ]
+            % \node[left] at (0,0) {0};
+            \addplot[very thick,domain=0:8] {16 - 3*\x};
+        \end{axis}
+    \end{tikzpicture}
+    \end{center}
+
+    \item The motion map below depicts an object moving with negative velocity. Are the forces balance or unbalanced?
+
+    \begin{center}
+        \begin{tikzpicture}[y=15cm,x=15cm]
+            \foreach \x in {0,0.1,...,1} {
+                \fill (\x*\x,0) circle (1mm);
+            }
+            \draw[thick,->] (0,0.05) -- ++(0.07,0) node[right] {$+x$};
+        \end{tikzpicture}
+    \end{center}
+
+    \item In the free-body diagram below, each square represents \SI{10}{N}. At $t = 0$, the object moves at a speed of \SI{6}{m/s}. If the external forces do not change, what is object's speed at $t = \SI{5}{s}$?
+    
+    \begin{center}
+    \begin{tikzpicture}[x=5mm,y=5mm]
+        \draw[step=1,lightgray] (-3,-3) grid (3,3);
+        \fill (0,0) circle (0.4);
+        \draw[ultra thick,->] (0,0) -- (+2,0);
+        \draw[ultra thick,->] (0,0) -- (-2,0);
+        \draw[ultra thick,->] (0,0) -- (0,-3);
+        \draw[ultra thick,->] (0,0) -- (0,+3);
+    \end{tikzpicture}
+    \end{center}
+
+    \item Calculate the net force in the free-body diagram below.
+
+    \begin{center}
+    \begin{tikzpicture}[x=3mm,y=3mm]
+        \draw[very thick,->] (0,0) -- (12,0) node[right] {\SI{12}{N}};
+        \draw[very thick,->] (0,0) -- (-8,0) node[left] {\SI{8}{N}};
+        \fill (0,0) circle (2mm);
+    \end{tikzpicture}
+    \end{center}
+
+    \item A box is suspended below an anchoring rod by two cables, as shown below. What type of force do the cables exert on the box?
+    
+    \begin{center}
+    \begin{tikzpicture}[x=7mm,y=7mm]
+        \draw[fill=black!10] (-0.5,-0.5) rectangle ++(1,1);
+        \draw (0,0.5) -- ++({-2},{2*tan(30)});
+        \draw (0,0.5) -- ++({+2},{2*tan(30)});
+        \draw[pattern=north west lines, pattern color=black] (-2.5,1.68) rectangle ++(5,0.2);
+    \end{tikzpicture}
+    \end{center}
+
+    \item The free-body diagram below shows the instant an object is moving at constant speed to the left across a frictionless surface. Some time later, the object a rough surface with plenty of friction. Sketch the free-body diagram when the object moves across the rough surface.
+
+    \begin{center}
+    \begin{tikzpicture}[x=4mm,y=4mm]
+        \draw[step=1,lightgray] (-3,-3) grid (3,3);
+        \fill (0,0) circle (0.4);
+        \draw[ultra thick,->] (0,0) -- (0,-3);
+        \draw[ultra thick,->] (0,0) -- (0,+3);
+    \end{tikzpicture}
+    \end{center}
+
+    \item What is the direction of the \underline{normal} force on the box below?
+    
+    \begin{center}
+    \begin{tikzpicture}[x=5mm,y=5mm,rotate=-40]
+        \draw (-2.5,-1) -- (2.5,-1);
+        % \fill (0,0) circle (2pt);
+        \draw[thick,fill=black!10] (-1,-1) rectangle (1,1);
+        % \draw[->,thick] (0,0) -- (0,{3*cos(40)}) node[above] {$F_\mathrm{N}$};
+        \draw[rotate around={40:(2.5,-1)}] (-1,-1) node[above,shift={(5mm,0)}] {\ang{40}} -- (2.5,-1);
+        % \draw[->,rotate=40] (0,0) -- (0,-3) node[below] {$F_g$};
+    \end{tikzpicture}    
+    \end{center}
+
+    \item What is the direction of the \underline{gravity} force on the box below?
+    
+    \begin{center}
+    \begin{tikzpicture}[x=5mm,y=5mm,rotate=-40]
+        \draw (-2.5,-1) -- (2.5,-1);
+        \draw[thick,fill=black!10] (-1,-1) rectangle (1,1);
+        \draw[rotate around={40:(2.5,-1)}] (-1,-1) node[above,shift={(5mm,0)}] {\ang{40}} -- (2.5,-1);
+    \end{tikzpicture}    
+    \end{center}
+
+    \item If mass measures the amount of matter in an object, can two objects that are the same size have different masses?
+
+    \item At the instant shown below, objects 1 and 2 are undergoing a collision. The magnitude of the force on object 1 by object 2 is $F_{12}$, and the magnitude of the force on object 2 by object 1 is $F_{21}$. Object 2 has a greater mass than object 1. How do the forces $F_{12}$ and $F_{21}$ compare?
+    
+    \begin{center}
+    \begin{tikzpicture}[y=3cm,x=3cm]
+        \draw[fill=cyan!50] (1.84,0) circle (0.16) node {1}; 
+        \draw[fill=red!50] (2.25,0) circle (0.25) node {2};
+    \end{tikzpicture}
+    \end{center}
+
+    \item Figure 1 below shows a box that is held at rest by a rope of negligible mass attached to a pulley. Points A and B are where the rope connects to the box and pulley, respectively. Figure 2 shows the force on the box at point A. Draw the force on the pulley at point B.
+    
+    \begin{center}
+    \begin{tikzpicture}
+        \draw[fill=black!20] (0,0) circle (1) node[above=1] {pulley};
+        \fill (0,0) circle (0.02);
+        \draw (1,0) -- (1,-2.5);
+        \begin{scope}[shift={(1,-2.5)},x=2.5mm,y=2.5mm]
+            \draw[fill=black!10] (-1,-1) rectangle (1,1);
+        \end{scope}
+        \fill (1,0) circle (0.08) node[right] {B};
+        \fill (1,-2.25) circle (0.08) node[shift={(0.2,0.25)}] {A};
+        \node[below=5mm] at (current bounding box.south) {Figure 1};
+    \end{tikzpicture}
+    \hspace{1cm}
+    \begin{tikzpicture}[x=5mm,y=5mm]
+        \draw[step=1,lightgray] (-3,-3) grid (3,3);
+        \node[below=5mm] at (current bounding box.south) {Figure 2};
+        \draw[ultra thick,->] (0,-2) -- ++(0,4);
+    \end{tikzpicture}
+    \end{center}
+\end{enumerate}
+
+\clearpage
+
+\section{Newton's Second Law and Universal Gravitation}
+
+\subsection*{Vocabulary}
+
+\begin{itemize}[itemsep=0pt]
+    \item Define \textbf{\gls{Newton's second law of motion}} as stating that \glsdesc{Newton's second law of motion}.
+    \item Define \textbf{\gls{Newton's universal law of gravitation}} as stating that \glsdesc{Newton's universal law of gravitation}.
+    \item Define the \textbf{\gls{gravitational constant}} ($G$) as \glsdesc{gravitational constant}.
+    \item Define \textbf{\gls{weight}} as \glsdesc{weight}.
+\end{itemize}
+
+\subsection*{Fundamental Principles}
+
+\subsection*{Mathematical Formulas}
+
+\begin{itemize}[itemsep=0pt]
+    \item \textbf{Know} that Newton's second law of motion is give by $\displaystyle a = \frac{F_\mathrm{net}}{m}$ or equivalently as $F_\text{\scriptsize net} = ma$.
+    \item \textbf{Know} that Newton's universal law of gravitation is given by the equation $\displaystyle |F_g| = \frac{G m_1 m_2}{r^2}$
+    \item \textbf{Know} that the gravitational constant is $\displaystyle G = \SI{6.67e-11}{N\cdot m^2/s^2}$.
+    \item \textbf{Know} that $r$ in the law of gravitation is the distance between the centers of mass.
+\end{itemize}
+
+\subsection*{Learning Goals}
+
+\begin{enumerate}[itemsep=0pt]
+    \item \textbf{Translate} forces on a free-body diagram to a net force equation in one dimension.
+    \textbf{Calculate} acceleration and force using Newton's second law.
+    \item \textbf{Calculate} the magnitude of the gravitational force between two objects, expressing the answer in scientific notation.
+\end{enumerate}
+
+\subsection*{Assessment}
+
+\begin{enumerate}[itemsep=0pt]
+    \item Write the net force equation for the forces in the horizontal direction.
+
+    \begin{center}
+    \begin{tikzpicture}[x=1.2cm,y=1.2cm]
+        \draw[->,thick] (0,0) -- (1,0) node[right] {$F_\text{\scriptsize A}$};
+        \draw[->,thick] (0,0) -- (-1,0) node[left] {$F_f$};
+        \draw[->,thick] (0,0) -- (0,1) node[above] {$F_\text{\scriptsize N}$};
+        \draw[->,thick] (0,0) -- (0,-1) node[below] {$F_g$};
+        \fill (0,0) circle (4pt);
+    \end{tikzpicture}
+    \end{center}
+\end{enumerate}
 
 \clearpage
 
 \section{One-Dimensional Kinematics}
 
-\textbf{Vocabulary}
+\subsection*{Vocabulary}
 
 \begin{itemize}[topsep=-3pt,itemsep=0pt]
     \item Define \textbf{\gls{kinematic equations}} as \glsdesc{kinematic equations}.
     \item Define \textbf{\gls{free fall}} as \glsdesc{free fall}.
+    \item Define \textbf{\gls{hang time}} as \glsdesc{hang time}.
+    \item Define \textbf{\gls{air resistance}} as \glsdesc{air resistance}.
+    \item Define \textbf{\gls{negligible}} as \glsdesc{negligible}.
+    \item Define \textbf{\gls{projectile}} as \glsdesc{projectile}.
 \end{itemize}
 
-\textbf{Mathematical Formulas}
+\subsection*{Mathematical Formulas}
 
 \begin{itemize}[topsep=-3pt,itemsep=0pt]
     \item \textbf{Know} velocity as a function of time: $\displaystyle v_f = v_i + at$
@@ -559,17 +889,105 @@
     \item \textbf{Know} average velocity to find displacement: $\displaystyle \Delta x = \frac{1}{2}(v_i + v_f)t$
 \end{itemize}
 
+\subsection*{Learning Goals}
+
+\begin{itemize}[itemsep=0pt]
+    \item \textbf{Sketch} a graph of vertical velocity vs.\,time for the entire flight of an object projected vertically from the ground.
+\end{itemize}
+
+
+\subsection*{Assessment}
+
 \clearpage
 
 \section{Two-Dimensional Motion}
+
+\subsection*{Vocabulary}
+
+\vspace{-6pt}
+
+\begin{itemize}[itemsep=0pt]
+    \item Define \textbf{\gls{projectile motion}} as \glsdesc{projectile motion}.
+    \item Define \textbf{\gls{trajectory}} as \glsdesc{trajectory}.
+    \item Define \textbf{\gls{apex}} as \glsdesc{apex}.
+    \item Define \textbf{\gls{horizontally launched projectile}} as \glsdesc{horizontally launched projectile}.
+    \item Define \textbf{\gls{impact speed}} as \glsdesc{impact speed}.
+    \item Define \textbf{\gls{circular motion}} as \glsdesc{circular motion}.
+    \item Define \textbf{\gls{centripetal acceleration}} as \glsdesc{centripetal acceleration}.
+    \item Define \textbf{\gls{centripetal force}} as \glsdesc{centripetal force}.
+    \item Define \textbf{\gls{Newton's universal law of gravitation}} as a law stating that \glsdesc{Newton's universal law of gravitation}.
+\end{itemize}
+
+\subsection*{Fundamental Principles}
+
+\begin{itemize}[itemsep=0pt]
+    \item \textbf{Know} that, in projectile motion, the trajectory's shape is a parabola.
+\end{itemize}
+
+\subsection*{Mathematical Formulas}
+
+
+
+
+\subsection*{Learning Goals}
+
+\subsection*{Assessment}
+
+
+\clearpage
+
+\section{Energy}
+
+\subsection*{Vocabulary}
+
+\vspace{-6pt}
+
+\begin{itemize}[itemsep=0pt]
+    \item Define \textbf{\gls{kinetic energy}} as \glsdesc{kinetic energy}.
+    \item Define \textbf{\gls{joule}} as \glsdesc{joule}.
+    \item Define \textbf{\gls{work}} as \glsdesc{work}.
+    \item Define \textbf{\gls{energy}} as \glsdesc{energy}.
+    \item Define \textbf{\gls{potential energy}} as \glsdesc{potential energy}.
+    \item Define \textbf{\gls{gravitational potential energy}} as \glsdesc{gravitational potential energy}.
+    \item Define \textbf{\gls{conservation of energy}} as \glsdesc{conservation of energy}.
+    \item Define \textbf{\gls{mechanical energy}} as \glsdesc{mechanical energy}.
+    \item Define \textbf{\gls{conservation of mechanical energy}} as \glsdesc{conservation of mechanical energy}.
+\end{itemize}
+
+\subsection*{Fundamental Principles}
+
+\subsection*{Mathematical Formulas}
+
+\subsection*{Learning Goals}
+
+\subsection*{Assessment}
 
 \clearpage
 
 \section{Momentum}
 
-\clearpage
+\subsection*{Vocabulary}
 
-\section{Energy}
+\vspace{-6pt}
+
+\begin{itemize}[itemsep=0pt]
+    \item Define \textbf{\gls{momentum}} as \glsdesc{momentum}.
+    \item Define \textbf{\gls{momentum vs. time graph}} as \glsdesc{momentum vs. time graph}.
+    \item Define \textbf{\gls{impulse}} as \glsdesc{impulse}.
+    \item Define \textbf{\gls{impulse-momentum theorem}} as \glsdesc{impulse-momentum theorem}.
+    \item Define \textbf{\gls{conservation of momentum}} as \glsdesc{conservation of momentum}.
+    \item Define \textbf{\gls{elastic collision}} as \glsdesc{elastic collision}.
+    \item Define \textbf{\gls{inelastic collision}} as \glsdesc{inelastic collision}.
+    \item Define \textbf{\gls{perfectly inelastic collision}} as \glsdesc{perfectly inelastic collision}.
+\end{itemize}
+
+\subsection*{Fundamental Principles}
+
+\subsection*{Mathematical Formulas}
+
+\subsection*{Learning Goals}
+
+\subsection*{Assessment}
 
 \clearpage
 

@@ -74,6 +74,11 @@
     description={the length of the path actually traveled between an initial and a final position}
 }
 
+\newglossaryentry{motion map}{
+    name={motion map},
+    description={a diagram that represents the position and velocity of an object at equal time intervals}
+}
+
 \newglossaryentry{position vs. time graph}{
     name={position vs. time graph},
     description={a graph in which position is plotted on the vertical axis and time is plotted on the horizontal axis}
@@ -205,8 +210,8 @@
     description={a force applied from a spring when it is either compressed or stretched}
 }
 
-\newglossaryentry{free body diagram}{
-    name=free body diagram,
+\newglossaryentry{free-body diagram}{
+    name=free-body diagram,
     description={a diagram that represents an object as a single point and shows all external forces acting on it as arrows (vectors)}
 }
 
@@ -248,46 +253,25 @@
     description={the motion of an object under the influence of gravity alone, with no other forces acting on it}
 }
 
-
-
-
-
-\newglossaryentry{momentum}{
-    name={momentum},
-    description={the product of a system's mass and velocity}
+\newglossaryentry{hang time}{
+    name={hang time},
+    description={the total amount of time an object remains in the air}
 }
 
-\newglossaryentry{momentum vs. time graph}{
-    name={momentum vs.\,time graph},
-    description={a graph in which momentum is plotted on the vertical axis and time is plotted on the horizontal axis}
+\newglossaryentry{air resistance}{
+    name={air resistance},
+    description={a force exerted by air on a moving object that opposes its motion}
 }
 
-\newglossaryentry{impulse}{
-    name={impulse},
-    description={average net external force multiplied by the time the force acts; equal to the change in momentum}
+\newglossaryentry{negligible}{
+    name={negligible},
+    description={too small to have a meaningful effect on a calculation or outcome}
 }
 
-\newglossaryentry{impulse-momentum theorem}{
-    name={impulse-momentum theorem},
-    description={the impulse equals change in momentum}
+\newglossaryentry{vertical velocity}{
+    name={vertical velocity},
+    description={the component of an object's velocity in the vertical direction}
 }
-
-\newglossaryentry{kinetic energy}{
-    name={kinetic energy},
-    description={energy of motion}
-}
-
-\newglossaryentry{joule}{
-    name=joule,
-    description={the metric unit for work and energy; equal to 1 newton meter ($\text{N}\cdot\text{m}$)}
-}
-
-\newglossaryentry{work}{
-    name={work},
-    description={force multiplied by distance}
-}
-
-%...UNIT 5: FORCE ANALYSIS
 
 
 \newglossaryentry{contact force}{
@@ -296,17 +280,16 @@
 }
 
 
-
-%...UNIT 7: MOTION IN TWO DIMENSIONS
+%...UNIT 5: TWO-DIMENSIONAL MOTION
 
 \newglossaryentry{projectile}{
     name={projectile},
-    description={an object that travels through the air and experiences only acceleration due to gravity}
+    description={an object that is launched into the air and moves under the influence of gravity alone}
 }
 
 \newglossaryentry{projectile motion}{
     name={projectile motion},
-    description={the motion of an object that is subject only to the acceleration of gravity}
+    description={the curved motion of a projectile as it moves both horizontally and vertically at the same time}
 }
 
 \newglossaryentry{trajectory}{
@@ -316,27 +299,27 @@
 
 \newglossaryentry{apex}{
     name={apex},
-    description={the location on the trajectory at which the projectile reaches maximum height}
-}
-
-\newglossaryentry{hang time}{
-    name={hang time},
-    description={the amount of time that a projectile is in the air during projectile motion}
+    description={the highest point reached by a projectile during its flight}
 }
 
 \newglossaryentry{horizontally launched projectile}{
     name={horizontally launched projectile},
-    description={a projectile whose initial velocity is entirely in the horizontal direction}
+    description={a projectile that is launched parallel to the ground with no initial vertical velocity}
 }
 
 \newglossaryentry{impact speed}{
     name={impact speed},
-    description={the speed at which a projectile strikes the ground after being launched}
+    description={the speed of a projectile at the moment it strikes the ground}
 }
 
 \newglossaryentry{circular motion}{
     name={circular motion},
     description={the motion of an object traveling along a circular path at a constant speed}
+}
+
+\newglossaryentry{centripetal acceleration}{
+    name={centripetal acceleration},
+    description={the acceleration directed toward the center of a circular path, responsible for changing the direction of an object's velocity}
 }
 
 \newglossaryentry{centripetal force}{
@@ -346,7 +329,7 @@
 
 \newglossaryentry{Newton's universal law of gravitation}{
     name={Newton's universal law of gravitation},
-    description={states that gravitational force between two objects is directly proportional to the product of their masses and inversely proportional to the square of the distance between them}
+    description={every object in the universe attracts every other object with a force proportional to the product of their masses and inversely proportional to the square of the distance between them}
 }
 
 \newglossaryentry{gravitational constant}{
@@ -359,13 +342,23 @@
     description={the force of gravity, $F_g$, acting on an object of mass $m$}
 }
 
+%...UNIT 6: ENERGY
 
-%...UNIT 8: CONSERVATION IN MECHANICAL SYSTEMS
+\newglossaryentry{kinetic energy}{
+    name={kinetic energy},
+    description={the energy an object possesses due to its motion}
+}
 
-% \newglossaryentry{system}{
-%     name={system},
-%     description={one or more objects of interest for which only the forces acting on them from the outside are considered, but not the forces acting between them or inside them}
-% }
+\newglossaryentry{joule}{
+    name=joule,
+    description={the SI unit of energy and work, equal to one newton-meter
+    }
+}
+
+\newglossaryentry{work}{
+    name={work},
+    description={the transfer of energy that occurs when a force is applied to an object over a displacement in the direction of the force}
+}
 
 \newglossaryentry{energy}{
     name={energy},
@@ -374,48 +367,84 @@
 
 \newglossaryentry{potential energy}{
     name={potential energy},
-    description={stored energy}
+    description={stored energy an object possesses due to its position or condition}
 }
 
 \newglossaryentry{gravitational potential energy}{
     name={gravitational potential energy},
-    description={energy acquired by doing work against gravity}
+    description={the stored energy an object possesses due to its height above a reference point}
 }
 
-\newglossaryentry{law of conservation of energy}{
-    name={law of conservation of energy},
-    description={states that energy is neither created nor destroyed}
+\newglossaryentry{conservation of energy}{
+    name={conservation of energy},
+    description={energy cannot be created or destroyed, only transformed from one form to another}
 }
 
 \newglossaryentry{mechanical energy}{
     name={mechanical energy},
-    description={kinetic plus potential energy}
+    description={the sum of an object's kinetic energy and potential energy}
+}
+
+\newglossaryentry{conservation of mechanical energy}{
+    name={conservation of mechanical energy},
+    description={the total mechanical energy of a system remains constant as long as no non-conservative forces (such as friction) act on it}
+}
+
+
+%...UNIT 7: MOMENTUM
+
+\newglossaryentry{momentum}{
+    name={momentum},
+    description={the product of an object's mass and velocity}
+}
+
+\newglossaryentry{momentum vs. time graph}{
+    name={momentum vs.\,time graph},
+    description={a graph in which momentum is plotted on the vertical axis and time is plotted on the horizontal axis}
+}
+
+\newglossaryentry{impulse}{
+    name={impulse},
+    description={the product of a force and the time over which it acts, }
+}
+
+\newglossaryentry{impulse-momentum theorem}{
+    name={impulse-momentum theorem},
+    description={impulse is equal to the change in momentum of an object}
+}
+
+
+\newglossaryentry{conservation of momentum}{
+    name={conservation of momentum},
+    description={the total momentum of a system remains constant as long as no net external force acts on it}
 }
 
 \newglossaryentry{elastic collision}{
     name={elastic collision},
-    description={a collision in which objects separate after impact and kinetic energy is conserved}
+    description={A collision in which both momentum and kinetic energy are conserved}
 }
 
 \newglossaryentry{inelastic collision}{
     name={inelastic collision},
-    description={a collision in which kinetic energy is not conserved}
+    description={a collision in which momentum is conserved but kinetic energy is not.}
 }
 
-\newglossaryentry{isolated system}{
-    name={isolated system},
-    description={system in which the net external force is zero}
-}
-
-\newglossaryentry{law of conservation of momentum}{
-    name={law of conservation of momentum},
-    description={when the net external force is zero, the total momentum of the system is conserved or constant}
-}
 
 \newglossaryentry{perfectly inelastic collision}{
     name={perfectly inelastic collision},
-    description={collision in which objects stick together after impact and kinetic energy is not conserved}
+    description={a collision in which the objects stick together after impact, resulting in the maximum loss of kinetic energy.}
 }
+
+
+%...UNIT 8: CONSERVATION IN MECHANICAL SYSTEMS
+
+% \newglossaryentry{system}{
+%     name={system},
+%     description={one or more objects of interest for which only the forces acting on them from the outside are considered, but not the forces acting between them or inside them}
+% }
+
+
+
 
 \newglossaryentry{recoil}{
     name={recoil},
