@@ -26,8 +26,9 @@
 } %...See https://tex.stackexchange.com/questions/43960/define-node-at-relative-coordinates-of-draw-plot
 
 \tikzset{
-    declare function = {trajectoryequation10(\x,\vi,\thetai)= tan(\thetai)*\x - 10*\x^2/(2*(\vi*cos(\thetai))^2);},
-    declare function = {trajectoryequation(\x,\vi,\thetai)= tan(\thetai)*\x - 9.8*\x^2/(2*(\vi*cos(\thetai))^2);},
+    declare function = {trajectoryequation10(\x,\vi,\thetai)= tan(\thetai)*\x - (10*\x / (2*(\vi*cos(\thetai))^2)) * \x;},
+    % declare function = {trajectoryequation(\x,\vi,\thetai)= tan(\thetai)*\x - 9.8*\x^2/(2*(\vi*cos(\thetai))^2);}, %...DO NOT USE \x^2, see below:
+    declare function = {trajectoryequation(\x,\vi,\thetai)= tan(\thetai)*\x - (9.8*\x / (2*(\vi*cos(\thetai))^2)) * \x;}, %...Do not use \x^2, instead use \x *\x as shown above, to avoid "Dimensions too large" error
     declare function = {patheq(\x,\yi,\vi,\thetai)= \yi + tan(\thetai)*\x - 9.8*\x^2/(2*(\vi*cos(\thetai))^2);},
     declare function = {patheqten(\x,\yi,\vi,\thetai)= \yi + tan(\thetai)*\x - 10*\x^2/(2*(\vi*cos(\thetai))^2);} %like patheq but with gravity = 10
 }

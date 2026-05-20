@@ -1,0 +1,678 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Monthly Calendar
+% LaTeX Template
+% Version 2.0 (January 5, 2025)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% Author:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	CLASS, PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	a4paper, % Paper size, use either a4paper or letterpaper
+	10pt, % Default font size, specify between 8pt and 12pt
+]{CSCalendars}
+
+%----------------------------------------------------------------------------------------
+%	CALENDAR SETTINGS
+%----------------------------------------------------------------------------------------
+
+\setcounter{startingdayoftheweek}{1} % The starting day of the calendar: 1 means Sunday, 2 for Monday, 3 for Tuesday, etc. Should be between 1 and 7.
+
+\setcounter{startingdate}{1} % The starting date of the calendar, will usually be 1 but can be set to 30 or 31 to display those dates at the top left of the calendar when the first day of the month is near the end of the week
+
+%----------------------------------------------------------------------------------------
+
+\usepackage[table]{xcolor}
+\usepackage{graphicx}   % for \resizebox
+\usepackage{fontawesome} % for \faFileTextO
+
+\begin{document}
+
+\newcommand{\ssholiday}{%
+    \day{}{%
+    \cellcolor{black!30}
+    Student/Staff Holiday
+    }
+}
+
+\newcommand{\pdholiday}{%
+    \day{}{%
+    \cellcolor{yellow!15}
+    Professional Day/Student Holiday
+    }
+}
+
+\newcommand{\twholiday}{%
+    \day{}{%
+    \cellcolor{green!15}
+    Teacher Work Day/School
+    Closure Make-up Day/
+    Student Holiday
+    }
+}
+
+\newcommand{\newunit}[2]{%
+    \day{Begin Next Unit}{%
+    \cellcolor{red!25}
+    
+    \smallskip
+    
+    \textbf{#1}
+    \eventskip
+    #2
+    }
+}
+
+\newcommand{\wday}{%
+    \day{\color{black!10}}{}
+}
+
+\newcommand{\teston}[1]{%
+    \begin{center}
+        \resizebox{7mm}{!}{\faFileTextO}
+    \end{center}
+
+    \textbf{Test on Unit #1}
+}
+
+\newcommand{\dayreviewI}[1]{%
+    \day{#1}{review the previous week's work}
+}
+
+
+
+%----------------------------------------------------------------------------------------
+%	CALENDAR PAGE(S)
+%----------------------------------------------------------------------------------------
+
+% Each calendar consists of 7 * 5 = 35 table cells. Each cell must be populated with either a \blankday or \day command. \blankday is used for empty cells that don't contain dates, usually at the start or end of the calendar. \day is used for all days with dates and takes 2 parameters: 1) the header at the top of the day cell (e.g. Work, Social, etc). 2) The day's events, separated by \eventskip for nice vertical spacing. You can also use \dayheader{<title>} inside each \day's events to output an additional header.
+
+% Calendar header
+% \begin{center}
+% 	\textsc{\LARGE Month}\\ % Month
+% 	\textsc{\large Year} % Year
+% \end{center}
+
+% % Calendar table
+% \begin{calendar}
+% 	\blankday{}
+% 	\day{Work}{10am Weekly Catch Up with Rachel \eventskip 12pm TPS Report Due} % 1
+% 	\day{Work}{9am Team Standup Meeting} % 2
+% 	\day{Social}{5:30pm Tennis with John, Janet and James} % 3
+% 	\day{Work}{9am Team Standup Meeting} % 4
+% 	\day{}{} % 5
+% 	\day{Social}{10am Marinate Meat \eventskip 5pm-10pm Neighborhood BBQ} % 6
+% 	\day{}{} % 7
+% 	\day{Work}{10am Weekly Catch Up with Rachel \eventskip \dayheader{Social} \eventskip 7pm Dinner with Jeremy} % 8
+% 	\day{Work}{9am Team Standup Meeting} % 9
+% 	\day{Work}{1pm-5pm Product Brainstorming Session \eventskip \dayheader{Social} \eventskip 5:30pm Tennis with John, Janet and James} % 10
+% 	\day{Work}{9am Team Standup Meeting} % 11
+% 	\day{}{} % 12
+% 	\day{}{} % 13
+% 	\day{}{Rebecca's 40th Birthday} % 14
+% 	\day{Work}{10am Weekly Catch Up with Rachel} % 15
+% 	\day{Work}{9am Team Standup Meeting} % 16
+% 	\day{Social}{5:30pm Tennis with John, Janet and James} % 17
+% 	\day{Work}{9am Team Standup Meeting} % 18
+% 	\day{Conference}{9am Opening Talks \eventskip 11am Group Presentation \eventskip 2pm Networking Event \eventskip \dayheader{Work} \eventskip 5pm Report Due} % 19
+% 	\day{}{} % 20
+% 	\day{}{} % 21
+% 	\day{Work}{10am Weekly Catch Up with Rachel} % 22
+% 	\day{Work}{9am Team Standup Meeting} % 23
+% 	\day{Social}{5:30pm Tennis with John, Janet and James} % 24
+% 	\day{Work}{9am Team Standup Meeting \eventskip 12pm Company Report Due \eventskip 6pm Executive Debriefing \eventskip 8pm Company Dinner} % 25
+% 	\day{Work}{12pm Client Introduction \eventskip 2pm Client Presentation \eventskip 6pm Client Dinner} % 26
+% 	\day{}{Dad's 64th Birthday \eventskip \dayheader{Vacation} \eventskip Family Trip to New York} % 27
+% 	\day{Vacation}{Family Trip to New York} % 28
+% 	\day{Work}{10am Weekly Catch Up with Rachel} % 29
+% 	\day{Work}{9am Team Standup Meeting} % 30
+% 	\day{Work}{9am Team Standup Meeting \eventskip \dayheader{Social} \eventskip 5:30pm Tennis with John, Janet and James} % 31
+% 	\blankday{}
+% 	\blankday{}
+% 	\blankday{}
+% \end{calendar}
+
+% %--------------------------------------------
+
+% \newpage
+
+% \setcounter{startingdate}{30} % The starting date of the calendar, set to 30 so the first days output are for the end of the month
+
+% Calendar header
+\begin{center}
+	\textsc{\LARGE August}\\ % Month
+	\textsc{\large 2026} % Year
+\end{center}
+
+% Calendar table
+\begin{calendar}
+	\blankday{}
+	\blankday{}
+	\blankday{}
+	\blankday{}
+    \blankday{}
+    \blankday{}
+	\setcounter{startingdate}{1} % Reset the current date back to 1
+	\wday{}{} % 1
+	\wday{}{} % 2
+	\pdholiday % 3
+	\pdholiday % 4
+	\pdholiday % 5
+	\pdholiday % 6
+	\pdholiday % 7
+	\wday{}{} % 8
+	\wday{}{} % 9
+	\pdholiday % 10
+	\pdholiday % 11
+	\day{First Day of School}{} % 12
+	\day{}{} % 13
+	\day{}{} % 14
+	\wday{}{} % 15
+	\wday{}{} % 16
+    \newunit{Unit 1: Constant Velocity}{
+        magnitude, scalar, vector, component, tail, head
+    } % 17
+	\day{}{head-to-tail method, vector sum} % 18
+	\day{}{position, motion, reference frame, one-dimensional motion, displacement, distance} % 19
+	\day{}{speed, average speed, velocity, average velocity} % 20
+	\day{}{motion map, position vs.\,time graph} % 21
+	\wday{}{} % 22
+	\wday{}{} % 23
+	\dayreviewI{Monday Review} % 24
+	\day{}{velocity vs.\,time graph} % 25
+	\day{}{} % 26
+	\day{}{} % 27
+	\day{}{} % 28
+	\blankday{}
+\end{calendar}
+
+%----------------------------------------------------------------------------------------
+
+\newpage
+
+\setcounter{startingdate}{30} % The starting date of the calendar, set to 30 so the first days output are for the end of the month
+
+% Calendar header
+\begin{center}
+	\textsc{\LARGE September}\\ % Month
+	\textsc{\large 2026} % Year
+\end{center}
+
+% Calendar table
+\begin{calendar}
+	\wday{}{} % 30
+	\dayreviewI{Monday Review} % 31
+	\setcounter{startingdate}{1} % Reset the current date back to 1
+	\day{}{} % 1
+	\day{}{} % 2
+	\day{}{} % 3
+	\day{}{\teston{1}} % 4
+	\wday{}{} % 5
+	\wday{}{} % 6
+	\ssholiday % 7
+	\newunit{Unit 2: Acceleration}{} % 8
+	\day{}{} % 9
+	\day{}{} % 10
+	\day{}{} % 11
+	\wday{}{} % 12
+	\wday{}{} % 13
+	\day{}{} % 14
+	\day{}{} % 15
+	\day{}{} % 16
+	\day{}{} % 17
+	\day{}{} % 18
+	\wday{}{} % 19
+	\wday{}{} % 20
+	\day{}{} % 21
+	\day{}{} % 22
+	\day{}{} % 23
+	\day{}{} % 24
+	\day{}{\teston{2}} % 25
+	\wday{}{} % 26
+	\wday{}{} % 27
+	\newunit{Unit 3: Force Interactions}{} % 28
+	\day{}{} % 29
+	\day{}{} % 30
+    \blankday{}
+    \blankday{}
+    \blankday{}
+\end{calendar}
+
+%----------------------------------------------------------------------------------------
+
+\newpage
+
+% \setcounter{startingdate}{1} % The starting date of the calendar, set to 30 so the first days output are for the end of the month
+
+% Calendar header
+\begin{center}
+	\textsc{\LARGE October}\\ % Month
+	\textsc{\large 2026} % Year
+\end{center}
+
+% Calendar table
+\begin{calendar}
+    \blankday{}
+    \blankday{}
+    \blankday{}
+    \blankday{}
+	\setcounter{startingdate}{1} % Reset the current date back to 1
+	\day{}{} % 1
+	\day{}{} % 2
+	\wday{}{} % 3
+	\wday{}{} % 4
+	\day{}{} % 5
+	\day{}{} % 6
+	\day{}{} % 7
+	\day{}{\teston{3}} % 8
+	\twholiday % 9
+	\wday{}{} % 10
+	\wday{}{} % 11
+	\ssholiday % 12
+	\ssholiday % 13
+	\ssholiday % 14
+	\ssholiday % 15
+	\ssholiday % 16
+	\wday{}{} % 17
+	\wday{}{} % 18
+	\newunit{Unit 4: Newton's Second Law and Universal Gravitation}{} % 19
+	\day{}{} % 20
+	\day{}{} % 21
+	\day{}{} % 22
+	\day{}{} % 23
+	\wday{}{} % 24
+	\wday{}{} % 25
+	\day{}{} % 26
+	\day{}{} % 27
+	\day{}{} % 28
+	\day{}{} % 29
+	\day{}{} % 30
+    \wday{}{} % 31
+\end{calendar}
+
+%----------------------------------------------------------------------------------------
+
+\newpage
+
+% \setcounter{startingdate}{1} % The starting date of the calendar, set to 30 so the first days output are for the end of the month
+
+% Calendar header
+\begin{center}
+	\textsc{\LARGE November}\\ % Month
+	\textsc{\large 2026} % Year
+\end{center}
+
+% Calendar table
+\begin{calendar}
+	\setcounter{startingdate}{1} % Reset the current date back to 1
+	\wday{}{} % 1
+	\day{}{} % 2
+	\twholiday % 3
+	\day{}{} % 4
+	\day{}{} % 5
+	\day{}{\teston{4}} % 6
+	\wday{}{} % 7
+	\wday{}{} % 8
+	\newunit{Unit 5: One-Dimensional Kinematics}{} % 9
+	\day{}{} % 10
+	\day{}{} % 11
+	\day{}{} % 12
+	\day{}{} % 13
+	\wday{}{} % 14
+	\wday{}{} % 15
+	\day{}{\teston{5}} % 16
+	\newunit{Unit 6: Two-Dimensional Motion}{} % 17
+	\day{}{} % 18
+	\day{}{} % 19
+	\day{}{} % 20
+	\wday{}{} % 21
+	\wday{}{} % 22
+	\ssholiday % 23
+	\ssholiday % 24
+	\ssholiday % 25
+	\ssholiday % 26
+	\ssholiday % 27
+	\wday{}{} % 28
+	\wday{}{} % 29
+	\day{}{} % 30
+    \blankday{}
+    \blankday{}
+    \blankday{}
+    \blankday{}
+    \blankday{}
+\end{calendar}
+
+%----------------------------------------------------------------------------------------
+
+\newpage
+
+% \setcounter{startingdate}{1} % The starting date of the calendar, set to 30 so the first days output are for the end of the month
+
+% Calendar header
+\begin{center}
+	\textsc{\LARGE December}\\ % Month
+	\textsc{\large 2026} % Year
+\end{center}
+
+% Calendar table
+\begin{calendar}
+    \blankday{}
+    \blankday{}
+	\setcounter{startingdate}{1} % Reset the current date back to 1
+	\day{}{} % 1
+	\day{}{} % 2
+	\day{}{} % 3
+	\day{}{} % 4
+	\wday{}{} % 5
+	\wday{}{} % 6
+	\day{}{} % 7
+	\day{}{} % 8
+	\day{}{} % 9
+	\day{}{} % 10
+	\day{}{\teston{6}} % 11
+	\wday{}{} % 12
+	\wday{}{} % 13
+	\day{}{Begin Finals Review and Exams} % 14
+	\day{}{} % 15
+	\day{}{} % 16
+	\day{}{} % 17
+	\day{}{} % 18
+	\wday{}{} % 19
+	\wday{}{} % 20
+	\ssholiday % 21
+	\ssholiday % 22
+	\ssholiday % 23
+	\ssholiday % 24
+	\ssholiday % 25
+	\wday{}{} % 26
+	\wday{}{} % 27
+	\ssholiday % 28
+	\ssholiday % 29
+	\ssholiday % 30
+    \ssholiday % 31
+% \day{}{%
+% \cellcolor{blue!20}
+% Family Trip to New York
+% }
+    \blankday{}
+    \blankday{}
+\end{calendar}
+
+%----------------------------------------------------------------------------------------
+
+
+\newpage
+
+% \setcounter{startingdate}{30} % The starting date of the calendar, set to 30 so the first days output are for the end of the month
+
+% Calendar header
+\begin{center}
+	\textsc{\LARGE January}\\ % Month
+	\textsc{\large 2027} % Year
+\end{center}
+
+% Calendar table
+\begin{calendar}
+	\blankday{}
+	\blankday{}
+	\blankday{}
+	\blankday{}
+    \blankday{}
+	\setcounter{startingdate}{1} % Reset the current date back to 1
+	\ssholiday % 1
+	\wday{}{} % 2
+	\wday{}{} % 3
+	\pdholiday % 4
+	\newunit{Unit 7: Energy}{} % 5
+	\day{}{} % 6
+	\day{}{} % 7
+	\day{}{} % 8
+	\wday{}{} % 9
+	\wday{}{} % 10
+	\day{}{} % 11
+	\day{}{} % 12
+	\day{}{} % 13
+	\day{}{} % 14
+	\day{}{} % 15
+	\wday{}{} % 16
+	\wday{}{} % 17
+	\ssholiday % 18
+	\day{}{} % 19
+	\day{}{} % 20
+	\day{}{} % 21
+	\day{}{} % 22
+	\wday{}{} % 23
+	\wday{}{} % 24
+	\day{}{} % 25
+	\day{}{\teston{7}} % 26
+	\newunit{Unit 8: Momentum}{} % 27
+	\day{}{} % 28
+	\day{}{} % 29
+	\wday{}{} % 30
+	% \day{}{} % 31
+\end{calendar}
+
+%----------------------------------------------------------------------------------------
+
+\newpage
+
+\setcounter{startingdate}{31} % The starting date of the calendar, set to 30 so the first days output are for the end of the month
+
+% Calendar header
+\begin{center}
+	\textsc{\LARGE Febuary}\\ % Month
+	\textsc{\large 2027} % Year
+\end{center}
+
+% Calendar table
+\begin{calendar}
+    \wday{}{} % 31
+	\setcounter{startingdate}{1} % Reset the current date back to 1
+	\day{}{} % 1
+	\day{}{} % 2
+	\day{}{} % 3
+	\day{}{} % 4
+	\day{}{} % 5
+	\wday{}{} % 6
+	\wday{}{} % 7
+	\day{}{} % 8
+	\day{}{} % 9
+	\day{}{} % 10
+	\day{}{} % 11
+	\day{}{} % 12
+	\wday{}{} % 13
+	\wday{}{} % 14
+	\pdholiday % 15
+	\day{}{} % 16
+	\day{}{} % 17
+	\day{}{\teston{8}} % 18
+	\newunit{Unit 9: Oscillations and Mechanical Waves}{} % 19
+	\wday{}{} % 20
+	\wday{}{} % 21
+	\day{}{} % 22
+	\day{}{} % 23
+	\day{}{} % 24
+	\day{}{} % 25
+	\day{}{} % 26
+	\wday{}{} % 27
+	\wday{}{} % 28
+    \blankday{}
+    \blankday{}
+    \blankday{}
+    \blankday{}
+    \blankday{}
+    \blankday{}
+\end{calendar}
+
+%----------------------------------------------------------------------------------------
+
+\newpage
+
+% \setcounter{startingdate}{31} % The starting date of the calendar, set to 30 so the first days output are for the end of the month
+
+% Calendar header
+\begin{center}
+	\textsc{\LARGE March}\\ % Month
+	\textsc{\large 2027} % Year
+\end{center}
+
+% Calendar table
+\begin{calendar}
+    \blankday{}
+	\setcounter{startingdate}{1} % Reset the current date back to 1
+	\day{}{} % 1
+	\day{}{} % 2
+	\day{}{} % 3
+	\day{}{} % 4
+	\day{}{} % 5
+	\wday{}{} % 6
+	\wday{}{} % 7
+	\day{}{} % 8
+	\day{}{} % 9
+	\day{}{} % 10
+	\day{}{\teston{9}} % 11
+	\twholiday % 12
+	\wday{}{} % 13
+	\wday{}{} % 14
+	\ssholiday % 15
+	\ssholiday % 16
+	\ssholiday % 17
+	\ssholiday % 18
+	\ssholiday % 19
+	\wday{}{} % 20
+	\wday{}{} % 21
+	\newunit{Unit 10: Electrostatics and Circuits}{} % 22
+	\day{}{} % 23
+	\day{}{} % 24
+	\day{}{} % 25
+	\ssholiday % 26
+	\wday{}{} % 27
+	\wday{}{} % 28
+	\day{}{} % 29
+    \day{}{} % 30
+    \day{}{} % 31
+    \blankday{}
+    \blankday{}
+    \blankday{}
+\end{calendar}
+
+%----------------------------------------------------------------------------------------
+
+\newpage
+
+% \setcounter{startingdate}{31} % The starting date of the calendar, set to 30 so the first days output are for the end of the month
+
+% Calendar header
+\begin{center}
+	\textsc{\LARGE April}\\ % Month
+	\textsc{\large 2027} % Year
+\end{center}
+
+% Calendar table
+\begin{calendar}
+    \blankday{}
+    \blankday{}
+    \blankday{}
+    \blankday{}
+	\setcounter{startingdate}{1} % Reset the current date back to 1
+	\day{}{} % 1
+	\day{}{} % 2
+	\wday{}{} % 3
+	\wday{}{} % 4
+	\day{}{} % 5
+	\day{}{} % 6
+	\day{}{} % 7
+	\day{}{} % 8
+	\day{}{} % 9
+	\wday{}{} % 10
+	\wday{}{} % 11
+	\day{}{} % 12
+	\day{}{} % 13
+	\day{}{} % 14
+	\day{}{} % 15
+	\day{}{} % 16
+	\wday{}{} % 17
+	\wday{}{} % 18
+	\day{}{} % 19
+	\day{}{\teston{10}} % 20
+	\newunit{Unit 11: Electromagnetic Induction}{} % 21
+	  \day{}{} % 22
+	\day{}{} % 23
+	\wday{}{} % 24
+	\wday{}{} % 25
+	\pdholiday % 26
+	\day{}{} % 27
+	\day{}{} % 28
+	\day{}{} % 29
+    \day{}{} % 30
+    \blankday{}
+\end{calendar}
+
+%----------------------------------------------------------------------------------------
+
+\newpage
+
+% \setcounter{startingdate}{31} % The starting date of the calendar, set to 30 so the first days output are for the end of the month
+
+% Calendar header
+\begin{center}
+	\textsc{\LARGE May}\\ % Month
+	\textsc{\large 2027} % Year
+\end{center}
+
+% Calendar table
+\begin{calendar}
+    \blankday{}
+    \blankday{}
+    \blankday{}
+    \blankday{}
+    \blankday{}
+    \blankday{}
+	\setcounter{startingdate}{1} % Reset the current date back to 1
+	\wday{}{} % 1
+	\wday{}{} % 2
+	\day{}{\teston{11}} % 3
+	\newunit{Unit 12: Electromagnetic Waves and Quantum Physics}{} % 4
+	\day{}{} % 5
+	\day{}{} % 6
+	\day{}{} % 7
+	\wday{}{} % 8
+	\wday{}{} % 9
+	\day{}{} % 10
+	\day{}{} % 11
+	\day{}{} % 12
+	\day{}{} % 13
+	\day{}{} % 14
+	\wday{}{} % 15
+	\wday{}{} % 16
+	\day{}{} % 17
+	\day{}{} % 18
+	\day{}{} % 19
+	\day{}{\teston{12}} % 20
+	\day{}{Begin Finals Review and Exams} % 21
+	\wday{}{} % 22
+	\wday{}{} % 23
+	\day{}{} % 24
+	\day{}{} % 25
+	\day{}{} % 26
+	\day{Last Day of School}{} % 27
+	\pdholiday % 28
+	\wday{}{} % 29
+    % \day{}{} % 30
+    % \blankday{}
+\end{calendar}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

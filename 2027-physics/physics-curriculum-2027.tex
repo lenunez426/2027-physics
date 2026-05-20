@@ -109,12 +109,13 @@ We value a curriculum that
     \item Define \textbf{\gls{one-dimensional motion}} as \glsdesc{one-dimensional motion}.
     \item Define \textbf{\gls{displacement}} ($\Delta x$) as \glsdesc{displacement}.
     \item Define \textbf{\gls{distance}} ($d$) as \glsdesc{distance}.
-    \item Define \textbf{\gls{position vs. time graph}} as \glsdesc{position vs. time graph}.
     \item Define \textbf{\gls{speed}} as \glsdesc{speed}.
     \item Define \textbf{\gls{average speed}} as \glsdesc{average speed}.
     \item Define \textbf{\gls{velocity1}} as \glsdesc{velocity1}.
     \item Define \textbf{\gls{velocity2}} ($v$) as \glsdesc{velocity2}.
     \item Define \textbf{\gls{average velocity}} ($\bar{v}$) as \glsdesc{average velocity}.
+    \item Define \textbf{\gls{motion map}} as \glsdesc{motion map}.
+    \item Define \textbf{\gls{position vs. time graph}} as \glsdesc{position vs. time graph}.
     \item Define \textbf{\gls{velocity vs. time graph}} as \glsdesc{velocity vs. time graph}.
 \end{itemize}
 
@@ -141,6 +142,8 @@ We value a curriculum that
             % \draw[thick,<-] (0,0.15) -- ++(0,0.5);
         \end{tikzpicture}
     \end{center}
+
+    \item \textbf{Identify} the origin in a position reference frame.
     \item \textbf{Know} that an object's position vector starts at the origin (at zero) and ends at the object's location on the position axis.
     \item \textbf{Understand} that an object is in motion if its position is changing.
 
@@ -205,6 +208,7 @@ We value a curriculum that
     \item \textbf{Know} that average speed is given by distance divided by time.
     \item \textbf{Know} that average velocity is given by $\displaystyle \bar{v} = \frac{\Delta x}{\Delta t}$.
     \item \textbf{Know} that slope is rise over run.
+    \item \textbf{Know} that the area of a rectangle is base $\times$ height.
 \end{itemize}
 
 \bigskip
@@ -215,103 +219,135 @@ We value a curriculum that
 
 % Students must demonstrate mastery of the concepts and equations by performing the following specific tasks:
 
-\begin{itemize}[itemsep=0pt,topsep=-3pt]
-    \item \textbf{Calculate} a vector sum for two or more vectors (1) by the head-to-tail method and (2) arithmetically.
-    \item \textbf{Identify} the origin in a position reference frame.
-    \item \textbf{Draw} the position vector for an object on a position axis.
-    \item \textbf{Draw} a motion map for an object undergoing constant velocity.
-    \begin{center}
-    \begin{tikzpicture}
-        \foreach \x in {-5,-4,...,5} {
-            \fill (\x,0) circle (0.07);
-        } 
-    \end{tikzpicture}
-    \end{center}
-    \item \textbf{Calculate} displacement given initial and final positions.
-    \item \textbf{Predict} data in a table containing position and time values.
-    % \item \textbf{Combine} one-dimensional vectors using both graphical vector addition.
-    \item \textbf{Apply} correct sign (positive or negative) appropriately on vector quantities based on the established reference frame.
-    % \item \textbf{Extract} given values from a word problem and correctly assign them to the variables $v_i$, $v_f$, $a$, $t$, and $\Delta x$.
-    % \item \textbf{Identify} the single missing variable requested by the problem and select the correct kinematic equation that contains the knowns and the unknown.
-    % \item \textbf{Isolate} the unknown variable algebraically before plugging in numerical values.
-    \item \textbf{Find} average velocity ($\bar{v}$) on a position vs.\,time graph by calculating the slope using two points on the line. 
-    \begin{center}
-    \begin{tikzpicture}[x=2cm,y=2cm]
-        \draw[->] (0,0) -- (0,1.2) node[left,pos=0.5] {$x$};
-        \draw[->] (0,0) -- (1.2,0) node[below,pos=0.5] {$t$};
-        \draw[thick] (0,0) -- ($(0,0)!1.1!(1,0.8)$);
-        \fill (0.4,0.32) circle (0.03);
-        \fill (0.9,0.72) circle (0.03);
-        \draw (0.4,0.32) -- (0.4,0.72) node[pos=0.5,left] {$\Delta x$} -- (0.9,0.72) node[above,pos=0.5] {$\Delta t$};
-        \node[overlay] at (1.1,0.4) {$\displaystyle \bar{v} = \frac{\Delta x}{\Delta x}$};
-    \end{tikzpicture}
-    \end{center}
-    \item \textbf{Find} displacement on a velocity vs.\,time graph by calculating the rectangular area bounded by the line.
-    \begin{center}
-    \begin{tikzpicture}[x=2cm,y=2cm]
-        \fill[black!10] (0,0.5) -- (1,0.5) -- (1,0) -- (0,0) -- cycle;
-        \node at (1.1,0.25) {$\Delta x = \text{base} \times \text{height}$};
-        \draw[->] (0,0) -- (0,1) node[left,pos=0.8] {$v$};
-        \draw[->] (0,0) -- (1.2,0) node[below,pos=0.5] {$t$};
-        \draw[thick] (0,0.5) -- (1,0.5);
-    \end{tikzpicture}
-    \end{center}
-\end{itemize}
+\begin{enumerate}[itemsep=0pt,topsep=-3pt]
+\item \textbf{Calculate} a vector sum for two or more vectors (1) by the head-to-tail method and (2) arithmetically.
+\item \textbf{Draw} the position vector for an object on a position axis.
+\item \textbf{Calculate} distance traveled given the path an object travels.
+\item \textbf{Calculate} average speed given distance and time.
+\item \textbf{Calculate} displacement given initial and final positions.
+\item \textbf{Calculate} average velocity given displacement and time.
+\item \textbf{Predict} data in a table containing position and time values.
+\item \textbf{Apply} the correct sign (positive or negative) on position, displacement, and vector quantities based on the positive $x$-axis convention.
+% \item \textbf{Extract} given values from a word problem and correctly assign them to the variables $v_i$, $v_f$, $a$, $t$, and $\Delta x$.
+% \item \textbf{Identify} the single missing variable requested by the problem and select the correct kinematic equation that contains the knowns and the unknown.
+% \item \textbf{Isolate} the unknown variable algebraically before plugging in numerical values.
+
+\item \textbf{Draw} a motion map for an object undergoing constant velocity.
+\begin{center}
+\begin{tikzpicture}
+    \foreach \x in {-5,-4,...,5} {
+        \fill (\x,0) circle (0.07);
+    } 
+\end{tikzpicture}
+\end{center}
+
+\item \textbf{Find} average velocity ($\bar{v}$) on a position vs.\,time graph by calculating the slope using two points on the line. 
+\begin{center}
+\begin{tikzpicture}[x=2cm,y=2cm]
+    \draw[->] (0,0) -- (0,1.2) node[left,pos=0.5] {$x$};
+    \draw[->] (0,0) -- (1.2,0) node[below,pos=0.5] {$t$};
+    \draw[thick] (0,0) -- ($(0,0)!1.1!(1,0.8)$);
+    \fill (0.4,0.32) circle (0.03);
+    \fill (0.9,0.72) circle (0.03);
+    \draw (0.4,0.32) -- (0.4,0.72) node[pos=0.5,left] {$\Delta x$} -- (0.9,0.72) node[above,pos=0.5] {$\Delta t$};
+    \node[overlay] at (1.1,0.4) {$\displaystyle \bar{v} = \frac{\Delta x}{\Delta x}$};
+\end{tikzpicture}
+\end{center}
+
+\item \textbf{Find} displacement on a velocity vs.\,time graph by calculating the rectangular area bounded by the line.
+\begin{center}
+\begin{tikzpicture}[x=2cm,y=2cm]
+    \fill[black!10] (0,0.5) -- (1,0.5) -- (1,0) -- (0,0) -- cycle;
+    \node at (1.1,0.25) {$\Delta x = \text{base} \times \text{height}$};
+    \draw[->] (0,0) -- (0,1) node[left,pos=0.8] {$v$};
+    \draw[->] (0,0) -- (1.2,0) node[below,pos=0.5] {$t$};
+    \draw[thick] (0,0.5) -- (1,0.5);
+\end{tikzpicture}
+\end{center}
+\end{enumerate}
 
 \subsection*{Assessment}
 
 \begin{enumerate}[topsep=-3pt,itemsep=0pt]
-    \item Find the vector sum of all vectors shown below. Each square represents 1 unit of magnitude.
-    \begin{center}
-        %...PRO TIP: Use a random number generator to generate random vectors between -10 and 10
-        \begin{tikzpicture}[x=5mm,y=5mm]
-            \draw[step=1,lightgray] (0,0) grid (10,4);
-            \draw[->,line width=0.6mm,-{Triangle}] (5,4) -- ++(-3,0);
-            \draw[->,line width=0.6mm,-{Triangle}] (9,3) -- ++(-8,0);
-            \draw[->,line width=0.6mm,-{Triangle}] (2,2) -- ++(6,0);
-            \draw[->,line width=0.6mm,-{Triangle}] (6,1) -- ++(-4,0);
-            \draw[->,line width=0.6mm,-{Triangle}] (0,0) -- ++(5,0);
-        \end{tikzpicture}
-    \end{center}
+\item Find the vector sum of all vectors shown below. Each square represents 1 unit of magnitude.
+\begin{center}
+    %...PRO TIP: Use a random number generator to generate random vectors between -10 and 10
+    \begin{tikzpicture}[x=5mm,y=5mm]
+        \draw[step=1,lightgray] (0,0) grid (10,4);
+        \draw[->,line width=0.6mm,-{Triangle}] (5,4) -- ++(-3,0);
+        \draw[->,line width=0.6mm,-{Triangle}] (9,3) -- ++(-8,0);
+        \draw[->,line width=0.6mm,-{Triangle}] (2,2) -- ++(6,0);
+        \draw[->,line width=0.6mm,-{Triangle}] (6,1) -- ++(-4,0);
+        \draw[->,line width=0.6mm,-{Triangle}] (0,0) -- ++(5,0);
+    \end{tikzpicture}
+\end{center}
 
-    \item Charlie moves from point A to point B. Calculate (a) the distance traveled and (b) the displacement. (c) Compare and contrast the distance and displacement.
+\item Charlie moves from point A to point B. Calculate (a) the distance traveled and (b) the displacement. (c) Compare and contrast the distance and displacement.
 
-    \begin{center}
-        \begin{tikzpicture}[y=1cm,x=1cm]
-            \foreach \x in {-5,-4,...,5} {
-                \draw[ultra thin] (\x,-0.09) -- (\x,0.09) node[below=0.2] {$\x$};
-            }
-            \draw[->] (-5,0) -- (5,0) node[below=0.6,pos=0.5] {Position (m)};
-            \fill (3,0) circle (0.1) node[above=0.1] {A};
-            \fill (-4,0) circle (0.1) node[above=0.1] {B};
-        \end{tikzpicture}
-    \end{center}
+\begin{center}
+    \begin{tikzpicture}[y=1cm,x=1cm]
+        \foreach \x in {-5,-4,...,5} {
+            \draw[ultra thin] (\x,-0.09) -- (\x,0.09) node[below=0.2] {$\x$};
+        }
+        \draw[->] (-5,0) -- (5,0) node[below=0.6,pos=0.5] {Position (m)};
+        \fill (3,0) circle (0.1) node[above=0.1] {A};
+        \fill (-4,0) circle (0.1) node[above=0.1] {B};
+    \end{tikzpicture}
+\end{center}
 
-    \item Dana moves from point A to point B in 10 seconds. Calculate (a) the average speed and (b) the average velocity. (c) Compare and contrast the average speed and average velocity.
+\item Dana moves from point A to point B in 10 seconds. Calculate (a) the average speed and (b) the average velocity. (c) Compare and contrast the average speed and average velocity.
 
-    \begin{center}
-        \begin{tikzpicture}[y=3mm,x=3mm]
-            \foreach \x in {-20,-15,...,20} {
-                \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
-            }
-            \draw[->] (-20,0) -- (20,0) node[below=7mm,pos=0.5] {Position (m)};
-            \fill (10,0) circle (1mm) node[above=1mm] {A};
-            \fill (-20,0) circle (1mm) node[above=1mm] {B};
-        \end{tikzpicture}
-    \end{center}
-    
-    \item Predict the last row of the data table below, assuming constant velocity.
-    \begin{center}
-        \begin{tabular}{|c|c|}
-            \hline
-            \thead{Position (m)} & \thead{Time (s)} \\ \hline
-            0 & 0 \\ \hline
-            3 & 1 \\ \hline
-            6 & 2 \\ \hline
-            9 & 3 \\ \hline
-              & 4 \\ \hline
-        \end{tabular}
-    \end{center}
+\begin{center}
+    \begin{tikzpicture}[y=3mm,x=3mm]
+        \foreach \x in {-20,-15,...,20} {
+            \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+        }
+        \draw[->] (-20,0) -- (20,0) node[below=7mm,pos=0.5] {Position (m)};
+        \fill (10,0) circle (1mm) node[above=1mm] {A};
+        \fill (-20,0) circle (1mm) node[above=1mm] {B};
+    \end{tikzpicture}
+\end{center}
+
+\item A particle starts at the origin and undergoes the five displacements shown in Figure 1. Using Figure 2, add the five displacement vectors graphically (use the head-to-tail method). Then, alebraically calculate the net displacement.
+
+\begin{center}
+%...PRO TIP: Use a random number generator to generate random vectors between -10 and 10
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=1,lightgray] (-5,0) grid (5,4);
+    \draw[->,line width=0.6mm,-{Triangle}] (5,4) -- ++(-9,0) node[left] {$\Delta x_5$};
+    \draw[->,line width=0.6mm,-{Triangle}] (-3,3) -- ++(5,0) node[right] {$\Delta x_4$};
+    \draw[->,line width=0.6mm,-{Triangle}] (-3,2) -- ++(8,0) node[right] {$\Delta x_3$};
+    \draw[->,line width=0.6mm,-{Triangle}] (-4,1) -- ++(6,0) node[right] {$\Delta x_2$};
+    \draw[->,line width=0.6mm,-{Triangle}] (4,0) -- ++(-6,0) node[left] {$\Delta x_1$};
+    \node[below] at (current bounding box.south) {Figure 1};
+\end{tikzpicture}
+\hspace{5mm}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=1,lightgray] (-13,0) grid (13,4);
+    \draw (0,0) node {\scriptsize $|$} node[below=2pt] {$0$};
+    \begin{scope}[red,opacity=0]
+        \draw[->,line width=0.6mm,-{Triangle}] (13,4) -- ++(-9,0) node[left] {$\Delta x_5$};
+        \draw[->,line width=0.6mm,-{Triangle}] (8,3) -- ++(5,0) node[right] {$\Delta x_4$};
+        \draw[->,line width=0.6mm,-{Triangle}] (0,2) -- ++(8,0) node[right] {$\Delta x_3$};
+        \draw[->,line width=0.6mm,-{Triangle}] (-6,1) -- ++(6,0) node[right] {$\Delta x_2$};
+        \draw[->,line width=0.6mm,-{Triangle}] (0,0) -- ++(-6,0) node[left] {$\Delta x_1$};
+    \end{scope}
+    \node[below] at (current bounding box.south) {Figure 2};
+\end{tikzpicture}
+\end{center}
+
+\item Predict the last row of the data table below, assuming constant velocity.
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        \thead{Position (m)} & \thead{Time (s)} \\ \hline
+        0 & 0 \\ \hline
+        3 & 1 \\ \hline
+        6 & 2 \\ \hline
+        9 & 3 \\ \hline
+          & 4 \\ \hline
+    \end{tabular}
+\end{center}
 \end{enumerate}
 
 \clearpage
@@ -412,118 +448,36 @@ We value a curriculum that
 \subsection*{Assessment}
 
 \begin{enumerate}[itemsep=0pt,topsep=-3pt]
-    \item An object's motion is summarized in the table below. Is the object accelerating?
-    \begin{center}
-        \begin{tabular}{|c|c|}
-            \hline
-            \thead{Velocity (m/s)} & \thead{Time (s)} \\ \hline
-            0 & 0 \\ \hline
-            2 & 1 \\ \hline
-            4 & 2 \\ \hline
-            6 & 3 \\ \hline
-            8 & 4 \\ \hline
-        \end{tabular}
-    \end{center}
-    
-    \item Give the data below, is the object accelerating?
-    \begin{center}
-        \begin{tabular}{|c|c|}
-            \hline
-            \thead{Position (m)} & \thead{Time (s)} \\ \hline
-            4 & 0 \\ \hline
-            8 & 1 \\ \hline
-            12 & 2 \\ \hline
-            16 & 3 \\ \hline
-            20 & 4 \\ \hline
-        \end{tabular}
-    \end{center}
-    
-    \item True or false? The graph below represents accelerating motion.
-    \begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[width=5cm,height=4cm,
-            axis lines=left,
-            xlabel = {Time (s)},
-            ylabel = {Velocity (m/s)},
-            ymin=0, ymax=8,
-            xmin=0, xmax=8,
-            ytick={0,2,...,8},
-            xtick={0,2,...,8},
-            grid=both,
-            minor x tick num = 1,
-            minor y tick num = 1,
-        ]
-            \addplot[very thick,black,domain=0:8] {5};
-            \end{axis}
-    \end{tikzpicture}
-    \end{center}
+\item An object's motion is summarized in the table below. Is the object accelerating?
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        \thead{Velocity (m/s)} & \thead{Time (s)} \\ \hline
+        0 & 0 \\ \hline
+        2 & 1 \\ \hline
+        4 & 2 \\ \hline
+        6 & 3 \\ \hline
+        8 & 4 \\ \hline
+    \end{tabular}
+\end{center}
 
-    \item The motion map below depicts an object moving with positive velocity. Is the object speeding up, slowing down, or moving at constant speed?
+\item Give the data below, is the object accelerating?
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        \thead{Position (m)} & \thead{Time (s)} \\ \hline
+        4 & 0 \\ \hline
+        8 & 1 \\ \hline
+        12 & 2 \\ \hline
+        16 & 3 \\ \hline
+        20 & 4 \\ \hline
+    \end{tabular}
+\end{center}
 
-    \begin{center}
-        \begin{tikzpicture}[y=15cm,x=15cm]
-            \foreach \x in {0,0.1,...,1} {
-                \fill (-\x*\x,0) circle (1mm);
-            }
-            \draw[thick,->] (-0.81,0.05) -- ++(0.07,0) node[right] {$+x$};
-        \end{tikzpicture}
-    \end{center}
-    
-    \item What is the direction of the object's velocity as depicted in the figure below?
-    \begin{center}
-    \begin{tikzpicture}[x=2cm,y=1.5cm]
-        \draw[->] (0,-1) -- (0,1) node[pos=0.8,left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
-        \draw[->] (0,0) -- (1,0) node[right] {$t$};
-        \draw[very thick,domain=0:0.7,smooth] plot(\x,{-1.1*(\x-0.8)^2});
-    \end{tikzpicture}
-    \end{center}
-    
-    \item Does the graph below represent an object speeding up or slowing down?
-    \begin{center}
-    \begin{tikzpicture}[x=2cm,y=2cm]
-        \draw[->] (0,0) -- (0,1) node[pos=0.5,left] {$x$} node[pos=0,shift={(-0.05,-0.05)}] {\footnotesize $0$};
-        \draw[->] (0,0) -- (1,0) node[pos=0.5,below] {$t$};
-        \draw[very thick,domain=0:0.8,smooth] plot(\x,{(\x-0.8)^2});
-    \end{tikzpicture}
-    \end{center}
-
-    \item What is the direction of the object's acceleration?
-    \begin{center}
-    \begin{tikzpicture}[x=2.5cm,y=1.5cm]
-        \draw[->] (0,-1) -- (0,1) node[pos=0.8,left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
-        \draw[->] (0,0) -- (1,0) node[right] {$t$};
-        \draw[very thick,domain=0:1,smooth] plot(\x,{6*(\x-0.5)^2 - 0.8});
-    \end{tikzpicture}
-    \end{center}
-
-    \item An accelerating particle starts at a speed of \SI{9}{m/s} in the positive $x$ direction. Some time later, it moves at \SI{4}{m/s} in the negative direction. Calculate the change in velocity.
-
-    \item An accelerating particle starts at a speed of \SI{3}{m/s} in the negative $x$ direction. After 4 seconds, it moves at \SI{5}{m/s} in the positive direction. Calculate the average acceleration.
-    
-    \item Calculate acceleration from the velocity vs.\,time graph below.
-    \begin{center}
-    \begin{tikzpicture}
-    \begin{axis}[width=5.2cm,height=4.2cm,
-        axis lines=left,
-        % axis x line=center,
-        xlabel = {Time (s)},
-        ylabel = {Velocity (m/s)},
-        ymin=0, ymax=14,
-        xmin=0, xmax=10,
-        ytick={0,2,...,14},
-        xtick={0,1,...,10},
-        ymajorgrids=true,
-        xmajorgrids=true,
-        ]
-        \addplot[very thick,black,domain=0:10] {-3/2*\x+18};
-        \end{axis}
-    \end{tikzpicture}
-    \end{center}
-
-    \item (a) Calculate the object's displacement across the entire time interval shown below. (b) Calculate the average acceleration.
-    \begin{center}
-    \begin{tikzpicture}
-    \begin{axis}[width=5.2cm,height=4.2cm,
+\item True or false? The graph below represents accelerating motion.
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[width=5cm,height=4cm,
         axis lines=left,
         xlabel = {Time (s)},
         ylabel = {Velocity (m/s)},
@@ -531,38 +485,122 @@ We value a curriculum that
         xmin=0, xmax=8,
         ytick={0,2,...,8},
         xtick={0,2,...,8},
+        grid=both,
+        minor x tick num = 1,
+        minor y tick num = 1,
+    ]
+        \addplot[very thick,black,domain=0:8] {5};
+        \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\item The motion map below depicts an object moving with positive velocity. Is the object speeding up, slowing down, or moving at constant speed?
+
+\begin{center}
+    \begin{tikzpicture}[y=15cm,x=15cm]
+        \foreach \x in {0,0.1,...,1} {
+            \fill (-\x*\x,0) circle (1mm);
+        }
+        \draw[thick,->] (-0.81,0.05) -- ++(0.07,0) node[right] {$+x$};
+    \end{tikzpicture}
+\end{center}
+
+\item At $t = 0$, a particle moves with a velocity of $-\SI{10}{m/s}$ and an acceleration of $+\SI{1}{m/s^2}$. At $t = \SI{1}{s}$, in which direction does the particle move?
+
+\item What is the direction of the object's velocity as depicted in the figure below?
+\begin{center}
+\begin{tikzpicture}[x=2cm,y=1.5cm]
+    \draw[->] (0,-1) -- (0,1) node[pos=0.8,left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.7,smooth] plot(\x,{-1.1*(\x-0.8)^2});
+\end{tikzpicture}
+\end{center}
+
+\item Does the graph below represent an object speeding up or slowing down?
+\begin{center}
+\begin{tikzpicture}[x=2cm,y=2cm]
+    \draw[->] (0,0) -- (0,1) node[pos=0.5,left] {$x$} node[pos=0,shift={(-0.05,-0.05)}] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[pos=0.5,below] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{(\x-0.8)^2});
+\end{tikzpicture}
+\end{center}
+
+\item What is the direction of the object's acceleration?
+\begin{center}
+\begin{tikzpicture}[x=2.5cm,y=1.5cm]
+    \draw[->] (0,-1) -- (0,1) node[pos=0.8,left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:1,smooth] plot(\x,{6*(\x-0.5)^2 - 0.8});
+\end{tikzpicture}
+\end{center}
+
+\item An accelerating particle starts at a speed of \SI{9}{m/s} in the positive $x$ direction. Some time later, it moves at \SI{4}{m/s} in the negative direction. Calculate the change in velocity.
+
+\item An accelerating particle starts at a speed of \SI{3}{m/s} in the negative $x$ direction. After 4 seconds, it moves at \SI{5}{m/s} in the positive direction. Calculate the average acceleration.
+
+\item Calculate acceleration from the velocity vs.\,time graph below.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=5.2cm,height=4.2cm,
+    axis lines=left,
+    % axis x line=center,
+    xlabel = {Time (s)},
+    ylabel = {Velocity (m/s)},
+    ymin=0, ymax=14,
+    xmin=0, xmax=10,
+    ytick={0,2,...,14},
+    xtick={0,1,...,10},
+    ymajorgrids=true,
+    xmajorgrids=true,
+    ]
+    \addplot[very thick,black,domain=0:10] {-3/2*\x+18};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\item (a) Calculate the object's displacement across the entire time interval shown below. (b) Calculate the average acceleration.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=5.2cm,height=4.2cm,
+    axis lines=left,
+    xlabel = {Time (s)},
+    ylabel = {Velocity (m/s)},
+    ymin=0, ymax=8,
+    xmin=0, xmax=8,
+    ytick={0,2,...,8},
+    xtick={0,2,...,8},
+    minor y tick num=1,
+    minor x tick num=1,
+    grid=both,
+    ]
+    \addplot[very thick,domain=0:8] {6/8*x};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\item What is the change in the object's velocity?
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[width=5.5cm,height=4.5cm,
+        axis lines=center,
+        xlabel = {Time (s)},
+        ylabel = {Acceleration ($\mathrm{m/s^2}$)},
+        y label style={at={(axis description cs: 0,1.05)},above},
+        x label style={at={(axis description cs: 1.05,0.5)},right},
+        ymin=-4, ymax=4,
+        xmin=0, xmax=8,
+        ytick={-4,-2,...,4},
+        xtick={0,2,...,8},
         minor y tick num=1,
         minor x tick num=1,
         grid=both,
+        clip=false,
         ]
-        \addplot[very thick,domain=0:8] {6/8*x};
-        \end{axis}
-    \end{tikzpicture}
-    \end{center}
-
-    \item What is the change in the object's velocity?
-    \begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[width=5.5cm,height=4.5cm,
-            axis lines=center,
-            xlabel = {Time (s)},
-            ylabel = {Acceleration ($\mathrm{m/s^2}$)},
-            y label style={at={(axis description cs: 0,1.05)},above},
-            x label style={at={(axis description cs: 1.05,0.5)},right},
-            ymin=-4, ymax=4,
-            xmin=0, xmax=8,
-            ytick={-4,-2,...,4},
-            xtick={0,2,...,8},
-            minor y tick num=1,
-            minor x tick num=1,
-            grid=both,
-            clip=false,
-            ]
-            \node[left] at (0,0) {0};
-            \addplot[very thick,domain=0:8] {-2};
-        \end{axis}
-    \end{tikzpicture}
-    \end{center}
+        \node[left] at (0,0) {0};
+        \addplot[very thick,domain=0:8] {-2};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
 \end{enumerate}
 
 \clearpage
@@ -576,7 +614,7 @@ We value a curriculum that
     \item Define \textbf{\gls{force}} as \glsdesc{force}.
     \item Define \textbf{\gls{net force}} ($F_\text{\scriptsize net}$) as \glsdesc{net force}.
     \item Define \textbf{\gls{external force}} as \glsdesc{external force}.
-    \item Define \textbf{\gls{net external force}} ($F_\text{\scriptsize net}$) as \glsdesc{net external force}.
+    \item Define \textbf{\gls{net external force}} ($F_\text{\scriptsize net}$) as \glsdesc{net external force}.\\ \textbf{Note:} Often \textbf{net force} and \textbf{net external force} are used interchangeably.
     \item Define \textbf{\gls{free-body diagram}} as \glsdesc{free-body diagram}.
     \item Define \textbf{\gls{Newton's first law of motion}} as stating that \glsdesc{Newton's first law of motion}.
     \item Define \textbf{\gls{inertia}} as \glsdesc{inertia}.
@@ -596,6 +634,7 @@ We value a curriculum that
 \begin{itemize}[itemsep=0pt,topsep=-3pt]
     \item \textbf{Know} that an object will not speed up, slow down, or change direction on its own, and that it takes a net external force to change motion.
     \item \textbf{Know} that two interacting objects exert equal and opposite forces on each other.
+    \item \textbf{Know} that balanced forces imply that net force (vector sum of all forces) is zero, and that unbalanced forces imply that net force is not zero.
 \end{itemize}
 
 \subsection*{Mathematical Formulas}
@@ -614,6 +653,7 @@ We value a curriculum that
     \item \textbf{Indicate} whether forces are balanced or unbalanced from a motion map.
     \item \textbf{Calculate} the vector sum of forces on a free-body diagram in one dimension, to find both the direction and magnitude of the net force vector.
     \item \textbf{Identify} when a tension force is exerted on an object.
+    \item \textbf{Draw} a free-body diagram for a horizontally moving object where friction is the only horizontal force.
     \item \textbf{Identify} the direction of the normal force for a box on an inclined surface.
 \end{enumerate}
 
@@ -704,6 +744,17 @@ We value a curriculum that
     \end{tikzpicture}
     \end{center}
 
+    \item The free-body diagram below shows the forces on an object. Is it possible for the object to be moving in the horizontal direction?
+    
+    \begin{center}
+    \begin{tikzpicture}[x=5mm,y=5mm]
+        \draw[step=1,lightgray] (-3,-3) grid (3,3);
+        \fill (0,0) circle (0.4);
+        \draw[ultra thick,->] (0,0) -- (0,-2);
+        \draw[ultra thick,->] (0,0) -- (0,+2);
+    \end{tikzpicture}
+    \end{center}
+
     \item The motion map below depicts an object moving with negative velocity. Are the forces balance or unbalanced?
 
     \begin{center}
@@ -712,6 +763,20 @@ We value a curriculum that
                 \fill (\x*\x,0) circle (1mm);
             }
             \draw[thick,->] (0,0.05) -- ++(0.07,0) node[right] {$+x$};
+        \end{tikzpicture}
+    \end{center}
+
+    \item The figure below shows 5 force vectors of various magnitudes and directions. The side of each grid square represents a magnitude of \SI{2}{N}. Calculate the net force (the vector sum).
+
+    \begin{center}
+        %...PRO TIP: Use a random number generator to generate random vectors between -10 and 10
+        \begin{tikzpicture}[x=5mm,y=5mm]
+            \draw[step=1,lightgray] (-3,0) grid (11,4);
+            \draw[->,line width=0.6mm,-{Triangle}] (7,4) -- ++(-5,0) node[left] {$F_5$};
+            \draw[->,line width=0.6mm,-{Triangle}] (3,3) -- ++(2,0) node[right] {$F_4$};
+            \draw[->,line width=0.6mm,-{Triangle}] (5,2) -- ++(-8,0) node[left] {$F_3$};
+            \draw[->,line width=0.6mm,-{Triangle}] (0,1) -- ++(5,0) node[right] {$F_2$};
+            \draw[->,line width=0.6mm,-{Triangle}] (8,0) -- ++(3,0) node[right] {$F_1$};
         \end{tikzpicture}
     \end{center}
 
@@ -837,6 +902,17 @@ We value a curriculum that
 \begin{itemize}[itemsep=0pt]
     \item \textbf{Know} that Newton's second law of motion is give by $\displaystyle a = \frac{F_\mathrm{net}}{m}$ or equivalently as $F_\text{\scriptsize net} = ma$.
     \item \textbf{Know} that Newton's universal law of gravitation is given by the equation $\displaystyle |F_g| = \frac{G m_1 m_2}{r^2}$
+
+    \begin{center}
+    \begin{tikzpicture}[x=5mm,y=5mm]
+        \draw[fill=black!10] (0,0) circle (1) node[above=1] {$m_1$};
+        \draw[fill=black!10] (10,0) circle (2) node[above=2] {$m_2$};
+        \draw[thick,|-|] (0,0) -- (10,0) node[below,pos=0.5] {$r$};
+        \draw[->,line width=0.6mm,-{Triangle}] (1.1,0.5) -- ++(2,0) node[above=0.2] {$F_g$};
+        \draw[->,line width=0.6mm,-{Triangle}] (7.9,0.5) -- ++(-2,0) node[above=0.2] {$F_g$};
+    \end{tikzpicture}
+    \end{center}
+    
     \item \textbf{Know} that the gravitational constant is $\displaystyle G = \SI{6.67e-11}{N\cdot m^2/s^2}$.
     \item \textbf{Know} that $r$ in the law of gravitation is the distance between the centers of mass.
 \end{itemize}
@@ -845,25 +921,148 @@ We value a curriculum that
 
 \begin{enumerate}[itemsep=0pt]
     \item \textbf{Translate} forces on a free-body diagram to a net force equation in one dimension.
-    \textbf{Calculate} acceleration and force using Newton's second law.
+    \item \textbf{Calculate} acceleration or force given the object's mass using Newton's second law.
+    \item \textbf{Calculate} acceleration from a the free-body diagram given the object's mass.
     \item \textbf{Calculate} the magnitude of the gravitational force between two objects, expressing the answer in scientific notation.
+    \item \textbf{Explain} how a proportional change in the net force on an object changes the object's velocity vs\,time graph.
+    \item \textbf{Explain} why $g = \SI{10}{m/s^2}$ on Earth.
 \end{enumerate}
 
 \subsection*{Assessment}
 
 \begin{enumerate}[itemsep=0pt]
-    \item Write the net force equation for the forces in the horizontal direction.
+\item Write the net force equation for the forces in the horizontal direction.
 
-    \begin{center}
-    \begin{tikzpicture}[x=1.2cm,y=1.2cm]
-        \draw[->,thick] (0,0) -- (1,0) node[right] {$F_\text{\scriptsize A}$};
-        \draw[->,thick] (0,0) -- (-1,0) node[left] {$F_f$};
-        \draw[->,thick] (0,0) -- (0,1) node[above] {$F_\text{\scriptsize N}$};
-        \draw[->,thick] (0,0) -- (0,-1) node[below] {$F_g$};
-        \fill (0,0) circle (4pt);
+\begin{center}
+\begin{tikzpicture}[x=1.2cm,y=1.2cm]
+    \draw[->,thick] (0,0) -- (1,0) node[right] {$F_\text{\scriptsize A}$};
+    \draw[->,thick] (0,0) -- (-1,0) node[left] {$F_f$};
+    \draw[->,thick] (0,0) -- (0,1) node[above] {$F_\text{\scriptsize N}$};
+    \draw[->,thick] (0,0) -- (0,-1) node[below] {$F_g$};
+    \fill (0,0) circle (4pt);
+\end{tikzpicture}
+\end{center}
+
+\item A box rests on a frictionless surface as an external force is applied, as shown below. Calculate the acceleration of the box.
+
+\begin{center}
+\begin{tikzpicture}[y=1.8cm,x=1.8cm]    
+    \newcommand{\mybox}[1]{%
+        \begin{scope}[shift={#1}]
+            \draw[thick,fill=black!20] (-0.5,0) rectangle ++(1,1);
+            \draw[fill=white,rounded corners] (-0.35,0.1) rectangle ++(0.7,0.3) node[pos=0.5] {\textsf{50\,kg}};
+            \draw[black!80,line width=5.5mm,-{Triangle[scale=0.5]}] (0.2,0.7) -- ++(1,0) node[pos=0.5,color=white] {\SI{100}{N}} node[right=-3mm,align=left] {Applied\\Force};
+        \end{scope}
+    }
+    
+    %...Axis
+    \foreach \x in {0,0.5,...,8} {
+        \draw[ultra thin] (\x,-0.06) -- (\x,0.06);% node[below=0.2] {\x};
+    }
+    \draw[->] (0,0) -- (8,0) node[below=0.2,pos=0.5] {\footnotesize Position (m)};
+
+    %...Box, speedometer, stopwatch
+    \mybox{(1,0)}
+    
+    \mybox{(6,0)}
+\end{tikzpicture}
+\end{center}
+
+\item Calculate the acceleration of the box.
+
+\begin{center}
+\begin{tikzpicture}[x=6mm,y=6mm]
+    \draw[very thick,->] (-1,0) -- ++(-1,0) node[left,align=center] {Friction\\{\SI{10}{N}}};
+    \draw[very thick,->] (1,0) -- ++(5,0) node[right,align=center] {Pull\\{\SI{50}{N}}};
+    \draw[fill=black!12] (-1,-1) rectangle (1,1) node[pos=0.5] {\SI{20}{kg}};
+    \draw (-5,-1) -- (8,-1);
+\end{tikzpicture}
+\end{center}
+
+\item In Trial 1, a net force $F$ is exerted on a box that starts from rest, yielding the velocity vs\,time graph below. In Trial 2, the same box begins at rest, and the net force is increased to $2F$. What changes, if any, will happen to the velocity-time graph?
+
+\begin{center}
+    \begin{tikzpicture}
+    \begin{axis}[width=5.2cm,height=4.2cm,
+        axis lines=left,
+        xlabel = {Time (s)},
+        ylabel = {Velocity (m/s)},
+        ymin=0, ymax=8,
+        xmin=0, xmax=8,
+        ytick={0,2,...,8},
+        xtick={0,2,...,8},
+        minor y tick num=1,
+        minor x tick num=1,
+        grid=both,
+        ]
+        \addplot[very thick,domain=0:8] {0.5*x};
+        \end{axis}
     \end{tikzpicture}
-    \end{center}
+\end{center}
+
+\item Calculate the magnitude of the gravitational force between the objects below, expressing the answer in scientific notation.
+
+\begin{center}
+    \begin{tikzpicture}[x=1.2cm,y=1.2cm]
+        \foreach \x in {0,1,...,10} {
+            \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+        }
+        \draw[->] (0,0) -- (10,0) node[below=7mm,pos=0.5] {Position (m)};
+        \draw[fill=black!10] (2,0.8) circle (0.3) node[above=0.3] {\SI{100}{kg}};
+        \draw[fill=black!10] (6,0.8) circle (0.5) node[above=0.5] {\SI{400}{kg}};
+    \end{tikzpicture}
+\end{center}
+
+\item 
+The figure below shows a rocket-Earth system. When the rocket is at point P, the gravitational force on it is \SI{72}{N}. Find the gravitational force when the rocket is at point Q.
+
+\begin{center}
+\begin{tikzpicture}[x=7mm,y=7mm]
+    \draw[step=1,black!80] (0,0) grid (8,6);
+    \node[opacity=0.7] at (6,2) {\twemoji[width=1.4cm]{globe showing Americas}};
+    \draw[thick] (6,2) circle (0.7cm);
+    \draw[->, very thick] (6,2) ++(-4,3) node[above right=1pt] {P} -- ++(4*0.4,-3*0.4) node[below] {\SI{72}{N}}; 
+    \draw  (6,2) ++(-4,3) node[rotate=100] {\twemoji[width=4mm]{rocket}};
+    \fill  (6,2) ++(-3,0) circle (3pt) node[below left] {Q};
+\end{tikzpicture}
+\end{center}
 \end{enumerate}
+
+\clearpage
+
+\subsection*{K-Level Assessment}
+
+\begin{enumerate}[itemsep=0pt]
+\item The figure below depicts a top-down view of an asteroid in an elliptical orbit around a black hole. The masses of the asteroid and black hole are \SI{5e5}{kg} and \SI{6e31}{kg}, respectively. The graph is scaled in astronomical units (AU), where $\SI{1}{AU} = \SI{1.5e11}{m}$. Calculate the magnitude of the gravitational force, in newtons, on the asteroid by the black hole.
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[height=15cm,width=15cm,
+        ymin=-30,ymax=30,
+        xmin=-30,xmax=30,
+        axis lines=center,
+        ylabel={$y$ (AU)},
+        xlabel={$x$ (AU)},
+        ytick={-30,-25,...,30},
+        xtick={-30,-25,...,30},
+        grid=both,
+        minor tick num=4,
+        ylabel style={at={(axis description cs:0.5,1)},above=2mm},
+        xlabel style={at={(axis description cs:1,0.5)},right=2mm},
+        % different grid colors
+        major grid style={draw=gray!70, line width=0.5pt},
+        minor grid style={draw=gray!25, line width=0.3pt},
+    ]   
+        \draw (axis cs:0,0) ellipse [x radius=25, y radius=20];
+        \fill (20,12) circle (1mm);
+        \fill (-15,0) circle (1mm); %node[above=1.5mm,fill=black!10] {black hole};
+        \draw[very thick,<-] (-15,0.8) -- (-15,3.5) node[fill=black!10,above=0.5mm] {black hole};
+        \draw[very thick,<-] (20.5,12.5) -- (23,15) node[fill=black!10,above=0.5mm] {asteroid};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+\end{enumerate}
+
 
 \clearpage
 
@@ -887,16 +1086,43 @@ We value a curriculum that
     \item \textbf{Know} position as a function of time: $\displaystyle \Delta x = v_i t + \frac{1}{2}at^2$
     \item \textbf{Know} velocity as a function of position: $\displaystyle v_f^2 = v_i^2 + 2a\Delta x$
     \item \textbf{Know} average velocity to find displacement: $\displaystyle \Delta x = \frac{1}{2}(v_i + v_f)t$
+    \item \textbf{Know} that hang time for an object dropped from rest from a given height is given by $\displaystyle t = \sqrt{\frac{2h}{g}}$.
+    \item \textbf{Know} that the range of a horizontally launched projectile is given by $\Delta x = v_{ix} t$, where $t$ is the hang time.
 \end{itemize}
 
 \subsection*{Learning Goals}
 
 \begin{itemize}[itemsep=0pt]
+    \item \textbf{Calculate} final velocity given initial velocity, acceleration, and time.
+    \item \textbf{Calculate} displacement given initial velocity, acceleration, and time.
+    \item \textbf{Calculate} final velocity given initial velocity, acceleration, and displacement.
     \item \textbf{Sketch} a graph of vertical velocity vs.\,time for the entire flight of an object projected vertically from the ground.
+    \item \textbf{Calculate} the hang time of an object dropped from rest from a given height.
 \end{itemize}
 
 
 \subsection*{Assessment}
+
+\begin{enumerate}[itemsep=0pt]
+\item At $t=0$, a particle movies in a straight line with an initial velocity of \SI{15}{m/s} and a constant acceleration of \SI{30}{m/s^2}. What is the particle's displacement at $t = \SI{5}{s}$?
+
+\item How long does it take an object dropped from rest from a height of \SI{245}{m} to strike the ground?
+
+\item In the figure below, a particle at point A moves in the positive direction at a speed of \SI{5}{m/s}. If the particle undergoes a positive acceleration of $\SI{2}{m/s^2}$, what will be the particle's speed as it passes through point B?
+
+\begin{center}
+    \begin{tikzpicture}[y=2mm,x=2mm]
+        \foreach \x in {-35,-30,...,35} {
+            \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+        }
+        \draw[->] (-35,0) -- (35,0) node[below=7mm,pos=0.5] {Position (m)};
+        \fill (-20,0) circle (1mm) node[above=1mm] {A};
+        \fill (30,0) circle (1mm) node[above=1mm] {B};
+    \end{tikzpicture}
+\end{center}
+
+\item At $t=0$, a particle moves with a velocity of $+\SI{4}{m/s}$ while accelerating in the positive direction. At $t = \SI{5}{s}$, the particle moves with a velocity of $+\SI{8}{m/s}$. Calculate the particle's displacement.
+\end{enumerate}
 
 \clearpage
 
@@ -926,15 +1152,148 @@ We value a curriculum that
 
 \subsection*{Mathematical Formulas}
 
+\begin{itemize}[itemsep=0pt]
+    \item \textbf{Know} that the subscripts $x$ and $y$ are used to denote horizontal and vertical components, respectively, of vector quantities (e.g., $v_y$ or $a_x$).
+\end{itemize}
 
 
 
 \subsection*{Learning Goals}
 
+\begin{enumerate}[itemsep=0pt]
+    \item \textbf{Compare} the magnitude and direction of velocity, acceleration, and force vectors at multiple points along a projectile's trajectory.
+    \item \textbf{Calculate} the hang time and horizontal range of a horizontally launched projectile given the initial speed and launch height.
+    \item \textbf{Calculate} the horizontal range of a projectile launched across level ground from a given initial speed and launch angle.
+    \item \textbf{Calculate} centripetal acceleration given tangential speed and the radius of path.
+    \item \textbf{Calculate} centripetal acceleration from proportional changes in radius or velocity.
+\end{enumerate}
+
 \subsection*{Assessment}
 
+\begin{enumerate}[itemsep=0pt]
+\item A cannonball is launched horizontally from the Statue of Liberty's \href{https://www.nps.gov/stli/planyourvisit/images/Statue-from-Fort-Wood-up-3_1.jpg?maxwidth=1300&maxheight=1300&autorotate=false}{base pedestal}, which is \SI{45}{m} above ground, at a speed of \SI{16}{m/s}. How much time will it take the projectile to strike the ground?
 
+\begin{center}
+\begin{tikzpicture}[x=0.75mm,y=0.75mm]
+    \draw (0,0) -- (0,50);
+    \draw (0,0) -- (50,0);
+    \draw[<->] (-2.5,0) -- ++(0,45) node[left,pos=0.5] {\SI{45}{m}};
+    \fill (0,45) circle (1.3);
+    \draw[thick,->] (0,45) -- ++(20,0) node[right] {\SI{16}{m/s}};
+    \draw[domain=0:48.5,thick,densely dashed] plot(\x,{trajectoryequation(\x,16,0)+45});
+\end{tikzpicture}
+\end{center}
+
+\item What is the horizontal range of the projectile from the previous question?
+
+\item The figure below shows the trajectory of a projectile launched at an angle above the horizontal. Point 1 indicates the net force on the projectile at that location. Draw and label the net force at Point 2, the apex.
+
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=0.5,black!20] (0,0) grid (15,7);
+    \draw[domain=0:14.92,smooth] plot(\x,{trajectoryequation10(\x,13,59)});
+    \fill (2.5,3.46) circle (0.8mm) node[above=0.8mm] {1};
+    \draw[very thick,->] (2.5,3.46) -- ++(0,-2) node[right] {$F_g$};
+    \fill (7.46,6.21) circle (0.8mm) node[above=0.8mm] {2};
+\end{tikzpicture}
+\end{center}
+
+\item The figure below shows vertical velocity component of a projectile at point 1. Draw the vertical velocity component at point 2.
+
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=0.5,black!20] (0,0) grid (15,7);
+    \draw[domain=0:14.92,smooth] plot(\x,{trajectoryequation10(\x,13,59)});
+    \fill (2.5,3.46) circle (0.8mm) node[right=0.8mm] {1};
+    \draw[very thick,->] (2.5,3.46) -- ++(0,2) node[right] {$v_y$};
+    \fill (12.42,3.46) circle (0.8mm) node[left=0.8mm] {2};
+    % \fill (7.46,6.21) circle (0.8mm) node[above=0.8mm] {2};
+\end{tikzpicture}
+\end{center}
+
+\item The figure below shows horizontal velocity component of a projectile at point 1. Draw the horizontal velocity component at point 2.
+
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=0.5,black!20] (0,0) grid (15,7);
+    \draw[domain=0:14.92,smooth] plot(\x,{trajectoryequation10(\x,13,59)});
+    \fill (3.5,4.46) circle (0.8mm) node[left=0.8mm] {1};
+    \draw[very thick,->] (3.5,4.46) -- ++(1.5,0) node[right] {$v_x$};
+    \fill (11.42,4.46) circle (0.8mm) node[right=0.8mm] {2};
+    % \fill (7.46,6.21) circle (0.8mm) node[above=0.8mm] {2};
+\end{tikzpicture}
+\end{center}
+
+\item Find the range of the projectile given the initial speed and launch angle shown in the figure below.
+
+\begin{center}
+\begin{tikzpicture}[x=1mm,y=1mm]
+    \draw (0,0) -- (77.94,0);
+    \draw[thick,densely dashed, domain=0:77.94] plot(\x,{trajectoryequation10(\x,30,60)});
+    \draw[black!80,line width=0.9mm,-{Triangle[scale=0.8]},x=2.5cm,y=2.5cm] (0,0) -- ({cos(60)},{sin(60)}) node[above left] {\SI{30}{m/s}};
+    \draw (6,0) arc (0:60:6) node[pos=0.5,shift={(4,1)}] {\ang{60}};
+\end{tikzpicture}
+\end{center}
+
+
+\item An object undergoes circular motion. In the figure below, each grid square represents a 1-meter by 1-meter square. What is the magnitude of the object's centripetal acceleration?
+
+\begin{center}
+\begin{tikzpicture}[x=3mm,y=3mm]
+    \draw[step=1,black!20] (-7,-7) grid (7,7);
+    \draw (0,0) circle (5);
+    \def\myangle{135}
+    \begin{scope}[shift={({5*cos(\myangle)},{5*sin(\myangle)})},rotate=\myangle,x=2cm,y=2cm]
+        \fill (0,0) circle (1mm);
+        \draw[very thick,->] (0,0) -- (0,1) node[left] {\SI{6}{m/s}};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\item A fly is tethered to a spider web and undergoes circular motion. The instant shown below shows the fly's tangential velocity. Draw and label the centripetal force on the fly.
+
+\begin{center}
+\begin{tikzpicture}[x=2cm,y=2cm]
+    \draw[densely dashed] (0,0) circle (1);
+    \fill (0,0) circle (0.5mm);
+    \draw (0,0) -- (1,0) node[above,pos=0.5] {$r$};
+    \begin{scope}[shift={({cos(225)},{sin(225)})},rotate=225,x=1.5cm,y=1.5cm]
+        \draw[very thick,->] (0,0) -- (0,1) node[right] {$\vec{v}$};
+        \node[rotate=225] at (0,0)  {\twemoji[width=8mm]{fly}};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\item In Figure 1 below, the object undergoes circular motion with tangential speed $v$ and centripetal acceleration $a_1$. In Figure 2, the object maintains tangential speed $v$ while the circular path widens, and the centripetal acceleration is $a_2$. Find an expression for $a_2$ in terms of $a_1$.
+
+\begin{center}
+\begin{tikzpicture}[x=4mm,y=4mm]
+    \draw[step=1,black!20] (-5,-5) grid (5,5);
+    \draw (0,0) circle (2);
+    \def\myangle{90}
+    \begin{scope}[shift={({2*cos(\myangle)},{2*sin(\myangle)})},rotate=\myangle,x=1.5cm,y=1.5cm]
+        \fill (0,0) circle (1mm);
+        \draw[very thick,->] (0,0) -- (0,1) node[above] {$\vec{v}$};
+    \end{scope}
+    \node[below] at (current bounding box.south) {Figure 1};
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[x=4mm,y=4mm]
+    \draw[step=1,black!20] (-5,-5) grid (5,5);
+    \draw (0,0) circle (4);
+    \def\myangle{90}
+    \begin{scope}[shift={({4*cos(\myangle)},{4*sin(\myangle)})},rotate=\myangle,x=1.5cm,y=1.5cm]
+        \fill (0,0) circle (1mm);
+        \draw[very thick,->] (0,0) -- (0,1) node[above] {$\vec{v}$};
+    \end{scope}
+    \node[below] at (current bounding box.south) {Figure 2};
+\end{tikzpicture}
+\end{center}
+
+\end{enumerate}
 \clearpage
+
+
 
 \section{Energy}
 
@@ -960,7 +1319,143 @@ We value a curriculum that
 
 \subsection*{Learning Goals}
 
+\begin{itemize}[itemsep=0pt]
+    \item \textbf{Recognize} the shapes of the graphs for kinetic energy, potential energy, and mechanical energy vs.\,time for a vertically launched object. 
+    \item \textbf{Calculate} the final speed of an object dropped from rest from a given height using conservation of mechanical energy.
+\end{itemize}
+
 \subsection*{Assessment}
+
+\begin{enumerate}[itemsep=0pt]
+\item At the instant shown below, a box initially at rest experiences a net force of \SI{8.0}{N}, and the box is displaced to a position of \SI{7.0}{m}. Friction is negligible.  What is the work done the box?
+
+\begin{center}
+\begin{tikzpicture}
+    \fill[black!5] (6.5,0) rectangle ++(1,1);
+    
+    %...Box
+    \draw[thick,fill=black!20] (1.5,0) rectangle ++(1,1);
+    \draw[thick,->] (2,0.5) -- ++({2*cos(35)},0) node[above] {$\SI{8}{N}$};
+    \fill (2,0.5) circle (0.07);
+    
+    %...Axis
+    \foreach \x in {0,1,...,10} {
+        \draw[ultra thin] (\x,-0.09) -- (\x,0.09) node[below=0.2] {\x};
+    }
+    \draw[->] (0,0) -- (10,0) node[above,pos=0.92] {\footnotesize Position (m)};
+\end{tikzpicture}
+\end{center}
+
+\item The figure below shows a box in motion. Calculate the box's kinetic energy.
+
+\begin{center}
+\begin{tikzpicture}[x=1.2cm,y=1.2cm]
+    \foreach \x in {0,1,...,10} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm);
+    }
+    \draw[->] (0,0) -- (10,0);
+    \draw[thick,fill=black!10] (4.5,0) rectangle (5.5,1) node[pos=0.5] {\SI{4}{kg}};
+    \begin{scope}[shift={(3,1.5)},x=1cm,y=1cm]
+        \draw (0,0) circle (1);
+        \foreach \x in {340,360,...,560} {
+            \coordinate (P) at ({cos(\x)},{sin(\x)});
+            \draw[ultra thick,gray] (P) -- ($(P)!0.16!(0,0)$);
+        }
+        \foreach \x in {350,370,...,550} {
+            \coordinate (P) at ({cos(\x)},{sin(\x)});
+            \draw[thick,gray] (P) -- ($(P)!0.08!(0,0)$);
+        }
+        \fill (0,0) circle (0.02);
+        \draw[fill=lightgray,rotate=145,red] (0,0.01) rectangle (0.975,-0.01);
+        \node at (0,0.4) {\texttt{Speed}};
+        \draw[rounded corners] (-0.6,-0.7) rectangle (0.6,-0.3) node[pos=0.5] {\textsf{10\,m/s}};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+
+\item An object in motion experiences a net force. The bar chart below displays the object's initial and final kinetic energies. What is the net work done on the object?
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=6cm,height=5.5cm,
+    % axis lines=left,
+    ybar,
+    symbolic x coords={initial, final},
+    xtick=data,
+    ylabel={Kinetic Energy (J)},
+    ymin=0, ymax=10,
+    ytick={0,1,...,10},
+    bar width=35pt,
+    enlarge x limits=0.5,
+    ymajorgrids=true,
+    tick pos=left,
+    % title={Change in Kinetic Energy}
+]
+\addplot[black,fill=black!20] coordinates {(initial,8) (final,2)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\item A skater is released from rest from the top of a 6-meter tall ramp. In Figure 1 below, the skater is located at the vertical midpoint between the ramp's top and the zero line at the bottom. Assume friction is negligible. Sketch bars for the kinetic and potential energy of the skater at the instant shown in Figure 1.
+
+\begin{center}
+\begin{minipage}{8cm}
+\centering
+\begin{tikzpicture}[x=7mm,y=5mm]
+    \draw[step=1,lightgray] (-4,0) grid (4,8);
+    \draw[very thick, domain=-4:4,smooth] plot (\x, {(sqrt(6)/4*\x)^2});
+    \foreach \y in {0,2,...,8} {
+        \node[left] at  (-4,\y) {\y\,m};
+    }
+    \draw (-4,0) -- (4,0) node[below,pos=0.5] {zero line};
+    \node[shift={(0.38,0.1)},rotate=-55] at ({-2*sqrt(2)},3) {\Strichmaxerl[2]};
+    % \draw[red, thick, domain=-4:-2] plot(\x, {(-3*sqrt(2)/2)*(\x + 2*sqrt(2)) + 3});
+    \node[below=5mm] at (current bounding box.south) {Figure 1};
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{5cm}
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        width=5cm, % narrower axis -> bins closer together
+        height=5cm,
+        ymin=0,
+        ymax=90,
+        title={Energy Bar Graph},
+        symbolic x coords={Kinetic,Potential,Total},
+        xtick=data,
+        xticklabel style={rotate=90, anchor=east},
+        yticklabel=\empty,
+        grid=both,
+        enlarge x limits=0.2, % adds outer padding
+    ]
+        \addplot[
+            ybar,
+            fill=lightgray,
+            bar width=12pt
+        ] coordinates {
+            (Kinetic,0)
+            (Potential,0)
+            (Total,80)
+        };
+    \end{axis}
+    \node[below=2mm] at (current bounding box.south) {Figure 2};
+\end{tikzpicture}
+\end{minipage}
+\end{center}
+
+\item An object is dropped from rest and undergoes free-fall. Each square in the grid below represents a 5-meter by 5-meter square. Calculate the object's final velocity as it strikes ground at the zero line.
+
+
+\begin{center}
+\begin{tikzpicture}[x=4mm,y=4mm]
+    \draw[black!20,step=1] (0,0) grid (5,8);
+    \fill (3,8) circle (1mm) node[above=1mm] {\SI{3}{kg}};
+    \draw (0,0) -- (5,0) node[below,pos=0.5] {zero line};
+\end{tikzpicture}    
+\end{center}
+\end{enumerate}
 
 \clearpage
 
@@ -988,6 +1483,213 @@ We value a curriculum that
 \subsection*{Learning Goals}
 
 \subsection*{Assessment}
+
+\begin{enumerate}[itemsep=0pt]
+\item The figure below shows a box in motion. Calculate the box's linear momentum.
+
+\begin{center}
+\begin{tikzpicture}[x=1.2cm,y=1.2cm]
+    \foreach \x in {0,1,...,10} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm);
+    }
+    \draw[->] (0,0) -- (10,0);
+    \draw[thick,fill=black!10] (4.5,0) rectangle (5.5,1) node[pos=0.5] {\SI{4}{kg}};
+    \begin{scope}[shift={(3,1.5)},x=1cm,y=1cm]
+        \draw (0,0) circle (1);
+        \foreach \x in {340,360,...,560} {
+            \coordinate (P) at ({cos(\x)},{sin(\x)});
+            \draw[ultra thick,gray] (P) -- ($(P)!0.16!(0,0)$);
+        }
+        \foreach \x in {350,370,...,550} {
+            \coordinate (P) at ({cos(\x)},{sin(\x)});
+            \draw[thick,gray] (P) -- ($(P)!0.08!(0,0)$);
+        }
+        \fill (0,0) circle (0.02);
+        \draw[fill=lightgray,rotate=145,red] (0,0.01) rectangle (0.975,-0.01);
+        \node at (0,0.4) {\texttt{Speed}};
+        \draw[rounded corners] (-0.6,-0.7) rectangle (0.6,-0.3) node[pos=0.5] {\textsf{10\,m/s}};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+\item A constant net force of \SI{100}{N} is exerted on a 50-kg box on a frictionless surface, as show below. The speedometer and stopwatch are indicated above the box. Calculate the total impulse on the box throughout the time interval shown.
+
+\begin{center}
+\begin{tikzpicture}[y=1.8cm,x=1.8cm]
+    \newcommand{\speedometer}[3]{%
+        \begin{scope}[shift={#1},x=1.2cm,y=1.2cm]
+            \draw (0,0) circle (1);
+            \foreach \x in {340,360,...,560} {
+                \coordinate (P) at ({cos(\x)},{sin(\x)});
+                \draw[ultra thick,gray] (P) -- ($(P)!0.16!(0,0)$);
+            }
+            \foreach \x in {350,370,...,550} {
+                \coordinate (P) at ({cos(\x)},{sin(\x)});
+                \draw[thick,gray] (P) -- ($(P)!0.08!(0,0)$);
+            }
+            \fill (0,0) circle (0.02);
+            \draw[fill=lightgray,rotate={#2},red] (0,0.01) rectangle (0.975,-0.01);
+            \node at (0,0.35) {\texttt{Speed}};
+            \draw[rounded corners] (-0.6,-0.7) rectangle (0.6,-0.3) node[pos=0.5] {\textsf{#3\,m/s}};
+        \end{scope}
+    }
+    
+    \newcommand{\stopwatch}[2]{%
+        \begin{scope}[shift={#1}]
+            \draw[rounded corners,fill=black!10] (-0.6,-0.45) rectangle (0.6,0.45);
+            \draw[rounded corners,fill=white] (-0.5,0.05) rectangle ++(1,0.3) node[pos=0.5] {\textsf{00:{#2}.{\scriptsize 00} s}};
+            \draw[rounded corners,fill=white] (-0.4,-0.35) rectangle ++(0.3,0.3) node[pos=0.5] {$\boldsymbol{\circlearrowleft}$};
+            \draw[rounded corners,fill=white] (+0.4,-0.35) rectangle ++(-0.3,0.3) node[pos=0.5] {$\boldsymbol{|\,|}$};
+        \end{scope}
+    }
+    
+    \newcommand{\mybox}[1]{%
+        \begin{scope}[shift={#1}]
+            \draw[thick,fill=black!20] (-0.5,0) rectangle ++(1,1);
+            \draw[fill=white,rounded corners] (-0.35,0.1) rectangle ++(0.7,0.3) node[pos=0.5] {\textsf{50\,kg}};
+            \draw[black!80,line width=5.5mm,-{Triangle[scale=0.5]}] (0.2,0.7) -- ++(1,0) node[pos=0.5,color=white] {\SI{100}{N}} node[right=-3mm,align=left] {Applied\\Force};
+        \end{scope}
+    }
+    %...Axis
+    \foreach \x in {0,0.5,...,8} {
+        \draw[ultra thin] (\x,-0.06) -- (\x,0.06);% node[below=0.2] {\x};
+    }
+    \draw[->] (0,0) -- (8,0) node[below=0.2,pos=0.5] {\footnotesize Position (m)};
+
+    %...Box, speedometer, stopwatch
+    \mybox{(1,0)}
+    \speedometer{(0.3,1.8)}{200}{0.0}
+    \stopwatch{(1.7,1.8)}{00}
+    
+    \mybox{(6,0)}
+    \speedometer{(5.6,1.8)}{140}{12.0}
+    \stopwatch{(7,1.8)}{06}
+\end{tikzpicture}
+\end{center}
+
+
+\item Two objects undergo an elastic collision. The figures below show the momentum vectors of each objects before and after collision. Draw and label the momentum of the second object after the collision.
+
+\begin{center}
+\begin{tikzpicture}[x=6mm,y=6mm]
+    \draw[step=1,lightgray] (0,0) grid (10,3);
+    \draw[->,line width=0.6mm,-{Triangle}] (1,1) -- ++(7,0) node[below=0.1,pos=0.5,fill=black!10] {$p_1$};
+    \draw[->,line width=0.6mm,-{Triangle}] (8,2) -- ++(-4,0) node[above=0.1,pos=0.5,fill=black!10] {$p_2$};
+    \node[above] at (current bounding box.north) {Before};
+\end{tikzpicture}
+\hspace{5mm}
+\begin{tikzpicture}[x=6mm,y=6mm]
+    \draw[step=1,lightgray] (0,0) grid (10,3);
+    \draw[->,line width=0.6mm,-{Triangle}] (7,1) -- ++(-2,0) node[below=0.1,pos=0.5,fill=black!10] {$p_1$};
+    % \draw[->,line width=0.6mm,-{Triangle}] (8,2) -- ++(-4,0) node[above=0.1,pos=0.5,fill=black!10] {$p_2$};
+    \node[above] at (current bounding box.north) {After};
+\end{tikzpicture}
+\end{center}
+
+\item The figure below shows the momentum vectors of 2 objects before they undergo an elastic collision. The side of each grid square represents a \SI{5}{kg\cdot m/s} unit of magnitude. What is the total momentum of the system?
+
+\begin{center}
+    %...PRO TIP: Use a random number generator to generate random vectors between -10 and 10
+    \begin{tikzpicture}[x=6mm,y=6mm]
+        \draw[step=1,lightgray] (0,0) grid (10,3);
+        \draw[->,line width=0.6mm,-{Triangle}] (2,1) -- ++(3,0) node[below=0.1,pos=0.5,fill=black!10] {$p_1$};
+        \draw[->,line width=0.6mm,-{Triangle}] (9,2) -- ++(-5,0) node[above=0.1,pos=0.5,fill=black!10] {$p_2$};
+    \end{tikzpicture}
+\end{center}
+
+\item 
+Two objects undergo an elastic collision. The momentum of one object as a function of time is shown below. Explain what happens the momentum of the other object.
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[width=6cm,height=5cm,
+        ymin=0,ymax=120,
+        xmin=0,xmax=10,
+        ylabel={Momentum (\SI{}{kg\cdot m/s})},
+        xlabel={Time (ms)},
+        xtick={0,2,...,10},
+        ytick={0,20,...,120},
+        axis lines=left,
+        grid=both,
+        ]
+        \draw[thick,rounded corners=1mm] (0,100) -- (4,100) -- (6,40) -- (10,40); 
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+
+\item A 1.0-kg object moving at \SI{1.00}{m/s} in the positive direction elastically collides with a 1.50-kg object at rest. After collision, object 1 recoils at \SI{0.20}{m/s} in the negative direction. Calculate the velocity of object 2 after the collision.
+
+\begin{center}
+\begin{tikzpicture}[y=3cm,x=3cm]
+    \draw[fill=cyan!50] (1,0) circle (0.16) node {1} 
+        node[above=0.16] {\small $|v_{1i}| = \SI{1.00}{m/s}$}
+        node[below=0.16] {\small $m_1 = \SI{1}{kg}$};
+    \draw[->,thick] (1,0) -- ++(1,0) node[above,pos=0.9] {$v_{1i}$};
+    \draw[fill=red!50] (3,0) circle (0.25) node {2}
+        node[above=0.25] {\small $|v_{2i}| = \SI{0}{m/s}$}
+        node[below=0.25] {\small $m_2 = \SI{1.5}{kg}$};
+\end{tikzpicture}
+\end{center}
+
+\item The two objects shown below undergo an elastic collision. Find the velocity of object 1 after the collision.
+
+\begin{center}
+\begin{tikzpicture}[y=3cm,x=3cm]
+    \draw[opacity=0] (0.5,-0.55) rectangle (4,0.65);
+    \draw[fill=cyan!50] (1,0) circle (0.16) node {1} 
+        node[above=0.16] {\small $|v_{1i}| = \SI{1.00}{m/s}$}
+        node[below=0.16] {\small $m_1 = \SI{0.50}{kg}$};
+    \draw[->,thick] (1,0) -- ++(1,0) node[above,pos=0.9] {$v_{1i}$};
+    \draw[fill=red!50] (3,0) circle (0.25) node {2}
+        node[above=0.25] {\small $|v_{2i}| = \SI{0.50}{m/s}$}
+        node[below=0.25] {\small $m_2 = \SI{1.5}{kg}$};
+    \draw[->,thick] (3,0) -- ++(-0.5,0) node[above,pos=0.9] {$v_{2i}$};
+    \node[below] at (current bounding box.north) {\bfseries Before Collision};
+\end{tikzpicture}
+
+\begin{tikzpicture}[y=3cm,x=3cm]
+    \draw[opacity=0] (0,-0.55) rectangle (3.5,0.65);
+    \draw[fill=cyan!50] (1.5,0) circle (0.16) node {1} 
+        node[above=0.16] {\small $|v_{1f}| =\ ?$};
+    \draw[->,thick] (1.5,0) -- ++(-1.25,0) node[above,pos=0.9] {$v_{1f}$};
+    \draw[fill=red!50] (2.6,0) circle (0.25) node {2}
+        node[above=0.25] {\small $|v_{2f}| = \SI{0.25}{m/s}$};
+    \draw[->,thick] (2.6,0) -- ++(0.25,0) node[right] {$v_{2f}$};
+    \node[below] at (current bounding box.north) {\bfseries After Collision};
+\end{tikzpicture}
+\end{center}
+
+\item Two objects, shown below, undergo a perfectly inelastic collision. Find the velocity of the system after the collision.
+
+\begin{center}
+\begin{tikzpicture}[y=3cm,x=3cm]
+    \draw[opacity=0] (0.5,-0.55) rectangle (4,0.65);
+    \draw[fill=cyan!50] (1,0) circle (0.16) node {1} 
+        node[above=0.16] {\small $|v_{1i}| = \SI{1.00}{m/s}$}
+        node[below=0.16] {\small $m_1 = \SI{0.50}{kg}$};
+    \draw[->,thick] (1,0) -- ++(1,0) node[above,pos=0.9] {$v_{1i}$};
+    \draw[fill=red!50] (3,0) circle (0.25) node {2}
+        node[above=0.25] {\small $|v_{2i}| = \SI{0.50}{m/s}$}
+        node[below=0.25] {\small $m_2 = \SI{1.50}{kg}$};
+    \draw[->,thick] (3,0) -- ++(-0.5,0) node[above,pos=0.9] {$v_{2i}$};
+    \node[below] at (current bounding box.north) {\bfseries Before Collision};
+\end{tikzpicture}
+\hspace{5mm}
+\begin{tikzpicture}[y=3cm,x=3cm]
+    \draw[opacity=0] (1.5,-0.55) rectangle (2.6,0.65);
+    \draw[fill=cyan!50] (1.84,0) circle (0.16) node {1}; 
+        % node[above=0.16,shift={(-0.3,0)}] {\small $|v_1| = \SI{0.13}{m/s}$}
+        % node[below=0.16,shift={(-0.3,0)}] {\small $|p_1| = \SI{0.06}{kg\cdot m/s}$}
+    % \draw[->,thick] (1.84,0) -- ++(-0.13,0);
+    \draw[fill=red!50] (2.25,0) circle (0.25) node {2};
+        % node[above=0.25,shift={(0.3,0)}] {\small $|v_2| = \SI{0.13}{m/s}$}
+        % node[below=0.25,shift={(0.3,0)}] {\small $|p_2| = \SI{0.19}{kg\cdot m/s}$};
+    % \draw[->,thick] (2.25,0) -- ++(-0.13,0);
+    \node[below] at (current bounding box.north) {\bfseries After Collision};
+\end{tikzpicture}
+
+\end{center}
+\end{enumerate}
 
 \clearpage
 
