@@ -1,0 +1,148 @@
+\documentclass[14pt,t,dvipsnames]{beamer}
+\input{slides}
+\usepackage[acronym]{glossaries}
+\makeglossaries
+\input{2027-physics/physics-glossary}
+
+
+
+\renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}} %...without this, glossary terms are colored blue in Beamer
+
+
+\title{Unit 1: Constant Velocity}
+\subtitle{Physics}
+\author{}
+\date{Updated on \today}
+
+\AtBeginSection[]
+{
+  \begin{frame}{Table of Contents}
+        \tableofcontents[currentsection]
+  \end{frame}
+}
+
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\textbf{\gls{vector}}: \uncover<2->{\glsdesc{vector}}
+
+\begin{center}
+\begin{tikzpicture}
+    \draw[black!12] (0,-1) grid (10,1);
+    \draw<3->[line width=1mm,-{Triangle}] (2,0) -- (8,0);
+    \node<4->[left=1mm,fill=black!10] at (2,0) {tail}; 
+    \node<5->[right=1mm,fill=black!10] at (8,0) {head};
+    \draw<6->[|-|,thick] (2,-1.2) -- (8,-1.2) node[below,pos=0.5] {magnitude};
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\textbf{\gls{head-to-tail method}}: \glsdesc{head-to-tail method}
+
+\vspace{-5mm}
+
+\begin{center}
+\begin{tikzpicture}
+    \draw[black!12] (0,0) grid (5,4);
+    \uncover<2->{
+        \draw[line width=1mm,-{Triangle}] (3,4) -- ++(1,0);
+        \draw[line width=1mm,-{Triangle}] (5,3) -- ++(-3,0);
+        \draw[line width=1mm,-{Triangle}] (0,2) -- ++(4,0);
+        \draw[line width=1mm,-{Triangle}] (5,1) -- ++(-2,0);
+        \draw[line width=1mm,-{Triangle}] (1,0) -- ++(3,0);
+    }
+\end{tikzpicture}%
+\hspace{1mm}
+\begin{tikzpicture}
+    \draw[black!12] (0,0) grid (5,4);
+    \uncover<3->{
+        \draw[line width=1mm,-{Triangle}] (0,0) -- ++(3,0);
+        \draw[line width=1mm,-{Triangle}] (3,1) -- ++(-2,0);
+    }
+    \uncover<3-6>{
+        \draw[red,overlay] (3,0.5) circle (0.7);
+    }
+    \uncover<4->{
+        \draw[line width=1mm,-{Triangle}] (1,2) -- ++(4,0);
+    }
+    \uncover<4-6>{
+        \draw[red,overlay] (1,1.5) circle (0.7);
+        \node[red] at (1,2.6) {head-to-tail};
+    }
+    \uncover<5->{
+        \draw[line width=1mm,-{Triangle}] (5,3) -- ++(-3,0);
+    }
+    \uncover<5-6>{
+        \draw[red,overlay] (4.7,2.5) circle (0.7);
+    }
+    \uncover<6>{
+        \draw[red,overlay] (2,3.5) circle (0.7);
+    }
+    \uncover<6->{
+        \draw[line width=1mm,-{Triangle}] (2,4) -- ++(1,0);
+    }
+    \uncover<7->{
+    \draw[line width=1mm,-{Triangle},red] (0,4.6) -- ++(3,0) node[pos=0.5,above=0.5mm] {vector sum};
+    }
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\textbf{\gls{motion map}}: \uncover<2->{\glsdesc{motion map}}
+
+\uncover<3->{
+\begin{center}
+\begin{tikzpicture}
+    \draw[black!20,step=1] (0,0) grid (10,2);  
+    \foreach \x in {2,3,...,7}{
+        \fill ({2*(\x-2)},1) circle (0.9mm);
+    }
+\end{tikzpicture}
+\end{center}
+}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\begin{tikzpicture}[y=7.8mm,x=9.5mm]
+    \draw[black!20,step=1] (0,0) grid (10,2);  
+    \foreach \x in {2,3,...,7}{
+        \fill<\x-> ({2*(\x-2)},1) circle (0.9mm);
+    }
+    \uncover<8->{
+        \node[above] at (0,2) {$t = \SI{0}{s}$};
+        \foreach \x in {1,2,...,5}{
+            \node[above] at (2*\x,2) {\SI{\x}{s}};
+        }
+    }
+    
+    \draw[|-|] (0,-0.2) -- (1,-0.2) node[below,pos=0.5] {\SI{1}{m}};
+    
+    \uncover<9->{
+        \draw[|-|] (0,3.2) -- ++(2,0) node[align=center,pos=0.5,above,font=\small] {1\textsuperscript{st} time\\[-1mm] interval};
+    }
+    \uncover<10->{
+        \draw[-|] (2,3.2) -- ++(2,0) node[align=center,pos=0.5,above,font=\small] {2\textsuperscript{nd} time\\[-1mm] interval};
+    }
+    \uncover<11->{
+        \draw[-|] (4,3.2) -- ++(2,0) node[align=center,pos=0.5,above,font=\small] {3\textsuperscript{rd} time\\[-1mm] interval};
+    }
+    \uncover<12->{
+        \draw[-|] (6,3.2) -- ++(2,0) node[align=center,pos=0.5,above,font=\small] {4\textsuperscript{th} time\\[-1mm] interval};
+    }
+    \uncover<13->{
+        \draw[-|] (8,3.2) -- ++(2,0) node[align=center,pos=0.5,above,font=\small] {5\textsuperscript{th} time\\[-1mm] interval};
+    }
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\end{document}
+

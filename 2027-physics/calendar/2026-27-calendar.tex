@@ -86,8 +86,16 @@
     \textbf{Test on Unit #1}
 }
 
-\newcommand{\dayreviewI}[1]{%
-    \day{#1}{review the previous week's work}
+\newcommand{\dayreviewI}{%
+    \day{Review}{%
+    \cellcolor{cyan!20}
+    review the previous week's work}
+}
+
+\newcommand{\dayreviewII}{%
+    \day{Review}{%
+    \cellcolor{blue!20}
+    review the previous month's work}
 }
 
 
@@ -181,19 +189,19 @@
 	\wday{}{} % 15
 	\wday{}{} % 16
     \newunit{Unit 1: Constant Velocity}{
-        magnitude, scalar, vector, component, tail, head
+        magnitude, scalar, vector, component, tail, head, head-to-tail method, vector sum
     } % 17
-	\day{}{head-to-tail method, vector sum} % 18
-	\day{}{position, motion, reference frame, one-dimensional motion, displacement, distance} % 19
-	\day{}{speed, average speed, velocity, average velocity} % 20
-	\day{}{motion map, position vs.\,time graph} % 21
+	\day{}{position, motion, reference frame, one-dimensional motion, displacement, distance} % 18
+	\day{}{speed, average speed} % 19
+	\day{}{velocity, average velocity, motion map} % 20
+	\day{}{} % 21
 	\wday{}{} % 22
 	\wday{}{} % 23
-	\dayreviewI{Monday Review} % 24
-	\day{}{velocity vs.\,time graph} % 25
+	\dayreviewI{}{} % 24
+	\day{}{slope, position vs.\,time graph} % 25
 	\day{}{} % 26
-	\day{}{} % 27
-	\day{}{} % 28
+	\day{}{Lab: Dune Buggy I} % 27
+	\day{}{Lab: Dune Buggy II} % 28
 	\blankday{}
 \end{calendar}
 
@@ -212,9 +220,9 @@
 % Calendar table
 \begin{calendar}
 	\wday{}{} % 30
-	\dayreviewI{Monday Review} % 31
+	\dayreviewI % 31
 	\setcounter{startingdate}{1} % Reset the current date back to 1
-	\day{}{} % 1
+	\day{}{velocity vs.\,time graph} % 1
 	\day{}{} % 2
 	\day{}{} % 3
 	\day{}{\teston{1}} % 4
@@ -227,14 +235,14 @@
 	\day{}{} % 11
 	\wday{}{} % 12
 	\wday{}{} % 13
-	\day{}{} % 14
+	\dayreviewI{}{} % 14
 	\day{}{} % 15
 	\day{}{} % 16
 	\day{}{} % 17
 	\day{}{} % 18
 	\wday{}{} % 19
 	\wday{}{} % 20
-	\day{}{} % 21
+	\dayreviewII{}{} % 21
 	\day{}{} % 22
 	\day{}{} % 23
 	\day{}{} % 24
@@ -272,7 +280,7 @@
 	\day{}{} % 2
 	\wday{}{} % 3
 	\wday{}{} % 4
-	\day{}{} % 5
+	\dayreviewI{}{} % 5
 	\day{}{} % 6
 	\day{}{} % 7
 	\day{}{\teston{3}} % 8
@@ -293,12 +301,12 @@
 	\day{}{} % 23
 	\wday{}{} % 24
 	\wday{}{} % 25
-	\day{}{} % 26
+	\dayreviewI{}{} % 26
 	\day{}{} % 27
 	\day{}{} % 28
 	\day{}{} % 29
 	\day{}{} % 30
-    \wday{}{} % 31
+    \blankday{}
 \end{calendar}
 
 %----------------------------------------------------------------------------------------
@@ -317,7 +325,7 @@
 \begin{calendar}
 	\setcounter{startingdate}{1} % Reset the current date back to 1
 	\wday{}{} % 1
-	\day{}{} % 2
+	\dayreviewI{}{} % 2
 	\twholiday % 3
 	\day{}{} % 4
 	\day{}{} % 5
@@ -345,7 +353,7 @@
 	\ssholiday % 27
 	\wday{}{} % 28
 	\wday{}{} % 29
-	\day{}{} % 30
+	\dayreviewII{}{} % 30
     \blankday{}
     \blankday{}
     \blankday{}
@@ -376,7 +384,7 @@
 	\day{}{} % 4
 	\wday{}{} % 5
 	\wday{}{} % 6
-	\day{}{} % 7
+	\dayreviewI{}{} % 7
 	\day{}{} % 8
 	\day{}{} % 9
 	\day{}{} % 10
@@ -459,8 +467,7 @@
 	\newunit{Unit 8: Momentum}{} % 27
 	\day{}{} % 28
 	\day{}{} % 29
-	\wday{}{} % 30
-	% \day{}{} % 31
+	\blankday{}
 \end{calendar}
 
 %----------------------------------------------------------------------------------------
@@ -668,9 +675,7 @@
 	\day{}{} % 26
 	\day{Last Day of School}{} % 27
 	\pdholiday % 28
-	\wday{}{} % 29
-    % \day{}{} % 30
-    % \blankday{}
+    \blankday{}
 \end{calendar}
 
 %----------------------------------------------------------------------------------------

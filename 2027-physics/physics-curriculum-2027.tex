@@ -10,7 +10,7 @@
 \usepackage{marvosym}
 \input{global}
 \input{notes}
-\input{physics-glossary}
+\input{glossary}
 \usepackage{figchild}
 \makenoidxglossaries
 
@@ -57,8 +57,19 @@
 
 
 
-\title{Physics}
-\author{The Curriculum at Cypress Springs High School}
+
+
+
+
+
+
+
+
+
+
+
+\title{Physics Curriculum}
+\author{Cypress Springs High School}
 \date{Updated on \today}
 
 \begin{document}
@@ -67,34 +78,36 @@
 \tableofcontents
 \clearpage
 
-\section*{Mission Statement}
 
-The following are goals we value Cypress Springs High School:
 
-\begin{enumerate}[itemsep=0pt]
-    \item To provide students with foundational knowledge in physics.
-\end{enumerate}
+% \section*{Mission Statement}
 
-We value a curriculum that
+% The following are goals we value Cypress Springs High School:
 
-\begin{itemize}[itemsep=0pt]
-    \item is clear
-    \item is coherent
-    \item is based on knowledge and fundamental principles
-    \item equips students with basic vocabulary terms all physics students should know
-    \item has a robust sequence that parallels the curricular development of the field's best textbooks
-    \item connects students to history and to notable figures like Newton and Faraday
-    \item strikes a balance between abstract and concrete principles; between mathematical and conceptual problems; between words and images
-    \item aims to reduce cognitive overload in students
-    \item exposes students to geometric and graphical figures of the highest quality
-\end{itemize}
+% \begin{enumerate}[itemsep=0pt]
+%     \item To provide students with foundational knowledge in physics.
+% \end{enumerate}
+
+% We value a curriculum that
+
+% \begin{itemize}[itemsep=0pt]
+%     \item is clear
+%     \item is coherent
+%     \item is based on knowledge and fundamental principles
+%     \item equips students with basic vocabulary terms all physics students should know
+%     \item has a robust sequence that parallels the curricular development of the field's best textbooks
+%     \item connects students to history and to notable figures like Newton and Faraday
+%     \item strikes a balance between abstract and concrete principles; between mathematical and conceptual problems; between words and images
+%     \item aims to reduce cognitive overload in students
+%     \item exposes students to geometric and graphical figures of the highest quality
+% \end{itemize}
 
 
 \section{Constant Velocity}
 
-\subsection*{Vocabulary}
+\subsection*{Vocabulary} %...THE BUILDING BLOCKS
 
-\begin{itemize}[itemsep=0pt,topsep=-3pt]
+\begin{enumerate}[itemsep=0pt,topsep=-3pt]
     \item Define \textbf{\gls{magnitude}} as \glsdesc{magnitude}.
     \item Define \textbf{\gls{scalar}} as \glsdesc{scalar}.
     \item Define \textbf{\gls{vector}} as \glsdesc{vector}.
@@ -115,15 +128,14 @@ We value a curriculum that
     \item Define \textbf{\gls{velocity2}} ($v$) as \glsdesc{velocity2}.
     \item Define \textbf{\gls{average velocity}} ($\bar{v}$) as \glsdesc{average velocity}.
     \item Define \textbf{\gls{motion map}} as \glsdesc{motion map}.
+    \item Define \textbf{\gls{slope}} as \glsdesc{slope}.
     \item Define \textbf{\gls{position vs. time graph}} as \glsdesc{position vs. time graph}.
     \item Define \textbf{\gls{velocity vs. time graph}} as \glsdesc{velocity vs. time graph}.
-\end{itemize}
+    \item Define \textbf{\gls{area}} as \glsdesc{area}.
+\end{enumerate}
 
-\bigskip
 
-\subsection*{Fundamental Principles}
-
-% Students must articulate the following physical rules governing one-dimensional motion:
+\subsection*{Fundamental Principles} %...THE CONCEPTUAL RULES
 
 \begin{itemize}[itemsep=0pt,topsep=-3pt]
     \item \textbf{Know} that a vector is graphically represented as an arrow.
@@ -161,6 +173,20 @@ We value a curriculum that
         \end{tikzpicture}
     \end{center}
     \item \textbf{Understand} that constant velocity implies that displacement is constant across equal time intervals.
+
+    \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[y=3.8mm,x=4mm]
+        \draw[black!20,step=1] (0,0) grid (36,2);
+        \draw[domain=0:36,only marks,mark=*,mark size=0.9mm,samples=10] plot (\x,1);  
+        \foreach \x in {0,1,2,...,9}{
+            \node[above] at (4*\x,2) {$t = \x$};
+        }
+    \end{tikzpicture}
+    \caption{A motion map for an object moving at constant velocity.}
+    \label{C0fgZ}
+    \end{figure}
+
     \item \textbf{Understand} that a vector's direction is indicated by a positive ($+$) or negative ($-$) sign\\(e.g., $\vec{v} = \SI{-3}{m/s}$,  $\vec{x} = \SI{8}{m}$).
     
     \item \textbf{Understand} that an object is moving away from the origin if its position and velocity vectors point in the same directions (both positive or both negative).
@@ -177,29 +203,12 @@ We value a curriculum that
         \end{tikzpicture}
     \end{center}
     \item \textbf{Understand} that an object is moving towards the origin if its position and velocity vectors point in opposite directions (one is positive, the other is negative).
-    % \begin{center}
-    %     \begin{tikzpicture}[y=1cm,x=1cm]
-    %         \foreach \x in {-5,-4,...,5} {
-    %             \draw[ultra thin] (\x,-0.09) -- (\x,0.09) node[below=0.2] {$\x$};
-    %         }
-    %         \draw[->] (-5,0) -- (5,0) node[below=0.6,pos=0.5] {Position (m)};
-    %         \draw[thick,->] (0,0.3) -- ++(2.9,0) node[above,pos=0.5] {$\vec{x}$};
-    %         \node[above] at (3,0) {\Strichmaxerl[2]};
-    %         \draw[very thick,->] (3,0.7) -- ++(-1,0) node[above,pos=0.5] {$\vec{v}$};
-    %     \end{tikzpicture}
-    % \end{center}
     \item \textbf{Distinguish} between distance (a scalar) and displacement (a vector).
     \item \textbf{Understand} that an object can have a position of zero but still be moving (e.g., at the origin of the reference frame).
     \item \textbf{Distinguish} between speed (a scalar) and velocity (a vector).
 \end{itemize}
 
-\bigskip
-
-\subsection*{Mathematical Formulas}
-
-% Students must memorize the four core kinematic equations for constant acceleration and identify which variables are present and missing in each:
-
-
+\subsection*{Mathematical Formulas} %...THE MATHEMATICAL RULES
 
 \begin{itemize}[itemsep=0pt,topsep=-3pt]
     \item \textbf{Know} the variables used to represent physical quantities, including knowing that $x$ stands position, $\Delta x$ stands for displacement, $t$ stands for time, $v$ stands for velocity.
@@ -211,37 +220,26 @@ We value a curriculum that
     \item \textbf{Know} that the area of a rectangle is base $\times$ height.
 \end{itemize}
 
-\bigskip
-
-
-
-\subsection*{Learning Goals}
-
-% Students must demonstrate mastery of the concepts and equations by performing the following specific tasks:
+\subsection*{Learning Goals} %...THE TARGETS
 
 \begin{enumerate}[itemsep=0pt,topsep=-3pt]
 \item \textbf{Calculate} a vector sum for two or more vectors (1) by the head-to-tail method and (2) arithmetically.
 \item \textbf{Draw} the position vector for an object on a position axis.
 \item \textbf{Calculate} distance traveled given the path an object travels.
-\item \textbf{Calculate} average speed given distance and time.
-\item \textbf{Calculate} displacement given initial and final positions.
-\item \textbf{Calculate} average velocity given displacement and time.
+\item \textbf{Calculate} distance and displacement given two points on a position axis.
+\item \textbf{Calculate} average speed and average velocity given two points on a position axis.
+\item \textbf{Calculate} net displacement by finding the graphical or arithmetic vector sum of two or more displacement vectors. 
+\item \textbf{Apply} the correct sign (positive or negative) to indicate direction for position, displacement, and vector quantities based on the positive $x$-axis convention.
 \item \textbf{Predict} data in a table containing position and time values.
-\item \textbf{Apply} the correct sign (positive or negative) on position, displacement, and vector quantities based on the positive $x$-axis convention.
 % \item \textbf{Extract} given values from a word problem and correctly assign them to the variables $v_i$, $v_f$, $a$, $t$, and $\Delta x$.
 % \item \textbf{Identify} the single missing variable requested by the problem and select the correct kinematic equation that contains the knowns and the unknown.
 % \item \textbf{Isolate} the unknown variable algebraically before plugging in numerical values.
 
 \item \textbf{Draw} a motion map for an object undergoing constant velocity.
-\begin{center}
-\begin{tikzpicture}
-    \foreach \x in {-5,-4,...,5} {
-        \fill (\x,0) circle (0.07);
-    } 
-\end{tikzpicture}
-\end{center}
 
-\item \textbf{Find} average velocity ($\bar{v}$) on a position vs.\,time graph by calculating the slope using two points on the line. 
+
+\item \textbf{Calculate} the slope using two points on a line in the $xy$ plane.
+\item \textbf{Find} the average velocity ($\bar{v}$) from a line on a position vs.\,time graph by calculating slope. 
 \begin{center}
 \begin{tikzpicture}[x=2cm,y=2cm]
     \draw[->] (0,0) -- (0,1.2) node[left,pos=0.5] {$x$};
@@ -258,7 +256,7 @@ We value a curriculum that
 \begin{center}
 \begin{tikzpicture}[x=2cm,y=2cm]
     \fill[black!10] (0,0.5) -- (1,0.5) -- (1,0) -- (0,0) -- cycle;
-    \node at (1.1,0.25) {$\Delta x = \text{base} \times \text{height}$};
+    \node at (0.5,0.25) {$\Delta x$};
     \draw[->] (0,0) -- (0,1) node[left,pos=0.8] {$v$};
     \draw[->] (0,0) -- (1.2,0) node[below,pos=0.5] {$t$};
     \draw[thick] (0,0.5) -- (1,0.5);
@@ -266,7 +264,7 @@ We value a curriculum that
 \end{center}
 \end{enumerate}
 
-\subsection*{Assessment}
+\subsection*{Assessment} %...THE GAME
 
 \begin{enumerate}[topsep=-3pt,itemsep=0pt]
 \item Find the vector sum of all vectors shown below. Each square represents 1 unit of magnitude.
@@ -282,7 +280,7 @@ We value a curriculum that
     \end{tikzpicture}
 \end{center}
 
-\item Charlie moves from point A to point B. Calculate (a) the distance traveled and (b) the displacement. (c) Compare and contrast the distance and displacement.
+\item Draw the position vector for the person below.
 
 \begin{center}
     \begin{tikzpicture}[y=1cm,x=1cm]
@@ -290,25 +288,53 @@ We value a curriculum that
             \draw[ultra thin] (\x,-0.09) -- (\x,0.09) node[below=0.2] {$\x$};
         }
         \draw[->] (-5,0) -- (5,0) node[below=0.6,pos=0.5] {Position (m)};
-        \fill (3,0) circle (0.1) node[above=0.1] {A};
-        \fill (-4,0) circle (0.1) node[above=0.1] {B};
+        \node[above] at (3,0) {\Strichmaxerl[2]};
     \end{tikzpicture}
 \end{center}
 
-\item Dana moves from point A to point B in 10 seconds. Calculate (a) the average speed and (b) the average velocity. (c) Compare and contrast the average speed and average velocity.
+\item Calculate the distance traveled in path C in the figure below.
 
 \begin{center}
-    \begin{tikzpicture}[y=3mm,x=3mm]
-        \foreach \x in {-20,-15,...,20} {
+\begin{tikzpicture}[y=6mm,x=8mm]
+    \draw[black!10,step=1] (0,0) grid (12,5);
+    \foreach \x in {0,2,...,12} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+    }
+    \draw[->] (0,0) -- (12,0) node[below=7mm,pos=0.5] {Position (m)};
+    \draw[->,thick] (0,4) -- ++(7,0) node[above,pos=0.5] {A};
+    \draw[->,thick] (12,3) -- ++(-5,0) node[above,pos=0.5] {B} ;
+    \draw[->,rounded corners=1pt,thick] (2,2) -- ++(8,0) node[above,pos=0.5] {C} -- ++(0,0.2) -- ++(-2,0) -- ++(0,0.2) -- ++(2,0);
+    \draw[->,rounded corners=2pt,thick] (9,1) node[right] {D} -- ++(-6,0) -- ++(0,0.2) -- ++(2,0);
+\end{tikzpicture}
+\end{center}
+
+\item Charlie moves from point A to point B. Find the distance traveled and the displacement.
+
+\begin{center}
+    \begin{tikzpicture}[y=1cm,x=1cm]
+        \foreach \x in {-5,-4,...,5} {
             \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
         }
-        \draw[->] (-20,0) -- (20,0) node[below=7mm,pos=0.5] {Position (m)};
-        \fill (10,0) circle (1mm) node[above=1mm] {A};
-        \fill (-20,0) circle (1mm) node[above=1mm] {B};
+        \draw[->] (-5,0) -- (5,0) node[below=7mm,pos=0.5] {Position (m)};
+        \fill (3,0) circle (0.1) node[above=1mm] {A};
+        \fill (-4,0) circle (0.1) node[above=1mm] {B};
     \end{tikzpicture}
 \end{center}
 
-\item A particle starts at the origin and undergoes the five displacements shown in Figure 1. Using Figure 2, add the five displacement vectors graphically (use the head-to-tail method). Then, alebraically calculate the net displacement.
+\item Dana moves from point A to point B in 10 seconds. Find the average speed and the average velocity.
+
+\begin{center}
+\begin{tikzpicture}[y=3mm,x=3mm]
+    \foreach \x in {-20,-15,...,20} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+    }
+    \draw[->] (-20,0) -- (20,0) node[below=7mm,pos=0.5] {Position (m)};
+    \fill (10,0) circle (1mm) node[above=1mm] {A};
+    \fill (-20,0) circle (1mm) node[above=1mm] {B};
+\end{tikzpicture}
+\end{center}
+
+\item A particle starts at the origin and undergoes the five displacements shown in Figure 1. Using Figure 2, add the five displacement vectors graphically (use the head-to-tail method). Then, algebraically calculate the net displacement. The side of each grid square represents 1 meter.
 
 \begin{center}
 %...PRO TIP: Use a random number generator to generate random vectors between -10 and 10
@@ -336,6 +362,8 @@ We value a curriculum that
 \end{tikzpicture}
 \end{center}
 
+\item A particle's position and velocity vectors are $\vec{x} = -\SI{56}{m}$ and $\vec{v} = \SI{10}{m/s}$, respectively. Is the particle moving toward or away from the origin?
+
 \item Predict the last row of the data table below, assuming constant velocity.
 \begin{center}
     \begin{tabular}{|c|c|}
@@ -348,6 +376,83 @@ We value a curriculum that
           & 4 \\ \hline
     \end{tabular}
 \end{center}
+
+\item The side of each grid square in the figure below represents 1 meter. A particle travels at a constant  speed of \SI{2}{m/s} in the negative direction. Draw a motion map for the particle. Label the initial and final positions, and direction of velocity.
+
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=1,black!25] (0,0) grid (26,2);
+\end{tikzpicture}
+\end{center}
+
+
+\item Find the slope of the following line.
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[height=8cm,width=9cm,
+        axis lines=center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ymin=-10,ymax=10,
+        xmin=-10,xmax=10,
+        ytick={-10,-8,...,10},
+        xtick={-10,-8,...,10},
+        grid=both, 
+        minor y tick num=1,
+        minor x tick num=1,
+    ]
+        % \addplot[thick,domain=-10:10] {x/3 + 2};
+        \addplot[thick,domain=-10:10] {2*x + 1};
+        % \addplot[thick,domain=-10:10] {-3*x - 2};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\item Find the velocity of the particle whose motion is depicted in the graph below.
+
+\begin{center}
+    \begin{tikzpicture}
+    \begin{axis}[width=6cm,height=5cm,
+        axis lines=left,
+        xlabel = {Time (s)},
+        ylabel = {Position (m)},
+        ymin=0, ymax=8,
+        xmin=0, xmax=8,
+        ytick={0,2,...,8},
+        xtick={0,2,...,8},
+        minor y tick num=1,
+        minor x tick num=1,
+        grid=both,
+        ]
+        \addplot[very thick,domain=0:8] {7 -6/8*x};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\item A particle's motion is depicted in the following graph. Calculate the particle's displacement across the entire time interval.
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[width=6cm,height=5cm,
+        axis lines=left,
+        xlabel = {Time (s)},
+        ylabel = {Velocity (m/s)},
+        ymin=0, ymax=8,
+        xmin=0, xmax=8,
+        ytick={0,2,...,8},
+        xtick={0,2,...,8},
+        grid=both,
+        minor x tick num = 1,
+        minor y tick num = 1,
+    ]
+        \addplot[very thick,black,domain=0:8] {6};
+        \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\clearpage
+
 \end{enumerate}
 
 \clearpage
@@ -357,16 +462,80 @@ We value a curriculum that
 \subsection*{Vocabulary}
 
 \begin{itemize}[itemsep=0pt,topsep=-3pt]
-    \item Define \textbf{\gls{acceleration}} as \glsdesc{acceleration}; or as \glsdesc{acceleration2}.
-    \item Define \textbf{average acceleration} as \glsdesc{average acceleration}.
-    \item Define \textbf{acceleration vs. time graph} as \glsdesc{acceleration vs. time graph}.
+\item Define \textbf{\gls{acceleration}} as \glsdesc{acceleration}; or as \glsdesc{acceleration2}.
+\item Define \textbf{average acceleration} as \glsdesc{average acceleration}.
+\item Define \textbf{acceleration vs. time graph} as \glsdesc{acceleration vs. time graph}.
+\item Define \textbf{\gls{Galileo's law of odd numbers}} as stating that \glsdesc{Galileo's law of odd numbers} (see Figure \ref{utQeI}).
 \end{itemize}
+
+\begin{figure}[H]
+    \centering
+\begin{center}
+\begin{tikzpicture}[y=5mm,x=5.3mm]
+    \draw[black!20,step=1] (0,0) grid (25,2);
+        \foreach \x in {2,3,...,7}{
+        \fill ({(\x-2)^2},1) circle (0.9mm);
+    }
+    \node[left=1mm,overlay] at (0,1) {$t = 0$};
+    \foreach \x in {1,2,...,5}{
+        \node[above] at (\x*\x,2) {$t = \SI{\x}{s}$};
+    }
+    \draw[|-|] (0,4) -- ++(1,0);
+    \draw[ultra thick,<-] (0.5,4.1) -- (0.5,5.1) node[above,align=center,font=\small] { 1\textsuperscript{st} time\\interval};
+    \draw[-|] (1,4) -- ++(3,0) node[above,pos=0.5,font=\small] {2\textsuperscript{nd}};
+    \draw[-|] (4,4) -- ++(5,0) node[above,pos=0.5,font=\small,align=center] {3\textsuperscript{rd} time\\interval};
+    \draw[-|] (9,4) -- ++(7,0) node[above,pos=0.5,font=\small,align=center] {4\textsuperscript{th} time\\interval};
+    \draw[-|] (16,4) -- ++(9,0) node[above,pos=0.5,font=\small,align=center] {5\textsuperscript{th} time\\interval};
+    \draw[|-|] (0,-0.4) -- ++(1,0) node[below,pos=0.5] {1};
+    \draw[-|] (1,-0.4) -- ++(3,0) node[below,pos=0.5] {3};
+    \draw[-|] (4,-0.4) -- ++(5,0) node[below,pos=0.5] {5};
+    \draw[-|] (9,-0.4) -- ++(7,0) node[below,pos=0.5] {7};
+    \draw[-|] (16,-0.4) -- ++(9,0) node[below,pos=0.5] {9};
+\end{tikzpicture}
+\end{center}
+    % \includegraphics[width=0.5\linewidth]{}
+    \caption{Galileo's law of odd numbers for an accelerating motion map}
+    \label{utQeI}
+\end{figure}
+
+% \begin{figure}[H]
+% \centering
+% \begin{tikzpicture}[y=3.8mm,x=4.25mm]
+%     \draw[black!20,step=1] (0,0) grid (36,2);
+%     \draw[domain=0:6,only marks,mark=*,mark size=0.9mm,samples=7] plot (\x*\x,1);  
+%     \node[left=1mm] at (0,1) {$t_0$};
+%     \foreach \x in {1,2,...,6}{
+%         \node[above] at (\x*\x,2) {$t = \x$};
+%     }
+%     \draw[|-|] (0,-0.3) -- ++(1,0) node[below,pos=0.5] {1};
+%     \draw[|-|] (1,-0.9) -- ++(3,0) node[below,pos=0.5] {3};
+%     \draw[|-|] (4,-0.3) -- ++(5,0) node[below,pos=0.5] {5};
+%     \draw[|-|] (9,-0.9) -- ++(7,0) node[below,pos=0.5] {7};
+%     \draw[|-|] (16,-0.3) -- ++(9,0) node[below,pos=0.5] {9};
+%     \draw[|-|] (25,-0.9) -- ++(11,0) node[below,pos=0.5] {11};
+% \end{tikzpicture}
+
+% \vspace{5mm}
+
+% \begin{tikzpicture}[y=3.8mm,x=4.25mm]
+%     \draw[black!20,step=1] (0,0) grid (36,2);
+%     \draw (0,0) rectangle (1,2);
+%     \draw[<-] (0.5,-0.1) -- (0.5,-1.3) node[below,align=center,shift={(0.9,0)}] {1\textsuperscript{st} time\\interval};
+%     \draw (1,0) rectangle ++(3,2) node[pos=0.5,fill=white] {2\textsuperscript{nd}};
+%     \draw (4,0) rectangle ++(5,2) node[pos=0.5,fill=white] {3\textsuperscript{rd} interval};
+%     \draw (9,0) rectangle ++(7,2) node[pos=0.5,fill=white] {4\textsuperscript{th} time interval};
+%     \draw (16,0) rectangle ++(9,2) node[pos=0.5,fill=white] {5\textsuperscript{th} time interval};
+%     \draw (25,0) rectangle ++(11,2) node[pos=0.5,fill=white] {6\textsuperscript{th} time interval};
+% \end{tikzpicture}
+% \caption{Galileo's law of odd numbers.}
+% \label{utQeI}
+% \end{figure}
+
 
 \medskip
 
 \subsection*{Fundamental Principles}
 
-% Students must articulate the following physical rules governing one-dimensional motion:
 
 \begin{itemize}[itemsep=0pt,topsep=-3pt]
     \item \textbf{Recall} that $x$ stands for position, $v$ stands for velocity, and $t$ stands for time.
@@ -394,71 +563,82 @@ We value a curriculum that
     \item \textbf{Know} that the area of a triangle is given by $\frac{1}{2}\times \text{base} \times \text{height}$.
 \end{itemize}
 
-
-
 \subsection*{Learning Goals}
 
 \begin{enumerate}[itemsep=0pt,topsep=-3pt]
-    \item \textbf{Justify} whether or not an object is accelerating given a data table of velocity and time.
-    \item \textbf{Justify} whether or not an object is accelerating given a data table of position and time.
-    \item \textbf{Draw} a motion map for an object undergoing positive or negative acceleration.
-    \item \textbf{Indicate} whether an object is speeding up or slowing down from a motion map.
-    \item \textbf{Identify} whether or not an object is accelerating from a velocity vs.\,time graph.
-    \item \textbf{Identify} the direction of acceleration from a velocity vs.\,time graph.
-    \item \textbf{Identify} the sign (positive or negative) of the slope of a point in a position vs.\,time graph, and associate it with the direction of the object's velocity.
-    % \item \textbf{Identify} whether an object is speeding up or slowing down from a positive vs.\,time graph.
-    \item \textbf{Estimate} changes (increasing or decreasing) in slope across time in a position vs.\,time, to \textbf{determine} (a) whether an object is speeding up or slowing down and (b) the sign of acceleration.
-    \item \textbf{Pair} position vs.\,time and velocity vs.\,time graphs of a common object undergoing acceleration.
-    \item \textbf{Calculate} change in velocity given a particle's initial and final velocities.
-    \item \textbf{Calculate} average acceleration given a particle's initial and final velocities and the time of travel.
-    \item \textbf{Calculate} average acceleration by finding the slope in a velocity vs.\,time graph.
-    \begin{center}
-    \begin{tikzpicture}[x=2cm,y=2cm]
-        \draw[->] (0,0) -- (0,1.2) node[left,pos=0.5] {$v$};
-        \draw[->] (0,0) -- (1.2,0) node[below,pos=0.5] {$t$};
-        \draw[thick] (0,0) -- ($(0,0)!1.1!(1,0.8)$);
-        \fill (0.4,0.32) circle (0.03);
-        \fill (0.9,0.72) circle (0.03);
-        \draw (0.4,0.32) -- (0.4,0.72) node[pos=0.5,left] {$\Delta v$} -- (0.9,0.72) node[above,pos=0.5] {$\Delta t$};
-        \node[overlay] at (1.1,0.4) {$\displaystyle \bar{a} = \frac{\Delta v}{\Delta x}$};
-    \end{tikzpicture}
-    \end{center}
-    \item \textbf{Calculate} displacement of an accelerating object by finding the triangular area bounded by a line in a velocity vs.\,time graph.
-    \begin{center}
-    \begin{tikzpicture}[x=2cm,y=2cm]
-        \fill[black!10] (0,0) -- (0.8,0) -- ($(0,0)!0.8!(1,0.8)$) -- cycle;
-        \draw[->] (0,0) -- (0,1) node[left,pos=0.5] {$v$};
-        \draw[->] (0,0) -- (1,0) node[below,pos=0.5] {$t$};
-        \draw[thick] (0,0) -- ($(0,0)!0.8!(1,0.8)$);
-        \node at (1.4,0.2) {$\Delta x = \frac{1}{2} \times \text{base} \times \text{height}$};
-    \end{tikzpicture}
-    \end{center}
-    \item \textbf{Calculate} change in velocity ($\Delta v$) on an acceleration vs.\,time graph by finding the rectangular area bounded by the line.
-    \begin{center}
-    \begin{tikzpicture}[x=2cm,y=2cm]
-        \fill[black!10] (0,0.5) -- (1,0.5) -- (1,0) -- (0,0) -- cycle;
-        \node at (1.1,0.25) {$\Delta v = \text{base} \times \text{height}$};
-        \draw[->] (0,0) -- (0,1) node[left,pos=0.8] {$a$};
-        \draw[->] (0,0) -- (1.2,0) node[below,pos=0.5] {$t$};
-        \draw[thick] (0,0.5) -- (1,0.5);
-    \end{tikzpicture}
-    \end{center}
+\item \textbf{Indicate} whether or not an object is accelerating, and \textbf{calculate} acceleration, given a data table of velocity and time.
+\item \textbf{Indicate} whether or not an object is accelerating given a data table of position and time.
+\item \textbf{Indicate} whether an object is speeding up or slowing down from a motion map.
+\item \textbf{Identify} whether or not an object is accelerating from a velocity vs.\,time graph.
+\item \textbf{Identify} whether or not an object is accelerating from a position vs.\,time graph.
+\item \textbf{Identify} the direction of acceleration from a velocity vs.\,time graph.
+\item \textbf{Identify} the sign (positive or negative) of the slope of a point in a position vs.\,time graph, and associate it with the direction of the object's velocity.
+\item \textbf{Estimate} changes (increasing or decreasing) in slope across time in a position vs.\,time to \textbf{determine}  whether an object is speeding up or slowing down.
+\item \textbf{Estimate} changes (increasing or decreasing) in slope across time in a position vs.\,time to \textbf{determine} the direction (sign) of acceleration.
+\item \textbf{Pair} position vs.\,time and velocity vs.\,time graphs of a common object undergoing acceleration.
+\item \textbf{Calculate} change in velocity given a particle's initial and final velocities.
+\item \textbf{Calculate} average acceleration given a particle's initial and final velocities and the time of travel.
+\item \textbf{Calculate} average acceleration by finding the slope in a velocity vs.\,time graph.
+\begin{center}
+\begin{tikzpicture}[x=2cm,y=2cm]
+    \draw[->] (0,0) -- (0,1.2) node[left,pos=0.5] {$v$};
+    \draw[->] (0,0) -- (1.2,0) node[below,pos=0.5] {$t$};
+    \draw[thick] (0,0) -- ($(0,0)!1.1!(1,0.8)$);
+    \fill (0.4,0.32) circle (0.03);
+    \fill (0.9,0.72) circle (0.03);
+    \draw (0.4,0.32) -- (0.4,0.72) node[pos=0.5,left] {$\Delta v$} -- (0.9,0.72) node[above,pos=0.5] {$\Delta t$};
+    \node[overlay] at (1.1,0.4) {$\displaystyle \bar{a} = \frac{\Delta v}{\Delta x}$};
+\end{tikzpicture}
+\end{center}
+
+\item \textbf{Calculate} distance traveled in successive time intervals using Galileo's law of odd numbers.
+
+\item \textbf{Calculate} the area of a triangle.
+
+\item \textbf{Calculate} displacement of an accelerating object by finding the triangular area bounded by a line in a velocity vs.\,time graph.
+\begin{center}
+\begin{tikzpicture}[x=2cm,y=2cm]
+    \fill[black!10] (0,0) -- (0.8,0) -- ($(0,0)!0.8!(1,0.8)$) -- cycle;
+    \draw[->] (0,0) -- (0,1) node[left,pos=0.5] {$v$};
+    \draw[->] (0,0) -- (1,0) node[below,pos=0.5] {$t$};
+    \draw[thick] (0,0) -- ($(0,0)!0.8!(1,0.8)$);
+    \node at (0.57,0.2) {$\Delta x$};
+\end{tikzpicture}
+\end{center}
+\item \textbf{Calculate} change in velocity ($\Delta v$) on an acceleration vs.\,time graph by finding the rectangular area bounded by the line.
+\begin{center}
+\begin{tikzpicture}[x=2cm,y=2cm]
+    \fill[black!10] (0,0.5) -- (1,0.5) -- (1,0) -- (0,0) -- cycle;
+    \node at (0.5,0.25) {$\Delta v$};
+    \draw[->] (0,0) -- (0,1) node[left,pos=0.8] {$a$};
+    \draw[->] (0,0) -- (1.2,0) node[below,pos=0.5] {$t$};
+    \draw[thick] (0,0.5) -- (1,0.5);
+\end{tikzpicture}
+\end{center}
+
+\item \textbf{Calculate} distance traveled in successive time intervals given the distance traveled in any one time interval using Galileo's law of odd numbers.
+
+
+
+
 \end{enumerate}
+
+\clearpage
 
 \subsection*{Assessment}
 
 \begin{enumerate}[itemsep=0pt,topsep=-3pt]
 \item An object's motion is summarized in the table below. Is the object accelerating?
 \begin{center}
-    \begin{tabular}{|c|c|}
-        \hline
-        \thead{Velocity (m/s)} & \thead{Time (s)} \\ \hline
-        0 & 0 \\ \hline
-        2 & 1 \\ \hline
-        4 & 2 \\ \hline
-        6 & 3 \\ \hline
-        8 & 4 \\ \hline
-    \end{tabular}
+\begin{tabular}{|c|c|}
+    \hline
+    \thead{Velocity (m/s)} & \thead{Time (s)} \\ \hline
+    0 & 0 \\ \hline
+    2 & 1 \\ \hline
+    4 & 2 \\ \hline
+    6 & 3 \\ \hline
+    8 & 4 \\ \hline
+\end{tabular}
 \end{center}
 
 \item Give the data below, is the object accelerating?
@@ -472,6 +652,18 @@ We value a curriculum that
         16 & 3 \\ \hline
         20 & 4 \\ \hline
     \end{tabular}
+\end{center}
+
+\item The motion map below depicts an object moving with positive velocity. Is the object speeding up, slowing down, or moving at constant speed?
+
+\begin{center}
+
+    \begin{tikzpicture}[y=5mm,x=5mm]
+        \foreach \x in {0,...,5} {
+            \fill (-\x*\x,0) circle (1mm);
+        }
+        \node[below=1mm] at (-25,0) {$x_i$};
+    \end{tikzpicture}
 \end{center}
 
 \item True or false? The graph below represents accelerating motion.
@@ -494,23 +686,42 @@ We value a curriculum that
 \end{tikzpicture}
 \end{center}
 
-\item The motion map below depicts an object moving with positive velocity. Is the object speeding up, slowing down, or moving at constant speed?
+\item True or false? The graph below represents accelerating motion.
 
 \begin{center}
-    \begin{tikzpicture}[y=15cm,x=15cm]
-        \foreach \x in {0,0.1,...,1} {
-            \fill (-\x*\x,0) circle (1mm);
-        }
-        \draw[thick,->] (-0.81,0.05) -- ++(0.07,0) node[right] {$+x$};
-    \end{tikzpicture}
+\begin{tikzpicture}
+    \begin{axis}[height=6cm,width=5cm,
+        axis y line=left,
+        axis x line=center,
+        ylabel={Position (m)},
+        xlabel={Time (s)},
+        ymin=-4,ymax=4,
+        xmin=0,xmax=4,
+        ytick={-4,-3,...,4},
+        xtick={0,1,...,4},
+        grid=both,
+        x label style={at={(axis description cs: 1,0.5)},right=1mm},
+    ]
+        \addplot[very thick,domain=0:4] {-1 -x + 0.5*x^2};        
+    \end{axis}
+\end{tikzpicture}
 \end{center}
 
-\item At $t = 0$, a particle moves with a velocity of $-\SI{10}{m/s}$ and an acceleration of $+\SI{1}{m/s^2}$. At $t = \SI{1}{s}$, in which direction does the particle move?
+\item What is the direction of the object's acceleration as depicted in the figure below?
 
-\item What is the direction of the object's velocity as depicted in the figure below?
 \begin{center}
 \begin{tikzpicture}[x=2cm,y=1.5cm]
-    \draw[->] (0,-1) -- (0,1) node[pos=0.8,left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,-1) -- (0,1) node[left] {$v$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{0.8 - 2*\x});
+\end{tikzpicture}
+\end{center}
+
+\item What is the direction of the object's velocity as depicted in the figure below?
+
+\begin{center}
+\begin{tikzpicture}[x=2cm,y=1.5cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
     \draw[very thick,domain=0:0.7,smooth] plot(\x,{-1.1*(\x-0.8)^2});
 \end{tikzpicture}
@@ -518,21 +729,23 @@ We value a curriculum that
 
 \item Does the graph below represent an object speeding up or slowing down?
 \begin{center}
-\begin{tikzpicture}[x=2cm,y=2cm]
-    \draw[->] (0,0) -- (0,1) node[pos=0.5,left] {$x$} node[pos=0,shift={(-0.05,-0.05)}] {\footnotesize $0$};
-    \draw[->] (0,0) -- (1,0) node[pos=0.5,below] {$t$};
+\begin{tikzpicture}[x=2.5cm,y=2.5cm]
+    \draw[->] (0,0) -- (0,1) node[left] {$x$} node[pos=0,shift={(-0.05,-0.05)}] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
     \draw[very thick,domain=0:0.8,smooth] plot(\x,{(\x-0.8)^2});
 \end{tikzpicture}
 \end{center}
 
 \item What is the direction of the object's acceleration?
 \begin{center}
-\begin{tikzpicture}[x=2.5cm,y=1.5cm]
-    \draw[->] (0,-1) -- (0,1) node[pos=0.8,left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+\begin{tikzpicture}[y=1.5cm,x=2.5cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
     \draw[very thick,domain=0:1,smooth] plot(\x,{6*(\x-0.5)^2 - 0.8});
 \end{tikzpicture}
 \end{center}
+
+\item Sketch graphs of position vs.\,time and velocity vs.\,time for an object starting from rest from the origin and accelerating in the positive direction.
 
 \item An accelerating particle starts at a speed of \SI{9}{m/s} in the positive $x$ direction. Some time later, it moves at \SI{4}{m/s} in the negative direction. Calculate the change in velocity.
 
@@ -541,7 +754,7 @@ We value a curriculum that
 \item Calculate acceleration from the velocity vs.\,time graph below.
 \begin{center}
 \begin{tikzpicture}
-\begin{axis}[width=5.2cm,height=4.2cm,
+\begin{axis}[width=6cm,height=4.5cm,
     axis lines=left,
     % axis x line=center,
     xlabel = {Time (s)},
@@ -558,7 +771,21 @@ We value a curriculum that
 \end{tikzpicture}
 \end{center}
 
-\item (a) Calculate the object's displacement across the entire time interval shown below. (b) Calculate the average acceleration.
+\item An object moves with positive velocity and positive acceleration. It travels 4 meters between times $t = \SI{1}{s}$ to $t = \SI{2}{s}$. What distance will it travel from $t = \SI{4}{s}$ to $t = \SI{5}{s}$?
+
+\item Find the area of the triangle below.
+
+\begin{center}
+\begin{tikzpicture}[y=6mm,x=6mm]
+    \draw[thick,fill=black!10] (-2,0) -- (2,0) -- (0,5) -- cycle;
+    \draw[densely dashed] (0,0) -- (0,5) node[pos=0.4,right] {5};
+    \draw[|-|] (-2,-0.3) -- (2,-0.3) node[below,pos=0.5] {4};
+\end{tikzpicture}
+\end{center}
+
+
+\item Calculate the object's displacement.
+
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[width=5.2cm,height=4.2cm,
@@ -601,6 +828,8 @@ We value a curriculum that
     \end{axis}
 \end{tikzpicture}
 \end{center}
+
+\item At $t = 0$, a particle moves with a velocity of $-\SI{10}{m/s}$ and an acceleration of $+\SI{1}{m/s^2}$. At $t = \SI{1}{s}$, in which direction does the particle move?
 \end{enumerate}
 
 \clearpage
@@ -609,7 +838,7 @@ We value a curriculum that
 
 \subsection*{Vocabulary}
 
-\begin{itemize}[itemsep=-3pt,topsep=0pt]
+\begin{enumerate}[itemsep=0pt]
     \item Define \textbf{\gls{system}} as \glsdesc{system}.
     \item Define \textbf{\gls{force}} as \glsdesc{force}.
     \item Define \textbf{\gls{net force}} ($F_\text{\scriptsize net}$) as \glsdesc{net force}.
@@ -625,11 +854,9 @@ We value a curriculum that
     \item Define \textbf{\gls{applied force}} as \glsdesc{applied force}.
     \item Define \textbf{\gls{mass}} as \glsdesc{mass}.
     \item Define \textbf{\gls{Newton's third law of motion}} as stating that \glsdesc{Newton's third law of motion}.
-\end{itemize}
+\end{enumerate}
 
 \subsection*{Fundamental Principles}
-
-
 
 \begin{itemize}[itemsep=0pt,topsep=-3pt]
     \item \textbf{Know} that an object will not speed up, slow down, or change direction on its own, and that it takes a net external force to change motion.
@@ -660,226 +887,223 @@ We value a curriculum that
 \subsection*{Assessment}
 
 \begin{enumerate}
-    \item Are the forces balanced or unbalanced?
-    
-    \begin{center}
-    \begin{tikzpicture}[x=5mm,y=5mm]
-        \draw[step=1,lightgray] (-3,-3) grid (3,3);
-        \fill (0,0) circle (0.4);
-        \draw[ultra thick,->] (0,0) -- (+2,0);
-        \draw[ultra thick,->] (0,0) -- (-3,0);
-        \draw[ultra thick,->] (0,0) -- (0,-2);
-        \draw[ultra thick,->] (0,0) -- (0,+2);
-    \end{tikzpicture}
-    \end{center}
+\item Are the forces balanced or unbalanced?
 
-    \item In the figure below, are forces balanced or unbalanced?
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=1,lightgray] (-3,-3) grid (3,3);
+    \fill (0,0) circle (0.4);
+    \draw[ultra thick,->] (0,0) -- (+2,0);
+    \draw[ultra thick,->] (0,0) -- (-3,0);
+    \draw[ultra thick,->] (0,0) -- (0,-2);
+    \draw[ultra thick,->] (0,0) -- (0,+2);
+\end{tikzpicture}
+\end{center}
 
-    \begin{center}
-        \begin{tikzpicture}
-        \begin{axis}[width=5.2cm,height=4.2cm,
-            axis lines=left,
-            xlabel = {Time (s)},
-            ylabel = {Position (m)},
-            ymin=0, ymax=8,
-            xmin=0, xmax=8,
-            ytick={0,2,...,8},
-            xtick={0,2,...,8},
-            minor y tick num=1,
-            minor x tick num=1,
-            grid=both,
-            ]
-            \addplot[very thick,domain=0:8] {6/8*x};
-            \end{axis}
-        \end{tikzpicture}
-    \end{center}
+\item In the figure below, are forces balanced or unbalanced?
 
-    \item Are forces balanced or unbalanced?
-
-    \begin{center}
+\begin{center}
     \begin{tikzpicture}
-        \begin{axis}[width=5.5cm,height=4.5cm,
-            axis lines=center,
-            xlabel = {Time (s)},
-            ylabel = {Acceleration ($\mathrm{m/s^2}$)},
-            y label style={at={(axis description cs: 0,1.05)},above},
-            x label style={at={(axis description cs: 1.05,0.5)},right},
-            ymin=-4, ymax=4,
-            xmin=0, xmax=8,
-            ytick={-4,-2,...,4},
-            xtick={0,2,...,8},
-            minor y tick num=1,
-            minor x tick num=1,
-            grid=both,
-            clip=false,
-            ]
-            \node[left] at (0,0) {0};
-            \addplot[very thick,domain=0:8] {3};
+    \begin{axis}[width=5.2cm,height=4.2cm,
+        axis lines=left,
+        xlabel = {Time (s)},
+        ylabel = {Position (m)},
+        ymin=0, ymax=8,
+        xmin=0, xmax=8,
+        ytick={0,2,...,8},
+        xtick={0,2,...,8},
+        minor y tick num=1,
+        minor x tick num=1,
+        grid=both,
+        ]
+        \addplot[very thick,domain=0:8] {6/8*x};
         \end{axis}
     \end{tikzpicture}
-    \end{center}
+\end{center}
 
-    \item Are forces balanced or unbalanced?
+\item Are forces balanced or unbalanced?
 
-    \begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[width=5.4cm,height=4.5cm,
-            axis lines=center,
-            xlabel = {Time (s)},
-            ylabel = {Velocity ($\mathrm{m/s}$)},
-            y label style={at={(axis description cs: 0,1.05)},above},
-            x label style={at={(axis description cs: 1.05,0.5)},right},
-            ymin=-20, ymax=20,
-            xmin=0, xmax=8,
-            ytick={-20,-12,...,20},
-            xtick={0,2,...,10},
-            minor y tick num=1,
-            minor x tick num=1,
-            grid=both,
-            clip=false,
-            ]
-            % \node[left] at (0,0) {0};
-            \addplot[very thick,domain=0:8] {16 - 3*\x};
-        \end{axis}
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[width=5.5cm,height=4.5cm,
+        axis lines=center,
+        xlabel = {Time (s)},
+        ylabel = {Acceleration ($\mathrm{m/s^2}$)},
+        y label style={at={(axis description cs: 0,1.05)},above},
+        x label style={at={(axis description cs: 1.05,0.5)},right},
+        ymin=-4, ymax=4,
+        xmin=0, xmax=8,
+        ytick={-4,-2,...,4},
+        xtick={0,2,...,8},
+        minor y tick num=1,
+        minor x tick num=1,
+        grid=both,
+        clip=false,
+        ]
+        \node[left] at (0,0) {0};
+        \addplot[very thick,domain=0:8] {3};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\item Are forces balanced or unbalanced?
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[width=5.4cm,height=4.5cm,
+        axis lines=center,
+        xlabel = {Time (s)},
+        ylabel = {Velocity ($\mathrm{m/s}$)},
+        y label style={at={(axis description cs: 0,1.05)},above},
+        x label style={at={(axis description cs: 1.05,0.5)},right},
+        ymin=-20, ymax=20,
+        xmin=0, xmax=8,
+        ytick={-20,-12,...,20},
+        xtick={0,2,...,10},
+        minor y tick num=1,
+        minor x tick num=1,
+        grid=both,
+        clip=false,
+        ]
+        % \node[left] at (0,0) {0};
+        \addplot[very thick,domain=0:8] {16 - 3*\x};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\item The free-body diagram below shows the forces on an object. Is it possible for the object to be moving in the horizontal direction?
+
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=1,lightgray] (-3,-3) grid (3,3);
+    \fill (0,0) circle (0.4);
+    \draw[ultra thick,->] (0,0) -- (0,-2);
+    \draw[ultra thick,->] (0,0) -- (0,+2);
+\end{tikzpicture}
+\end{center}
+
+\item The motion map below depicts an object moving with negative velocity. Are the forces balance or unbalanced?
+
+\begin{center}
+    \begin{tikzpicture}[y=15cm,x=15cm]
+        \foreach \x in {0,0.1,...,1} {
+            \fill (\x*\x,0) circle (1mm);
+        }
+        \draw[thick,->] (0,0.05) -- ++(0.07,0) node[right] {$+x$};
     \end{tikzpicture}
-    \end{center}
+\end{center}
 
-    \item The free-body diagram below shows the forces on an object. Is it possible for the object to be moving in the horizontal direction?
-    
-    \begin{center}
+\item The figure below shows 5 force vectors of various magnitudes and directions. The side of each grid square represents a magnitude of \SI{2}{N}. Calculate the net force (the vector sum).
+
+\begin{center}
+    %...PRO TIP: Use a random number generator to generate random vectors between -10 and 10
     \begin{tikzpicture}[x=5mm,y=5mm]
-        \draw[step=1,lightgray] (-3,-3) grid (3,3);
-        \fill (0,0) circle (0.4);
-        \draw[ultra thick,->] (0,0) -- (0,-2);
-        \draw[ultra thick,->] (0,0) -- (0,+2);
+        \draw[step=1,lightgray] (-3,0) grid (11,4);
+        \draw[->,line width=0.6mm,-{Triangle}] (7,4) -- ++(-5,0) node[left] {$F_5$};
+        \draw[->,line width=0.6mm,-{Triangle}] (3,3) -- ++(2,0) node[right] {$F_4$};
+        \draw[->,line width=0.6mm,-{Triangle}] (5,2) -- ++(-8,0) node[left] {$F_3$};
+        \draw[->,line width=0.6mm,-{Triangle}] (0,1) -- ++(5,0) node[right] {$F_2$};
+        \draw[->,line width=0.6mm,-{Triangle}] (8,0) -- ++(3,0) node[right] {$F_1$};
     \end{tikzpicture}
-    \end{center}
+\end{center}
 
-    \item The motion map below depicts an object moving with negative velocity. Are the forces balance or unbalanced?
+\item In the free-body diagram below, each square represents \SI{10}{N}. At $t = 0$, the object moves at a speed of \SI{6}{m/s}. If the external forces do not change, what is object's speed at $t = \SI{5}{s}$?
 
-    \begin{center}
-        \begin{tikzpicture}[y=15cm,x=15cm]
-            \foreach \x in {0,0.1,...,1} {
-                \fill (\x*\x,0) circle (1mm);
-            }
-            \draw[thick,->] (0,0.05) -- ++(0.07,0) node[right] {$+x$};
-        \end{tikzpicture}
-    \end{center}
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=1,lightgray] (-3,-3) grid (3,3);
+    \fill (0,0) circle (0.4);
+    \draw[ultra thick,->] (0,0) -- (+2,0);
+    \draw[ultra thick,->] (0,0) -- (-2,0);
+    \draw[ultra thick,->] (0,0) -- (0,-3);
+    \draw[ultra thick,->] (0,0) -- (0,+3);
+\end{tikzpicture}
+\end{center}
 
-    \item The figure below shows 5 force vectors of various magnitudes and directions. The side of each grid square represents a magnitude of \SI{2}{N}. Calculate the net force (the vector sum).
+\item Calculate the net force in the free-body diagram below.
 
-    \begin{center}
-        %...PRO TIP: Use a random number generator to generate random vectors between -10 and 10
-        \begin{tikzpicture}[x=5mm,y=5mm]
-            \draw[step=1,lightgray] (-3,0) grid (11,4);
-            \draw[->,line width=0.6mm,-{Triangle}] (7,4) -- ++(-5,0) node[left] {$F_5$};
-            \draw[->,line width=0.6mm,-{Triangle}] (3,3) -- ++(2,0) node[right] {$F_4$};
-            \draw[->,line width=0.6mm,-{Triangle}] (5,2) -- ++(-8,0) node[left] {$F_3$};
-            \draw[->,line width=0.6mm,-{Triangle}] (0,1) -- ++(5,0) node[right] {$F_2$};
-            \draw[->,line width=0.6mm,-{Triangle}] (8,0) -- ++(3,0) node[right] {$F_1$};
-        \end{tikzpicture}
-    \end{center}
+\begin{center}
+\begin{tikzpicture}[x=3mm,y=3mm]
+    \draw[very thick,->] (0,0) -- (12,0) node[right] {\SI{12}{N}};
+    \draw[very thick,->] (0,0) -- (-8,0) node[left] {\SI{8}{N}};
+    \fill (0,0) circle (2mm);
+\end{tikzpicture}
+\end{center}
 
-    \item In the free-body diagram below, each square represents \SI{10}{N}. At $t = 0$, the object moves at a speed of \SI{6}{m/s}. If the external forces do not change, what is object's speed at $t = \SI{5}{s}$?
-    
-    \begin{center}
-    \begin{tikzpicture}[x=5mm,y=5mm]
-        \draw[step=1,lightgray] (-3,-3) grid (3,3);
-        \fill (0,0) circle (0.4);
-        \draw[ultra thick,->] (0,0) -- (+2,0);
-        \draw[ultra thick,->] (0,0) -- (-2,0);
-        \draw[ultra thick,->] (0,0) -- (0,-3);
-        \draw[ultra thick,->] (0,0) -- (0,+3);
-    \end{tikzpicture}
-    \end{center}
+\item A box is suspended below an anchoring rod by two cables, as shown below. What type of force do the cables exert on the box?
 
-    \item Calculate the net force in the free-body diagram below.
+\begin{center}
+\begin{tikzpicture}[x=7mm,y=7mm]
+    \draw[fill=black!10] (-0.5,-0.5) rectangle ++(1,1);
+    \draw (0,0.5) -- ++({-2},{2*tan(30)});
+    \draw (0,0.5) -- ++({+2},{2*tan(30)});
+    \draw[pattern=north west lines, pattern color=black] (-2.5,1.68) rectangle ++(5,0.2);
+\end{tikzpicture}
+\end{center}
 
-    \begin{center}
-    \begin{tikzpicture}[x=3mm,y=3mm]
-        \draw[very thick,->] (0,0) -- (12,0) node[right] {\SI{12}{N}};
-        \draw[very thick,->] (0,0) -- (-8,0) node[left] {\SI{8}{N}};
-        \fill (0,0) circle (2mm);
-    \end{tikzpicture}
-    \end{center}
+\item The free-body diagram below shows the instant an object is moving at constant speed to the left across a frictionless surface. Some time later, the object a rough surface with plenty of friction. Sketch the free-body diagram when the object moves across the rough surface.
 
-    \item A box is suspended below an anchoring rod by two cables, as shown below. What type of force do the cables exert on the box?
-    
-    \begin{center}
-    \begin{tikzpicture}[x=7mm,y=7mm]
-        \draw[fill=black!10] (-0.5,-0.5) rectangle ++(1,1);
-        \draw (0,0.5) -- ++({-2},{2*tan(30)});
-        \draw (0,0.5) -- ++({+2},{2*tan(30)});
-        \draw[pattern=north west lines, pattern color=black] (-2.5,1.68) rectangle ++(5,0.2);
-    \end{tikzpicture}
-    \end{center}
+\begin{center}
+\begin{tikzpicture}[x=4mm,y=4mm]
+    \draw[step=1,lightgray] (-3,-3) grid (3,3);
+    \fill (0,0) circle (0.4);
+    \draw[ultra thick,->] (0,0) -- (0,-3);
+    \draw[ultra thick,->] (0,0) -- (0,+3);
+\end{tikzpicture}
+\end{center}
 
-    \item The free-body diagram below shows the instant an object is moving at constant speed to the left across a frictionless surface. Some time later, the object a rough surface with plenty of friction. Sketch the free-body diagram when the object moves across the rough surface.
+\item What is the direction of the \underline{normal} force on the box below?
 
-    \begin{center}
-    \begin{tikzpicture}[x=4mm,y=4mm]
-        \draw[step=1,lightgray] (-3,-3) grid (3,3);
-        \fill (0,0) circle (0.4);
-        \draw[ultra thick,->] (0,0) -- (0,-3);
-        \draw[ultra thick,->] (0,0) -- (0,+3);
-    \end{tikzpicture}
-    \end{center}
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm,rotate=-40]
+    \draw (-2.5,-1) -- (2.5,-1);
+    \draw[thick,fill=black!10] (-1,-1) rectangle (1,1);
+    \draw[rotate around={40:(2.5,-1)}] (-1,-1) node[above,shift={(5mm,0)}] {\ang{40}} -- (2.5,-1);
+\end{tikzpicture}    
+\end{center}
 
-    \item What is the direction of the \underline{normal} force on the box below?
-    
-    \begin{center}
-    \begin{tikzpicture}[x=5mm,y=5mm,rotate=-40]
-        \draw (-2.5,-1) -- (2.5,-1);
-        % \fill (0,0) circle (2pt);
-        \draw[thick,fill=black!10] (-1,-1) rectangle (1,1);
-        % \draw[->,thick] (0,0) -- (0,{3*cos(40)}) node[above] {$F_\mathrm{N}$};
-        \draw[rotate around={40:(2.5,-1)}] (-1,-1) node[above,shift={(5mm,0)}] {\ang{40}} -- (2.5,-1);
-        % \draw[->,rotate=40] (0,0) -- (0,-3) node[below] {$F_g$};
-    \end{tikzpicture}    
-    \end{center}
+\item What is the direction of the \underline{gravity} force on the box below?
 
-    \item What is the direction of the \underline{gravity} force on the box below?
-    
-    \begin{center}
-    \begin{tikzpicture}[x=5mm,y=5mm,rotate=-40]
-        \draw (-2.5,-1) -- (2.5,-1);
-        \draw[thick,fill=black!10] (-1,-1) rectangle (1,1);
-        \draw[rotate around={40:(2.5,-1)}] (-1,-1) node[above,shift={(5mm,0)}] {\ang{40}} -- (2.5,-1);
-    \end{tikzpicture}    
-    \end{center}
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm,rotate=-40]
+    \draw (-2.5,-1) -- (2.5,-1);
+    \draw[thick,fill=black!10] (-1,-1) rectangle (1,1);
+    \draw[rotate around={40:(2.5,-1)}] (-1,-1) node[above,shift={(5mm,0)}] {\ang{40}} -- (2.5,-1);
+\end{tikzpicture}    
+\end{center}
 
-    \item If mass measures the amount of matter in an object, can two objects that are the same size have different masses?
+\item If mass measures the amount of matter in an object, can two objects that are the same size have different masses?
 
-    \item At the instant shown below, objects 1 and 2 are undergoing a collision. The magnitude of the force on object 1 by object 2 is $F_{12}$, and the magnitude of the force on object 2 by object 1 is $F_{21}$. Object 2 has a greater mass than object 1. How do the forces $F_{12}$ and $F_{21}$ compare?
-    
-    \begin{center}
-    \begin{tikzpicture}[y=3cm,x=3cm]
-        \draw[fill=cyan!50] (1.84,0) circle (0.16) node {1}; 
-        \draw[fill=red!50] (2.25,0) circle (0.25) node {2};
-    \end{tikzpicture}
-    \end{center}
+\item At the instant shown below, objects 1 and 2 are undergoing a collision. The magnitude of the force on object 1 by object 2 is $F_{12}$, and the magnitude of the force on object 2 by object 1 is $F_{21}$. Object 2 has a greater mass than object 1. How do the forces $F_{12}$ and $F_{21}$ compare?
 
-    \item Figure 1 below shows a box that is held at rest by a rope of negligible mass attached to a pulley. Points A and B are where the rope connects to the box and pulley, respectively. Figure 2 shows the force on the box at point A. Draw the force on the pulley at point B.
-    
-    \begin{center}
-    \begin{tikzpicture}
-        \draw[fill=black!20] (0,0) circle (1) node[above=1] {pulley};
-        \fill (0,0) circle (0.02);
-        \draw (1,0) -- (1,-2.5);
-        \begin{scope}[shift={(1,-2.5)},x=2.5mm,y=2.5mm]
-            \draw[fill=black!10] (-1,-1) rectangle (1,1);
-        \end{scope}
-        \fill (1,0) circle (0.08) node[right] {B};
-        \fill (1,-2.25) circle (0.08) node[shift={(0.2,0.25)}] {A};
-        \node[below=5mm] at (current bounding box.south) {Figure 1};
-    \end{tikzpicture}
-    \hspace{1cm}
-    \begin{tikzpicture}[x=5mm,y=5mm]
-        \draw[step=1,lightgray] (-3,-3) grid (3,3);
-        \node[below=5mm] at (current bounding box.south) {Figure 2};
-        \draw[ultra thick,->] (0,-2) -- ++(0,4);
-    \end{tikzpicture}
-    \end{center}
+\begin{center}
+\begin{tikzpicture}[y=3cm,x=3cm]
+    \draw[fill=cyan!50] (1.84,0) circle (0.16) node {1}; 
+    \draw[fill=red!50] (2.25,0) circle (0.25) node {2};
+\end{tikzpicture}
+\end{center}
+
+\item Figure 1 below shows a box that is held at rest by a rope of negligible mass attached to a pulley. Points A and B are where the rope connects to the box and pulley, respectively. Figure 2 shows the force on the box at point A. Draw the force on the pulley at point B.
+
+\begin{center}
+\begin{tikzpicture}
+    \draw[fill=black!20] (0,0) circle (1) node[above=1] {pulley};
+    \fill (0,0) circle (0.02);
+    \draw (1,0) -- (1,-2.5);
+    \begin{scope}[shift={(1,-2.5)},x=2.5mm,y=2.5mm]
+        \draw[fill=black!10] (-1,-1) rectangle (1,1);
+    \end{scope}
+    \fill (1,0) circle (0.08) node[right] {B};
+    \fill (1,-2.25) circle (0.08) node[shift={(0.2,0.25)}] {A};
+    \node[below=5mm] at (current bounding box.south) {Figure 1};
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=1,lightgray] (-3,-3) grid (3,3);
+    \node[below=5mm] at (current bounding box.south) {Figure 2};
+    \draw[ultra thick,->] (0,-2) -- ++(0,4);
+\end{tikzpicture}
+\end{center}
 \end{enumerate}
 
 \clearpage

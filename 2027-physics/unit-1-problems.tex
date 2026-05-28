@@ -1,4 +1,4 @@
-\documentclass[answers]{exam}
+\documentclass[]{exam}
 \input{global}
 \input{problem-sets}
 
@@ -7,6 +7,907 @@
 
 
 \begin{document}
+
+
+\subsection*{Practice 1}
+
+\begin{questions}
+\question
+Find the vector sum of all vectors shown below.
+
+\begin{center}
+%...PRO TIP: Use a random number generator to generate random vectors between -10 and 10
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=1,lightgray] (0,0) grid (10,4);
+    \draw[->,line width=0.6mm,-{Triangle}] (5,4) -- ++(-3,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (9,3) -- ++(-8,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (2,2) -- ++(6,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (6,1) -- ++(-4,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (0,0) -- ++(5,0);
+\end{tikzpicture}
+\end{center}
+
+\begin{solution}
+\begin{equation*}
+    \text{vector sum} = 5 -4 + 6 - 8 - 3 = \boxed{-4}
+\end{equation*}
+\end{solution}
+
+\question
+Find the vector sum of all vectors shown below.
+
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=1,lightgray] (0,0) grid (10,4);
+    \draw[->,line width=0.6mm,-{Triangle}] (10,4) -- ++(-9,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (0,3) -- ++(1,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (0,2) -- ++(7,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (0,1) -- ++(3,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (0,0) -- ++(5,0);
+\end{tikzpicture}
+\end{center}
+
+\begin{solution}
+\begin{equation*}
+    \text{vector sum} = 5 + 3 + 7 + 1 - 9 = \boxed{7}
+\end{equation*}
+\end{solution}
+
+\question
+Find the vector sum of all vectors shown below.
+
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=1,lightgray] (0,0) grid (10,4);
+    \draw[->,line width=0.6mm,-{Triangle}] (0,4) -- ++(8,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (0,3) -- ++(6,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (10,2) -- ++(-3,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (10,1) -- ++(-8,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (10,0) -- ++(-7,0);
+\end{tikzpicture}
+\end{center}
+
+\begin{solution}
+\begin{equation*}
+    \text{vector sum} = - 7 - 8 - 3 + 6 + 8 = \boxed{-4}
+\end{equation*}
+\end{solution}
+
+\question
+Find the vector sum of all vectors shown below.
+
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=1,lightgray] (0,0) grid (10,4);
+    \draw[->,line width=0.6mm,-{Triangle}] (0,4) -- ++(1,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (0,3) -- ++(8,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (0,2) -- ++(1,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (0,1) -- ++(3,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (0,0) -- ++(7,0);
+\end{tikzpicture}
+\end{center}
+
+\begin{solution}
+\begin{equation*}
+    \text{vector sum} =  7 + 3  + 1 + 8 + 1 = \boxed{20}
+\end{equation*}
+\end{solution}
+
+\question
+Find the vector sum of all vectors shown below.
+
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=1,lightgray] (0,0) grid (10,4);
+    % \draw[->,line width=0.6mm,-{Triangle}] (0,4) -- ++(0,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (10,3) -- ++(-2,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (0,2) -- ++(9,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (10,1) -- ++(-3,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (10,0) -- ++(-2,0);
+\end{tikzpicture}
+\end{center}
+
+\begin{solution}
+\begin{equation*}
+    \text{vector sum} =  - 2 - 3  + 9 - 2 + 0 = \boxed{2}
+\end{equation*}
+\end{solution}
+
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 2}
+
+\newcommand{\positionfigureI}[1]{
+    \begin{center}
+    \begin{tikzpicture}[y=1cm,x=1cm]
+        \foreach \x in {-5,-4,...,5} {
+            \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {$\x$};
+        }
+        \draw[->] (-5,0) -- (5,0) node[below=6mm,pos=0.5] {Position (m)};
+        \node[above] at (#1,0) {\Strichmaxerl[2]};
+        \ifprintanswers
+            \draw[very thick,->,red] (0,0.7) -- ++(#1,0) node[above,pos=0.5] {$\vec{x}$};
+        \fi
+    \end{tikzpicture}  
+    \end{center}
+}
+
+
+\begin{questions}
+
+
+\question 
+Draw the position vector for the person below.
+
+\positionfigureI{3}
+
+\question 
+Draw the position vector for the person below.
+
+\positionfigureI{-2}
+
+\question 
+Draw the position vector for the person below.
+
+\positionfigureI{-5}
+
+\question 
+Draw the position vector for the person below.
+
+\positionfigureI{1}
+
+\question 
+Draw the position vector for the person below.
+
+\positionfigureI{4}
+
+
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 3}
+
+\begin{questions}
+
+\newcommand{\positionfigureIII}[4]{
+\begin{center}
+\begin{tikzpicture}[y=2mm,x=8mm]
+    \draw[black!10,xstep=1,ystep=2] (0,0) grid (12,4);
+    \foreach \x in {0,2,...,12} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+    }
+    \draw[->] (0,0) -- (12,0) node[right=1mm] {$x$ (m)};
+    \draw[->,rounded corners=0.7mm,thick] (#1,1)
+        -- (#2,1) 
+        -- (#2,2) 
+        -- (#3,2) 
+        -- (#3,3) 
+        -- (#4,3);
+    \node[below=6.5mm,fill=black!10] at (#1,0) {$x_i$};
+    \node[above=1mm,fill=black!10] at (#4,4) {$x_f$};
+\end{tikzpicture}
+\end{center}
+}
+
+\question
+The figure below represents the path traveled by a particle in one dimension. Calculate the total distance traveled.
+
+\positionfigureIII{2}{10}{8}{10}
+
+\question
+The figure below represents the path traveled by a particle in one dimension. Calculate the total distance traveled.
+
+\positionfigureIII{4}{9}{8}{4}
+
+
+\question
+The figure below represents the path traveled by a particle in one dimension. Calculate the total distance traveled.
+
+\positionfigureIII{6}{0}{5}{9}
+
+\question
+The figure below represents the path traveled by a particle in one dimension. Calculate the total distance traveled.
+
+\positionfigureIII{11}{8}{0}{5}
+
+\question
+The figure below represents the path traveled by a particle in one dimension. Calculate the total distance traveled.
+
+\positionfigureIII{4}{10}{0}{4}
+
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 4}
+
+
+\begin{questions}
+
+\newcommand{\positionfigureII}[2]{
+\begin{center}
+\begin{tikzpicture}[y=1cm,x=1cm]
+    \foreach \x in {-5,-4,...,5} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+    }
+    \draw[->] (-5,0) -- (5,0) node[below=7mm,pos=0.5] {Position (m)};
+    \fill (#1,0) circle (1mm) node[above=1mm] {A};
+    \fill (#2,0) circle (1mm) node[above=1mm] {B};
+\end{tikzpicture}
+\end{center}
+}
+
+\question
+Charlie moves from point A to point B. Find the distance traveled and the displacement.
+
+\positionfigureII{-1}{-4}
+
+\begin{solution}
+\begin{equation*}
+    d = \left|x_f - x_i\right| = \left|-\SI{4}{m} - (-\SI{1}{m})\right| = \left|\SI{-3}{m}\right| = \boxed{\SI{3}{m}}
+\end{equation*}
+
+\begin{equation*}
+    \Delta x = \SI{-4}{m} - (\SI{-1}{m}) = \boxed{\SI{-3}{m}}
+\end{equation*}
+\end{solution}
+
+\question
+Charlie moves from point A to point B. Find the distance traveled and the displacement.
+
+\positionfigureII{0}{5}
+
+\begin{solution}
+\begin{equation*}
+    d = \left|x_f - x_i\right| = \left|\SI{5}{m} - (\SI{0}{m})\right| = \boxed{\SI{5}{m}}
+\end{equation*}
+
+\begin{equation*}
+    \Delta x = x_f - x_i = \SI{5}{m} - (\SI{0}{m}) = \boxed{\SI{5}{m}}
+\end{equation*}
+\end{solution}
+
+\question
+Charlie moves from point A to point B. Find the distance traveled and the displacement.
+
+\positionfigureII{2}{-4}
+
+\begin{solution}
+\begin{equation*}
+    d = \left|x_f - x_i\right| = \left|-\SI{4}{m} - (\SI{2}{m})\right| = \left|\SI{-6}{m}\right| = \boxed{\SI{6}{m}}
+\end{equation*}
+
+\begin{equation*}
+    \Delta x = x_f - x_i = -\SI{4}{m} - (\SI{2}{m}) = \boxed{\SI{-6}{m}}
+\end{equation*}
+\end{solution}
+
+\question
+Charlie moves from point A to point B. Find the distance traveled and the displacement.
+
+\positionfigureII{-4}{1}
+
+\begin{solution}
+\begin{equation*}
+    d = \left|x_f - x_i\right| = \left|\SI{1}{m} - (\SI{-4}{m})\right| = \left|\SI{5}{m}\right| = \boxed{\SI{5}{m}}
+\end{equation*}
+
+\begin{equation*}
+    \Delta x = x_f - x_i = \SI{1}{m} - (\SI{-4}{m}) = \boxed{\SI{5}{m}}
+\end{equation*}
+\end{solution}
+
+\question
+Charlie moves from point A to point B. Find the distance traveled and the displacement.
+
+\positionfigureII{-5}{5}
+
+\begin{solution}
+\begin{equation*}
+    d = \left|x_f - x_i\right| = \left|\SI{5}{m} - (\SI{-5}{m})\right| = \left|\SI{10}{m}\right| = \boxed{\SI{10}{m}}
+\end{equation*}
+
+\begin{equation*}
+    \Delta x = x_f - x_i = \SI{5}{m} - (\SI{-5}{m}) = \boxed{\SI{10}{m}}
+\end{equation*}
+\end{solution}
+
+
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 5}
+
+\newcommand{\positionfigureIV}[2]{
+    \begin{center}
+    \begin{tikzpicture}[y=1.4mm,x=1.4mm]
+        \foreach \x in {-50,-40,...,50} {
+            \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+        }
+        \foreach \x in {-45,-35,...,45} {
+            \draw[ultra thin] (\x,-0.8mm) -- (\x,0.8mm);
+        }
+        \draw[->] (-50,0) -- (50,0) node[below=7mm,pos=0.5] {Position (m)};
+        \fill (#1,0) circle (1mm) node[above=1mm] {A};
+        \fill (#2,0) circle (1mm) node[above=1mm] {B};
+    \end{tikzpicture}
+    \end{center}
+}
+
+
+\begin{questions}
+\question 
+A particle moves point A to point B in 10 seconds. Find the average speed and the average velocity.
+
+\positionfigureIV{-35}{20}
+
+\begin{solution}
+\begin{equation*}
+    \text{speed} = \frac{\text{distance}}{\text{time}} = \frac{\SI{55}{m}}{\SI{10}{s}} = \boxed{\SI{5.5}{m/s}}
+\end{equation*}
+
+\begin{equation*}
+    \bar{v} = \frac{\Delta x}{\Delta t} = \frac{\SI{55}{m}}{\SI{10}{s}} = \boxed{\SI{5.5}{m/s}}
+\end{equation*}
+\end{solution}
+
+\question 
+A particle moves point A to point B in 10 seconds. Find the average speed and the average velocity.
+
+\positionfigureIV{45}{-10}
+
+\begin{solution}
+\begin{equation*}
+    \text{speed} = \frac{\text{distance}}{\text{time}} = \frac{\SI{55}{m}}{\SI{10}{s}} = \boxed{\SI{5.5}{m/s}}
+\end{equation*}
+
+\begin{equation*}
+    \bar{v} = \frac{\Delta x}{\Delta t} = \frac{\SI{-55}{m}}{\SI{10}{s}} = \boxed{\SI{-5.5}{m/s}}
+\end{equation*}
+\end{solution}
+
+\question 
+A particle moves point A to point B in 50 seconds. Find the average speed and the average velocity.
+
+\positionfigureIV{0}{-25}
+
+\begin{solution}
+\begin{equation*}
+    \text{speed} = \frac{\text{distance}}{\text{time}} = \frac{\SI{25}{m}}{\SI{50}{s}} = \boxed{\SI{0.5}{m/s}}
+\end{equation*}
+
+\begin{equation*}
+    \bar{v} = \frac{\Delta x}{\Delta t} = \frac{\SI{-25}{m}}{\SI{50}{s}} = \boxed{\SI{-0.5}{m/s}}
+\end{equation*}
+\end{solution}
+
+\question 
+A particle moves point A to point B in 25 seconds. Find the average speed and the average velocity.
+
+\positionfigureIV{35}{-40}
+
+\begin{solution}
+\begin{equation*}
+    \text{speed} = \frac{\text{distance}}{\text{time}} = \frac{\SI{75}{m}}{\SI{25}{s}} = \boxed{\SI{3.0}{m/s}}
+\end{equation*}
+
+\begin{equation*}
+    \bar{v} = \frac{\Delta x}{\Delta t} = \frac{\SI{-75}{m}}{\SI{25}{s}} = \boxed{\SI{-3.0}{m/s}}
+\end{equation*}
+\end{solution}
+
+\question 
+A particle moves point A to point B in 4 seconds. Find the average speed and the average velocity.
+
+\positionfigureIV{15}{-45}
+
+\begin{solution}
+\begin{equation*}
+    \text{speed} = \frac{\text{distance}}{\text{time}} = \frac{\SI{60}{m}}{\SI{4}{s}} = \boxed{\SI{15}{m/s}}
+\end{equation*}
+
+\begin{equation*}
+    \bar{v} = \frac{\Delta x}{\Delta t} = \frac{\SI{-60}{m}}{\SI{4}{s}} = \boxed{\SI{-15}{m/s}}
+\end{equation*}
+\end{solution}
+
+
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 6}
+
+\begin{questions}
+
+\newcommand{\positionfigureV}[6]{
+    %...PRO TIP: Type the following into ChatGPT:
+    % Generate 5 integers between -10 to 10 (inclusive) such that the absolute value of the sum of the 5 integers is less than or equal to 10. Print each of the integers in each of the first 5 curly brackets below. Calculate the maximum displacement from equilibrium and, if it's greater than 10, enter it in the 6th curly bracket; otherwise enter 10 for the 6th curly bracket. Do not output in markdown; I just want the verbatim text: \positionfigureV{}{}{}{}{}{}
+    
+    \begin{tikzpicture}[x=5mm,y=5mm]
+        \draw[step=1,lightgray] (-10,0) grid (10,4);
+        \draw[->,line width=0.6mm,-{Triangle}] (0,4) -- ++(#5,0);
+        \draw[->,line width=0.6mm,-{Triangle}] (0,3) -- ++(#4,0);
+        \draw[->,line width=0.6mm,-{Triangle}] (0,2) -- ++(#3,0);
+        \draw[->,line width=0.6mm,-{Triangle}] (0,1) -- ++(#2,0);
+        \draw[->,line width=0.6mm,-{Triangle}] (0,0) -- ++(#1,0);
+        \node[below] at (current bounding box.south) {Figure 1: Displacement vectors.};
+    \end{tikzpicture}
+    
+    \smallskip
+    
+    \begin{tikzpicture}[x=5mm,y=5mm]
+        \draw[step=1,lightgray] (-#6,0) grid (#6,4);
+        \draw (0,0) node {\scriptsize $|$} node[below=2pt] {$0$};
+            \begin{scope}[red,opacity={\ifprintanswers 1\else 0\fi}]
+                \draw[->,line width=0.3mm,-{Triangle}] ({#1+#2+#3+#4},4) -- ++(#5,0);
+                \draw[->,line width=0.3mm,-{Triangle}] ({#1+#2+#3},3) -- ++(#4,0);
+                \draw[->,line width=0.3mm,-{Triangle}] ({#1+#2},2) -- ++(#3,0);
+                \draw[->,line width=0.3mm,-{Triangle}] (#1,1) -- ++(#2,0);
+                \draw[->,line width=0.3mm,-{Triangle}] (0,0) -- ++(#1,0);
+                \pgfmathsetmacro{\vecsum}{#1+#2+#3+#4+#5}
+        
+                \pgfmathtruncatemacro{\iszero}{(\vecsum==0)}
+                
+                \ifnum\iszero=1
+                    \node[above] at (0,4.5) {vector sum is zero};
+                \else
+                    \draw[->,line width=0.6mm,-{Triangle}] (0,4.6) -- ++(\vecsum,0)
+                        node[above=1mm,pos=0.5] {vector sum};
+                \fi
+        \end{scope}
+        \node[below] at (current bounding box.south) {Figure 2: Head-to-tail addition and vector sum.};
+    \end{tikzpicture}
+}
+
+\question
+A particle starts at the origin and undergoes the five displacements shown in Figure 1. Using Figure 2, add the five displacement vectors graphically (use the head-to-tail method). Then, algebraically calculate the net displacement. The side of each grid square represents 1 meter.
+
+\begin{center}
+    \positionfigureV{-6}{6}{8}{5}{-9}{13}
+\end{center}
+
+\begin{solution}
+\begin{equation*}
+    \Delta x_\text{\scriptsize net} = \SI{-6}{m} + \SI{6}{m} + \SI{8}{m} + \SI{5}{m} + (\SI{-9}{m}) = \boxed{\SI{4}{m}}
+\end{equation*}
+\end{solution}
+
+
+\question
+A particle starts at the origin and undergoes the five displacements shown in Figure 1. Using Figure 2, add the five displacement vectors graphically (use the head-to-tail method). Then, algebraically calculate the net displacement. The side of each grid square represents 1 meter.
+
+\begin{center}
+    \positionfigureV{2}{-3}{5}{-1}{-2}{10}
+\end{center}
+
+\begin{solution}
+\begin{equation*}
+    \Delta x_\text{\scriptsize net} = \SI{2}{m} + (\SI{-3}{m}) + \SI{5}{m} + (\SI{-1}{m}) + (\SI{-2}{m}) = \boxed{\SI{1}{m}}
+\end{equation*}
+\end{solution}
+
+
+\question
+A particle starts at the origin and undergoes the five displacements shown in Figure 1. Using Figure 2, add the five displacement vectors graphically (use the head-to-tail method). Then, algebraically calculate the net displacement. The side of each grid square represents 1 meter.
+
+\begin{center}
+    \positionfigureV{3}{-5}{7}{-2}{1}{10}    
+\end{center}
+
+\begin{solution}
+\begin{equation*}
+    \Delta x_\text{\scriptsize net} = \SI{3}{m} + (\SI{-5}{m}) + \SI{7}{m} + (\SI{-2}{m}) + \SI{1}{m} = \boxed{\SI{4}{m}}
+\end{equation*}
+\end{solution}
+
+\question
+A particle starts at the origin and undergoes the five displacements shown in Figure 1. Using Figure 2, add the five displacement vectors graphically (use the head-to-tail method). Then, algebraically calculate the net displacement. The side of each grid square represents 1 meter.
+
+\begin{center}
+    \positionfigureV{7}{-9}{1}{-3}{2}{10}
+\end{center}
+
+\begin{solution}
+\begin{equation*}
+    \Delta x_\text{\scriptsize net} = \SI{7}{m} + (\SI{-9}{m}) + \SI{1}{m} + (\SI{-3}{m}) + \SI{2}{m} = \boxed{\SI{-2}{m}}
+\end{equation*}
+\end{solution}
+
+\question
+A particle starts at the origin and undergoes the five displacements shown in Figure 1. Using Figure 2, add the five displacement vectors graphically (use the head-to-tail method). Then, algebraically calculate the net displacement. The side of each grid square represents 1 meter.
+
+\begin{center}
+    \positionfigureV{10}{-10}{5}{-3}{-2}{10}
+\end{center}
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 7}
+
+\begin{questions}
+\question
+A particle's position and velocity vectors are $\vec{x} = -\SI{56}{m}$ and $\vec{v} = \SI{10}{m/s}$, respectively. Is the particle moving toward or away from the origin?
+
+\question
+A particle's position and velocity vectors are $\vec{x} = \SI{12}{m}$ and $\vec{v} = \SI{15}{m/s}$, respectively. Is the particle moving toward or away from the origin?
+
+\question
+A particle's position and velocity vectors are $\vec{x} = \SI{24}{m}$ and $\vec{v} = -\SI{6}{m/s}$, respectively. Is the particle moving toward or away from the origin?
+
+\question
+A particle's position and velocity vectors are $\vec{x} = -\SI{13}{m}$ and $\vec{v} = -\SI{35}{m/s}$, respectively. Is the particle moving toward or away from the origin?
+
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 8}
+
+\begin{questions}
+\question
+Predict the last row of the data table below, assuming constant velocity.
+
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        \thead{Position (m)} & \thead{Time (s)} \\ \hline
+        0 & 0 \\ \hline
+        3 & 1 \\ \hline
+        6 & 2 \\ \hline
+        9 & 3 \\ \hline
+          & 4 \\ \hline
+    \end{tabular}
+\end{center}
+
+\question
+Predict the last row of the data table below, assuming constant velocity.
+
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        \thead{Position (m)} & \thead{Time (s)} \\ \hline
+        4 & 0 \\ \hline
+        8 & 1 \\ \hline
+        12 & 2 \\ \hline
+        16 & 3 \\ \hline
+          & 4 \\ \hline
+    \end{tabular}
+\end{center}
+
+\question
+Predict the last row of the data table below, assuming constant velocity.
+
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        \thead{Position (m)} & \thead{Time (s)} \\ \hline
+        0 & 2 \\ \hline
+        5 & 4 \\ \hline
+        10 & 6 \\ \hline
+        15 & 8 \\ \hline
+           & 10 \\ \hline
+    \end{tabular}
+\end{center}
+
+\question
+Predict the last row of the data table below, assuming constant velocity.
+
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        \thead{Position (m)} & \thead{Time (s)} \\ \hline
+        22 & 10 \\ \hline
+        24 & 15 \\ \hline
+        26 & 20 \\ \hline
+        28 & 25 \\ \hline
+           & 30 \\ \hline
+    \end{tabular}
+\end{center}
+
+\question
+Predict the last row of the data table below, assuming constant velocity.
+
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        \thead{Position (m)} & \thead{Time (s)} \\ \hline
+        $-8$ & 0 \\ \hline
+        $-6$ & 10 \\ \hline
+        $-4$ & 20 \\ \hline
+        $-2$ & 30 \\ \hline
+            & 40 \\ \hline
+    \end{tabular}
+\end{center}
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 9}
+
+\begin{questions}
+
+\newcommand{\positionfigureVI}[1]{
+\begin{tikzpicture}[y=5mm,x=5mm]
+    \draw[black!20,step=1] (0,0) grid (24,2);  
+    \ifprintanswers
+    \foreach \x in {0,#1,...,24}{
+        \fill[red] (\x,1) circle (0.9mm);
+    }
+    \fi
+\end{tikzpicture}
+}
+
+\question
+The side of each grid square in the figure below represents 1 meter. A particle travels at a constant  speed of \SI{2}{m/s} in the negative direction. Draw a motion map for the particle. Label the initial and final positions, and direction of velocity.
+
+\begin{center}
+    \positionfigureVI{2}
+\end{center}
+
+\question
+The side of each grid square in the figure below represents 1 meter. A particle travels at a constant  speed of \SI{6}{m/s} in the negative direction. Draw a motion map for the particle. Label the initial and final positions, and direction of velocity.
+
+\begin{center}
+    \positionfigureVI{6}
+\end{center}
+
+\question
+The side of each grid square in the figure below represents 1 meter. A particle travels at a constant  speed of \SI{3}{m/s} in the negative direction. Draw a motion map for the particle. Label the initial and final positions, and direction of velocity.
+
+\begin{center}
+    \positionfigureVI{3}
+\end{center}
+
+\question
+The side of each grid square in the figure below represents 1 meter. A particle travels at a constant  speed of \SI{4}{m/s} in the negative direction. Draw a motion map for the particle. Label the initial and final positions, and direction of velocity.
+
+\begin{center}
+    \positionfigureVI{4}
+\end{center}
+
+\question
+The side of each grid square in the figure below represents 1 meter. A particle travels at a constant  speed of \SI{8}{m/s} in the negative direction. Draw a motion map for the particle. Label the initial and final positions, and direction of velocity.
+
+\begin{center}
+    \positionfigureVI{8}
+\end{center}
+
+
+\end{questions}
+
+\clearpage
+
+
+\subsection*{Practice 10}
+
+\begin{questions}
+
+\newcommand{\xygraphI}[3]{
+\begin{tikzpicture}
+    \begin{axis}[height=7.5cm,width=8.5cm,
+        axis lines=center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ymin=-10,ymax=10,
+        xmin=-10,xmax=10,
+        ytick={-10,-8,...,10},
+        xtick={-10,-8,...,10},
+        grid=both, 
+        minor y tick num=1,
+        minor x tick num=1,
+    ]
+        \addplot[thick,domain=-10:10] {#1*x + #2};
+        \ifprintanswers
+            \addplot[red,only marks,mark=*] coordinates{#3};
+        \fi
+    \end{axis}
+\end{tikzpicture}
+}
+
+\item Find the slope of the line.
+
+\xygraphI{2}{1}{(0,1)(3,7)}
+
+
+\begin{solution}
+Using points $(0,1)$ and $(3,7)$,
+
+\begin{equation*}
+    m = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1} = \frac{7-1}{3-0} = \boxed{2}
+\end{equation*}
+\end{solution}
+
+\item Find the slope of the line.
+
+\xygraphI{-3}{4}{(0,4)(2,-2)}
+
+
+\begin{solution}
+Using points $(0,4)$ and $(2,-2)$,
+
+\begin{equation*}
+    m = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1} = \frac{-2-4}{2-0} = \boxed{-3}
+\end{equation*}
+\end{solution}
+
+\item Find the slope of the line.
+
+\xygraphI{0.5}{-2}{(0,-2)(4,0)}
+
+\begin{solution}
+Using points $(0,-2)$ and $(4,0)$
+
+\begin{equation*}
+    m = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1} = \frac{0-(-2)}{4-0} = \boxed{\frac{1}{2}} = 0.5
+\end{equation*}
+\end{solution}
+
+\clearpage
+
+\item Find the slope of the line.
+
+\xygraphI{-2/3}{-1}{(0,-1)(3,-3)}
+
+
+\begin{solution}
+Using points $(0,-1)$ and $(3,-3)$,
+
+\begin{equation*}
+    m = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1} = \frac{-3-(-1)}{3-0} = \boxed{-\frac{2}{3}} \approx -0.67
+\end{equation*}
+\end{solution}
+
+\item Find the slope of the line.
+
+\xygraphI{3}{-5}{(0,-5)(3,4)}
+
+\begin{solution}
+Using points $(0,-5)$ and $(3,4)$,
+
+\begin{equation*}
+    m = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1} = \frac{4-(-5)}{3-0} = \boxed{3}
+\end{equation*}
+\end{solution}
+
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 11}
+
+\begin{questions}
+
+\newcommand{\positiongraphI}[3]{
+    \begin{tikzpicture}
+        \begin{axis}[height=6cm,width=7cm,
+            axis lines=left,
+            xlabel = {Time (s)},
+            ylabel = {Position (m)},
+            ymin=0, ymax=20,
+            xmin=0, xmax=14,
+            ytick={0,4,...,20},
+            xtick={0,2,...,14},
+            minor y tick num=3,
+            minor x tick num=1,
+            grid=both,
+            ]
+            \addplot[thick,domain=0:14] {#1*x + #2};
+            \ifprintanswers
+                \addplot[red,only marks,mark=*] coordinates{#3};
+            \fi
+        \end{axis}
+    \end{tikzpicture}
+}
+
+%...AI-CHATBOT PROMPT:
+% In an xy plane, the y limits are 0 to 20, and the x limits are 0 to 14. Give me 5 excellent linear equations (y = mx + b) for students to practice slope calculations. Output the results in the form \positiongraphI{m}{b}{coordinates} where coordinates should be in the form (x1,y1)(x2,y2), representing 2 points on the line for calculating slope. 
+
+\question
+Find the velocity of the particle shown in the graph below. %...Claude wording.
+
+\positiongraphI{2}{2}{(0,2)(6,14)}
+
+\question
+Find the velocity of the particle shown in the graph below. %...Claude wording.
+
+\positiongraphI{-1}{18}{(0,18)(8,10)}
+
+\question
+Find the velocity of the particle shown in the graph below. %...Claude wording.
+
+\positiongraphI{3}{1}{(0,1)(4,13)}
+
+\clearpage
+
+\question
+Find the velocity of the particle shown in the graph below. %...Claude wording.
+
+\positiongraphI{0.5}{6}{(0,6)(10,11)}
+
+\question
+Find the velocity of the particle shown in the graph below. %...Claude wording.
+
+\positiongraphI{-1.5}{17}{(0,17)(8,5)}
+
+\question
+Find the velocity of the particle shown in the graph below. %...Claude wording.
+
+\positiongraphI{-2}{18}{(0,18)(6,6)}
+
+
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 12}
+
+\begin{questions}
+
+\newcommand{\velocitygraphI}[2]{
+    \begin{tikzpicture}
+        \begin{axis}[height=6cm,width=7cm,
+            axis y line=left,
+            axis x line=center,
+            xlabel = {Time (s)},
+            ylabel = {Velocity (m/s)},
+            ymin=-5, ymax=5,
+            xmin=0, xmax=10,
+            ytick={-5,-4,...,5},
+            xtick={0,2,...,10},
+            grid=both,
+            minor x tick num = 1,
+            x label style={at={(axis description cs:1,0.5)},right=1mm},
+            clip=false
+        ]
+            \addplot[very thick,black,domain=0:#2] {#1};
+            \ifprintanswers
+                \begin{pgfonlayer}{background}
+                    \fill[red!12] (0,0) rectangle (#2,#1);
+                \end{pgfonlayer}
+            \fi
+            \end{axis}
+    \end{tikzpicture}
+}
+
+%...AI-CHATBOT PROMPT:
+%Generate a random integer between -5 to 5 (inclusive), and another one between 5 and 10 (inclusive). Output the results in the form \velocitygraphI{a}{b} where a and b are the generated numbers.
+
+\question A particle's motion is depicted in the following graph. Calculate the particle's displacement across the entire time interval.
+
+\velocitygraphI{2}{6}
+
+
+\question A particle's motion is depicted in the following graph. Calculate the particle's displacement across the entire time interval.
+
+\velocitygraphI{-2}{7}
+
+\question A particle's motion is depicted in the following graph. Calculate the particle's displacement across the entire time interval.
+
+\velocitygraphI{-4}{9}
+
+\clearpage
+
+\question A particle's motion is depicted in the following graph. Calculate the particle's displacement across the entire time interval.
+
+\velocitygraphI{-5}{7}
+
+\question A particle's motion is depicted in the following graph. Calculate the particle's displacement across the entire time interval.
+
+\velocitygraphI{3}{9}
+
+
+\end{questions}
+
+
+\clearpage
+
+\subsection*{Other}
 
 \begin{questions}
 \question

@@ -1,0 +1,1181 @@
+\documentclass[answers]{exam}
+\input{global}
+\input{problem-sets}
+\input{2027-physics/commands}
+
+\firstpageheader{{Name:\enspace\makebox[6cm]{\hrulefill}}\\Physics}{}{Problems\\Unit 2: Acceleration}
+\runningheader{Physics}{}{Problems on Unit 2: Acceleration}
+
+\setlength{\columnseprule}{0pt}
+
+\usepackage{adjustbox}
+\usepackage{xfp}
+
+
+\begin{document}
+
+\subsection*{Practice 1}
+
+\textbf{Questions \ref{gqigC}--\ref{U8WJ1}.} Determine whether or not the object in the table is accelerating. Then calculate the acceleration.
+
+\begin{questions}
+\question \label{gqigC}
+\phantom{.}
+
+\velocitytableI{0}{2}{0}{1}
+
+\question
+\phantom{.}
+
+\velocitytableI{16}{0}{0}{1}
+
+\question
+\phantom{.}
+
+\velocitytableI{22}{6}{5}{2}
+
+\question
+\phantom{.}
+
+\velocitytableI{10}{-5}{16}{1}
+
+\question
+\phantom{.}
+
+\velocitytableI{-12}{0}{7}{3}
+
+
+\question \label{U8WJ1}
+\phantom{.}
+
+\velocitytableI{-20}{12}{15}{3}
+
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 2}
+
+\textbf{Questions \ref{bkoxL}--\ref{SGatV}.} Identify whether or not the object in the table is accelerating, and state whether the acceleration is positive, negative, or zero.
+
+\begin{questions}
+\question \label{bkoxL}
+\phantom{.}
+
+\positiontableI{0}{0}{0}{1}{2}
+
+\question
+\phantom{.}
+
+\positiontableI{0}{3}{0}{1}{0}
+
+\question
+\phantom{.}
+
+\positiontableI{-12}{2}{0}{1}{4}
+
+\question
+\phantom{.}
+
+\positiontableI{4}{-3}{6}{2}{0}
+
+\question \label{SGatV}
+\phantom{.}
+
+\positiontableI{0}{20}{0}{1}{-10}
+
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 3}
+
+\begin{questions}
+\question
+The object below moves with positive velocity. 
+
+\begin{parts}
+    \part What is the direction of acceleration? 
+    \part Is it speeding up or slowing down?
+\end{parts}
+
+\begin{center}
+\begin{tikzpicture}[y=5mm,x=6mm]
+    \draw[black!20,step=1] (0,0) grid (25,2);
+        \foreach \x in {0,1,...,5}{
+        \fill ({\x^2},1) circle (1mm);
+    }
+    \node[below] at (0,0) {$x_i$};
+    \draw[thick,->] (0,2.5) -- ++(1.5,0) node[above,pos=0.5] {$\vec{v}$};
+\end{tikzpicture}
+\end{center}
+
+\question
+The object below moves with negative velocity. 
+
+\begin{parts}
+    \part What is the direction of acceleration? 
+    \part Is it speeding up or slowing down?
+\end{parts}
+
+\begin{center}
+\begin{tikzpicture}[y=5mm,x=6mm]
+    \draw[black!20,step=1] (0,0) grid (25,2);
+        \foreach \x in {0,1,...,5}{
+        \fill ({\x^2},1) circle (1mm);
+    }
+    \node[below] at (25,0) {$x_i$};
+    \draw[thick,->] (25,2.5) -- ++(-1.5,0) node[above,pos=0.5] {$\vec{v}$};
+\end{tikzpicture}
+\end{center}
+
+\question
+The object below moves with positive velocity. 
+
+\begin{parts}
+    \part What is the direction of acceleration? 
+    \part Is it speeding up or slowing down?
+\end{parts}
+
+
+
+\begin{center}
+\begin{tikzpicture}[y=5mm,x=6mm]
+    \draw[black!20,step=1] (0,0) grid (25,2);
+    % Loop from 0 to 5 and subtract the square from 25
+    \foreach \x in {0,1,...,5}{
+        \fill ({25 - \x^2},1) circle (1mm);
+    }
+    \node[below] at (0,0) {$x_i$};
+    \draw[thick,->] (0,2.5) -- ++(1.5,0) node[above,pos=0.5] {$\vec{v}$};
+\end{tikzpicture}
+\end{center}
+
+\question
+The object below moves with negative velocity. 
+
+\begin{parts}
+    \part What is the direction of acceleration? 
+    \part Is it speeding up or slowing down?
+\end{parts}
+
+\begin{center}
+\begin{tikzpicture}[y=5mm,x=6mm]
+    \draw[black!20,step=1] (0,0) grid (25,2);
+    % Loop from 0 to 5 and subtract the square from 25
+    \foreach \x in {0,1,...,5}{
+        \fill ({25 - \x^2},1) circle (1mm);
+    }
+    \node[below] at (25,0) {$x_i$};
+    \draw[thick,->] (25,2.5) -- ++(-1.5,0) node[above,pos=0.5] {$\vec{v}$};
+\end{tikzpicture}
+\end{center}
+
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 4}
+
+\textbf{Questions.} Determine whether or not the following graph represents accelerating motion.
+
+\begin{questions}
+\begin{multicols}{2}
+\question
+\phantom{.}
+
+\velocitygraphI{0}{-6}
+
+\question
+\phantom{.}
+
+\velocitygraphI{1}{0}
+
+
+\question
+\phantom{.}
+
+\velocitygraphI{-2}{2}
+
+\question
+\phantom{.}
+
+\velocitygraphI{0}{3}
+
+\question
+\phantom{.}
+
+\velocitygraphI{-0.1}{6}
+
+\question
+\phantom{.}
+
+\velocitygraphI{1.8}{-5}
+
+\end{multicols}
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 5}
+
+\textbf{Questions \ref{H2UaC}--\ref{IMwAV}.} Indicate whether or not the following objects are accelerating based on the position vs.\,time graph. Justify your answer.
+
+\begin{questions}
+\begin{multicols}{2}
+
+\question \label{H2UaC}
+\phantom{.}
+
+\positiongraphII{-1}{-1}{1}
+
+\question
+\phantom{.}
+
+\positiongraphII{1}{1}{-1}
+
+\question
+\phantom{.}
+
+\positiongraphII{0}{1}{0}
+
+\question
+\phantom{.}
+
+\positiongraphII{0}{4}{-2}
+
+\question
+\phantom{.}
+
+\positiongraphII{2}{-6}{2.5}
+
+
+\question \label{IMwAV}
+\phantom{.}
+
+\positiongraphII{3}{-2}{0}
+
+\end{multicols}
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 6}
+
+
+\begin{questions}
+\question
+What is the direction of acceleration for the object shown below?
+
+\velocitygraphII{3}{-1.5}
+
+
+\question
+What is the direction of acceleration for the object shown below?
+
+\velocitygraphII{-3}{1.5}
+
+\question
+What is the direction of acceleration for the object shown below?
+
+\velocitygraphII{2}{0}
+
+\question
+What is the direction of acceleration for the object shown below?
+
+\velocitygraphII{-2}{0}
+
+\end{questions}
+
+\clearpage
+
+
+\subsection*{Practice 7}
+
+\textbf{Questions \ref{jpyYo}--\ref{OK5PY}.} Draw the tangent line to the curve at the given point. Then, determine the direction of the object's velocity at that point.
+
+\begin{questions}
+\begin{multicols}{2} % Start 2-column layout
+
+\question \label{jpyYo}
+\phantom{.}
+
+\begin{tikzpicture}[x=3cm,y=2cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{-(\t-0.8)^2});
+
+    % 1. Define your tangent point t_0 here
+    \newcommand{\tzero}{0.3}
+    
+    % 2. The Point (automatically calculated)
+    \fill (\tzero,{-(\tzero-0.8)^2}) circle (2pt);
+    
+    % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
+    % m   = -2*(\tzero-0.8)
+    % x_0 = -(\tzero-0.8)^2
+    \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {(-2*(\tzero-0.8))*(\t-\tzero) - (\tzero-0.8)^2});
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[x=3cm,y=2cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{(\t-0.8)^2});
+
+    % 1. Define your tangent point t_0 here
+    \newcommand{\tzero}{0.3}
+
+    % 2. The Point (automatically calculated)
+    \fill (\tzero,{(\tzero-0.8)^2}) circle (2pt);
+
+    % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
+    % m   = 2*(\tzero-0.8)
+    % x_0 = (\tzero-0.8)^2
+    \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {(2*(\tzero-0.8))*(\t-\tzero) + (\tzero-0.8)^2}); 
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[x=3cm,y=2cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{-\t^2});
+
+    % 1. Define your tangent point t_0 here
+    \newcommand{\tzero}{0.5}
+
+    % 2. The Point (automatically calculated)
+    \fill (\tzero,{-(0.5)^2}) circle (2pt);
+
+    % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
+    % m   = -2*\tzero
+    % x_0 = -0.5^2
+    \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {-2*\tzero*(\t-\tzero) - 0.5^2}); 
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[x=3cm,y=2cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{\x^2});
+
+    % 1. Define your tangent point t_0 here
+    \newcommand{\tzero}{0.5}
+
+    % 2. The Point (automatically calculated)
+    \fill (\tzero,{0.5^2}) circle (2pt);
+
+    % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
+    % m   = 2*\tzero
+    % x_0 = 0.5^2
+    \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {2*\tzero*(\t-\tzero) + 0.5^2}); 
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[x=3cm,y=2cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{-(\t-0.8)^2 + 0.8^2});
+
+    % 1. Define your tangent point t_0 here
+    \newcommand{\tzero}{0.4}
+
+    % 2. The Point (automatically calculated)
+    \fill (\tzero,{-(\tzero-0.8)^2 + 0.8^2}) circle (2pt);
+
+    % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
+    % m = -2*(\tzero - 0.8)
+    % x_0 = -(\tzero - 0.8)^2 + 0.8^2
+    \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {-2*(\tzero - 0.8)*(\t - \tzero) - (\tzero - 0.8)^2 + 0.8^2}); 
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[x=3cm,y=2cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{(\t-0.8)^2 - 0.8^2});
+
+    % 1. Define your tangent point t_0 here
+    \newcommand{\tzero}{0.4}
+
+    % 2. The Point (automatically calculated)
+    \fill (\tzero,{(\tzero-0.8)^2 - 0.8^2}) circle (2pt);
+
+    % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
+    % m = 2*(\tzero - 0.8)
+    % x_0 = (\tzero - 0.8)^2 - 0.8^2
+    \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {2*(\tzero - 0.8)*(\t - \tzero) + (\tzero - 0.8)^2 - 0.8^2}); 
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[x=3cm,y=2cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{-\t^2 + 0.8^2});
+
+    % 1. Define your tangent point t_0 here
+    \newcommand{\tzero}{0.5}
+
+    % 2. The Point (automatically calculated)
+    \fill (\tzero,{-\tzero^2 + 0.8^2}) circle (2pt);
+
+    % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
+    % m = -2*\tzero
+    % x_0 = -\tzero^2 + 0.8^2
+    \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {-2*\tzero*(\t - \tzero) - \tzero^2 + 0.8^2}); 
+\end{tikzpicture}
+
+\question \label{OK5PY}
+\phantom{.}
+
+\begin{tikzpicture}[x=3cm,y=2cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{\t^2 - 0.8^2});
+
+    % 1. Define your tangent point t_0 here
+    \newcommand{\tzero}{0.5}
+
+    % 2. The Point (automatically calculated)
+    \fill (\tzero,{\tzero^2 - 0.8^2}) circle (2pt);
+
+    % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
+    % m = 2*\tzero
+    % x_0 = \tzero^2 - 0.8^2
+    \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {2*\tzero*(\t - \tzero) + \tzero^2 - 0.8^2}); 
+\end{tikzpicture}
+
+\end{multicols}
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 8}
+
+\textbf{Questions \ref{z3gVy}--\ref{aC3i2}.} Determine whether the object is speeding up or slowing down across the position curve.
+
+\begin{questions}
+\begin{multicols}{2} % Start 2-column layout
+
+\question \label{z3gVy}
+\phantom{.}
+
+\begin{tikzpicture}[x=3cm,y=2cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{-(\x-0.8)^2});
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[x=3cm,y=2cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{(\x-0.8)^2});
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[x=3cm,y=2cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{-(\x)^2});
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[x=3cm,y=2cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{(\x)^2});
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[x=3cm,y=2cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{-(\x-0.8)^2 + 0.8^2});
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[x=3cm,y=2cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{(\x-0.8)^2 - 0.8^2});
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[x=3cm,y=2cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{-(\x)^2+0.8^2});
+\end{tikzpicture}
+
+\question \label{aC3i2}
+\phantom{.}
+
+\begin{tikzpicture}[x=3cm,y=2cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{(\x)^2 - 0.8^2});
+\end{tikzpicture}
+
+\end{multicols}
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 9}
+
+\textbf{Questions.} Determine the direction of the object's acceleration.
+
+\begin{questions}
+\begin{multicols}{2} % Start 2-column layout
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[y=2cm,x=3cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{-5*(\x-0.4)^2 + 0.8});
+\end{tikzpicture}
+
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[y=2cm,x=3cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{5*(\x-0.4)^2 - 0.8});
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[y=2cm,x=3cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{-5*(\x-0.4)^2});
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[y=2cm,x=3cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{5*(\x-0.4)^2});
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[y=2cm,x=3cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{8*(\x-0.4)^2 - 0.7});
+\end{tikzpicture}
+
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[y=2cm,x=3cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{-8*(\x-0.4)^2 + 0.7});
+\end{tikzpicture}
+
+\end{multicols}
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 10}
+
+\textbf{Questions \ref{3VzZd}--\ref{NXcZ5}.} Each of the position graphs A--D corresponds to one of the velocity graphs E--H. Match each position graph to one of the corresponding velocity graphs.
+
+\begin{center}
+\begin{tikzpicture}[x=2cm,y=2cm]
+    \draw[->] (0,0) -- (0,1) node[left] {$x$} node[pos=0,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{-(\x-0.8)^2 + 0.8^2});
+    \node[above] at (current bounding box.north) {Position Graph A};
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[x=2cm,y=2cm]
+    \draw[->] (0,0) -- (0,1) node[left] {$x$} node[pos=0,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{(\x-0.8)^2});
+    \node[above] at (current bounding box.north) {Position Graph B};
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[x=2cm,y=2cm]
+    \draw[->] (0,0) -- (0,1) node[left] {$x$} node[pos=0,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{-(\x)^2+0.8^2});
+    \node[above] at (current bounding box.north) {Position Graph C};
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[x=2cm,y=2cm]
+    \draw[->] (0,0) -- (0,1) node[left] {$x$} node[pos=0,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth] plot(\x,{(\x)^2});
+    \node[above] at (current bounding box.north) {Position Graph D};
+\end{tikzpicture}
+
+\bigskip
+\begin{tikzpicture}[x=2.35cm,y=1.5cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$v$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick] (0,0) -- (0.8,-0.7);
+    \node[above] at (current bounding box.north) {Velocity Graph E};
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[x=2.35cm,y=1.5cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$v$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick] (0,0) -- (0.8,0.7);
+    \node[above] at (current bounding box.north) {Velocity Graph F};
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[x=2.35cm,y=1.5cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$v$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick] (0,0.7) -- (0.8,0);
+    \node[above] at (current bounding box.north) {Velocity Graph G};
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[x=2.35cm,y=1.5cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$v$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick] (0,-0.7) -- (0.8,0);
+    \node[above] at (current bounding box.north) {Velocity Graph H};
+\end{tikzpicture}
+\end{center}
+
+\begin{questions}
+\question \label{3VzZd}
+Position Graph A corresponds to Velocity Graph \fillin[G][2em].
+
+\question
+Position Graph B corresponds to Velocity Graph \fillin[H][2em].
+
+\question
+Position Graph C corresponds to Velocity Graph \fillin[E][2em].
+
+\question \label{NXcZ5}
+Position Graph D corresponds to Velocity Graph \fillin[F][2em].
+
+\question
+Sketch a position vs.\,time graph that matches the given velocity graph. 
+
+\begin{center}
+\begin{tikzpicture}[y=2cm,x=3cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$v$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick] (0,-0.8) -- (0.8,0.8);
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[y=2cm,x=3cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \ifprintanswers
+        \draw[red,very thick,domain=0:0.8,smooth] plot(\x,{5*(\x-0.4)^2});
+    \fi
+\end{tikzpicture}
+\end{center}
+
+\question
+Sketch a position vs.\,time graph that matches the given velocity graph. 
+
+\begin{center}
+\begin{tikzpicture}[y=2cm,x=3cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$v$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick] (0,0.8) -- (0.8,-0.8);
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[y=2cm,x=3cm]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \ifprintanswers
+        \draw[red,very thick,domain=0:0.8,smooth] plot(\x,{-5*(\x-0.4)^2 + 0.8});
+    \fi
+\end{tikzpicture}
+\end{center}
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 11}
+
+\begin{questions}
+\question
+An accelerating particle starts at a speed of \SI{9}{m/s} in the positive $x$-direction. Some time later, it moves at \SI{4}{m/s} in the negative direction. Calculate the change in velocity.
+
+\begin{solution}
+\begin{equation*}
+    \Delta v = v_f - v_i = \SI{-4}{m/s} - \SI{9}{m/s} = \boxed{-\SI{13}{m/s}}
+\end{equation*}
+\end{solution}
+
+\question
+An accelerating particle starts at a speed of \SI{8}{m/s} in the negative $x$-direction. Some time later, it moves at \SI{6}{m/s} in the positive direction. Calculate the change in velocity.
+
+\begin{solution}
+\begin{equation*}
+    \Delta v = v_f - v_i = \SI{6}{m/s} - (-\SI{8}{m/s}) = \boxed{+\SI{14}{m/s}}
+\end{equation*}
+\end{solution}
+
+\question
+An accelerating particle starts at a speed of \SI{5}{m/s} in the positive $x$-direction. Some time later, it moves at \SI{4}{m/s} in the positive direction. Calculate the change in velocity.
+
+\begin{solution}
+\begin{equation*}
+    \Delta v = v_f - v_i = \SI{4}{m/s} - \SI{5}{m/s} = \boxed{-\SI{1}{m/s}}
+\end{equation*}
+\end{solution}
+
+\question
+An accelerating particle starts at a speed of \SI{7}{m/s} in the negative $x$-direction. Some time later, it moves at \SI{3}{m/s} in the negative direction. Calculate the change in velocity.
+
+\begin{solution}
+\begin{equation*}
+    \Delta v = v_f - v_i = -\SI{3}{m/s} - (-\SI{7}{m/s}) = \boxed{+\SI{4}{m/s}}
+\end{equation*}
+\end{solution}
+
+\question
+A particle starts at a speed of \SI{8}{m/s} in the negative $x$-direction. Some time later, it moves at \SI{8}{m/s} in the negative direction. Calculate the change in velocity.
+
+\begin{solution}
+\begin{equation*}
+    \Delta v = v_f - v_i = -\SI{8}{m/s} - (-\SI{0}{m/s}) = \boxed{\SI{0}{m/s}}
+\end{equation*}
+\end{solution}
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 12}
+
+\begin{questions}
+\question 
+An accelerating particle starts at a speed of \SI{3}{m/s} in the negative $x$ direction. After 4 seconds, it moves at \SI{5}{m/s} in the positive direction. Calculate the average acceleration.
+
+\begin{solution}
+\begin{equation*}
+    \Delta v = v_f - v_i = \SI{5}{m/s} - (-\SI{3}{m/s}) = +\SI{8}{m/s}
+\end{equation*}
+
+\begin{equation*}
+    a = \frac{\Delta v}{\Delta t} = \frac{\SI{8}{m/s}}{\SI{4}{s}} = \boxed{\SI{2}{m/s^2}}
+\end{equation*}
+\end{solution}
+
+\question
+An accelerating particle starts at a speed of \SI{6}{m/s} in the positive $x$ direction. After 3 seconds, it moves at \SI{9}{m/s} in the negative direction. Calculate the average acceleration.
+
+\begin{solution}
+\begin{equation*}
+    \Delta v = v_f - v_i = -\SI{9}{m/s} - \SI{6}{m/s} = -\SI{15}{m/s}
+\end{equation*}
+
+\begin{equation*}
+    a = \frac{\Delta v}{\Delta t} = \frac{\SI{-15}{m/s}}{\SI{3}{s}} = \boxed{\SI{-5}{m/s^2}}
+\end{equation*}
+\end{solution}
+
+\question
+An accelerating particle starts at a speed of \SI{4}{m/s} in the negative $x$ direction. After 2 seconds, it moves at \SI{8}{m/s} in the positive direction. Calculate the average acceleration.
+
+\begin{solution}
+\begin{equation*}
+    \Delta v = v_f - v_i = \SI{8}{m/s} - (-\SI{4}{m/s}) = +\SI{12}{m/s}
+\end{equation*}
+
+\begin{equation*}
+    a = \frac{\Delta v}{\Delta t} = \frac{\SI{12}{m/s}}{\SI{2}{s}} = \boxed{\SI{6}{m/s^2}}
+\end{equation*}
+\end{solution}
+
+\question
+An accelerating particle starts at a speed of \SI{8}{m/s} in the positive $x$ direction. After 4 seconds, it moves at \SI{4}{m/s} in the negative direction. Calculate the average acceleration.
+
+\begin{solution}
+\begin{equation*}
+    \Delta v = v_f - v_i = -\SI{4}{m/s} - \SI{8}{m/s} = -\SI{12}{m/s}
+\end{equation*}
+
+\begin{equation*}
+    a = \frac{\Delta v}{\Delta t} = \frac{\SI{-12}{m/s}}{\SI{4}{s}} = \boxed{\SI{-3}{m/s^2}}
+\end{equation*}
+\end{solution}
+
+\question
+An accelerating particle starts at a speed of \SI{6}{m/s} in the negative $x$ direction. After 4 seconds, it moves at \SI{10}{m/s} in the positive direction. Calculate the average acceleration.
+
+\begin{solution}
+\begin{equation*}
+    \Delta v = v_f - v_i = \SI{10}{m/s} - (-\SI{6}{m/s}) = \SI{16}{m/s}
+\end{equation*}
+
+\begin{equation*}
+    a = \frac{\Delta v}{\Delta t} = \frac{\SI{16}{m/s}}{\SI{4}{s}} = \boxed{\SI{4}{m/s^2}}
+\end{equation*}
+\end{solution}
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 13}
+
+\begin{questions}
+\begin{multicols}{2}
+
+\question
+Calculate the object's acceleration.
+
+\velocitygraphI{1.5}{-6}[(0,-6)(8,6)]
+
+\question
+Calculate the object's acceleration.
+
+\velocitygraphI{-2}{6}[(0,6)(4,-2)]
+
+\question
+Calculate the object's acceleration.
+
+\velocitygraphI{-1}{5}[(0,5)(5,0)]
+
+\begin{minipage}{\linewidth}
+\question
+Calculate the object's acceleration.
+
+\velocitygraphI{2}{-4}[(0,-4)(4,4)]
+\end{minipage}
+
+\question
+Calculate the object's acceleration.
+
+\velocitygraphI{7/2}{-7}[(0,-7)(4,7)]
+
+\question
+Calculate the acceleration of the object.
+
+\begin{tikzpicture}
+\begin{axis}[height=6cm,width=6.4cm,
+    axis lines=left,
+    % axis x line=center,
+    xlabel = {Time (s)},
+    ylabel = {Velocity (m/s)},
+    ymin=0, ymax=14,
+    xmin=0, xmax=10,
+    ytick={0,2,...,14},
+    xtick={0,1,...,10},
+    ymajorgrids=true,
+    xmajorgrids=true,
+    ]
+    \addplot[very thick,black,domain=0:10] {-3/2*\x+18};
+    \end{axis}
+\end{tikzpicture}
+
+\end{multicols}
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 14}
+
+\begin{center}
+\begin{tikzpicture}[y=5mm,x=6mm]
+    \draw[black!20,step=1] (0,0) grid (25,2);
+        \foreach \x in {2,3,...,7}{
+        \fill ({(\x-2)^2},1) circle (0.9mm);
+    }
+    \draw[|-|] (0,-0.4) -- ++(1,0) node[below,pos=0.5] {1};
+    \draw[-|] (1,-0.4) -- ++(3,0) node[below,pos=0.5] {3};
+    \draw[-|] (4,-0.4) -- ++(5,0) node[below,pos=0.5] {5};
+    \draw[-|] (9,-0.4) -- ++(7,0) node[below,pos=0.5] {7};
+    \draw[-|] (16,-0.4) -- ++(9,0) node[below,pos=0.5] {9};
+\end{tikzpicture}
+\end{center}
+
+\begin{questions}
+\question
+An object moves with positive velocity and positive acceleration. It travels 4 meters between times $t = \SI{1}{s}$ to $t = \SI{2}{s}$. What distance will it travel from $t = \SI{4}{s}$ to $t = \SI{5}{s}$?
+
+\begin{solution}
+The interval $t = \SI{1}{s}$ to $t = \SI{2}{s}$ is the 2nd time interval, and $t = \SI{4}{s}$ to $t = \SI{5}{s}$ is the 5th time interval. By Galileo's law of odd numbers, the ratio of distances traveled in the 5th time interval to the 2nd time interval is $9/3$, which equals 3. 
+
+\begin{equation*}
+    \text{distance} = \frac{9}{3} \times \SI{4}{meters} = \boxed{\SI{12}{m}}
+\end{equation*}
+\end{solution}
+
+\question
+An object moves with positive velocity and positive acceleration. It travels 10 meters from times $t = \SI{2}{s}$ to $t = \SI{3}{s}$. What distance will the object travel in the next 1-second time interval?
+
+\begin{solution}
+The interval $t = \SI{2}{s}$ to $t = \SI{3}{s}$ is the 3rd time interval, and $t = \SI{3}{s}$ to $t = \SI{4}{s}$ is the 4th time interval. By Galileo's law of odd numbers, the ratio of distances traveled in the 4th time interval to the 3rd time interval is $7/5$.
+
+\begin{equation*}
+    \text{distance} = \frac{7}{5} \times \SI{10}{meters} = \boxed{\SI{14}{m}}
+\end{equation*}
+\end{solution}
+
+
+\question
+An object moves with positive velocity and positive acceleration. It travels 2 meters between times $t = 0$ and $t = \SI{1}{s}$. What total distance will it travel from $t = 0$ to $t = \SI{3}{s}$?
+
+\begin{solution}
+By Galileo's law of odd numbers, the total distance traveled in the first three time intervals ($t = 0$ to $t = \SI{3}{s}$) is 9 times the distance traveled in the first 1-second time interval. Therefore,
+
+\begin{equation*}
+    \text{distance} = 9 \times \SI{2}{m} = \boxed{\SI{18}{m}}
+\end{equation*}
+\end{solution}
+
+\question
+An object moves with positive velocity and positive acceleration. It travels 3 meters between times $t = \SI{2}{s}$ and $t = \SI{3}{s}$. What total distance will it travel from $t = \SI{5}{s}$ to $t = \SI{6}{s}$?
+
+\begin{solution}
+By Galileo's law of odd numbers,
+
+\begin{equation*}
+    \text{distance} = \frac{11}{3} \times \SI{3}{m} = \boxed{\SI{11}{m}} 
+\end{equation*}
+\end{solution}
+
+\question
+An object moves with positive velocity and positive acceleration. It travels 8 meters between times $t = \SI{0}{s}$ and $t = \SI{4}{s}$. What additional distance will it travel in the next 1-second time interval?
+
+\begin{solution}
+There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ corresponding, by Galileo's law of odd numbers, to 16 units of distance, equivalent to 8 meters. That is, each ``unit'' is \SI{0.5}{m}. In the fifth time interval, the object will travel
+
+\begin{equation*}
+    \text{distance} = 9 \times \SI{0.5}{m} = \boxed{\SI{4.5}{m}}
+\end{equation*}
+\end{solution}
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 15}
+
+\textbf{Questions \ref{J9AJz}--\ref{AaqNN}.} Calculate the area of the triangle.
+
+\begin{questions}
+\begin{multicols}{2}
+
+\newcommand{\triangleI}[3]{%
+    % #1 = base
+    % #2 = height
+    % #3 = a parameter to control figure size
+    \begin{tikzpicture}[y=1mm*#3,x=1mm*#3]
+        \draw[thick,fill=black!10] (-0.5*#1,0) -- (0.5*#1,0) -- (0,#2) -- cycle;
+        \draw[densely dashed] (0,0) -- (0,#2) node[pos=0.4,right] {#2};
+        \draw[|-|] (-0.5*#1,-2mm) -- (0.5*#1,-2mm) node[below,pos=0.5] {#1};
+    \end{tikzpicture}
+}
+
+\newcommand{\triangleII}[3]{%
+    % #1 = base
+    % #2 = height
+    % #3 = a parameter to control figure size
+    \begin{tikzpicture}[y=1mm*#3,x=1mm*#3]
+        \draw[thick,fill=black!10] (0,0) -- (#1,0) node[below,pos=0.5] {#1} -- (#1,#2) node[right,pos=0.5] {#2} -- cycle;
+    \end{tikzpicture}
+}
+
+
+
+\question \label{J9AJz}
+\phantom{.}
+
+\triangleI{4}{5}{6}
+
+\ifprintanswers
+\textcolor{red}{$\displaystyle A = \frac{1}{2} b h = \frac{1}{2}(4)(5) = \boxed{10}$}
+\fi
+
+\question
+\phantom{.}
+
+\triangleII{6}{7}{5}
+
+\question
+\phantom{.}
+
+\triangleII{12}{4}{4}
+
+\begin{minipage}{\linewidth}
+\question
+\phantom{.}
+
+\triangleI{10}{15}{2.5}
+\end{minipage}
+
+
+\question
+\phantom{.}
+
+\triangleII{8}{3}{5}
+
+
+\question \label{AaqNN}
+\phantom{.}
+
+\triangleI{5}{6}{6}
+
+
+\end{multicols}
+\end{questions}
+
+
+\clearpage
+
+\subsection*{Practice 16}
+
+\textbf{Questions \ref{PFTW6}--\ref{Ajdle}.} For each of the velocity-time graphs below, calculate the object's net displacement across the entire time shown.
+
+
+\begin{questions}
+\begin{multicols}{2}
+
+\question \label{PFTW6}
+Find the displacement.
+
+\velocitygraphIII{0.8}{0}{10}
+
+\question
+Find the displacement.
+
+\velocitygraphIII{1.2}{0}{5}
+
+\question
+Find the displacement.
+
+\velocitygraphIII{-8/7}{8}{7}
+
+\question
+Find the displacement.
+
+\velocitygraphIII{1}{0}{8}
+
+\question
+Find the displacement.
+
+\velocitygraphIII{-9/10}{9}{10}
+
+
+\question \label{Ajdle}
+Find the displacement.
+
+\velocitygraphIII{-0.5}{8}{10}
+
+\end{multicols}
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 17}
+
+\newcommand{\accelerationgraph}[2]{
+\begin{tikzpicture}
+    \begin{axis}[height=6cm,width=6.4cm,
+        axis lines=center,
+        xlabel = {Time (s)},
+        ylabel = {Acceleration $\left(\mathrm{m/s^2}\right)$},
+        y label style={at={(axis description cs: -0.25,0.5)},rotate=90},
+        x label style={at={(axis description cs: 0.5,0)},below},
+        ymin=-5, ymax=5,
+        xmin=0, xmax=10,
+        ytick={-5,-4,...,5},
+        xtick={0,1,...,10},
+        % minor y tick num=1,
+        % minor x tick num=1,
+        grid=both,
+        clip=false,
+        ]
+        \node[left] at (0,0) {0};
+        \addplot[very thick,domain=0:#2] {#1};
+        \ifprintanswers
+            \begin{pgfonlayer}{background}
+                \fill[red!10] (0,#1) -- (#2,#1) -- (#2,0) -- (0,0) -- cycle;
+            \end{pgfonlayer}
+        \fi
+    \end{axis}
+\end{tikzpicture}
+}
+
+\textbf{Questions \ref{PInxr}--\ref{Orm63}.} Given the following acceleration-time graphs, calculate change in velocity.
+
+\begin{questions}
+\begin{multicols}{2}
+
+\question \label{PInxr}
+Calculate the object's change in velocity.
+
+\accelerationgraph{3}{10}
+
+\question
+Calculate the object's change in velocity.
+
+\accelerationgraph{-4}{8}
+
+
+\question
+Calculate the object's change in velocity.
+
+\accelerationgraph{5}{5}
+
+
+\begin{minipage}{\linewidth}
+\question
+At $t = 0$, the object's velocity is \SI{0}{m/s}. What is the object's velocity at $t = \SI{10}{s}$?
+
+\accelerationgraph{2}{10}
+\end{minipage}
+
+\question
+At $t = 0$, the object's velocity is $-\SI{10}{m/s}$. What is the object's final velocity?
+
+\accelerationgraph{4}{8}
+
+
+\question \label{Orm63}
+At $t = 0$, the object's velocity is \SI{-50}{m/s}. What is the object's final velocity?
+
+\accelerationgraph{-3}{7}
+
+\end{multicols}
+\end{questions}
+
+
+\end{document}
