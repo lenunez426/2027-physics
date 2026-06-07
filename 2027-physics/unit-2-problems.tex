@@ -300,161 +300,209 @@ What is the direction of acceleration for the object shown below?
 \question \label{jpyYo}
 \phantom{.}
 
-\begin{tikzpicture}[x=3cm,y=2cm]
+\begin{tikzpicture}[x=3cm,y=2cm,
+        declare function={
+                f(\t)  = -(\t-0.8)^2;
+                df(\t) = -2*(\t-0.8);
+            }
+    ]
+    
     \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{-(\t-0.8)^2});
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
-    % 1. Define your tangent point t_0 here
-    \newcommand{\tzero}{0.3}
+    % % 1. Define your tangent point t_0 here
+    \pgfmathsetmacro{\tzero}{0.3}
     
     % 2. The Point (automatically calculated)
-    \fill (\tzero,{-(\tzero-0.8)^2}) circle (2pt);
+    \fill (\tzero,{f(\tzero}) circle (2pt);
     
     % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
-    % m   = -2*(\tzero-0.8)
-    % x_0 = -(\tzero-0.8)^2
-    \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {(-2*(\tzero-0.8))*(\t-\tzero) - (\tzero-0.8)^2});
+    \ifprintanswers
+        \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {df(\tzero)*(\t-\tzero) + f(\tzero});
+    \fi
 \end{tikzpicture}
 
 \question
 \phantom{.}
 
-\begin{tikzpicture}[x=3cm,y=2cm]
+\begin{tikzpicture}[x=3cm,y=2cm,
+        declare function={
+                f(\t)  = (\t-0.8)^2;
+                df(\t) = 2*(\tzero-0.8);
+            }
+    ]
+    
     \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{(\t-0.8)^2});
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
     % 1. Define your tangent point t_0 here
-    \newcommand{\tzero}{0.3}
+    \pgfmathsetmacro{\tzero}{0.3}
 
     % 2. The Point (automatically calculated)
-    \fill (\tzero,{(\tzero-0.8)^2}) circle (2pt);
+    \fill (\tzero,{f(\tzero)}) circle (2pt);
 
     % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
-    % m   = 2*(\tzero-0.8)
-    % x_0 = (\tzero-0.8)^2
-    \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {(2*(\tzero-0.8))*(\t-\tzero) + (\tzero-0.8)^2}); 
+    \ifprintanswers
+        \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {df(\tzero)*(\t-\tzero) + f(\tzero)}); 
+    \fi
 \end{tikzpicture}
 
 \question
 \phantom{.}
 
-\begin{tikzpicture}[x=3cm,y=2cm]
+\begin{tikzpicture}[x=3cm,y=2cm,
+        declare function={
+                f(\t)  = -\t^2;
+                df(\t) = -2*\t;
+            }
+    ]
+
     \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{-\t^2});
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
     % 1. Define your tangent point t_0 here
-    \newcommand{\tzero}{0.5}
+     \pgfmathsetmacro{\tzero}{0.5}
 
     % 2. The Point (automatically calculated)
-    \fill (\tzero,{-(0.5)^2}) circle (2pt);
+    \fill (\tzero,{f(\tzero)}) circle (2pt);
 
     % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
-    % m   = -2*\tzero
-    % x_0 = -0.5^2
-    \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {-2*\tzero*(\t-\tzero) - 0.5^2}); 
+    \ifprintanswers
+        \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {df(\tzero)*(\t-\tzero) + f(\tzero)}); 
+    \fi
 \end{tikzpicture}
 
 \question
 \phantom{.}
 
-\begin{tikzpicture}[x=3cm,y=2cm]
+\begin{tikzpicture}[x=3cm,y=2cm,
+        declare function={
+                f(\t)  = \t^2;
+                df(\t) = 2*\t;
+            }
+    ]
+    
     \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth] plot(\x,{\x^2});
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
     % 1. Define your tangent point t_0 here
-    \newcommand{\tzero}{0.5}
+    \pgfmathsetmacro{\tzero}{0.5}
 
     % 2. The Point (automatically calculated)
-    \fill (\tzero,{0.5^2}) circle (2pt);
+    \fill (\tzero,{f(\tzero)}) circle (2pt);
 
     % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
-    % m   = 2*\tzero
-    % x_0 = 0.5^2
-    \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {2*\tzero*(\t-\tzero) + 0.5^2}); 
+    \ifprintanswers
+        \draw[thick,red,domain=-0.2:1,variable=\t]  plot(\t, {df(\tzero)*(\t-\tzero) + f(\tzero)}); 
+    \fi
 \end{tikzpicture}
 
 \question
 \phantom{.}
 
-\begin{tikzpicture}[x=3cm,y=2cm]
+\begin{tikzpicture}[x=3cm,y=2cm,
+        declare function={
+                f(\t)  = -(\t - 0.8)^2 + 0.8^2;
+                df(\t) = -2*(\t - 0.8);
+            }
+    ]
+    
     \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{-(\t-0.8)^2 + 0.8^2});
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
     % 1. Define your tangent point t_0 here
-    \newcommand{\tzero}{0.4}
+    \pgfmathsetmacro{\tzero}{0.4}
 
     % 2. The Point (automatically calculated)
-    \fill (\tzero,{-(\tzero-0.8)^2 + 0.8^2}) circle (2pt);
+    \fill (\tzero,{f(\tzero)}) circle (2pt);
 
     % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
-    % m = -2*(\tzero - 0.8)
-    % x_0 = -(\tzero - 0.8)^2 + 0.8^2
-    \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {-2*(\tzero - 0.8)*(\t - \tzero) - (\tzero - 0.8)^2 + 0.8^2}); 
+    \ifprintanswers
+        \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {df(\tzero)*(\t - \tzero) + f(\tzero)});
+    \fi
 \end{tikzpicture}
 
 \question
 \phantom{.}
 
-\begin{tikzpicture}[x=3cm,y=2cm]
+\begin{tikzpicture}[x=3cm,y=2cm,
+        declare function={
+                f(\t)  = (\t - 0.8)^2 - 0.8^2;
+                df(\t) = 2*(\t - 0.8);
+            }
+    ]
+    
     \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{(\t-0.8)^2 - 0.8^2});
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
     % 1. Define your tangent point t_0 here
-    \newcommand{\tzero}{0.4}
+    \pgfmathsetmacro{\tzero}{0.4}
 
     % 2. The Point (automatically calculated)
-    \fill (\tzero,{(\tzero-0.8)^2 - 0.8^2}) circle (2pt);
+    \fill (\tzero,{f(\tzero)}) circle (2pt);
 
     % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
-    % m = 2*(\tzero - 0.8)
-    % x_0 = (\tzero - 0.8)^2 - 0.8^2
-    \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {2*(\tzero - 0.8)*(\t - \tzero) + (\tzero - 0.8)^2 - 0.8^2}); 
+    \ifprintanswers
+        \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {df(\tzero)*(\t - \tzero) + f(\tzero)});
+    \fi
 \end{tikzpicture}
 
 \question
 \phantom{.}
 
-\begin{tikzpicture}[x=3cm,y=2cm]
+\begin{tikzpicture}[x=3cm,y=2cm,
+        declare function={
+                f(\t)  = -\t^2 + 0.8^2;
+                df(\t) = -2*\t;
+            }
+    ]
+    
     \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{-\t^2 + 0.8^2});
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
     % 1. Define your tangent point t_0 here
-    \newcommand{\tzero}{0.5}
+    \pgfmathsetmacro{\tzero}{0.5}
 
     % 2. The Point (automatically calculated)
-    \fill (\tzero,{-\tzero^2 + 0.8^2}) circle (2pt);
+    \fill (\tzero,{f(\tzero)}) circle (2pt);
 
     % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
-    % m = -2*\tzero
-    % x_0 = -\tzero^2 + 0.8^2
-    \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {-2*\tzero*(\t - \tzero) - \tzero^2 + 0.8^2}); 
+    \ifprintanswers
+        \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {df(\tzero)*(\t - \tzero) + f(\tzero)});
+    \fi
 \end{tikzpicture}
 
 \question \label{OK5PY}
 \phantom{.}
 
-\begin{tikzpicture}[x=3cm,y=2cm]
+\begin{tikzpicture}[x=3cm,y=2cm,
+        declare function={
+                f(\t)  = \t^2 - 0.8^2;
+                df(\t) = 2*\t;
+            }
+    ]
+    
     \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{\t^2 - 0.8^2});
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
     % 1. Define your tangent point t_0 here
-    \newcommand{\tzero}{0.5}
+    \pgfmathsetmacro{\tzero}{0.5}
 
     % 2. The Point (automatically calculated)
-    \fill (\tzero,{\tzero^2 - 0.8^2}) circle (2pt);
+    \fill (\tzero,{f(\tzero)}) circle (2pt);
 
-    % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
-    % m = 2*\tzero
-    % x_0 = \tzero^2 - 0.8^2
-    \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {2*\tzero*(\t - \tzero) + \tzero^2 - 0.8^2}); 
+    % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0
+    \ifprintanswers
+        \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {df(\tzero)*(\t - \tzero) + f(\tzero)});
+    \fi
 \end{tikzpicture}
 
 \end{multicols}
@@ -1062,6 +1110,232 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
 
 \subsection*{Practice 16}
 
+\textbf{Questions.} Shade the region between the curve and the x-axis over a given interval. Use one color for regions above the $x$-axis, and a different color for regions below.
+
+\begin{questions}
+\begin{multicols}{2}
+\question
+\phantom{.}
+
+\begin{tikzpicture}
+    \begin{axis}[height=6.5cm,width=7.5cm,
+        axis lines=center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ymin=-8,ymax=8,
+        xmin=-3,xmax=3,
+        ytick={-8,-6,...,8},
+        xtick={-3,-2,...,3},
+        grid=both, 
+    ]
+        \addplot[very thick,domain=-10:10,smooth] {x^2 - 4};
+        \ifprintanswers
+        \begin{pgfonlayer}{background}
+            \addplot[fill=green!20,draw=none,domain=-3:-2,samples=100] {x^2 - 4} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=-2:2,samples=100] {x^2 - 4} \closedcycle;
+            \addplot[fill=green!20,draw=none,domain=2:3,samples=100] {x^2 - 4} \closedcycle;
+        \end{pgfonlayer}
+        \fi
+    \end{axis}
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}
+    \begin{axis}[height=6.5cm,width=7.1cm,
+        axis lines=center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ymin=-1.5,ymax=1.5,
+        xmin=0,xmax=2*pi,
+        ytick={-1.5,-1,...,1.5},
+        xtick={0,pi/2,...,2*pi},
+        xticklabels={0,$\frac{\pi}{2}$,$\pi$,$\frac{3\pi}{2}$,$2\pi$},
+        grid=both, 
+    ]
+        \addplot[very thick,domain=0:2*pi,smooth] {sin(deg(x))};
+        \begin{pgfonlayer}{background}
+            \addplot[fill=green!20,draw=none,domain=0:pi,samples=100] {{sin(deg(x))}} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=pi:2*pi,samples=100] {{sin(deg(x))}} \closedcycle;
+        \end{pgfonlayer}
+    \end{axis}
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}
+    \begin{axis}[height=6.5cm,width=7.5cm,
+        axis lines=center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ymin=-1.2,ymax=1.2,
+        xmin=-3,xmax=3,
+        ytick={-1.2,-0.8,...,1.2},
+        xtick={-3,-2,...,3},
+        grid=both, 
+    ]
+        \addplot[very thick,domain=-3:3,smooth] {exp(-x^2)};
+        \begin{pgfonlayer}{background}
+            \addplot[fill=green!20,draw=none,domain=-3:3,samples=100] {exp(-x^2)} \closedcycle;
+        \end{pgfonlayer}
+    \end{axis}
+\end{tikzpicture}
+
+\begin{minipage}{\linewidth}
+\question
+\phantom{.}
+
+\begin{tikzpicture}
+    \begin{axis}[height=6.5cm,width=7.5cm,
+        axis lines=center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ymin=-3,ymax=3,
+        xmin=-2,xmax=2,
+        ytick={-3,-2,...,3},
+        xtick={-2,-1,...,2},
+        grid=both, 
+    ]
+        \addplot[very thick,domain=-2:2,smooth] {x^3 - 3*x};
+        \begin{pgfonlayer}{background}
+            \addplot[fill=red!20,draw=none,domain=-2:-sqrt(3),smooth] {x^3 - 3*x} \closedcycle;
+            \addplot[fill=green!20,draw=none,domain=-sqrt(3):0,smooth] {x^3 - 3*x} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=0:sqrt(3),smooth] {x^3 - 3*x} \closedcycle;
+            \addplot[fill=green!20,draw=none,domain=sqrt(3):2,smooth] {x^3 - 3*x} \closedcycle;
+        \end{pgfonlayer}
+    \end{axis}
+\end{tikzpicture}
+\end{minipage}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}
+    \begin{axis}[height=6.5cm,width=7.5cm,
+        axis lines=center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ymin=0,ymax=3,
+        xmin=0,xmax=4,
+        ytick={0,1,...,3},
+        xtick={0,0.5,...,4},
+        grid=both, 
+        minor y tick num=1,
+    ]
+        \addplot[very thick,domain=0.5:4,smooth] {1/x};
+        \begin{pgfonlayer}{background}
+            \addplot[fill=green!20,draw=none,domain=0.5:4,smooth] {1/x} \closedcycle;
+        \end{pgfonlayer}
+    \end{axis}
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}
+    \begin{axis}[height=6.5cm,width=7.1cm,
+        axis lines=center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ymin=-1.5,ymax=1.5,
+        xmin=0,xmax=2.5,
+        ytick={-1.5,-1,...,1.5},
+        xtick={0,0.5,...,2.5},
+        % xticklabels={0,$\frac{\pi}{2}$,$\pi$,$\frac{3\pi}{2}$,$2\pi$},
+        grid=both, 
+    ]
+        \addplot[very thick,domain=0:2.5,smooth] {cos(deg(x^2))};
+        \begin{pgfonlayer}{background}
+            \addplot[fill=green!20,draw=none,domain=0:sqrt(pi/2),smooth] {{cos(deg(x^2))}} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=sqrt(pi/2):sqrt(3*pi/2),smooth] {{cos(deg(x^2))}} \closedcycle;
+            \addplot[fill=green!20,draw=none,domain=sqrt(3*pi/2):2.5,smooth] {{cos(deg(x^2))}} \closedcycle;
+        \end{pgfonlayer}
+    \end{axis}
+\end{tikzpicture}
+
+\columnbreak
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}
+    \begin{axis}[height=6.5cm,width=7.1cm,
+        axis lines=center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ymin=-0.5,ymax=0.5,
+        xmin=0,xmax=5,
+        ytick={-0.5,-0.25,...,0.5},
+        xtick={0,1,...,5},
+        grid=both, 
+    ]
+        \addplot[very thick,domain=0:5,smooth] {-x*exp(-x)};
+        \begin{pgfonlayer}{background}
+            \addplot[fill=red!20,draw=none,domain=0:5,smooth] {-x*exp(-x)} \closedcycle;
+        \end{pgfonlayer}
+    \end{axis}
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}
+    \begin{axis}[height=6.5cm,width=7.5cm,
+        axis lines=center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ymin=-0.3,ymax=1.2,
+        xmin=-3*pi,xmax=3*pi,
+        ytick={-0.3,0,...,1.2},
+        xtick={-3*pi,-2*pi,...,3*pi},
+        grid=both, 
+        xticklabels={$-3\pi$,$-2\pi$,$-\pi$,0,$\pi$,$2\pi$,$3\pi$}
+    ]
+        \addplot[very thick,domain=-3*pi:3*pi,samples=100] {sin(deg(x))/x};
+        \begin{pgfonlayer}{background}
+            \addplot[fill=green!20,draw=none,domain=-3*pi:-2*pi,samples=25] {sin(deg(x))/x} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=-2*pi:-pi,samples=25] {sin(deg(x))/x} \closedcycle;
+            \addplot[fill=green!20,draw=none,domain=-pi:pi,samples=25] {sin(deg(x))/x} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=pi:2*pi,samples=25] {sin(deg(x))/x} \closedcycle;
+            \addplot[fill=green!20,draw=none,domain=2*pi:3*pi,samples=25] {sin(deg(x))/x} \closedcycle;
+        \end{pgfonlayer}
+    \end{axis}
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}
+    \begin{axis}[height=6.5cm,width=7.1cm,
+        axis lines=center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ymin=-0.2,ymax=0.6,
+        xmin=0,xmax=3*pi/2,
+        ytick={-0.2,-0.1,...,0.6},
+        xtick={0,pi/2,...,3*pi/2},
+        grid=both, 
+        xticklabels={0,$\frac{\pi}{2}$,$\pi$,$\frac{3\pi}{2}$},
+        minor x tick num=1,
+    ]
+        \addplot[very thick,domain=0:3*pi,samples=200] {exp(-x)*sin(deg(2*x))};
+        \begin{pgfonlayer}{background}
+            \addplot[fill=green!20,draw=none,domain=0:pi/2,samples=50] {exp(-x)*sin(deg(2*x))} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=pi/2:pi,samples=50] {exp(-x)*sin(deg(2*x))} \closedcycle;
+            \addplot[fill=green!20,draw=none,domain=pi:3*pi/2,samples=50] {exp(-x)*sin(deg(2*x))} \closedcycle;
+        \end{pgfonlayer}
+    \end{axis}
+\end{tikzpicture}
+
+\end{multicols}
+\end{questions}
+
+\clearpage
+
+\subsection*{Practice 17}
+
 \textbf{Questions \ref{PFTW6}--\ref{Ajdle}.} For each of the velocity-time graphs below, calculate the object's net displacement across the entire time shown.
 
 
@@ -1104,7 +1378,7 @@ Find the displacement.
 
 \clearpage
 
-\subsection*{Practice 17}
+\subsection*{Practice 18}
 
 \newcommand{\accelerationgraph}[2]{
 \begin{tikzpicture}
