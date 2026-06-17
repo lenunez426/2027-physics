@@ -11,10 +11,18 @@
 \usepackage{adjustbox}
 \usepackage{xfp}
 
+\usepackage[explicit]{titlesec}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries} % The font styling (bold, large)
+  {}                           % Leave the standard label empty
+  {0pt}                        % Spacing between label and title
+  {#1 \thesubsection}
+
 
 \begin{document}
 
-\subsection*{Practice 1}
+\subsection{Practice}
 
 \textbf{Questions \ref{gqigC}--\ref{U8WJ1}.} Determine whether or not the object in the table is accelerating. Then calculate the acceleration.
 
@@ -54,7 +62,7 @@
 
 \clearpage
 
-\subsection*{Practice 2}
+\subsection{Practice}
 
 \textbf{Questions \ref{bkoxL}--\ref{SGatV}.} Identify whether or not the object in the table is accelerating, and state whether the acceleration is positive, negative, or zero.
 
@@ -88,7 +96,7 @@
 
 \clearpage
 
-\subsection*{Practice 3}
+\subsection{Practice}
 
 \begin{questions}
 \question
@@ -175,7 +183,7 @@ The object below moves with negative velocity.
 
 \clearpage
 
-\subsection*{Practice 4}
+\subsection{Practice}
 
 \textbf{Questions.} Determine whether or not the following graph represents accelerating motion.
 
@@ -217,7 +225,7 @@ The object below moves with negative velocity.
 
 \clearpage
 
-\subsection*{Practice 5}
+\subsection{Practice}
 
 \textbf{Questions \ref{H2UaC}--\ref{IMwAV}.} Indicate whether or not the following objects are accelerating based on the position vs.\,time graph. Justify your answer.
 
@@ -260,7 +268,7 @@ The object below moves with negative velocity.
 
 \clearpage
 
-\subsection*{Practice 6}
+\subsection{Practice}
 
 
 \begin{questions}
@@ -290,9 +298,9 @@ What is the direction of acceleration for the object shown below?
 \clearpage
 
 
-\subsection*{Practice 7}
+\subsection{Practice}
 
-\textbf{Questions \ref{jpyYo}--\ref{OK5PY}.} Draw the tangent line to the curve at the given point. Then, determine the direction of the object's velocity at that point.
+\textbf{Questions \ref{jpyYo}--\ref{OK5PY}.} For each of the following questions, at the specified point, (a) draw the tangent line to the curve at the given point, (b) state whether the object is on the right side or left side of the origin, and (c) determine the direction of the object's velocity at that point.
 
 \begin{questions}
 \begin{multicols}{2} % Start 2-column layout
@@ -315,13 +323,17 @@ What is the direction of acceleration for the object shown below?
     \pgfmathsetmacro{\tzero}{0.3}
     
     % 2. The Point (automatically calculated)
-    \fill (\tzero,{f(\tzero}) circle (2pt);
+    \fill (\tzero,{f(\tzero}) circle (2.5pt);
     
     % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
     \ifprintanswers
         \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {df(\tzero)*(\t-\tzero) + f(\tzero});
     \fi
 \end{tikzpicture}
+
+\ifprintanswers
+\textcolor{red}{(b) The object is on the left side of the origin, since the position $x$ is negative.\\ (c) The direction of the object's velocity is to the right, because the slope of the tangent line is positive.}
+\fi
 
 \question
 \phantom{.}
@@ -341,7 +353,7 @@ What is the direction of acceleration for the object shown below?
     \pgfmathsetmacro{\tzero}{0.3}
 
     % 2. The Point (automatically calculated)
-    \fill (\tzero,{f(\tzero)}) circle (2pt);
+    \fill (\tzero,{f(\tzero)}) circle (2.5pt);
 
     % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
     \ifprintanswers
@@ -367,7 +379,7 @@ What is the direction of acceleration for the object shown below?
      \pgfmathsetmacro{\tzero}{0.5}
 
     % 2. The Point (automatically calculated)
-    \fill (\tzero,{f(\tzero)}) circle (2pt);
+    \fill (\tzero,{f(\tzero)}) circle (2.5pt);
 
     % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
     \ifprintanswers
@@ -393,7 +405,7 @@ What is the direction of acceleration for the object shown below?
     \pgfmathsetmacro{\tzero}{0.5}
 
     % 2. The Point (automatically calculated)
-    \fill (\tzero,{f(\tzero)}) circle (2pt);
+    \fill (\tzero,{f(\tzero)}) circle (2.5pt);
 
     % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
     \ifprintanswers
@@ -419,7 +431,7 @@ What is the direction of acceleration for the object shown below?
     \pgfmathsetmacro{\tzero}{0.4}
 
     % 2. The Point (automatically calculated)
-    \fill (\tzero,{f(\tzero)}) circle (2pt);
+    \fill (\tzero,{f(\tzero)}) circle (2.5pt);
 
     % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
     \ifprintanswers
@@ -445,7 +457,7 @@ What is the direction of acceleration for the object shown below?
     \pgfmathsetmacro{\tzero}{0.4}
 
     % 2. The Point (automatically calculated)
-    \fill (\tzero,{f(\tzero)}) circle (2pt);
+    \fill (\tzero,{f(\tzero)}) circle (2.5pt);
 
     % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
     \ifprintanswers
@@ -471,7 +483,7 @@ What is the direction of acceleration for the object shown below?
     \pgfmathsetmacro{\tzero}{0.5}
 
     % 2. The Point (automatically calculated)
-    \fill (\tzero,{f(\tzero)}) circle (2pt);
+    \fill (\tzero,{f(\tzero)}) circle (2.5pt);
 
     % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0  
     \ifprintanswers
@@ -497,7 +509,7 @@ What is the direction of acceleration for the object shown below?
     \pgfmathsetmacro{\tzero}{0.5}
 
     % 2. The Point (automatically calculated)
-    \fill (\tzero,{f(\tzero)}) circle (2pt);
+    \fill (\tzero,{f(\tzero)}) circle (2.5pt);
 
     % 3. Tangent Line using the raw point-slope formula: x = m*(t - t_0) + x_0
     \ifprintanswers
@@ -510,9 +522,9 @@ What is the direction of acceleration for the object shown below?
 
 \clearpage
 
-\subsection*{Practice 8}
+\subsection{Practice}
 
-\textbf{Questions \ref{z3gVy}--\ref{aC3i2}.} Determine whether the object is speeding up or slowing down across the position curve.
+\textbf{Questions \ref{z3gVy}--\ref{aC3i2}.} Determine whether the object is speeding up or slowing down across the position curve. Justify your answer.
 
 \begin{questions}
 \begin{multicols}{2} % Start 2-column layout
@@ -520,73 +532,175 @@ What is the direction of acceleration for the object shown below?
 \question \label{z3gVy}
 \phantom{.}
 
-\begin{tikzpicture}[x=3cm,y=2cm]
+\begin{tikzpicture}[x=3cm,y=2cm,
+        declare function={
+                f(\t)  = -(\t-0.8)^2;
+                df(\t) = -2*(\t-0.8);
+            }
+    ]
     \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth] plot(\x,{-(\x-0.8)^2});
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
+    
+    \foreach \tzero in {0.1,0.7}{
+        \coordinate (P) at (\tzero, {f(\tzero)});
+        
+        % Define a secondary point to establish the slope/direction (Moving 1 unit right, and 'm' units up/down)
+        \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
+        \draw[very thick,red] ($(P)!-1cm!(Dir)$) -- ($(P)!1cm!(Dir)$);
+    }
+\end{tikzpicture}
+
+\ifprintanswers
+\textcolor{red}{The lines tangent to the curve are becoming flatter (the magnitude of the slope is decreasing). Therefore, the object is slowing down.}
+\fi
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[x=3cm,y=2cm,
+        declare function={
+            f(\t) = (\t-0.8)^2;
+            df(\t) = 2*(\t-0.8);
+        }
+    ]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
+
+    \foreach \tzero in {0.1,0.7}{
+        \coordinate (P) at (\tzero, {f(\tzero)});
+        
+        % Define a secondary point to establish the slope/direction (Moving 1 unit right, and 'm' units up/down)
+        \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
+        \draw[very thick,red] ($(P)!-1cm!(Dir)$) -- ($(P)!1cm!(Dir)$);
+    }
 \end{tikzpicture}
 
 \question
 \phantom{.}
 
-\begin{tikzpicture}[x=3cm,y=2cm]
+\begin{tikzpicture}[x=3cm,y=2cm,
+    declare function={
+        f(\t) = -\t^2;
+        df(\t) = -2*\t;
+    }]
     \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth] plot(\x,{(\x-0.8)^2});
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
+
+    \foreach \tzero in {0.1,0.7}{
+        \coordinate (P) at (\tzero, {f(\tzero)});
+        
+        % Define a secondary point to establish the slope/direction (Moving 1 unit right, and 'm' units up/down)
+        \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
+        \draw[very thick,red] ($(P)!-1cm!(Dir)$) -- ($(P)!1cm!(Dir)$);
+    }
 \end{tikzpicture}
 
 \question
 \phantom{.}
 
-\begin{tikzpicture}[x=3cm,y=2cm]
+\begin{tikzpicture}[x=3cm,y=2cm,
+    declare function={
+        f(\t) = \t^2;
+        df(\t) = 2*\t;
+    }]
     \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth] plot(\x,{-(\x)^2});
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
+
+    \foreach \tzero in {0.1,0.7}{
+        \coordinate (P) at (\tzero, {f(\tzero)});
+        
+        % Define a secondary point to establish the slope/direction (Moving 1 unit right, and 'm' units up/down)
+        \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
+        \draw[very thick,red] ($(P)!-1cm!(Dir)$) -- ($(P)!1cm!(Dir)$);
+    }
 \end{tikzpicture}
 
 \question
 \phantom{.}
 
-\begin{tikzpicture}[x=3cm,y=2cm]
+\begin{tikzpicture}[x=3cm,y=2cm,
+    declare function={
+        f(\t) = -(\t-0.8)^2 + 0.8^2;
+        df(\t) = -2*(\t-0.8);
+    }]
     \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth] plot(\x,{(\x)^2});
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
+
+    \foreach \tzero in {0.1,0.7}{
+        \coordinate (P) at (\tzero, {f(\tzero)});
+        
+        % Define a secondary point to establish the slope/direction (Moving 1 unit right, and 'm' units up/down)
+        \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
+        \draw[very thick,red] ($(P)!-1cm!(Dir)$) -- ($(P)!1cm!(Dir)$);
+    }
 \end{tikzpicture}
 
 \question
 \phantom{.}
 
-\begin{tikzpicture}[x=3cm,y=2cm]
+\begin{tikzpicture}[x=3cm,y=2cm,
+    declare function={
+        f(\t) = (\t-0.8)^2 - 0.8^2;
+        df(\t) = 2*(\t-0.8);
+    }]
     \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth] plot(\x,{-(\x-0.8)^2 + 0.8^2});
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
+
+    \foreach \tzero in {0.1,0.7}{
+        \coordinate (P) at (\tzero, {f(\tzero)});
+        
+        % Define a secondary point to establish the slope/direction (Moving 1 unit right, and 'm' units up/down)
+        \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
+        \draw[very thick,red] ($(P)!-1cm!(Dir)$) -- ($(P)!1cm!(Dir)$);
+    }
 \end{tikzpicture}
 
 \question
 \phantom{.}
 
-\begin{tikzpicture}[x=3cm,y=2cm]
+\begin{tikzpicture}[x=3cm,y=2cm,
+    declare function={
+        f(\t) = -\t^2 + 0.8^2;
+        df(\t) = -2*\t;
+    }]
     \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth] plot(\x,{(\x-0.8)^2 - 0.8^2});
-\end{tikzpicture}
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
-\question
-\phantom{.}
-
-\begin{tikzpicture}[x=3cm,y=2cm]
-    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
-    \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth] plot(\x,{-(\x)^2+0.8^2});
+    \foreach \tzero in {0.1,0.7}{
+        \coordinate (P) at (\tzero, {f(\tzero)});
+        
+        % Define a secondary point to establish the slope/direction (Moving 1 unit right, and 'm' units up/down)
+        \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
+        \draw[very thick,red] ($(P)!-1cm!(Dir)$) -- ($(P)!1cm!(Dir)$);
+    }
 \end{tikzpicture}
 
 \question \label{aC3i2}
 \phantom{.}
 
-\begin{tikzpicture}[x=3cm,y=2cm]
+\begin{tikzpicture}[x=3cm,y=2cm,
+    declare function={
+        f(\t) = \t^2 - 0.8^2;
+        df(\t) = 2*\t;
+    }]
     \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth] plot(\x,{(\x)^2 - 0.8^2});
+    \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
+
+    \foreach \tzero in {0.1,0.7}{
+        \coordinate (P) at (\tzero, {f(\tzero)});
+        
+        % Define a secondary point to establish the slope/direction (Moving 1 unit right, and 'm' units up/down)
+        \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
+        \draw[very thick,red] ($(P)!-1cm!(Dir)$) -- ($(P)!1cm!(Dir)$);
+    }
 \end{tikzpicture}
 
 \end{multicols}
@@ -594,9 +708,9 @@ What is the direction of acceleration for the object shown below?
 
 \clearpage
 
-\subsection*{Practice 9}
+\subsection{Practice}
 
-\textbf{Questions.} Determine the direction of the object's acceleration.
+\textbf{Questions.} Determine the direction of the object's acceleration. Justify your answer.
 
 \begin{questions}
 \begin{multicols}{2} % Start 2-column layout
@@ -604,57 +718,133 @@ What is the direction of acceleration for the object shown below?
 \question
 \phantom{.}
 
-\begin{tikzpicture}[y=2cm,x=3cm]
+\begin{tikzpicture}[y=2cm,x=3cm,
+    declare function={
+        f(\t) = -5*(\t-0.4)^2 + 0.8;
+        df(\t) = -10*(\t-0.4);
+    }]
     \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth] plot(\x,{-5*(\x-0.4)^2 + 0.8});
+    \draw[thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
+
+    \foreach \tzero in {0,0.4,0.8}{
+        \coordinate (P) at (\tzero, {f(\tzero)});
+        
+        % Define a secondary point to establish the slope/direction (Moving 1 unit right, and 'm' units up/down)
+        \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
+        \draw[very thick,red] ($(P)!-7mm!(Dir)$) -- ($(P)!7mm!(Dir)$);
+    }
+\end{tikzpicture}
+
+\ifprintanswers
+\textcolor{red}{The lines tangent to the curve are changing so that their slopes are increasing in the negative direction. Therefore, the object is accelerating to the left (negatively).}
+\fi
+
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[y=2cm,x=3cm,
+    declare function={
+        f(\t) = 5*(\t-0.4)^2 - 0.8;
+        df(\t) = 10*(\t-0.4);
+    }]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
+
+    \foreach \tzero in {0,0.4,0.8}{
+        \coordinate (P) at (\tzero, {f(\tzero)});
+        
+        % Define a secondary point to establish the slope/direction (Moving 1 unit right, and 'm' units up/down)
+        \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
+        \draw[very thick,red] ($(P)!-7mm!(Dir)$) -- ($(P)!7mm!(Dir)$);
+    }
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[y=2cm,x=3cm,
+    declare function={
+        f(\t) = -5*(\t-0.4)^2;
+        df(\t) = -10*(\t-0.4);
+    }]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
+
+    \foreach \tzero in {0,0.4,0.8}{
+        \coordinate (P) at (\tzero, {f(\tzero)});
+        
+        % Define a secondary point to establish the slope/direction (Moving 1 unit right, and 'm' units up/down)
+        \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
+        \draw[very thick,red] ($(P)!-7mm!(Dir)$) -- ($(P)!7mm!(Dir)$);
+    }
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[y=2cm,x=3cm,
+    declare function={
+        f(\t) = 5*(\t-0.4)^2;
+        df(\t) = 10*(\t-0.4);
+    }]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
+
+    \foreach \tzero in {0,0.4,0.8}{
+        \coordinate (P) at (\tzero, {f(\tzero)});
+        
+        % Define a secondary point to establish the slope/direction (Moving 1 unit right, and 'm' units up/down)
+        \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
+        \draw[very thick,red] ($(P)!-7mm!(Dir)$) -- ($(P)!7mm!(Dir)$);
+    }
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}[y=2cm,x=3cm,
+    declare function={
+        f(\t) = 8*(\t-0.4)^2 - 0.7;
+        df(\t) = 16*(\t-0.4);
+    }]
+    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
+
+    \foreach \tzero in {0.1,0.4,0.7}{
+        \coordinate (P) at (\tzero, {f(\tzero)});
+        
+        % Define a secondary point to establish the slope/direction (Moving 1 unit right, and 'm' units up/down)
+        \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
+        \draw[very thick,red] ($(P)!-7mm!(Dir)$) -- ($(P)!7mm!(Dir)$);
+    }
 \end{tikzpicture}
 
 
 \question
 \phantom{.}
 
-\begin{tikzpicture}[y=2cm,x=3cm]
+\begin{tikzpicture}[y=2cm,x=3cm,
+    declare function={
+        f(\t) = -8*(\t-0.4)^2 + 0.7;
+        df(\t) = -16*(\t-0.4);
+    }]
     \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth] plot(\x,{5*(\x-0.4)^2 - 0.8});
-\end{tikzpicture}
+    \draw[thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
-\question
-\phantom{.}
-
-\begin{tikzpicture}[y=2cm,x=3cm]
-    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
-    \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth] plot(\x,{-5*(\x-0.4)^2});
-\end{tikzpicture}
-
-\question
-\phantom{.}
-
-\begin{tikzpicture}[y=2cm,x=3cm]
-    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
-    \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth] plot(\x,{5*(\x-0.4)^2});
-\end{tikzpicture}
-
-\question
-\phantom{.}
-
-\begin{tikzpicture}[y=2cm,x=3cm]
-    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
-    \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth] plot(\x,{8*(\x-0.4)^2 - 0.7});
-\end{tikzpicture}
-
-
-\question
-\phantom{.}
-
-\begin{tikzpicture}[y=2cm,x=3cm]
-    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
-    \draw[->] (0,0) -- (1,0) node[right] {$t$};
-    \draw[very thick,domain=0:0.8,smooth] plot(\x,{-8*(\x-0.4)^2 + 0.7});
+    \foreach \tzero in {0.1,0.4,0.7}{
+        \coordinate (P) at (\tzero, {f(\tzero)});
+        
+        % Define a secondary point to establish the slope/direction (Moving 1 unit right, and 'm' units up/down)
+        \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
+        \draw[very thick,red] ($(P)!-7mm!(Dir)$) -- ($(P)!7mm!(Dir)$);
+    }
 \end{tikzpicture}
 
 \end{multicols}
@@ -662,7 +852,7 @@ What is the direction of acceleration for the object shown below?
 
 \clearpage
 
-\subsection*{Practice 10}
+\subsection{Practice}
 
 \textbf{Questions \ref{3VzZd}--\ref{NXcZ5}.} Each of the position graphs A--D corresponds to one of the velocity graphs E--H. Match each position graph to one of the corresponding velocity graphs.
 
@@ -779,7 +969,7 @@ Sketch a position vs.\,time graph that matches the given velocity graph.
 
 \clearpage
 
-\subsection*{Practice 11}
+\subsection{Practice}
 
 \begin{questions}
 \question
@@ -830,7 +1020,7 @@ A particle starts at a speed of \SI{8}{m/s} in the negative $x$-direction. Some 
 
 \clearpage
 
-\subsection*{Practice 12}
+\subsection{Practice}
 
 \begin{questions}
 \question 
@@ -901,7 +1091,7 @@ An accelerating particle starts at a speed of \SI{6}{m/s} in the negative $x$ di
 
 \clearpage
 
-\subsection*{Practice 13}
+\subsection{Practice}
 
 \begin{questions}
 \begin{multicols}{2}
@@ -910,6 +1100,15 @@ An accelerating particle starts at a speed of \SI{6}{m/s} in the negative $x$ di
 Calculate the object's acceleration.
 
 \velocitygraphI{1.5}{-6}[(0,-6)(8,6)]
+
+\begin{solution}
+
+\begin{align*}
+    a = \text{slope} &= \frac{\Delta v}{\Delta t} \\[1ex]
+    &= \frac{\SI{6}{m/s} - (-\SI{6}{m/s})}{\SI{8}{s} - 0} \\[1ex]
+    &= \boxed{\SI{1.5}{m/s^2}}
+\end{align*}
+\end{solution}
 
 \question
 Calculate the object's acceleration.
@@ -958,7 +1157,7 @@ Calculate the acceleration of the object.
 
 \clearpage
 
-\subsection*{Practice 14}
+\subsection{Practice}
 
 \begin{center}
 \begin{tikzpicture}[y=5mm,x=6mm]
@@ -1034,7 +1233,7 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
 
 \clearpage
 
-\subsection*{Practice 15}
+\subsection{Practice}
 
 \textbf{Questions \ref{J9AJz}--\ref{AaqNN}.} Calculate the area of the triangle.
 
@@ -1108,12 +1307,94 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
 
 \clearpage
 
-\subsection*{Practice 16}
+\subsection{Practice}
 
-\textbf{Questions.} Shade the region between the curve and the x-axis over a given interval. Use one color for regions above the $x$-axis, and a different color for regions below.
+\textbf{Questions.} Shade the region between the curve and the $x$-axis over a given interval. Use one color for regions above the $x$-axis, and a different color for regions below.
 
 \begin{questions}
 \begin{multicols}{2}
+\question
+\phantom{.}
+
+\begin{tikzpicture}
+    \begin{axis}[height=6.5cm,width=7.5cm,
+        axis lines=center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ymin=0,ymax=6,
+        xmin=0,xmax=6,
+        ytick={0,1,...,6},
+        xtick={0,1,...,6},
+        grid=both, 
+    ]
+        \addplot[very thick,domain=0:6,smooth] {4/6*x};
+        \ifprintanswers
+        \begin{pgfonlayer}{background}
+            \addplot[fill=red!20,draw=none,domain=0:6] {4/6*x} \closedcycle;
+        \end{pgfonlayer}
+        \fi
+    \end{axis}
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}
+    \begin{axis}[height=6.5cm,width=7.2cm,
+        axis lines=center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ymin=-10,ymax=10,
+        xmin=0,xmax=10,
+        ytick={-10,-8,...,10},
+        xtick={0,2,...,10},
+        grid=both, 
+        minor x tick num=1,
+    ]
+        \addplot[very thick,domain=0:10,smooth] {6 - 12/10*x};
+        \ifprintanswers
+        \begin{pgfonlayer}{background}
+            \addplot[fill=red!20,draw=none,domain=0:5] {6 - 12/10*x} \closedcycle;
+            \addplot[fill=cyan!20,draw=none,domain=5:10] {6 - 12/10*x} \closedcycle;
+        \end{pgfonlayer}
+        \fi
+    \end{axis}
+\end{tikzpicture}
+
+\question
+\phantom{.}
+
+\begin{tikzpicture}
+    \begin{axis}[height=6.5cm,width=7.2cm,
+        axis lines=center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ymin=-10,ymax=10,
+        xmin=0,xmax=10,
+        ytick={-10,-8,...,10},
+        xtick={0,2,...,10},
+        grid=both, 
+        minor x tick num=1,
+    ]
+        \addplot[very thick,domain=0:2,smooth] {6};
+        \addplot[very thick,domain=2:3,smooth] {-8};
+        \addplot[very thick,domain=3:6,smooth] {2};
+        \addplot[very thick,domain=6:10,smooth] {-4};
+        \draw[ultra thin,densely dashed] (2,6) -- (2,-8) (3,-8) -- (3,2) (6,2) -- (6,-4);
+        \ifprintanswers
+        \begin{pgfonlayer}{background}
+            \addplot[fill=red!20,draw=none,domain=0:2] {6} \closedcycle;
+            \addplot[fill=cyan!20,draw=none,domain=2:3] {-8} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=3:6] {2} \closedcycle;
+            \addplot[fill=cyan!20,draw=none,domain=6:10] {-4} \closedcycle;
+        \end{pgfonlayer}
+        \fi
+    \end{axis}
+\end{tikzpicture}
+
+\vfill\null
+\columnbreak
+
 \question
 \phantom{.}
 
@@ -1131,9 +1412,9 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
         \addplot[very thick,domain=-10:10,smooth] {x^2 - 4};
         \ifprintanswers
         \begin{pgfonlayer}{background}
-            \addplot[fill=green!20,draw=none,domain=-3:-2,samples=100] {x^2 - 4} \closedcycle;
-            \addplot[fill=red!20,draw=none,domain=-2:2,samples=100] {x^2 - 4} \closedcycle;
-            \addplot[fill=green!20,draw=none,domain=2:3,samples=100] {x^2 - 4} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=-3:-2,samples=100] {x^2 - 4} \closedcycle;
+            \addplot[fill=cyan!20,draw=none,domain=-2:2,samples=100] {x^2 - 4} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=2:3,samples=100] {x^2 - 4} \closedcycle;
         \end{pgfonlayer}
         \fi
     \end{axis}
@@ -1154,11 +1435,13 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
         xticklabels={0,$\frac{\pi}{2}$,$\pi$,$\frac{3\pi}{2}$,$2\pi$},
         grid=both, 
     ]
-        \addplot[very thick,domain=0:2*pi,smooth] {sin(deg(x))};
+    \addplot[very thick,domain=0:2*pi,smooth] {sin(deg(x))};
+    \ifprintanswers
         \begin{pgfonlayer}{background}
-            \addplot[fill=green!20,draw=none,domain=0:pi,samples=100] {{sin(deg(x))}} \closedcycle;
-            \addplot[fill=red!20,draw=none,domain=pi:2*pi,samples=100] {{sin(deg(x))}} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=0:pi,samples=100] {{sin(deg(x))}} \closedcycle;
+            \addplot[fill=cyan!20,draw=none,domain=pi:2*pi,samples=100] {{sin(deg(x))}} \closedcycle;
         \end{pgfonlayer}
+    \fi
     \end{axis}
 \end{tikzpicture}
 
@@ -1176,14 +1459,19 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
         xtick={-3,-2,...,3},
         grid=both, 
     ]
-        \addplot[very thick,domain=-3:3,smooth] {exp(-x^2)};
+    \addplot[very thick,domain=-3:3,smooth] {exp(-x^2)};
+    \ifprintanswers
         \begin{pgfonlayer}{background}
-            \addplot[fill=green!20,draw=none,domain=-3:3,samples=100] {exp(-x^2)} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=-3:3,samples=100] {exp(-x^2)} \closedcycle;
         \end{pgfonlayer}
+    \fi
     \end{axis}
 \end{tikzpicture}
 
-\begin{minipage}{\linewidth}
+\vfill\null
+\columnbreak
+
+
 \question
 \phantom{.}
 
@@ -1198,16 +1486,18 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
         xtick={-2,-1,...,2},
         grid=both, 
     ]
-        \addplot[very thick,domain=-2:2,smooth] {x^3 - 3*x};
+    \addplot[very thick,domain=-2:2,smooth] {x^3 - 3*x};
+    \ifprintanswers
         \begin{pgfonlayer}{background}
-            \addplot[fill=red!20,draw=none,domain=-2:-sqrt(3),smooth] {x^3 - 3*x} \closedcycle;
-            \addplot[fill=green!20,draw=none,domain=-sqrt(3):0,smooth] {x^3 - 3*x} \closedcycle;
-            \addplot[fill=red!20,draw=none,domain=0:sqrt(3),smooth] {x^3 - 3*x} \closedcycle;
-            \addplot[fill=green!20,draw=none,domain=sqrt(3):2,smooth] {x^3 - 3*x} \closedcycle;
+            \addplot[fill=cyan!20,draw=none,domain=-2:-sqrt(3),smooth] {x^3 - 3*x} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=-sqrt(3):0,smooth] {x^3 - 3*x} \closedcycle;
+            \addplot[fill=cyan!20,draw=none,domain=0:sqrt(3),smooth] {x^3 - 3*x} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=sqrt(3):2,smooth] {x^3 - 3*x} \closedcycle;
         \end{pgfonlayer}
+    \fi
     \end{axis}
 \end{tikzpicture}
-\end{minipage}
+
 
 \question
 \phantom{.}
@@ -1224,10 +1514,12 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
         grid=both, 
         minor y tick num=1,
     ]
-        \addplot[very thick,domain=0.5:4,smooth] {1/x};
+    \addplot[very thick,domain=0.5:4,smooth] {1/x};
+    \ifprintanswers
         \begin{pgfonlayer}{background}
-            \addplot[fill=green!20,draw=none,domain=0.5:4,smooth] {1/x} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=0.5:4,smooth] {1/x} \closedcycle;
         \end{pgfonlayer}
+    \fi
     \end{axis}
 \end{tikzpicture}
 
@@ -1246,16 +1538,17 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
         % xticklabels={0,$\frac{\pi}{2}$,$\pi$,$\frac{3\pi}{2}$,$2\pi$},
         grid=both, 
     ]
-        \addplot[very thick,domain=0:2.5,smooth] {cos(deg(x^2))};
+    \addplot[very thick,domain=0:2.5,smooth] {cos(deg(x^2))};
+    \ifprintanswers
         \begin{pgfonlayer}{background}
-            \addplot[fill=green!20,draw=none,domain=0:sqrt(pi/2),smooth] {{cos(deg(x^2))}} \closedcycle;
-            \addplot[fill=red!20,draw=none,domain=sqrt(pi/2):sqrt(3*pi/2),smooth] {{cos(deg(x^2))}} \closedcycle;
-            \addplot[fill=green!20,draw=none,domain=sqrt(3*pi/2):2.5,smooth] {{cos(deg(x^2))}} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=0:sqrt(pi/2),smooth] {{cos(deg(x^2))}} \closedcycle;
+            \addplot[fill=cyan!20,draw=none,domain=sqrt(pi/2):sqrt(3*pi/2),smooth] {{cos(deg(x^2))}} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=sqrt(3*pi/2):2.5,smooth] {{cos(deg(x^2))}} \closedcycle;
         \end{pgfonlayer}
+    \fi
     \end{axis}
 \end{tikzpicture}
 
-\columnbreak
 
 \question
 \phantom{.}
@@ -1271,10 +1564,12 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
         xtick={0,1,...,5},
         grid=both, 
     ]
-        \addplot[very thick,domain=0:5,smooth] {-x*exp(-x)};
+    \addplot[very thick,domain=0:5,smooth] {-x*exp(-x)};
+    \ifprintanswers
         \begin{pgfonlayer}{background}
-            \addplot[fill=red!20,draw=none,domain=0:5,smooth] {-x*exp(-x)} \closedcycle;
+            \addplot[fill=cyan!20,draw=none,domain=0:5,smooth] {-x*exp(-x)} \closedcycle;
         \end{pgfonlayer}
+    \fi
     \end{axis}
 \end{tikzpicture}
 
@@ -1293,14 +1588,16 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
         grid=both, 
         xticklabels={$-3\pi$,$-2\pi$,$-\pi$,0,$\pi$,$2\pi$,$3\pi$}
     ]
-        \addplot[very thick,domain=-3*pi:3*pi,samples=100] {sin(deg(x))/x};
+    \addplot[very thick,domain=-3*pi:3*pi,samples=100] {sin(deg(x))/x};
+    \ifprintanswers
         \begin{pgfonlayer}{background}
-            \addplot[fill=green!20,draw=none,domain=-3*pi:-2*pi,samples=25] {sin(deg(x))/x} \closedcycle;
-            \addplot[fill=red!20,draw=none,domain=-2*pi:-pi,samples=25] {sin(deg(x))/x} \closedcycle;
-            \addplot[fill=green!20,draw=none,domain=-pi:pi,samples=25] {sin(deg(x))/x} \closedcycle;
-            \addplot[fill=red!20,draw=none,domain=pi:2*pi,samples=25] {sin(deg(x))/x} \closedcycle;
-            \addplot[fill=green!20,draw=none,domain=2*pi:3*pi,samples=25] {sin(deg(x))/x} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=-3*pi:-2*pi,samples=25] {sin(deg(x))/x} \closedcycle;
+            \addplot[fill=cyan!20,draw=none,domain=-2*pi:-pi,samples=25] {sin(deg(x))/x} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=-pi:pi,samples=25] {sin(deg(x))/x} \closedcycle;
+            \addplot[fill=cyan!20,draw=none,domain=pi:2*pi,samples=25] {sin(deg(x))/x} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=2*pi:3*pi,samples=25] {sin(deg(x))/x} \closedcycle;
         \end{pgfonlayer}
+    \fi
     \end{axis}
 \end{tikzpicture}
 
@@ -1320,21 +1617,25 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
         xticklabels={0,$\frac{\pi}{2}$,$\pi$,$\frac{3\pi}{2}$},
         minor x tick num=1,
     ]
-        \addplot[very thick,domain=0:3*pi,samples=200] {exp(-x)*sin(deg(2*x))};
+    \addplot[very thick,domain=0:3*pi,samples=200] {exp(-x)*sin(deg(2*x))};
+    \ifprintanswers
         \begin{pgfonlayer}{background}
-            \addplot[fill=green!20,draw=none,domain=0:pi/2,samples=50] {exp(-x)*sin(deg(2*x))} \closedcycle;
-            \addplot[fill=red!20,draw=none,domain=pi/2:pi,samples=50] {exp(-x)*sin(deg(2*x))} \closedcycle;
-            \addplot[fill=green!20,draw=none,domain=pi:3*pi/2,samples=50] {exp(-x)*sin(deg(2*x))} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=0:pi/2,samples=50] {exp(-x)*sin(deg(2*x))} \closedcycle;
+            \addplot[fill=cyan!20,draw=none,domain=pi/2:pi,samples=50] {exp(-x)*sin(deg(2*x))} \closedcycle;
+            \addplot[fill=red!20,draw=none,domain=pi:3*pi/2,samples=50] {exp(-x)*sin(deg(2*x))} \closedcycle;
         \end{pgfonlayer}
+    \fi
     \end{axis}
 \end{tikzpicture}
+
+
 
 \end{multicols}
 \end{questions}
 
 \clearpage
 
-\subsection*{Practice 17}
+\subsection{Practice}
 
 \textbf{Questions \ref{PFTW6}--\ref{Ajdle}.} For each of the velocity-time graphs below, calculate the object's net displacement across the entire time shown.
 
@@ -1346,6 +1647,15 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
 Find the displacement.
 
 \velocitygraphIII{0.8}{0}{10}
+
+\begin{solution}
+
+\begin{align*}
+    \Delta x = \text{area} &= \frac{1}{2} \times \text{base} \times \text{height} \\[1ex]
+    &= \frac{1}{2} (\SI{10}{s})(\SI{8}{m/s}) \\[1ex]
+    &= \boxed{\SI{40}{m}}
+\end{align*}
+\end{solution}
 
 \question
 Find the displacement.
@@ -1378,7 +1688,7 @@ Find the displacement.
 
 \clearpage
 
-\subsection*{Practice 18}
+\subsection{Practice}
 
 \newcommand{\accelerationgraph}[2]{
 \begin{tikzpicture}

@@ -1,3 +1,25 @@
+%...UNIT 1: CONSTANT VELOCITY
+
+\newcommand{\positionfigureIII}[4]{
+\begin{center}
+\begin{tikzpicture}[y=3mm,x=10mm]
+    \draw[black!10,xstep=1,ystep=2] (0,0) grid (12,4);
+    \foreach \x in {0,1,...,12} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+    }
+    \draw[->] (0,0) -- (12,0) node[right=1mm] {$x$ (m)};
+    \draw[ultra thick,->,rounded corners=0.7mm] (#1,1)
+        -- (#2,1) 
+        -- (#2,2) 
+        -- (#3,2) 
+        -- (#3,3) 
+        -- (#4,3);
+    \node[below=6.5mm,fill=black!10] at (#1,0) {$x_i$};
+    \node[above=1mm,fill=black!10] at (#4,4) {$x_f$};
+\end{tikzpicture}
+\end{center}
+}
+
 
 
 %..UNIT 2: ACCELERATION
