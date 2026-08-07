@@ -36,6 +36,13 @@
 \usepackage[table]{xcolor}
 \usepackage{graphicx}   % for \resizebox
 \usepackage{fontawesome} % for \faFileTextO
+\usepackage{mdframed}
+
+\mdfdefinestyle{compactbox}{
+    font=\raggedright,
+    backgroundcolor=white,
+    % additional options here...
+}
 
 \begin{document}
 
@@ -63,7 +70,7 @@
 }
 
 \newcommand{\newunit}[2]{%
-    \day{Begin Next Unit}{%
+    \day{Begin New Unit}{%
     \cellcolor{red!25}
     
     \smallskip
@@ -86,10 +93,15 @@
     \textbf{Test on Unit #1}
 }
 
-\newcommand{\dayreviewI}{%
+\newcommand{\dayreviewI}[1]{%
     \day{Review}{%
     \cellcolor{cyan!20}
-    review the previous week's work}
+    review the previous week's work
+    
+    \vspace{1em}
+
+    #1
+    }
 }
 
 \newcommand{\dayreviewII}{%
@@ -188,20 +200,24 @@
 	\day{}{} % 14
 	\wday{}{} % 15
 	\wday{}{} % 16
-    \newunit{Unit 1: Constant Velocity}{
-        magnitude, scalar, vector, component, tail, head, head-to-tail method, vector sum
-    } % 17
-	\day{}{position, motion, reference frame, one-dimensional motion, displacement, distance} % 18
-	\day{}{speed, average speed} % 19
-	\day{}{velocity, average velocity, motion map} % 20
-	\day{}{} % 21
+    \newunit{Unit 1: Constant Velocity}{15 days \\[1em] \textit{today}: number line, position, motion, one-dimensional motion, distance, displacement \\ \vspace*{\fill} LG 1 \\[1em]} % 17
+	\day{}{distance, speed, time \\
+        \vspace*{\fill} LG 2 \\[1em]} % 18
+	\day{}{slope, distance vs.\,time graph\\
+        \vspace*{\fill} LG 3,4 \\[1em]} % 19
+	\day{}{area, speed vs.\,time graph\\
+        \vspace*{\fill} LG 5,6 \\[1em]} % 20
+	\day{}{velocity, average velocity, motion map\\
+        \vspace*{\fill} LG 7,8 \\[1em]} % 21
 	\wday{}{} % 22
 	\wday{}{} % 23
 	\dayreviewI{}{} % 24
-	\day{}{slope, position vs.\,time graph} % 25
-	\day{}{} % 26
-	\day{}{Lab: Dune Buggy I} % 27
-	\day{}{Lab: Dune Buggy II} % 28
+	\day{}{position vs.\,time graph, Lab: Dune Buggy I} % 25
+	\day{}{Lab: Dune Buggy II} % 26
+	\day{}{magnitude, scalar, vector, component, tail, head, head-to-tail method \\
+        \vspace*{\fill} LG 9, 10 \\[1em]} % 27
+	\day{}{head-to-tail method, vector sum, net displacement, position and velocity directions \\
+        \vspace*{\fill} LG 10, 11 \\[1em]} % 28
 	\blankday{}
 \end{calendar}
 
@@ -219,17 +235,20 @@
 
 % Calendar table
 \begin{calendar}
-	\wday{}{} % 30
-	\dayreviewI % 31
+	\wday{}{} % Aug 30
+	\dayreviewI{position, velocity, vectors, tables, motion maps \\
+    \vspace*{\fill} LG 12, 13, 14 \\[1em]} % Aug 31
 	\setcounter{startingdate}{1} % Reset the current date back to 1
-	\day{}{velocity vs.\,time graph} % 1
-	\day{}{} % 2
-	\day{}{} % 3
+	\day{}{velocity, slope, position vs.\,time \\
+        \vspace*{\fill} LG 15, 16 \\[1em]} % 1
+	\day{}{displacement, area, velocity vs.\,time \\
+        \vspace*{\fill} LG 17 \\[1em]} % 2
+	\day{}{Review on Unit 1} % 3
 	\day{}{\teston{1}} % 4
 	\wday{}{} % 5
 	\wday{}{} % 6
 	\ssholiday % 7
-	\newunit{Unit 2: Acceleration}{} % 8
+	\newunit{Unit 2: Acceleration}{[keywords go here] \\[1em] 12 days} % 8
 	\day{}{} % 9
 	\day{}{} % 10
 	\day{}{} % 11
@@ -242,14 +261,14 @@
 	\day{}{} % 18
 	\wday{}{} % 19
 	\wday{}{} % 20
-	\dayreviewII{}{} % 21
+	\dayreviewI{}{} % 21
 	\day{}{} % 22
-	\day{}{} % 23
-	\day{}{} % 24
-	\day{}{\teston{2}} % 25
+	\day{}{\teston{2}} % 23
+	\newunit{Unit 3: Force Interactions}{[keywords go here] \\[1em] 11 days} % 24
+	\day{}{} % 25
 	\wday{}{} % 26
 	\wday{}{} % 27
-	\newunit{Unit 3: Force Interactions}{} % 28
+	\dayreviewII{}{} % 28
 	\day{}{} % 29
 	\day{}{} % 30
     \blankday{}
@@ -294,7 +313,7 @@
 	\ssholiday % 16
 	\wday{}{} % 17
 	\wday{}{} % 18
-	\newunit{Unit 4: Newton's Second Law and Universal Gravitation}{} % 19
+	\newunit{Unit 4: Newton's Second Law and Universal Gravitation}{[keywords go here] \\[1em] 11 days} % 19
 	\day{}{} % 20
 	\day{}{} % 21
 	\day{}{} % 22
@@ -325,14 +344,14 @@
 \begin{calendar}
 	\setcounter{startingdate}{1} % Reset the current date back to 1
 	\wday{}{} % 1
-	\dayreviewI{}{} % 2
+	\day{}{\teston{4}} % 2
 	\twholiday % 3
-	\day{}{} % 4
+	\newunit{Unit 5: One-Dimensional Kinematics}{[keywords go here] \\[1em] 9 days} % 4
 	\day{}{} % 5
-	\day{}{\teston{4}} % 6
+	\day{}{} % 6
 	\wday{}{} % 7
 	\wday{}{} % 8
-	\newunit{Unit 5: One-Dimensional Kinematics}{} % 9
+	\dayreviewI{}{}% 9
 	\day{}{} % 10
 	\day{}{} % 11
 	\day{}{} % 12
@@ -340,7 +359,7 @@
 	\wday{}{} % 14
 	\wday{}{} % 15
 	\day{}{\teston{5}} % 16
-	\newunit{Unit 6: Two-Dimensional Motion}{} % 17
+	\newunit{Unit 6: Two-Dimensional Motion}{[keywords go here] \\[1em] 14 days} % 17
 	\day{}{} % 18
 	\day{}{} % 19
 	\day{}{} % 20

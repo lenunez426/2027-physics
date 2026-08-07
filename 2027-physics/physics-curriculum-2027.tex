@@ -85,8 +85,26 @@
 %     \item connects students to history and to notable figures like Newton and Faraday
 %     \item strikes a balance between abstract and concrete principles; between mathematical and conceptual problems; between words and images
 %     \item aims to reduce cognitive overload in students
-%     \item exposes students to geometric and graphical figures of the highest quality
+%     \item exposes students to geometric and graphical figures of high quality
 % \end{itemize}
+
+Scope \& Sequence
+
+\begin{center}
+\def\arraystretch{1.5}
+\begin{tabular}{|c|l|c|c|l|}
+    \hline
+    \thead{\bfseries Unit} & \thead{\bfseries Title} & \thead{\bfseries Dates} & \thead{\bfseries Days} & \thead{\bfseries TEKS} \\ \hline
+    Unit 1 & Constant Velocity & Aug 17 -- Sep 4 & 15 & 5B, 5C, 5A \\ \hline
+    Unit 2 & Constant Acceleration & Sep 8 -- Sep 23 & 12 & 5C, 5A \\ \hline
+    Unit 3 & Force Interactions & Sep 24 -- Oct 8 & 11 & 5E, 5G \\ \hline
+    Unit 4 & Newton's 2nd Law and Universal Gravitation & Oct 19 -- Nov 2 & 11 & 5F, 5H \\ \hline
+    Unit 5 & One-Dimensional Kinematics & Nov 4 -- Nov 16 & 9 & 5C \\ \hline
+    Unit 6 & Two-Dimensional Motion & Nov 17 -- Dec 11 & 14 & 5D \\ \hline
+\end{tabular}
+\end{center}
+
+\clearpage
 
 
 \section{Constant Velocity}
@@ -206,19 +224,20 @@
     \item \textbf{Know} that the area of a rectangle is base $\times$ height.
 \end{itemize}
 
-\subsection*{Learning Goals} %...THE TARGETS
+\subsection*{Learning Goals (LGs)} %...THE TARGETS
 
 \begin{enumerate}[itemsep=0pt,topsep=-3pt]
-\item \textbf{Calculate} the distance traveled in one dimension from an object's path on a position axis.
+\item \label{56rfg} \textbf{Calculate} the distance traveled in one dimension from an object's path on a position axis.
 % \item \textbf{Calculate} average speed given distance and time.
-\item \textbf{Calculate} distance, speed, or time given the other two quantities.
+\item \label{AEv3C} \textbf{Calculate} distance, speed, or time given the other two quantities.
 \item \textbf{Calculate} the slope of a line on the $xy$ plane using two points (coordinates). 
 \item \textbf{Calculate} speed from a distance vs.\,time graph.
+\item \textbf{Calculate} the area of a rectangle.
 \item \textbf{Calculate} distance traveled from a speed vs.\,time graph.
-\item \textbf{Calculate} a vector sum for two or more vectors (a) by the head-to-tail method and (b) arithmetically.
+\item \textbf{Calculate} distance and displacement given two points on a position axis. (See LG \ref{56rfg}.)
+\item \textbf{Calculate} average speed and average velocity given two points on a position axis. (See LG \ref{AEv3C}.)
 \item \textbf{Draw} the position vector for an object on a position axis.
-\item \textbf{Calculate} distance and displacement given two points on a position axis.
-\item \textbf{Calculate} average speed and average velocity given two points on a position axis.
+\item \textbf{Calculate} a vector sum for two or more vectors (a) by the head-to-tail method and (b) arithmetically.
 \item \textbf{Calculate} net displacement by finding the graphical or arithmetic vector sum of two or more displacement vectors. 
 \item \textbf{Interpret} the sign (positive or negative) on position and velocity vectors to determine (a) whether the object is moving leftward or rightward and (b) whether the object is moving toward or away from the origin.
 \item \textbf{Predict} data in a table containing position and time values.
@@ -241,6 +260,8 @@
 \end{tikzpicture}
 \end{center}
 
+\item \textbf{Compare} the speeds and velocities of multiple objects on a position vs.\,time graph.
+
 \item \textbf{Find} displacement on a velocity vs.\,time graph by calculating the rectangular area bounded by the line.
 \begin{center}
 \begin{tikzpicture}[x=2cm,y=2cm]
@@ -252,6 +273,8 @@
 \end{tikzpicture}
 \end{center}
 \end{enumerate}
+
+% *\,Learning goals denoted with an asterisk ($*$) represent standards that build on previous ones and that\\ \phantom{.}\hspace{2pt} should be practiced during weekly/monthly reviews on Mondays.
 
 \subsection*{Assessment} %...THE GAME
 
@@ -584,7 +607,7 @@
 
 \item \textbf{Calculate} the area of a triangle.
 
-\item \textbf{Shade} the region between a curve and the x-axis over a given interval.
+\item \textbf{Shade} the region between a curve and the $x$-axis over a given interval.
 
 \item \textbf{Calculate} displacement of an accelerating object by finding the triangular area bounded by a line in a velocity vs.\,time graph.
 \begin{center}
@@ -607,7 +630,7 @@
 \end{tikzpicture}
 \end{center}
 
-\item \textbf{Calculate} distance traveled in successive time intervals given the distance traveled in any one time interval using Galileo's law of odd numbers.
+\item \textbf{Calculate} distance traveled in successive time intervals, given the distance traveled in any one time interval, using Galileo's law of odd numbers.
 
 
 
@@ -771,6 +794,36 @@
     \draw[thick,fill=black!10] (-2,0) -- (2,0) -- (0,5) -- cycle;
     \draw[densely dashed] (0,0) -- (0,5) node[pos=0.4,right] {5};
     \draw[|-|] (-2,-0.3) -- (2,-0.3) node[below,pos=0.5] {4};
+\end{tikzpicture}
+\end{center}
+
+\item Shade the region bounded between the $y$-data and the time axis. Use one color for positive values of $y$, and a different color for negative values.
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[height=6.5cm,width=7.2cm,
+        axis lines=center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ymin=-10,ymax=10,
+        xmin=0,xmax=10,
+        ytick={-10,-8,...,10},
+        xtick={0,2,...,10},
+        grid=both, 
+        minor x tick num=1,
+    ]
+        \addplot[very thick,domain=0:2,smooth] {6};
+        \addplot[very thick,domain=2:3,smooth] {-8};
+        \addplot[very thick,domain=3:6,smooth] {2};
+        \addplot[very thick,domain=6:10,smooth] {-4};
+        \draw[ultra thin,densely dashed] (2,6) -- (2,-8) (3,-8) -- (3,2) (6,2) -- (6,-4);
+        % \begin{pgfonlayer}{background}
+        %     \addplot[fill=red!20,draw=none,domain=0:2] {6} \closedcycle;
+        %     \addplot[fill=cyan!20,draw=none,domain=2:3] {-8} \closedcycle;
+        %     \addplot[fill=red!20,draw=none,domain=3:6] {2} \closedcycle;
+        %     \addplot[fill=cyan!20,draw=none,domain=6:10] {-4} \closedcycle;
+        % \end{pgfonlayer}
+    \end{axis}
 \end{tikzpicture}
 \end{center}
 

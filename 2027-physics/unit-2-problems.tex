@@ -1,4 +1,4 @@
-\documentclass[answers]{exam}
+\documentclass[]{exam}
 \input{global}
 \input{problem-sets}
 \input{2027-physics/commands}
@@ -222,6 +222,7 @@ The object below moves with negative velocity.
 
 \end{multicols}
 \end{questions}
+
 
 \clearpage
 
@@ -1239,26 +1240,6 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
 
 \begin{questions}
 \begin{multicols}{2}
-
-\newcommand{\triangleI}[3]{%
-    % #1 = base
-    % #2 = height
-    % #3 = a parameter to control figure size
-    \begin{tikzpicture}[y=1mm*#3,x=1mm*#3]
-        \draw[thick,fill=black!10] (-0.5*#1,0) -- (0.5*#1,0) -- (0,#2) -- cycle;
-        \draw[densely dashed] (0,0) -- (0,#2) node[pos=0.4,right] {#2};
-        \draw[|-|] (-0.5*#1,-2mm) -- (0.5*#1,-2mm) node[below,pos=0.5] {#1};
-    \end{tikzpicture}
-}
-
-\newcommand{\triangleII}[3]{%
-    % #1 = base
-    % #2 = height
-    % #3 = a parameter to control figure size
-    \begin{tikzpicture}[y=1mm*#3,x=1mm*#3]
-        \draw[thick,fill=black!10] (0,0) -- (#1,0) node[below,pos=0.5] {#1} -- (#1,#2) node[right,pos=0.5] {#2} -- cycle;
-    \end{tikzpicture}
-}
 
 
 

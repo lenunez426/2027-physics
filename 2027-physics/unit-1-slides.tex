@@ -1,13 +1,76 @@
 \documentclass[14pt,t,dvipsnames]{beamer}
 \input{slides}
 \usepackage[acronym]{glossaries}
+
+\setbeamerfont{alerted text}{series=\bfseries}
+
+\glsdisablehyper
+
 \makeglossaries
-\input{2027-physics/physics-glossary}
+\input{2027-physics/glossary}
+\input{2027-physics/commands}
 
 
+% \renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}} %...without this, glossary terms are colored blue in Beamer, BUT not needed if using \glsdisablehyper. Consider deleting this line.
 
-\renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}} %...without this, glossary terms are colored blue in Beamer
+% \newcommand{\DSTtriangle}{
+% \begin{tikzpicture}[x=1.5cm,y=1.5cm]
+%     \coordinate (D) at (0,1);
+%     \coordinate (S) at ({cos(210)},{sin(210)});
+%     \coordinate (T) at ({cos(330)},{sin(330)});
+%     \draw (D) -- (S) -- (T) -- (D);
+    
+%     % Midpoints
+%     \coordinate (M1) at ($(D)!0.5!(S)$);
+%     \coordinate (M2) at ($(D)!0.5!(T)$);
+%     \coordinate (M3) at ($(M1)!0.5!(M2)$);
+%     \coordinate (M4) at ($(S)!0.5!(T)$);
+    
+%     % Lines between midpoints
+%     \draw (M1) -- (M2) node[pos=0.5,above=0.03] {D};
+%     \draw (M3) -- (M4) node[pos=0.5,left=0.1] {S} node[pos=0.5,right=0.06] {T};
+% \end{tikzpicture}
+% }
 
+\newcommand{\DSTtriangle}[1][]{%
+    % Key-value setup for the shade argument
+    \pgfkeys{/DST/.cd, shade/.store in=\DSTshade, shade=none, #1}%
+    
+    \begin{tikzpicture}[x=1.5cm,y=1.5cm]
+        \coordinate (D) at (0,1);
+        \coordinate (S) at ({cos(210)},{sin(210)});
+        \coordinate (T) at ({cos(330)},{sin(330)});
+        
+        % Midpoints
+        \coordinate (M1) at ($(D)!0.5!(S)$);
+        \coordinate (M2) at ($(D)!0.5!(T)$);
+        \coordinate (M3) at ($(M1)!0.5!(M2)$);
+        \coordinate (M4) at ($(S)!0.5!(T)$);
+        
+        % Variables for comparison
+        \def\shadeD{D}
+        \def\shadeS{S}
+        \def\shadeT{T}
+        
+        % Shading logic (drawn first so lines appear on top)
+        \ifx\DSTshade\shadeD
+            \fill[gray!30] (D) -- (M1) -- (M2) -- cycle;
+        \fi
+        \ifx\DSTshade\shadeS
+            \fill[gray!30] (S) -- (M4) -- (M3) -- (M1) -- cycle;
+        \fi
+        \ifx\DSTshade\shadeT
+            \fill[gray!30] (T) -- (M4) -- (M3) -- (M2) -- cycle;
+        \fi
+        
+        % Triangle outer border
+        \draw (D) -- (S) -- (T) -- cycle;
+        
+        % Lines between midpoints
+        \draw (M1) -- (M2) node[pos=0.5,above=0.03] {D};
+        \draw (M3) -- (M4) node[pos=0.5,left=0.1] {S} node[pos=0.5,right=0.06] {T};
+    \end{tikzpicture}
+}
 
 \title{Unit 1: Constant Velocity}
 \subtitle{Physics}
@@ -28,6 +91,710 @@
 \titlepage
 \end{frame}
 
+\section{Mon Aug 17 - position, distance, displacement}
+
+\begin{frame}[label=5i5c0]
+\textbf{\gls{number line}}: \glsdesc{number line} 
+
+\medskip
+
+
+\textbf{\gls{position}}: \glsdesc{position}    
+
+\begin{center}
+\begin{tikzpicture}[y=1cm,x=1cm]
+    \foreach \x in {0,1,...,10} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {$\x$};
+    }
+    \draw[->] (0,0) -- (10,0) node[below=6mm,pos=0.5] {Position (m)};
+    \node[above] at (3,0) {\Strichmaxerl[2]};
+\end{tikzpicture} 
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+
+\textbf{\gls{motion}}: \glsdesc{motion} 
+
+\medskip
+
+% \textbf{\gls{reference frame}}: \glsdesc{reference frame}    
+
+% \medskip
+
+\textbf{\gls{one-dimensional motion}}: \glsdesc{one-dimensional motion}    
+\end{frame}
+
+\begin{frame}
+\textbf{\gls{distance}} ($d$): \glsdesc{distance}    
+
+\begin{center}
+\begin{tikzpicture}[y=3mm,x=8.5mm]
+    \draw[black!10,xstep=1,ystep=2] (0,0) grid (10,4);
+    \foreach \x in {0,1,...,10} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+    }
+    \draw[->] (0,0) -- (10,0) node[right=1mm] {$x$ (m)};
+    \draw[ultra thick,->,rounded corners=0.7mm] (0,1)
+        -- (5,1) 
+        -- (5,2) 
+        -- (2,2) 
+        -- (2,3) 
+        -- (8,3);
+    \node[fill=black!10] at (0,-4) {$x_i$};
+    \node[above=1mm,fill=black!10] at (8,4) {$x_f$};
+\end{tikzpicture}
+\end{center}
+
+\begin{flalign*}
+    x_i &= \text{initial position (starting point)} && \\[1ex]
+    x_f &= \text{final position (ending point)} && \\[1ex]
+\end{flalign*}
+\end{frame}
+
+\begin{frame}
+\textit{Example.} What is the distance traveled?
+
+\begin{center}
+\begin{tikzpicture}[y=3mm,x=8.5mm]
+    \draw[black!10,xstep=1,ystep=2] (0,0) grid (10,4);
+    \foreach \x in {0,1,...,10} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+    }
+    \draw[->] (0,0) -- (10,0) node[right=1mm] {$x$ (m)};
+    \draw[ultra thick,->,rounded corners=0.7mm] (0,1)
+        -- (5,1) 
+        -- (5,2) 
+        -- (2,2) 
+        -- (2,3) 
+        -- (8,3);
+    \node[fill=black!10] at (0,-4) {$x_i$};
+    \node[above=1mm,fill=black!10] at (8,4) {$x_f$};
+\end{tikzpicture}
+\end{center}
+
+\begin{equation*}
+    d = \SI{5}{m} + \SI{3}{m} + \SI{6}{m} = \boxed{\SI{14}{m}}
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+\textbf{\gls{displacement}} ($\Delta x$): \glsdesc{displacement}    
+
+\begin{center}
+\begin{tikzpicture}[y=3mm,x=8.5mm]
+    \draw[black!10,xstep=1,ystep=2] (0,0) grid (10,4);
+    \foreach \x in {0,1,...,10} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+    }
+    \draw[->] (0,0) -- (10,0) node[right=1mm] {$x$ (m)};
+    \draw[ultra thick,->,rounded corners=0.7mm] (0,1)
+        -- (5,1) 
+        -- (5,2) 
+        -- (2,2) 
+        -- (2,3) 
+        -- (8,3);
+    \node[fill=black!10] at (0,-4) {$x_i$};
+    \node[above=1mm,fill=black!10] at (8,4) {$x_f$};
+\end{tikzpicture}
+\end{center}
+
+\vspace{-1cm}
+
+\begin{flalign*}
+    x_i &= \text{initial position (starting point)} && \\[1ex]
+    x_f &= \text{final position (ending point)} && \\[1ex]
+    \Delta x &= x_f - x_i = \text{final pos.} - \text{initial pos.}
+\end{flalign*}
+\end{frame}
+
+\begin{frame}
+\textit{Example.} What is the object's displacement?   
+
+\begin{center}
+\begin{tikzpicture}[y=3mm,x=8.5mm]
+    \draw[black!10,xstep=1,ystep=2] (0,0) grid (10,4);
+    \foreach \x in {0,1,...,10} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+    }
+    \draw[->] (0,0) -- (10,0) node[right=1mm] {$x$ (m)};
+    \draw[ultra thick,->,rounded corners=0.7mm] (0,1)
+        -- (5,1) 
+        -- (5,2) 
+        -- (2,2) 
+        -- (2,3) 
+        -- (8,3);
+    \node[fill=black!10] at (0,-4) {$x_i$};
+    \node[above=1mm,fill=black!10] at (8,4) {$x_f$};
+\end{tikzpicture}
+\end{center}
+
+\vspace{-1cm}
+
+\begin{align*}
+    \Delta x &= x_f - x_i \\[1ex]
+    &= \SI{8}{m} - \SI{0}{m} \\[1ex]
+    &= \boxed{+\SI{8}{m}}
+\end{align*}
+
+\end{frame}
+
+\section{Tue Aug 18 - speed, average speed}
+
+\begin{frame}
+\textbf{\gls{speed}}: \glsdesc{speed}
+
+\medskip
+
+\textbf{\gls{average speed}}: \glsdesc{average speed}
+
+\medskip
+
+{\Large
+\begin{equation*}
+    \mathrm{speed} = \mathrm{\frac{distance}{time}}
+\end{equation*}
+}
+\end{frame}
+
+\begin{frame}
+\textit{Example.} An object travels 8 meters in 4 seconds. 
+
+\begin{tikzpicture}[y=1cm,x=1cm]
+    \foreach \x in {0,1,...,10} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {$\x$};
+    }
+    \draw[->] (0,0) -- (10,0) node[below=6mm,pos=0.5] {Position (m)};
+    \node[above] at (8,0) {\Strichmaxerl[2]};
+\end{tikzpicture} 
+
+What is its average speed?
+
+\begin{equation*}
+    \mathrm{speed} = \mathrm{\frac{distance}{time}} = \frac{\SI{8}{m}}{\SI{4}{s}} = \boxed{\SI{2}{m/s}}
+\end{equation*}
+
+The average speed is 2 meters per second.
+\end{frame}
+
+\begin{frame}
+Use the \textbf{DST triangle} for word problems involving distance, speed, and time.
+
+\begin{center}
+\DSTtriangle % No shading
+\end{center}
+
+\begin{center}
+    D = distance \qquad 
+    S = speed \qquad
+    T = time
+\end{center}
+\end{frame}
+
+\begin{frame}
+\centering
+
+\fbox{
+\begin{minipage}{4.5cm}
+    \centering
+    \DSTtriangle[shade=S]  
+
+    \vspace{-8mm}
+
+    \begin{equation*}
+        \mathrm{speed} = \mathrm{\frac{distance}{time}}
+    \end{equation*}
+\end{minipage}}%
+\hspace{5mm}
+\fbox{
+\begin{minipage}{4.5cm}
+    \centering
+    \DSTtriangle[shade=T]  
+
+    \vspace{-8mm}
+
+    \begin{equation*}
+        \mathrm{time} = \mathrm{\frac{distance}{speed}}
+    \end{equation*}
+\end{minipage}
+}
+
+\vspace{1em}
+
+\fbox{
+
+\begin{minipage}{5.4cm}
+    \centering
+    \DSTtriangle[shade=D]  
+
+    \vspace{-8mm}
+
+    \begin{equation*}
+        \mathrm{distance} = \mathrm{speed \times time}
+    \end{equation*}
+\end{minipage}
+}
+
+
+\end{frame}
+
+
+
+\begin{frame}
+\textit{Example.} An object travels at a speed of 7 meters per second. How how far does it travel after 3 seconds?
+\vspace{-5mm}
+
+
+\begin{center}
+\DSTtriangle[shade=D]  
+\end{center}
+
+\vspace{-1cm}
+
+\begin{align*}
+    \mathrm{distance} &= \mathrm{speed} \times \mathrm{time} \\[1ex]
+    &= \SI{7}{m/s} \times \SI{3}{s} \\[1ex]
+    &= \boxed{\SI{21}{m}}
+\end{align*}
+
+The object travels a distance of 21 meters.
+\end{frame}
+
+\section{Wed Aug 19 - slope, distance vs time graph}
+
+\begin{frame}
+\vspace{-5mm}
+
+\begin{minipage}[t]{3.9cm}
+    \vspace{0pt}
+    \textit{Example.}\\Find the slope of the line.
+
+    \vspace{-5mm}
+
+    \begin{align*}
+        m &= \mathrm{\frac{rise}{run}} \\[1ex]
+        &= \frac{y_2 - y_1}{x_2 - x_1} \\[1ex]
+        &= \frac{2-0}{1-0}\\[1ex]
+        &= 2
+    \end{align*}
+\end{minipage}%
+\begin{minipage}[t]{6.1cm}
+\vspace{0pt}
+\centering
+\small
+\begin{tikzpicture}
+    \begin{axis}[height=6.5cm,width=7cm,
+        axis lines=center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ymin=-4,ymax=4,
+        xmin=-4,xmax=4,
+        ytick={-4,-3,...,4},
+        xtick={-4,-3,...,4},
+        grid=both, 
+    ]
+        \addplot[very thick,domain=-4:4] {2*x};
+        \addplot[red,only marks,mark=*] coordinates{(0,0)(1,2)};
+        \draw[red,->] (0,0) --  (0.8,-1) node[below] {$(0,0)$};
+        \node[red,right=1mm] at (1,2) {$(1,2)$};
+    \end{axis}
+\end{tikzpicture}
+\end{minipage}
+
+\begin{center}
+The slope of the line is 2.    
+\end{center}
+\end{frame}
+
+\begin{frame}
+\vspace{-5mm}
+
+\begin{minipage}[t]{3.9cm}
+    \vspace{0pt}
+    \textit{Example.}\\Find the slope of the line.
+
+    \vspace{-5mm}
+
+    \begin{align*}
+        m &= \mathrm{\frac{rise}{run}} \\[1ex]
+        &= \frac{y_2 - y_1}{x_2 - x_1} \\[1ex]
+        &= \frac{1-3}{3-0}\\[1ex]
+        &= -\frac{2}{3}
+    \end{align*}
+\end{minipage}%
+\begin{minipage}[t]{6.1cm}
+\vspace{0pt}
+\centering
+\small
+\begin{tikzpicture}
+    \begin{axis}[height=6.5cm,width=7cm,
+        axis lines=center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ymin=-4,ymax=4,
+        xmin=-4,xmax=4,
+        ytick={-4,-3,...,4},
+        xtick={-4,-3,...,4},
+        grid=both, 
+    ]
+        \addplot[very thick,domain=-4:4] {-2/3*x + 3};
+        \addplot[red,only marks,mark=*] coordinates{(0,3)(3,1)};
+        % \draw[red,->] (0,0) --  (0.8,-1) node[below] {$(0,0)$};
+        \node[red,right=2mm] at (0,3) {$(0,3)$};
+        \node[red,above=1mm] at (3,1) {$(3,1)$};
+    \end{axis}
+\end{tikzpicture}
+\end{minipage}
+
+\begin{center}
+The slope of the line is $-\frac{2}{3}$.    
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\textbf{\gls{distance vs. time graph}}: \glsdesc{distance vs. time graph}
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[height=6cm,width=7cm,
+        axis lines=left,
+        xlabel = {Time (hours)},
+        ylabel = {Distance (miles)},
+        ymin=0, ymax=80,
+        xmin=0, xmax=5,
+        ytick={0,20,...,80},
+        xtick={0,1,...,5},
+        minor y tick num=1,
+        minor x tick num=1,
+        grid=both,
+        ]
+        \addplot[very thick,domain=0:5] {15*x};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}
+On a distance vs.\,time graph, the \textcolor{red}{\bfseries slope} of the line is the \textcolor{red}{\bfseries speed} of the object.
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[height=6cm,width=7cm,
+        axis lines=left,
+        xlabel = {Time (hours)},
+        ylabel = {Distance (miles)},
+        ymin=0, ymax=80,
+        xmin=0, xmax=5,
+        ytick={0,20,...,80},
+        xtick={0,1,...,5},
+        minor y tick num=1,
+        minor x tick num=1,
+        grid=both,
+        ]
+        \addplot[very thick,domain=0:5] {15*x};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\textit{Example.} Find the speed of the object below.
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[height=6cm,width=7cm,
+        axis lines=left,
+        xlabel = {Time (hours)},
+        ylabel = {Distance (miles)},
+        ymin=0, ymax=80,
+        xmin=0, xmax=5,
+        ytick={0,20,...,80},
+        xtick={0,1,...,5},
+        minor y tick num=1,
+        minor x tick num=1,
+        grid=both,
+        clip=false
+        ]
+        \addplot[very thick,domain=0:5] {15*x};
+        \addplot[red,only marks,mark=*] coordinates{(0,0)(4,60)};
+        \node[red,shift={(0.5,20)}] at (0,0) {$(0,0)$};
+        \node[red,shift={(-0.5,10)}] at (4,60) {$(4,60)$};
+        \node[overlay,red,fill=black!8] at (4.5,25) {$\displaystyle m = \frac{60-0}{4-0} = 15$};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+The speed is 15 miles per hour.
+\end{frame}
+
+\section{Thu Aug 20 - area, speed vs time graph}
+
+\begin{frame}
+\textbf{\gls{area}}: \glsdesc{area}
+
+\begin{center}
+\begin{tikzpicture}
+    \draw[thick,fill=black!10] (0,0) rectangle ++(3,2);
+    \node[below] at (1.5,0) {$l$};
+    \node[left] at (0,1) {$w$};
+    \node at (1.3,-2) {$\displaystyle A_\text{\scriptsize rec} = lw$};
+    \begin{scope}[shift={(5.2,0)}]
+        \draw[thick,fill=black!10] (-1,0) -- (1,0) node[below,pos=0.5] {$b$} -- (0,2) -- cycle;
+        \draw (0,0) -- (0,2) node[right,pos=0.4] {$h$};   
+        \node at (0,-2) {$\displaystyle A_\text{\scriptsize tri} = \frac{1}{2}bh$};
+    \end{scope}
+    \begin{scope}[shift={(8.5,1)}]
+        \draw[thick,fill=black!10] (0,0) circle (1);    
+        \draw[thick] (0,0) -- (1,0) node[above,pos=0.5] {$r$};
+        \node at (0,-3) {$\displaystyle A_\text{\scriptsize cir} = \pi r^2$};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+% \begin{frame}
+% The area of a rectangle is length times width.
+
+% \begin{center}
+% \begin{tikzpicture}[x=1.5cm,y=1.5cm]
+%     \draw[thick,fill=black!10] (0,0) rectangle ++(3,2);
+%     \node[below] at (1.5,0) {length $(l)$};
+%     \node[left] at (0,1) {width $(w)$};
+% \end{tikzpicture}
+
+% \vspace{-1cm}
+
+% {\large
+% \begin{equation*}
+%     \mathrm{area} = A = lw = \mathrm{length} \times \mathrm{width}
+% \end{equation*}
+% }
+% \end{center}
+% \end{frame}
+
+\begin{frame}
+The area of a rectangle is base times height.
+
+\begin{center}
+\begin{tikzpicture}[x=1.5cm,y=1.5cm]
+    \draw[thick,fill=black!10] (0,0) rectangle ++(3,2);
+    \node[below] at (1.5,0) {base $(b)$};
+    \node[left] at (0,1) {height $(h)$};
+\end{tikzpicture}
+
+\vspace{-1cm}
+
+{\large
+\begin{equation*}
+    \mathrm{area} = A = bh = \mathrm{base} \times \mathrm{height}
+\end{equation*}
+}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\textit{Example.} Calculate the area of the rectangle below.
+
+\begin{center}
+\begin{tikzpicture}
+    \draw[thick,fill=black!10] (0,0) rectangle ++(3,2);
+    \node[below] at (1.5,0) {3};
+    \node[left] at (0,1) {2};
+\end{tikzpicture}
+\end{center}
+
+\begin{equation*}
+    A = bh = (3)(2) = \boxed{6}
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+\textbf{\gls{speed vs. time graph}}: \glsdesc{speed vs. time graph}
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[height=6cm,width=7cm,
+        axis lines=left,
+        xlabel = {Time (hours)},
+        ylabel = {Speed (miles per hour)},
+        ymin=0, ymax=20,
+        xmin=0, xmax=5,
+        ytick={0,5,...,20},
+        xtick={0,1,...,5},
+        minor y tick num=1,
+        minor x tick num=1,
+        grid=both,
+        ]
+        \addplot[very thick,domain=0:5] {15};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}
+On a speed vs.\,time graph, the \alert<2>{area} under the line is the \alert<2>{distance} traveled by the object.
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[height=6cm,width=7.5cm,
+        axis lines=left,
+        xlabel = {Time (hours)},
+        ylabel = {Speed (miles per hour)},
+        ymin=0, ymax=20,
+        xmin=0, xmax=5,
+        ytick={0,5,...,20},
+        xtick={0,1,...,5},
+        minor y tick num=1,
+        minor x tick num=1,
+        grid=both,
+        clip=false,
+        ]
+        \addplot[very thick,domain=0:5] {15};
+        \begin{pgfonlayer}{background}
+            \fill<2->[red!10] (0,0) rectangle (5,15);
+        \end{pgfonlayer}
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\textit{Example.} Find the total distance traveled in 4 hours.
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[height=6cm,width=7.5cm,
+        axis lines=left,
+        xlabel = {Time (hours)},
+        ylabel = {Speed (miles per hour)},
+        ymin=0, ymax=20,
+        xmin=0, xmax=5,
+        ytick={0,5,...,20},
+        xtick={0,1,...,5},
+        minor y tick num=1,
+        minor x tick num=1,
+        grid=both,
+        clip=false,
+        ]
+        \addplot[very thick,domain=0:5] {15};
+        \begin{pgfonlayer}{background}
+            \fill[red!10] (0,0) rectangle (4,15);
+        \end{pgfonlayer}
+        \draw[very thick,red] (0,0) rectangle (4,15);
+        \draw[|-|,red,thick] (0,16) -- (4,16) node[above,pos=0.5,fill=black!8] {4 hours};
+        \draw[|-|,red,thick] (4.2,0) -- (4.2,15) node[right,pos=0.5,fill=black!8] {15 miles/hour};
+        \node at (2,11) {$\displaystyle \mathrm{area} = \mathrm{base} \times \mathrm{height}$};
+        \node at (2,6) {$\displaystyle \mathrm{area} = 4 \times 15 = 60$};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+The total distance traveled is 60 miles.
+\end{frame}
+
+\section{Fri Aug 21 - velocity and motion maps}
+
+\begin{frame}{Warm-Up}
+\begin{enumerate}
+    \item What does position mean?
+    \item The base SI unit more measuring position is\ldots
+    \item Given an example of how to measure an object's position.
+\end{enumerate}
+\end{frame}
+
+\againframe{5i5c0}
+
+\begin{frame}{Warm-Up (cont.)}
+    Displacement means\ldots
+
+    \begin{enumerate}[A]
+        \item \glsdesc{area}
+        \item \glsdesc{distance}
+        \item \alert<2>{\glsdesc{displacement}}
+        \item \glsdesc{position}
+    \end{enumerate}
+\end{frame}
+
+
+
+\begin{frame}
+\textbf{instantaneous velocity}: \glsdesc{velocity1}
+\vspace{1em}
+
+\textbf{\gls{velocity2}}: \glsdesc{velocity2}
+
+\begin{center}
+\begin{tikzpicture}[y=1cm,x=1cm]
+    \foreach \x in {0,1,...,10} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {$\x$};
+    }
+    \draw[->] (0,0) -- (10,0) node[below=6mm,pos=0.5] {Position (m)};
+    \node[above] at (3,0) {\Strichmaxerl[2]};
+    \draw[ultra thick,->] (2.6,0.5) -- (1.6,0.5) node[above,pos=0.5] {$v$};
+\end{tikzpicture} 
+\end{center}
+\end{frame}
+
+\begin{frame}
+\textbf{\gls{average velocity}}: \glsdesc{average velocity}
+\end{frame}
+
+
+\begin{frame}
+\textbf{\gls{motion map}}: \uncover<2->{\glsdesc{motion map}}
+
+\uncover<3->{
+\begin{center}
+\begin{tikzpicture}
+    \draw[black!20,step=1] (0,0) grid (10,2);  
+    \foreach \x in {2,3,...,7}{
+        \fill ({2*(\x-2)},1) circle (0.9mm);
+    }
+\end{tikzpicture}
+\end{center}
+}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\begin{tikzpicture}[y=7.8mm,x=9.5mm]
+    \draw[black!20,step=1] (0,0) grid (10,2);  
+    \foreach \x in {2,3,...,7}{
+        \fill<\x-> ({2*(\x-2)},1) circle (0.9mm);
+    }
+    \uncover<8->{
+        \node[above] at (0,2) {$t = \SI{0}{s}$};
+        \foreach \x in {1,2,...,5}{
+            \node[above] at (2*\x,2) {\SI{\x}{s}};
+        }
+    }
+    
+    \draw[|-|] (0,-0.2) -- (1,-0.2) node[below,pos=0.5] {\SI{1}{m}};
+    
+    \uncover<9->{
+        \draw[|-|] (0,3.2) -- ++(2,0) node[align=center,pos=0.5,above,font=\small] {1\textsuperscript{st} time\\[-1mm] interval};
+    }
+    \uncover<10->{
+        \draw[-|] (2,3.2) -- ++(2,0) node[align=center,pos=0.5,above,font=\small] {2\textsuperscript{nd} time\\[-1mm] interval};
+    }
+    \uncover<11->{
+        \draw[-|] (4,3.2) -- ++(2,0) node[align=center,pos=0.5,above,font=\small] {3\textsuperscript{rd} time\\[-1mm] interval};
+    }
+    \uncover<12->{
+        \draw[-|] (6,3.2) -- ++(2,0) node[align=center,pos=0.5,above,font=\small] {4\textsuperscript{th} time\\[-1mm] interval};
+    }
+    \uncover<13->{
+        \draw[-|] (8,3.2) -- ++(2,0) node[align=center,pos=0.5,above,font=\small] {5\textsuperscript{th} time\\[-1mm] interval};
+    }
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\section{Thu Aug 27 - vectors and scalars}
+
+
 \begin{frame}
 \textbf{\gls{vector}}: \uncover<2->{\glsdesc{vector}}
 
@@ -41,6 +808,8 @@
 \end{tikzpicture}
 \end{center}
 \end{frame}
+
+
 
 \begin{frame}
 \textbf{\gls{head-to-tail method}}: \glsdesc{head-to-tail method}
@@ -94,55 +863,7 @@
 \end{center}
 \end{frame}
 
-\begin{frame}
-\textbf{\gls{motion map}}: \uncover<2->{\glsdesc{motion map}}
 
-\uncover<3->{
-\begin{center}
-\begin{tikzpicture}
-    \draw[black!20,step=1] (0,0) grid (10,2);  
-    \foreach \x in {2,3,...,7}{
-        \fill ({2*(\x-2)},1) circle (0.9mm);
-    }
-\end{tikzpicture}
-\end{center}
-}
-\end{frame}
-
-\begin{frame}
-\begin{center}
-\begin{tikzpicture}[y=7.8mm,x=9.5mm]
-    \draw[black!20,step=1] (0,0) grid (10,2);  
-    \foreach \x in {2,3,...,7}{
-        \fill<\x-> ({2*(\x-2)},1) circle (0.9mm);
-    }
-    \uncover<8->{
-        \node[above] at (0,2) {$t = \SI{0}{s}$};
-        \foreach \x in {1,2,...,5}{
-            \node[above] at (2*\x,2) {\SI{\x}{s}};
-        }
-    }
-    
-    \draw[|-|] (0,-0.2) -- (1,-0.2) node[below,pos=0.5] {\SI{1}{m}};
-    
-    \uncover<9->{
-        \draw[|-|] (0,3.2) -- ++(2,0) node[align=center,pos=0.5,above,font=\small] {1\textsuperscript{st} time\\[-1mm] interval};
-    }
-    \uncover<10->{
-        \draw[-|] (2,3.2) -- ++(2,0) node[align=center,pos=0.5,above,font=\small] {2\textsuperscript{nd} time\\[-1mm] interval};
-    }
-    \uncover<11->{
-        \draw[-|] (4,3.2) -- ++(2,0) node[align=center,pos=0.5,above,font=\small] {3\textsuperscript{rd} time\\[-1mm] interval};
-    }
-    \uncover<12->{
-        \draw[-|] (6,3.2) -- ++(2,0) node[align=center,pos=0.5,above,font=\small] {4\textsuperscript{th} time\\[-1mm] interval};
-    }
-    \uncover<13->{
-        \draw[-|] (8,3.2) -- ++(2,0) node[align=center,pos=0.5,above,font=\small] {5\textsuperscript{th} time\\[-1mm] interval};
-    }
-\end{tikzpicture}
-\end{center}
-\end{frame}
 
 \end{document}
 

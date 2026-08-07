@@ -1,8 +1,103 @@
 %...UNIT 1: CONSTANT VELOCITY
 
+\newcommand{\xygraphI}[3]{
+\begin{tikzpicture}
+    \begin{axis}[height=7.7cm,width=8.5cm,
+        axis lines=center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ymin=-10,ymax=10,
+        xmin=-10,xmax=10,
+        ytick={-10,-8,...,10},
+        xtick={-10,-8,...,10},
+        grid=both, 
+        minor y tick num=1,
+        minor x tick num=1,
+    ]
+        \addplot[thick,domain=-10:10] {#1*x + #2};
+        \ifprintanswers
+            \addplot[red,only marks,mark=*] coordinates{#3};
+        \fi
+    \end{axis}
+\end{tikzpicture}
+}
+
+
+\newcommand{\distancegraphI}[1]{
+    \begin{tikzpicture}
+        \begin{axis}[height=6.5cm,width=6.8cm,
+            axis lines=left,
+            xlabel = {Time (hours)},
+            ylabel = {Distance (miles)},
+            ymin=0, ymax=100,
+            xmin=0, xmax=5,
+            ytick={0,10,...,100},
+            xtick={0,1,...,5},
+            minor x tick num=1,
+            grid=both,
+            ]
+            \addplot[very thick,domain=0:5] {#1*x};
+        \end{axis}
+    \end{tikzpicture}
+}
+
+\newcommand{\positiongraphI}[3]{
+    \begin{tikzpicture}
+        \begin{axis}[height=6cm,width=6.8cm,
+            axis lines=left,
+            xlabel = {Time (s)},
+            ylabel = {Position (m)},
+            ymin=0, ymax=20,
+            xmin=0, xmax=14,
+            ytick={0,4,...,20},
+            xtick={0,2,...,14},
+            minor y tick num=3,
+            minor x tick num=1,
+            grid=both,
+            ]
+            \addplot[thick,domain=0:14] {#1*x + #2};
+            \ifprintanswers
+                \addplot[red,only marks,mark=*] coordinates{#3};
+            \fi
+        \end{axis}
+    \end{tikzpicture}
+
+%...AI-CHATBOT PROMPT:
+% In an xy plane, the y limits are 0 to 20, and the x limits are 0 to 14. Give me 5 excellent linear equations (y = mx + b) for students to practice slope calculations. Output the results in the form \positiongraphI{m}{b}{coordinates} where coordinates should be in the form (x1,y1)(x2,y2), representing 2 points on the line for calculating slope. 
+}
+
+\newcommand{\positionfigureI}[1]{
+    \begin{center}
+    \begin{tikzpicture}[y=1cm,x=1cm]
+        \foreach \x in {-5,-4,...,5} {
+            \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {$\x$};
+        }
+        \draw[->] (-5,0) -- (5,0) node[below=6mm,pos=0.5] {Position (m)};
+        \node[above] at (#1,0) {\Strichmaxerl[2]};
+        \ifprintanswers
+            \draw[very thick,->,red] (0,0.7) -- ++(#1,0) node[above,pos=0.5] {$\vec{x}$};
+        \fi
+    \end{tikzpicture}  
+    \end{center}
+}
+
+\newcommand{\positionfigureII}[2]{
+\begin{center}
+\begin{tikzpicture}[y=1cm,x=1cm]
+    \foreach \x in {-5,-4,...,5} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+    }
+    \draw[->] (-5,0) -- (5,0) node[below=7mm,pos=0.5] {Position (m)};
+    \fill (#1,0) circle (1mm) node[above=1mm] {A};
+    \fill (#2,0) circle (1mm) node[above=1mm] {B};
+\end{tikzpicture}
+\end{center}
+}
+
+
 \newcommand{\positionfigureIII}[4]{
 \begin{center}
-\begin{tikzpicture}[y=3mm,x=10mm]
+\begin{tikzpicture}[y=3mm,x=8mm]
     \draw[black!10,xstep=1,ystep=2] (0,0) grid (12,4);
     \foreach \x in {0,1,...,12} {
         \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
@@ -14,11 +109,137 @@
         -- (#3,2) 
         -- (#3,3) 
         -- (#4,3);
-    \node[below=6.5mm,fill=black!10] at (#1,0) {$x_i$};
+    \node[fill=black!10] at (#1,-3) {$x_i$};
     \node[above=1mm,fill=black!10] at (#4,4) {$x_f$};
 \end{tikzpicture}
 \end{center}
 }
+
+\newcommand{\positionfigureIV}[2]{
+    \begin{center}
+    \begin{tikzpicture}[y=1.4mm,x=1.4mm]
+        \foreach \x in {-50,-40,...,50} {
+            \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+        }
+        \foreach \x in {-45,-35,...,45} {
+            \draw[ultra thin] (\x,-0.8mm) -- (\x,0.8mm);
+        }
+        \draw[->] (-50,0) -- (50,0) node[below=7mm,pos=0.5] {Position (m)};
+        \fill (#1,0) circle (1mm) node[above=1mm] {A};
+        \fill (#2,0) circle (1mm) node[above=1mm] {B};
+    \end{tikzpicture}
+    \end{center}
+}
+
+\newcommand{\positionfigureV}[6]{
+    %...PRO TIP: Type the following into ChatGPT:
+    % Generate 5 integers between -10 to 10 (inclusive) such that the absolute value of the sum of the 5 integers is less than or equal to 10. Print each of the integers in each of the first 5 curly brackets below. Calculate the maximum displacement from equilibrium and, if it's greater than 10, enter it in the 6th curly bracket; otherwise enter 10 for the 6th curly bracket. Do not output in markdown; I just want the verbatim text: \positionfigureV{}{}{}{}{}{}
+    
+    \begin{tikzpicture}[x=5mm,y=5mm]
+        \draw[step=1,lightgray] (-10,0) grid (10,4);
+        \draw[->,line width=0.6mm,-{Triangle}] (0,4) -- ++(#5,0);
+        \draw[->,line width=0.6mm,-{Triangle}] (0,3) -- ++(#4,0);
+        \draw[->,line width=0.6mm,-{Triangle}] (0,2) -- ++(#3,0);
+        \draw[->,line width=0.6mm,-{Triangle}] (0,1) -- ++(#2,0);
+        \draw[->,line width=0.6mm,-{Triangle}] (0,0) -- ++(#1,0);
+        \node[below] at (current bounding box.south) {Figure 1: Displacement vectors.};
+    \end{tikzpicture}
+    
+    \smallskip
+    
+    \begin{tikzpicture}[x=5mm,y=5mm]
+        \draw[step=1,lightgray] (-#6,0) grid (#6,4);
+        \draw (0,0) node {\scriptsize $|$} node[below=2pt] {$0$};
+            \begin{scope}[red,opacity={\ifprintanswers 1\else 0\fi}]
+                \draw[->,line width=0.3mm,-{Triangle}] ({#1+#2+#3+#4},4) -- ++(#5,0);
+                \draw[->,line width=0.3mm,-{Triangle}] ({#1+#2+#3},3) -- ++(#4,0);
+                \draw[->,line width=0.3mm,-{Triangle}] ({#1+#2},2) -- ++(#3,0);
+                \draw[->,line width=0.3mm,-{Triangle}] (#1,1) -- ++(#2,0);
+                \draw[->,line width=0.3mm,-{Triangle}] (0,0) -- ++(#1,0);
+                \pgfmathsetmacro{\vecsum}{#1+#2+#3+#4+#5}
+        
+                \pgfmathtruncatemacro{\iszero}{(\vecsum==0)}
+                
+                \ifnum\iszero=1
+                    \node[above] at (0,4.5) {vector sum is zero};
+                \else
+                    \draw[->,line width=0.6mm,-{Triangle}] (0,4.6) -- ++(\vecsum,0)
+                        node[above=1mm,pos=0.5] {vector sum};
+                \fi
+        \end{scope}
+        \node[below] at (current bounding box.south) {Figure 2: Head-to-tail addition and vector sum.};
+    \end{tikzpicture}
+}
+
+\newcommand{\positionfigureVI}[1]{
+\begin{tikzpicture}[y=5mm,x=5mm]
+    \draw[black!20,step=1] (0,0) grid (24,2);  
+    \ifprintanswers
+    \foreach \x in {0,#1,...,24}{
+        \fill[red] (\x,1) circle (0.9mm);
+    }
+    \fi
+\end{tikzpicture}
+}
+
+\newcommand{\positiongraphIII}[6]{
+    %...Generates a quadrant I position vs. time with linear function.
+    % #1 = velocity (slope)
+    % #2 = initial position (y-intercept)
+\begin{tikzpicture}
+\begin{axis}[height=6cm,width=6.4cm,
+    axis lines=left,
+    xlabel = {Time (s)},
+    ylabel = {Position (m/s)},
+    ymin=0, ymax=10,
+    xmin=0, xmax=10,
+    ytick={0,1,...,10},
+    xtick={0,1,...,10},
+    grid = both,
+    clip=true,
+    % set layers
+    ]
+    \addplot[very thick,black,domain=0:10] {#1*\x + #2};
+    \addlegendentry{A} % <-- Legend for the first plot
+    
+    \addplot[densely dashed,very thick,black,domain=0:10] {#3*\x + #4};
+    \addlegendentry{B} 
+
+    \addplot[only marks, mark=*,mark size=1.5pt,black,domain=0:10] {#5*\x + #6};
+    \addlegendentry{C} 
+    \end{axis}
+\end{tikzpicture}
+}
+
+\newcommand{\velocitygraph}[2]{
+    \begin{tikzpicture}
+        \begin{axis}[height=6cm,width=7cm,
+            axis y line=left,
+            axis x line=center,
+            xlabel = {Time (s)},
+            ylabel = {Velocity (m/s)},
+            ymin=-5, ymax=5,
+            xmin=0, xmax=10,
+            ytick={-5,-4,...,5},
+            xtick={0,2,...,10},
+            grid=both,
+            minor x tick num = 1,
+            x label style={at={(axis description cs:1,0.5)},right=1mm},
+            clip=false
+        ]
+            \addplot[very thick,black,domain=0:#2] {#1};
+            \ifprintanswers
+                \begin{pgfonlayer}{background}
+                    \fill[red!12] (0,0) rectangle (#2,#1);
+                \end{pgfonlayer}
+            \fi
+            \end{axis}
+    \end{tikzpicture}
+}
+
+%...AI-CHATBOT PROMPT:
+%Generate a random integer between -5 to 5 (inclusive), and another one between 5 and 10 (inclusive). Output the results in the form \velocitygraph{a}{b} where a and b are the generated numbers.
+
 
 
 
@@ -155,4 +376,24 @@
 
 %...AI CHATBOT PROMPT:
 % A velocity vs. time graph has y limits 0 to 10 and x limits 0 to 10. Generate a linear function for students to practice calculating displacement (as area under the curve). Output the result in the form \velocitygraphIII{m}{b} where m is the slope (acceleration) and b is the y-intercept (initial velocity). Negative accelerations are acceptable.
+}
+
+\newcommand{\triangleI}[3]{%
+    % #1 = base
+    % #2 = height
+    % #3 = a parameter to control figure size
+    \begin{tikzpicture}[y=1mm*#3,x=1mm*#3]
+        \draw[thick,fill=black!10] (-0.5*#1,0) -- (0.5*#1,0) -- (0,#2) -- cycle;
+        \draw[densely dashed] (0,0) -- (0,#2) node[pos=0.4,right] {#2};
+        \draw[|-|] (-0.5*#1,-2mm) -- (0.5*#1,-2mm) node[below,pos=0.5] {#1};
+    \end{tikzpicture}
+}
+
+\newcommand{\triangleII}[3]{%
+    % #1 = base
+    % #2 = height
+    % #3 = a parameter to control figure size
+    \begin{tikzpicture}[y=1mm*#3,x=1mm*#3]
+        \draw[thick,fill=black!10] (0,0) -- (#1,0) node[below,pos=0.5] {#1} -- (#1,#2) node[right,pos=0.5] {#2} -- cycle;
+    \end{tikzpicture}
 }

@@ -1,4 +1,4 @@
-\documentclass[answers]{exam}
+\documentclass[]{exam}
 \input{global}
 \input{problem-sets}
 \input{2027-physics/commands}
@@ -6,17 +6,19 @@
 \firstpageheader{{Name:\enspace\makebox[6cm]{\hrulefill}}\\Physics}{}{Problems\\Unit 1: Constant Velocity}
 \runningheader{Physics}{}{Problems on Unit 1: Constant Velocity}
 
-\usepackage[explicit]{titlesec}
-\renewcommand{\thesubsection}{\arabic{subsection}}
-\titleformat{\subsection}
-  {\normalfont\large\bfseries} % The font styling (bold, large)
-  {}                           % Leave the standard label empty
-  {0pt}                        % Spacing between label and title
-  {#1 \thesubsection}
+% \usepackage[explicit]{titlesec}
+% \renewcommand{\thesubsection}{\arabic{subsection}}
+% \titleformat{\subsection*}
+%   {\normalfont\large\bfseries} % The font styling (bold, large)
+%   {}                           % Leave the standard label empty
+%   {0pt}                        % Spacing between label and title
+%   {#1 \thesubsection}
+
+\setlength{\columnseprule}{0pt}
 
 \begin{document}
 
-\subsection{Practice}
+\subsection*{LG 1 Practice}
 
 \begin{questions}
 
@@ -50,7 +52,7 @@ The figure below represents the path traveled by a particle in one dimension. Ca
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{LG 2 Practice}
 
 \begin{questions}
 
@@ -149,31 +151,10 @@ An object travels at a speed of 2 meter per second. How far does it travel in 9 
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{LG 3 Practice}
 
 \begin{questions}
 
-\newcommand{\xygraphI}[3]{
-\begin{tikzpicture}
-    \begin{axis}[height=7.7cm,width=8.5cm,
-        axis lines=center,
-        ylabel={$y$},
-        xlabel={$x$},
-        ymin=-10,ymax=10,
-        xmin=-10,xmax=10,
-        ytick={-10,-8,...,10},
-        xtick={-10,-8,...,10},
-        grid=both, 
-        minor y tick num=1,
-        minor x tick num=1,
-    ]
-        \addplot[thick,domain=-10:10] {#1*x + #2};
-        \ifprintanswers
-            \addplot[red,only marks,mark=*] coordinates{#3};
-        \fi
-    \end{axis}
-\end{tikzpicture}
-}
 
 \question Find the slope of the line.
 
@@ -256,25 +237,7 @@ Using points $(0,-3)$ and $(4,5)$,
 
 \clearpage
 
-\subsection{Practice}
-
-\newcommand{\distancegraphI}[1]{
-    \begin{tikzpicture}
-        \begin{axis}[height=6.5cm,width=6.8cm,
-            axis lines=left,
-            xlabel = {Time (hours)},
-            ylabel = {Distance (miles)},
-            ymin=0, ymax=100,
-            xmin=0, xmax=5,
-            ytick={0,10,...,100},
-            xtick={0,1,...,5},
-            minor x tick num=1,
-            grid=both,
-            ]
-            \addplot[very thick,domain=0:5] {#1*x};
-        \end{axis}
-    \end{tikzpicture}
-}
+\subsection*{LG 4 Practice}
 
 
 \begin{questions}
@@ -356,14 +319,88 @@ Find the car's speed in miles per hour.
 
 \clearpage
 
+\subsection*{LG 5 Practice}
+
+\newcommand{\rectangleI}[3]{%
+    % #1 = base
+    % #2 = height
+    % #3 = a parameter to control figure size
+    \begin{tikzpicture}[y=1mm*#3,x=1mm*#3]
+        \draw[thick,fill=black!10] (0,0) -- (#1,0) node[below,pos=0.5] {#1} -- (#1,#2) -- (0,#2) -- cycle node[left,pos=0.5] {#2};
+    \end{tikzpicture}
+}
+
+Calculate the area of each rectangle.
 
 
-\subsection{Practice}
+\begin{questions}
+
+\begin{multicols}{2}
+    
+\question
+\phantom{.}
+
+\rectangleI{3}{2}{10}
+
+\question
+\phantom{.}
+
+\rectangleI{6}{1}{7}
+
+\question
+\phantom{.}
+
+\rectangleI{4}{9}{4}
+
+\question
+\phantom{.}
+
+\rectangleI{8}{3}{5}
+
+\question
+\phantom{.}
+
+\rectangleI{5}{5}{6}
+
+\columnbreak
+
+\question
+\phantom{.}
+
+\rectangleI{6}{7}{4}
+
+\question
+\phantom{.}
+
+\rectangleI{9}{3}{5}
+
+\question
+\phantom{.}
+
+\rectangleI{2}{4}{7}
+
+\question
+\phantom{.}
+
+\rectangleI{6}{5}{5}
+
+\question
+\phantom{.}
+
+\rectangleI{1}{2}{10}
+
+\end{multicols}
+\end{questions}
+
+\clearpage
+
+
+\subsection*{LG 6 Practice}
 
 \begin{questions}
 \begin{multicols}{2}
 \question
-A car travels at a speed of 60 miles per hour. How far does it travel in half an hour?
+A car travels at a speed of 60 miles per hour.
 
 %...Figures adopted from Strogatz Infinite Powers (p. 170-71)
 \begin{tikzpicture}[y=3cm,x=5cm]
@@ -374,7 +411,7 @@ A car travels at a speed of 60 miles per hour. How far does it travel in half an
     \draw[very thick] (0,0) -- (1,1) node[above] {$y = 60t$};
 \end{tikzpicture}
 
-\vspace{-3mm}
+How far does it travel in \underline{half an hour}?
 
 \begin{tikzpicture}[y=3cm,x=5cm]
     \draw (0,0) node[below left=-1mm] {0} -- (0,1) node[rotate=90,pos=0.5,shift={(0,9mm)}] {speed (miles/hour)};
@@ -393,7 +430,7 @@ A car travels at a speed of 60 miles per hour. How far does it travel in half an
 
 
 \question
-A car travels at a speed of 60 miles per hour. How far does it travel in one hour?
+A car travels at a speed of 60 miles per hour. 
 
 %...Figures adopted from Strogatz Infinite Powers (p. 170-71)
 \begin{tikzpicture}[y=3cm,x=5cm]
@@ -404,7 +441,7 @@ A car travels at a speed of 60 miles per hour. How far does it travel in one hou
     \draw[very thick] (0,0) -- (1,1) node[above] {$y = 60t$};
 \end{tikzpicture}
 
-\vspace{-3mm}
+How far does it travel in \underline{one hour}?
 
 \begin{tikzpicture}[y=3cm,x=5cm]
     \draw (0,0) node[below left=-1mm] {0} -- (0,1) node[rotate=90,pos=0.5,shift={(0,9mm)}] {speed (miles/hour)};
@@ -425,7 +462,7 @@ A car travels at a speed of 60 miles per hour. How far does it travel in one hou
 \columnbreak
 
 \question
-A car travels at a speed of 60 miles per hour. How far does it travel in an hour and a half?
+A car travels at a speed of 60 miles per hour. 
 
 %...Figures adopted from Strogatz Infinite Powers (p. 170-71)
 \begin{tikzpicture}[y=3cm,x=5cm]
@@ -436,7 +473,7 @@ A car travels at a speed of 60 miles per hour. How far does it travel in an hour
     \draw[very thick] (0,0) -- (1,1) node[above] {$y = 60t$};
 \end{tikzpicture}
 
-\vspace{-3mm}
+How far does it travel in \underline{an hour and a half}?
 
 \begin{tikzpicture}[y=3cm,x=5cm]
     \draw (0,0) node[below left=-1mm] {0} -- (0,1) node[rotate=90,pos=0.5,shift={(0,9mm)}] {speed (miles/hour)};
@@ -455,18 +492,18 @@ A car travels at a speed of 60 miles per hour. How far does it travel in an hour
 \end{tikzpicture}
 
 \question
-Consider the distance and speed graphs below. How far does the object travel in half an hour?
+Consider the distance and speed graphs below. 
 
 %...Figures adopted from Strogatz Infinite Powers (p. 170-71)
 \begin{tikzpicture}[y=3cm,x=5cm]
     \draw (0,0) node[below left=-1mm] {0} -- (0,1) node[above] {$y$} node[rotate=90,pos=0.5,shift={(0,9mm)}] {distance (miles)};
-    \draw (0,0.5) -- ++(-1mm,0) node[left] {60};
+    \draw (0,0.5) -- ++(-1mm,0) node[left] {40};
     \draw (0,0) -- (1,0) node[right] {$t$};
     \draw (0.5,1mm) -- ++(0,-1mm) node[below] {1};
     \draw[very thick] (0,0) -- (1,1) node[above] {$y = 40t$};
 \end{tikzpicture}
 
-\vspace{-3mm}
+How far does the object travel in \underline{half an hour}?
 
 \begin{tikzpicture}[y=3cm,x=5cm]
     \draw (0,0) node[below left=-1mm] {0} -- (0,1) node[rotate=90,pos=0.5,shift={(0,9mm)}] {speed (miles/hour)};
@@ -487,7 +524,7 @@ Consider the distance and speed graphs below. How far does the object travel in 
 \clearpage
 
 \question
-How far does the object travel in an hour and a half?
+How far does the object below travel in \underline{an hour and a half}?
 
 \begin{tikzpicture}[y=3cm,x=5cm]
     \draw (0,0) node[below left=-1mm] {0} -- (0,1) node[rotate=90,pos=0.5,shift={(0,9mm)}] {speed (miles/hour)};
@@ -506,7 +543,7 @@ How far does the object travel in an hour and a half?
 \end{tikzpicture}
 
 \question
-How far does the object travel in half an hour?
+How far does the object travel in \underline{half an hour}?
 
 \begin{tikzpicture}[y=3cm,x=5cm]
     \draw (0,0) node[below left=-1mm] {0} -- (0,1) node[rotate=90,pos=0.5,shift={(0,9mm)}] {speed (miles/hour)};
@@ -606,10 +643,210 @@ Sketch the area accumulated under a speed line for an object moving at 24 miles 
 
 \end{multicols}
 \end{questions}
+
 \clearpage
 
+\subsection*{LG 7 Practice}
 
-\subsection{Practice}
+
+\begin{questions}
+
+\question
+Charlie moves from point A to point B. Find the distance traveled and the displacement.
+
+\positionfigureII{-1}{-4}
+
+\begin{solution}
+\begin{equation*}
+    d = \left|x_f - x_i\right| = \left|-\SI{4}{m} - (-\SI{1}{m})\right| = \left|\SI{-3}{m}\right| = \boxed{\SI{3}{m}}
+\end{equation*}
+
+\begin{equation*}
+    \Delta x = \SI{-4}{m} - (\SI{-1}{m}) = \boxed{\SI{-3}{m}}
+\end{equation*}
+\end{solution}
+
+\question
+Charlie moves from point A to point B. Find the distance traveled and the displacement.
+
+\positionfigureII{0}{5}
+
+\begin{solution}
+\begin{equation*}
+    d = \left|x_f - x_i\right| = \left|\SI{5}{m} - (\SI{0}{m})\right| = \boxed{\SI{5}{m}}
+\end{equation*}
+
+\begin{equation*}
+    \Delta x = x_f - x_i = \SI{5}{m} - (\SI{0}{m}) = \boxed{\SI{5}{m}}
+\end{equation*}
+\end{solution}
+
+\question
+Charlie moves from point A to point B. Find the distance traveled and the displacement.
+
+\positionfigureII{2}{-4}
+
+\begin{solution}
+\begin{equation*}
+    d = \left|x_f - x_i\right| = \left|-\SI{4}{m} - (\SI{2}{m})\right| = \left|\SI{-6}{m}\right| = \boxed{\SI{6}{m}}
+\end{equation*}
+
+\begin{equation*}
+    \Delta x = x_f - x_i = -\SI{4}{m} - (\SI{2}{m}) = \boxed{\SI{-6}{m}}
+\end{equation*}
+\end{solution}
+
+\question
+Charlie moves from point A to point B. Find the distance traveled and the displacement.
+
+\positionfigureII{-4}{1}
+
+\begin{solution}
+\begin{equation*}
+    d = \left|x_f - x_i\right| = \left|\SI{1}{m} - (\SI{-4}{m})\right| = \left|\SI{5}{m}\right| = \boxed{\SI{5}{m}}
+\end{equation*}
+
+\begin{equation*}
+    \Delta x = x_f - x_i = \SI{1}{m} - (\SI{-4}{m}) = \boxed{\SI{5}{m}}
+\end{equation*}
+\end{solution}
+
+\question
+Charlie moves from point A to point B. Find the distance traveled and the displacement.
+
+\positionfigureII{-5}{5}
+
+\begin{solution}
+\begin{equation*}
+    d = \left|x_f - x_i\right| = \left|\SI{5}{m} - (\SI{-5}{m})\right| = \left|\SI{10}{m}\right| = \boxed{\SI{10}{m}}
+\end{equation*}
+
+\begin{equation*}
+    \Delta x = x_f - x_i = \SI{5}{m} - (\SI{-5}{m}) = \boxed{\SI{10}{m}}
+\end{equation*}
+\end{solution}
+
+\end{questions}
+
+\clearpage
+
+\subsection*{LG 8 Practice}
+
+\begin{questions}
+\question 
+A particle moves point A to point B in 10 seconds. Find the average speed and the average velocity.
+
+\positionfigureIV{-35}{20}
+
+\begin{solution}
+\begin{equation*}
+    \text{speed} = \frac{\text{distance}}{\text{time}} = \frac{\SI{55}{m}}{\SI{10}{s}} = \boxed{\SI{5.5}{m/s}}
+\end{equation*}
+
+\begin{equation*}
+    \bar{v} = \frac{\Delta x}{\Delta t} = \frac{\SI{55}{m}}{\SI{10}{s}} = \boxed{\SI{5.5}{m/s}}
+\end{equation*}
+\end{solution}
+
+\question 
+A particle moves point A to point B in 10 seconds. Find the average speed and the average velocity.
+
+\positionfigureIV{45}{-10}
+
+\begin{solution}
+\begin{equation*}
+    \text{speed} = \frac{\text{distance}}{\text{time}} = \frac{\SI{55}{m}}{\SI{10}{s}} = \boxed{\SI{5.5}{m/s}}
+\end{equation*}
+
+\begin{equation*}
+    \bar{v} = \frac{\Delta x}{\Delta t} = \frac{\SI{-55}{m}}{\SI{10}{s}} = \boxed{\SI{-5.5}{m/s}}
+\end{equation*}
+\end{solution}
+
+\question 
+A particle moves point A to point B in 50 seconds. Find the average speed and the average velocity.
+
+\positionfigureIV{0}{-25}
+
+\begin{solution}
+\begin{equation*}
+    \text{speed} = \frac{\text{distance}}{\text{time}} = \frac{\SI{25}{m}}{\SI{50}{s}} = \boxed{\SI{0.5}{m/s}}
+\end{equation*}
+
+\begin{equation*}
+    \bar{v} = \frac{\Delta x}{\Delta t} = \frac{\SI{-25}{m}}{\SI{50}{s}} = \boxed{\SI{-0.5}{m/s}}
+\end{equation*}
+\end{solution}
+
+\question 
+A particle moves point A to point B in 25 seconds. Find the average speed and the average velocity.
+
+\positionfigureIV{35}{-40}
+
+\begin{solution}
+\begin{equation*}
+    \text{speed} = \frac{\text{distance}}{\text{time}} = \frac{\SI{75}{m}}{\SI{25}{s}} = \boxed{\SI{3.0}{m/s}}
+\end{equation*}
+
+\begin{equation*}
+    \bar{v} = \frac{\Delta x}{\Delta t} = \frac{\SI{-75}{m}}{\SI{25}{s}} = \boxed{\SI{-3.0}{m/s}}
+\end{equation*}
+\end{solution}
+
+\question 
+A particle moves point A to point B in 4 seconds. Find the average speed and the average velocity.
+
+\positionfigureIV{15}{-45}
+
+\begin{solution}
+\begin{equation*}
+    \text{speed} = \frac{\text{distance}}{\text{time}} = \frac{\SI{60}{m}}{\SI{4}{s}} = \boxed{\SI{15}{m/s}}
+\end{equation*}
+
+\begin{equation*}
+    \bar{v} = \frac{\Delta x}{\Delta t} = \frac{\SI{-60}{m}}{\SI{4}{s}} = \boxed{\SI{-15}{m/s}}
+\end{equation*}
+\end{solution}
+
+
+\end{questions}
+
+\clearpage
+
+\subsection*{LG 9 Practice}
+
+\begin{questions}
+
+\question 
+Draw the position vector for the person below.
+
+\positionfigureI{3}
+
+\question 
+Draw the position vector for the person below.
+
+\positionfigureI{-2}
+
+\question 
+Draw the position vector for the person below.
+
+\positionfigureI{-5}
+
+\question 
+Draw the position vector for the person below.
+
+\positionfigureI{1}
+
+\question 
+Draw the position vector for the person below.
+
+\positionfigureI{4}
+
+\end{questions}
+
+\clearpage
+
+\subsection*{LG 10 Practice}
 
 \begin{questions}
 \question
@@ -717,300 +954,11 @@ Find the vector sum of all vectors shown below.
 
 \clearpage
 
-\subsection{Practice}
 
-\newcommand{\positionfigureI}[1]{
-    \begin{center}
-    \begin{tikzpicture}[y=1cm,x=1cm]
-        \foreach \x in {-5,-4,...,5} {
-            \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {$\x$};
-        }
-        \draw[->] (-5,0) -- (5,0) node[below=6mm,pos=0.5] {Position (m)};
-        \node[above] at (#1,0) {\Strichmaxerl[2]};
-        \ifprintanswers
-            \draw[very thick,->,red] (0,0.7) -- ++(#1,0) node[above,pos=0.5] {$\vec{x}$};
-        \fi
-    \end{tikzpicture}  
-    \end{center}
-}
 
+\subsection*{LG 11 Practice}
 
 \begin{questions}
-
-
-\question 
-Draw the position vector for the person below.
-
-\positionfigureI{3}
-
-\question 
-Draw the position vector for the person below.
-
-\positionfigureI{-2}
-
-\question 
-Draw the position vector for the person below.
-
-\positionfigureI{-5}
-
-\question 
-Draw the position vector for the person below.
-
-\positionfigureI{1}
-
-\question 
-Draw the position vector for the person below.
-
-\positionfigureI{4}
-
-
-\end{questions}
-
-\clearpage
-
-
-
-\subsection{Practice}
-
-
-\begin{questions}
-
-\newcommand{\positionfigureII}[2]{
-\begin{center}
-\begin{tikzpicture}[y=1cm,x=1cm]
-    \foreach \x in {-5,-4,...,5} {
-        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
-    }
-    \draw[->] (-5,0) -- (5,0) node[below=7mm,pos=0.5] {Position (m)};
-    \fill (#1,0) circle (1mm) node[above=1mm] {A};
-    \fill (#2,0) circle (1mm) node[above=1mm] {B};
-\end{tikzpicture}
-\end{center}
-}
-
-\question
-Charlie moves from point A to point B. Find the distance traveled and the displacement.
-
-\positionfigureII{-1}{-4}
-
-\begin{solution}
-\begin{equation*}
-    d = \left|x_f - x_i\right| = \left|-\SI{4}{m} - (-\SI{1}{m})\right| = \left|\SI{-3}{m}\right| = \boxed{\SI{3}{m}}
-\end{equation*}
-
-\begin{equation*}
-    \Delta x = \SI{-4}{m} - (\SI{-1}{m}) = \boxed{\SI{-3}{m}}
-\end{equation*}
-\end{solution}
-
-\question
-Charlie moves from point A to point B. Find the distance traveled and the displacement.
-
-\positionfigureII{0}{5}
-
-\begin{solution}
-\begin{equation*}
-    d = \left|x_f - x_i\right| = \left|\SI{5}{m} - (\SI{0}{m})\right| = \boxed{\SI{5}{m}}
-\end{equation*}
-
-\begin{equation*}
-    \Delta x = x_f - x_i = \SI{5}{m} - (\SI{0}{m}) = \boxed{\SI{5}{m}}
-\end{equation*}
-\end{solution}
-
-\question
-Charlie moves from point A to point B. Find the distance traveled and the displacement.
-
-\positionfigureII{2}{-4}
-
-\begin{solution}
-\begin{equation*}
-    d = \left|x_f - x_i\right| = \left|-\SI{4}{m} - (\SI{2}{m})\right| = \left|\SI{-6}{m}\right| = \boxed{\SI{6}{m}}
-\end{equation*}
-
-\begin{equation*}
-    \Delta x = x_f - x_i = -\SI{4}{m} - (\SI{2}{m}) = \boxed{\SI{-6}{m}}
-\end{equation*}
-\end{solution}
-
-\question
-Charlie moves from point A to point B. Find the distance traveled and the displacement.
-
-\positionfigureII{-4}{1}
-
-\begin{solution}
-\begin{equation*}
-    d = \left|x_f - x_i\right| = \left|\SI{1}{m} - (\SI{-4}{m})\right| = \left|\SI{5}{m}\right| = \boxed{\SI{5}{m}}
-\end{equation*}
-
-\begin{equation*}
-    \Delta x = x_f - x_i = \SI{1}{m} - (\SI{-4}{m}) = \boxed{\SI{5}{m}}
-\end{equation*}
-\end{solution}
-
-\question
-Charlie moves from point A to point B. Find the distance traveled and the displacement.
-
-\positionfigureII{-5}{5}
-
-\begin{solution}
-\begin{equation*}
-    d = \left|x_f - x_i\right| = \left|\SI{5}{m} - (\SI{-5}{m})\right| = \left|\SI{10}{m}\right| = \boxed{\SI{10}{m}}
-\end{equation*}
-
-\begin{equation*}
-    \Delta x = x_f - x_i = \SI{5}{m} - (\SI{-5}{m}) = \boxed{\SI{10}{m}}
-\end{equation*}
-\end{solution}
-
-
-\end{questions}
-
-\clearpage
-
-\subsection{Practice}
-
-\newcommand{\positionfigureIV}[2]{
-    \begin{center}
-    \begin{tikzpicture}[y=1.4mm,x=1.4mm]
-        \foreach \x in {-50,-40,...,50} {
-            \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
-        }
-        \foreach \x in {-45,-35,...,45} {
-            \draw[ultra thin] (\x,-0.8mm) -- (\x,0.8mm);
-        }
-        \draw[->] (-50,0) -- (50,0) node[below=7mm,pos=0.5] {Position (m)};
-        \fill (#1,0) circle (1mm) node[above=1mm] {A};
-        \fill (#2,0) circle (1mm) node[above=1mm] {B};
-    \end{tikzpicture}
-    \end{center}
-}
-
-
-\begin{questions}
-\question 
-A particle moves point A to point B in 10 seconds. Find the average speed and the average velocity.
-
-\positionfigureIV{-35}{20}
-
-\begin{solution}
-\begin{equation*}
-    \text{speed} = \frac{\text{distance}}{\text{time}} = \frac{\SI{55}{m}}{\SI{10}{s}} = \boxed{\SI{5.5}{m/s}}
-\end{equation*}
-
-\begin{equation*}
-    \bar{v} = \frac{\Delta x}{\Delta t} = \frac{\SI{55}{m}}{\SI{10}{s}} = \boxed{\SI{5.5}{m/s}}
-\end{equation*}
-\end{solution}
-
-\question 
-A particle moves point A to point B in 10 seconds. Find the average speed and the average velocity.
-
-\positionfigureIV{45}{-10}
-
-\begin{solution}
-\begin{equation*}
-    \text{speed} = \frac{\text{distance}}{\text{time}} = \frac{\SI{55}{m}}{\SI{10}{s}} = \boxed{\SI{5.5}{m/s}}
-\end{equation*}
-
-\begin{equation*}
-    \bar{v} = \frac{\Delta x}{\Delta t} = \frac{\SI{-55}{m}}{\SI{10}{s}} = \boxed{\SI{-5.5}{m/s}}
-\end{equation*}
-\end{solution}
-
-\question 
-A particle moves point A to point B in 50 seconds. Find the average speed and the average velocity.
-
-\positionfigureIV{0}{-25}
-
-\begin{solution}
-\begin{equation*}
-    \text{speed} = \frac{\text{distance}}{\text{time}} = \frac{\SI{25}{m}}{\SI{50}{s}} = \boxed{\SI{0.5}{m/s}}
-\end{equation*}
-
-\begin{equation*}
-    \bar{v} = \frac{\Delta x}{\Delta t} = \frac{\SI{-25}{m}}{\SI{50}{s}} = \boxed{\SI{-0.5}{m/s}}
-\end{equation*}
-\end{solution}
-
-\question 
-A particle moves point A to point B in 25 seconds. Find the average speed and the average velocity.
-
-\positionfigureIV{35}{-40}
-
-\begin{solution}
-\begin{equation*}
-    \text{speed} = \frac{\text{distance}}{\text{time}} = \frac{\SI{75}{m}}{\SI{25}{s}} = \boxed{\SI{3.0}{m/s}}
-\end{equation*}
-
-\begin{equation*}
-    \bar{v} = \frac{\Delta x}{\Delta t} = \frac{\SI{-75}{m}}{\SI{25}{s}} = \boxed{\SI{-3.0}{m/s}}
-\end{equation*}
-\end{solution}
-
-\question 
-A particle moves point A to point B in 4 seconds. Find the average speed and the average velocity.
-
-\positionfigureIV{15}{-45}
-
-\begin{solution}
-\begin{equation*}
-    \text{speed} = \frac{\text{distance}}{\text{time}} = \frac{\SI{60}{m}}{\SI{4}{s}} = \boxed{\SI{15}{m/s}}
-\end{equation*}
-
-\begin{equation*}
-    \bar{v} = \frac{\Delta x}{\Delta t} = \frac{\SI{-60}{m}}{\SI{4}{s}} = \boxed{\SI{-15}{m/s}}
-\end{equation*}
-\end{solution}
-
-
-\end{questions}
-
-\clearpage
-
-\subsection{Practice}
-
-\begin{questions}
-
-\newcommand{\positionfigureV}[6]{
-    %...PRO TIP: Type the following into ChatGPT:
-    % Generate 5 integers between -10 to 10 (inclusive) such that the absolute value of the sum of the 5 integers is less than or equal to 10. Print each of the integers in each of the first 5 curly brackets below. Calculate the maximum displacement from equilibrium and, if it's greater than 10, enter it in the 6th curly bracket; otherwise enter 10 for the 6th curly bracket. Do not output in markdown; I just want the verbatim text: \positionfigureV{}{}{}{}{}{}
-    
-    \begin{tikzpicture}[x=5mm,y=5mm]
-        \draw[step=1,lightgray] (-10,0) grid (10,4);
-        \draw[->,line width=0.6mm,-{Triangle}] (0,4) -- ++(#5,0);
-        \draw[->,line width=0.6mm,-{Triangle}] (0,3) -- ++(#4,0);
-        \draw[->,line width=0.6mm,-{Triangle}] (0,2) -- ++(#3,0);
-        \draw[->,line width=0.6mm,-{Triangle}] (0,1) -- ++(#2,0);
-        \draw[->,line width=0.6mm,-{Triangle}] (0,0) -- ++(#1,0);
-        \node[below] at (current bounding box.south) {Figure 1: Displacement vectors.};
-    \end{tikzpicture}
-    
-    \smallskip
-    
-    \begin{tikzpicture}[x=5mm,y=5mm]
-        \draw[step=1,lightgray] (-#6,0) grid (#6,4);
-        \draw (0,0) node {\scriptsize $|$} node[below=2pt] {$0$};
-            \begin{scope}[red,opacity={\ifprintanswers 1\else 0\fi}]
-                \draw[->,line width=0.3mm,-{Triangle}] ({#1+#2+#3+#4},4) -- ++(#5,0);
-                \draw[->,line width=0.3mm,-{Triangle}] ({#1+#2+#3},3) -- ++(#4,0);
-                \draw[->,line width=0.3mm,-{Triangle}] ({#1+#2},2) -- ++(#3,0);
-                \draw[->,line width=0.3mm,-{Triangle}] (#1,1) -- ++(#2,0);
-                \draw[->,line width=0.3mm,-{Triangle}] (0,0) -- ++(#1,0);
-                \pgfmathsetmacro{\vecsum}{#1+#2+#3+#4+#5}
-        
-                \pgfmathtruncatemacro{\iszero}{(\vecsum==0)}
-                
-                \ifnum\iszero=1
-                    \node[above] at (0,4.5) {vector sum is zero};
-                \else
-                    \draw[->,line width=0.6mm,-{Triangle}] (0,4.6) -- ++(\vecsum,0)
-                        node[above=1mm,pos=0.5] {vector sum};
-                \fi
-        \end{scope}
-        \node[below] at (current bounding box.south) {Figure 2: Head-to-tail addition and vector sum.};
-    \end{tikzpicture}
-}
 
 \question
 A particle starts at the origin and undergoes the five displacements shown in Figure 1. Using Figure 2, add the five displacement vectors graphically (use the head-to-tail method). Then, algebraically calculate the net displacement. The side of each grid square represents 1 meter.
@@ -1076,7 +1024,7 @@ A particle starts at the origin and undergoes the five displacements shown in Fi
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{LG 12 Practice}
 
 \begin{questions}
 \question 
@@ -1109,7 +1057,7 @@ A particle's position and velocity vectors are $\vec{x} = -\SI{13}{m}$ and $\vec
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{LG 13 Practice}
 
 \begin{questions}
 \question
@@ -1190,20 +1138,9 @@ Predict the last row of the data table below, assuming constant velocity.
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{LG 14 Practice}
 
 \begin{questions}
-
-\newcommand{\positionfigureVI}[1]{
-\begin{tikzpicture}[y=5mm,x=5mm]
-    \draw[black!20,step=1] (0,0) grid (24,2);  
-    \ifprintanswers
-    \foreach \x in {0,#1,...,24}{
-        \fill[red] (\x,1) circle (0.9mm);
-    }
-    \fi
-\end{tikzpicture}
-}
 
 \question
 The side of each grid square in the figure below represents 1 meter. A particle travels at a constant  speed of \SI{2}{m/s} in the negative direction. Draw a motion map for the particle. Label the initial and final positions, and direction of velocity.
@@ -1246,36 +1183,11 @@ The side of each grid square in the figure below represents 1 meter. A particle 
 \clearpage
 
 
+\subsection*{LG 15 Practice}
 
-
-\subsection{Practice}
 
 \begin{questions}
-
-\newcommand{\positiongraphI}[3]{
-    \begin{tikzpicture}
-        \begin{axis}[height=6cm,width=7cm,
-            axis lines=left,
-            xlabel = {Time (s)},
-            ylabel = {Position (m)},
-            ymin=0, ymax=20,
-            xmin=0, xmax=14,
-            ytick={0,4,...,20},
-            xtick={0,2,...,14},
-            minor y tick num=3,
-            minor x tick num=1,
-            grid=both,
-            ]
-            \addplot[thick,domain=0:14] {#1*x + #2};
-            \ifprintanswers
-                \addplot[red,only marks,mark=*] coordinates{#3};
-            \fi
-        \end{axis}
-    \end{tikzpicture}
-}
-
-%...AI-CHATBOT PROMPT:
-% In an xy plane, the y limits are 0 to 20, and the x limits are 0 to 14. Give me 5 excellent linear equations (y = mx + b) for students to practice slope calculations. Output the results in the form \positiongraphI{m}{b}{coordinates} where coordinates should be in the form (x1,y1)(x2,y2), representing 2 points on the line for calculating slope. 
+\begin{multicols}{2}
 
 \question
 Find the velocity of the particle shown in the graph below. %...Claude wording.
@@ -1292,8 +1204,6 @@ Find the velocity of the particle shown in the graph below. %...Claude wording.
 
 \positiongraphI{3}{1}{(0,1)(4,13)}
 
-\clearpage
-
 \question
 Find the velocity of the particle shown in the graph below. %...Claude wording.
 
@@ -1309,43 +1219,83 @@ Find the velocity of the particle shown in the graph below. %...Claude wording.
 
 \positiongraphI{-2}{18}{(0,18)(6,6)}
 
-
+\end{multicols}
 \end{questions}
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{LG 16 Practice}
+
+\textbf{Questions.} \textbf{Compare} the speeds and velocities of two objects on a position vs.\,time graph. 
+
+
+\begin{questions}
+\begin{multicols}{2}
+\question
+Rank order the speeds of objects A, B, and C, in order from least to greatest.
+
+\positiongraphIII{3}{0}{2}{0}{1}{0}
+
+\ifprintanswers
+\textcolor{red}{C, B, A}
+\fi
+
+\question
+Rank order the speeds of objects A, B, and C, in order from least to greatest.
+
+\positiongraphIII{3/2}{2}{-2/3}{8}{1}{0}
+
+\ifprintanswers
+\textcolor{red}{B, C, A}
+\fi
+
+\question
+Rank order the speeds of objects A, B, and C, in order from least to greatest.
+
+\positiongraphIII{-3/2}{9}{-2}{9}{-4/3}{9}
+
+\ifprintanswers
+\textcolor{red}{C, A, B}
+\fi
+
+
+\question
+Rank order the speeds of objects A, B, and C, in order from least to greatest.
+
+\positiongraphIII{1}{0}{1.5}{2}{0.5}{4}
+
+\ifprintanswers
+\textcolor{red}{C, A, B}
+\fi
+
+\question
+Rank order the speeds of objects A, B, and C, in order from least to greatest.
+
+\positiongraphIII{-2}{10}{-1}{8}{-0.5}{6}
+
+\ifprintanswers
+\textcolor{red}{C, B, A}
+\fi
+
+\question
+Rank order the speeds of objects A, B, and C, in order from least to greatest.
+
+\positiongraphIII{0.5}{0}{1}{1}{2}{2}
+
+\ifprintanswers
+\textcolor{red}{A, B, C}
+\fi
+
+
+\end{multicols}
+\end{questions}
+
+\clearpage
+
+\subsection*{LG 17 Practice}
 
 \begin{questions}
 
-\newcommand{\velocitygraph}[2]{
-    \begin{tikzpicture}
-        \begin{axis}[height=6cm,width=7cm,
-            axis y line=left,
-            axis x line=center,
-            xlabel = {Time (s)},
-            ylabel = {Velocity (m/s)},
-            ymin=-5, ymax=5,
-            xmin=0, xmax=10,
-            ytick={-5,-4,...,5},
-            xtick={0,2,...,10},
-            grid=both,
-            minor x tick num = 1,
-            x label style={at={(axis description cs:1,0.5)},right=1mm},
-            clip=false
-        ]
-            \addplot[very thick,black,domain=0:#2] {#1};
-            \ifprintanswers
-                \begin{pgfonlayer}{background}
-                    \fill[red!12] (0,0) rectangle (#2,#1);
-                \end{pgfonlayer}
-            \fi
-            \end{axis}
-    \end{tikzpicture}
-}
-
-%...AI-CHATBOT PROMPT:
-%Generate a random integer between -5 to 5 (inclusive), and another one between 5 and 10 (inclusive). Output the results in the form \velocitygraph{a}{b} where a and b are the generated numbers.
 
 \question A particle's motion is depicted in the following graph. Calculate the particle's displacement across the entire time interval.
 
@@ -1376,7 +1326,7 @@ Find the velocity of the particle shown in the graph below. %...Claude wording.
 
 \clearpage
 
-\subsection{Other}
+\subsection*{Other}
 
 \begin{questions}
 \question
