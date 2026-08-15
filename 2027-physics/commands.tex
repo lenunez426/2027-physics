@@ -135,7 +135,7 @@
     %...PRO TIP: Type the following into ChatGPT:
     % Generate 5 integers between -10 to 10 (inclusive) such that the absolute value of the sum of the 5 integers is less than or equal to 10. Print each of the integers in each of the first 5 curly brackets below. Calculate the maximum displacement from equilibrium and, if it's greater than 10, enter it in the 6th curly bracket; otherwise enter 10 for the 6th curly bracket. Do not output in markdown; I just want the verbatim text: \positionfigureV{}{}{}{}{}{}
     
-    \begin{tikzpicture}[x=5mm,y=5mm]
+    \begin{tikzpicture}[x=4mm,y=4mm]
         \draw[step=1,lightgray] (-10,0) grid (10,4);
         \draw[->,line width=0.6mm,-{Triangle}] (0,4) -- ++(#5,0);
         \draw[->,line width=0.6mm,-{Triangle}] (0,3) -- ++(#4,0);
@@ -147,7 +147,7 @@
     
     \smallskip
     
-    \begin{tikzpicture}[x=5mm,y=5mm]
+    \begin{tikzpicture}[x=4mm,y=4mm]
         \draw[step=1,lightgray] (-#6,0) grid (#6,4);
         \draw (0,0) node {\scriptsize $|$} node[below=2pt] {$0$};
             \begin{scope}[red,opacity={\ifprintanswers 1\else 0\fi}]
@@ -161,9 +161,9 @@
                 \pgfmathtruncatemacro{\iszero}{(\vecsum==0)}
                 
                 \ifnum\iszero=1
-                    \node[above] at (0,4.5) {vector sum is zero};
+                    \node[above] at (0,4.6) {vector sum is zero};
                 \else
-                    \draw[->,line width=0.6mm,-{Triangle}] (0,4.6) -- ++(\vecsum,0)
+                    \draw[->,line width=0.6mm,-{Triangle}] (0,4.8) -- ++(\vecsum,0)
                         node[above=1mm,pos=0.5] {vector sum};
                 \fi
         \end{scope}
@@ -172,8 +172,9 @@
 }
 
 \newcommand{\positionfigureVI}[1]{
-\begin{tikzpicture}[y=5mm,x=5mm]
+\begin{tikzpicture}[y=6mm,x=6mm]
     \draw[black!20,step=1] (0,0) grid (24,2);  
+    \draw[|-|] (0,-0.3) -- ++(1,0) node[below] {\small 1 meter};
     \ifprintanswers
     \foreach \x in {0,#1,...,24}{
         \fill[red] (\x,1) circle (0.9mm);
