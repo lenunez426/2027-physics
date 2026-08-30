@@ -1,10 +1,19 @@
-\documentclass[answers]{exam}
+\documentclass[]{exam}
 \input{global}
 \input{problem-sets}
 
 
 \setrandomizerseed{2}
 \bracketedpoints
+
+\newcommand{\ans}[1]{%
+  \ifprintanswers
+    \textcolor{red}{#1}%
+  \else
+    \textcolor{white}{#1}%
+  \fi
+}
+
 
 
 \firstpageheader{{Name:\enspace\makebox[5cm]{\hrulefill}}\\Physics}{}{Test on Unit 1: Constant Velocity\\}
@@ -15,35 +24,28 @@
 
 \begin{questions}
 
-\question 
-The figure below shows the one-dimensional motion of a particle. 
+\question
+An object travels from point A to point B. Find the distance $d$ and displacement $\Delta x$ for the trip.
 
 \begin{center}
-\begin{tikzpicture}[y=3mm,x=8mm]
-    \draw[black!10,xstep=1,ystep=2] (0,0) grid (12,4);
-    \foreach \x in {0,1,...,12} {
+\begin{tikzpicture}[y=1cm,x=1cm]
+    \foreach \x in {-5,-4,...,5} {
         \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
     }
-    \draw[->] (0,0) -- (12,0) node[right=1mm] {$x$ (m)};
-    \draw[ultra thick,->,rounded corners=0.7mm] (2,1)
-        -- (9,1) 
-        -- (9,2) 
-        -- (4,2) 
-        -- (4,3) 
-        -- (6,3);
-    \node[left] at (2,1) {$x_i$};
-    \node[right] at (6,3) {$x_f$};
+    \draw[->] (-5,0) -- (5,0) node[below=7mm,pos=0.5] {Position (m)};
+    \fill (4,0) circle (1mm) node[above=1mm] {A};
+    \fill (-3,0) circle (1mm) node[above=1mm] {B};
 \end{tikzpicture}
 \end{center}
 
-Calculate the total distance traveled.
-
 \begin{randomizechoices}
-    \correctchoice \SI{14}{m}
-    \choice \SI{6}{m}
-    \choice \SI{16}{m}
-    \choice \SI{4}{m}
+    \correctchoice $d = \SI{7}{m} \phantom{-} \qquad \Delta x = \SI{-7}{m}$
+    \choice $d = \SI{-7}{m} \qquad \Delta x = \SI{-7}{m}$
+    \choice $d = \SI{-7}{m} \qquad \Delta x = \SI{7}{m}$
+    \choice $d = \SI{7}{m} \phantom{-} \qquad \Delta x = \SI{7}{m}$
 \end{randomizechoices}
+
+
 
 \question
 A cyclist travels 45 meters in 9 seconds. What is her average speed?
@@ -58,6 +60,8 @@ A cyclist travels 45 meters in 9 seconds. What is her average speed?
 \question
 Find the slope of the line in the figure below.
 
+\begin{minipage}{8cm}
+\centering
 \begin{tikzpicture}
     \begin{axis}[height=7.7cm,width=8.5cm,
         axis lines=center,
@@ -77,13 +81,18 @@ Find the slope of the line in the figure below.
         % \fi
     \end{axis}
 \end{tikzpicture}
-
+\end{minipage}%
+\begin{minipage}{3cm}
+\centering
 \begin{randomizechoices}
     \correctchoice $2$
-    \choice $\frac{1}{2}$
+    \choice $\displaystyle \frac{1}{2}$
     \choice $4$
-    \choice $\frac{1}{4}$
-\end{randomizechoices}
+    \choice $\displaystyle \frac{1}{4}$
+\end{randomizechoices}   
+\end{minipage}
+
+
 
 \question
 What is the speed of the car, in miles per hour (mi/h)?
@@ -104,40 +113,43 @@ What is the speed of the car, in miles per hour (mi/h)?
     \end{axis}
 \end{tikzpicture}
 
-\begin{randomizechoices}
+\begin{randomizeoneparchoices}
     \correctchoice \SI{30}{mi/h}
     \choice \SI{270}{mi/h}
     \choice \SI{45}{mi/h}
     \choice \SI{15}{mi/h}
-\end{randomizechoices}
+\end{randomizeoneparchoices}
+
+\ifprintanswers \else \clearpage \fi
 
 \question
 Find the area of the rectangle.
+\medskip
 
-\begin{center}
 \begin{tikzpicture}[y=1mm*5,x=1mm*5]
     \draw[thick,fill=black!10] (0,0) -- (5,0) node[below,pos=0.5] {5} -- (5,6) -- (0,6) -- cycle node[left,pos=0.5] {6};
 \end{tikzpicture}
-\end{center}
 
-\begin{randomizechoices}
+\begin{randomizeoneparchoices}
     \correctchoice 30
     \choice 11
     \choice 0.83
     \choice 1
-\end{randomizechoices}
+\end{randomizeoneparchoices}
 
 \question
 The speed graph below represents the motion of a car. How far does the car travel in\\ \underline{one and a half hours}?
+\medskip
 
-\begin{tikzpicture}[y=3cm,x=5cm]
+\begin{tikzpicture}[y=3.5cm,x=5cm]
     \draw (0,0) node[below left=-1mm] {0} -- (0,1) node[rotate=90,pos=0.5,shift={(0,9mm)}] {speed (miles/hour)};
     \draw (0,0.5) -- ++(-1mm,0) node[left] {70};
-    \draw (0,0) -- (1,0) node[right] {$t$} node[below=5mm,pos=0.5] {time (hours)};
+    \draw (0,0) -- (1.1,0) node[below=5mm,pos=0.5] {time (hours)};
     \draw (0.5,1mm) -- ++(0,-1mm) node[below] {1};
     \draw[very thick] (0,0.5) -- (1,0.5);
     \draw (0.25,1mm) -- ++(0,-1mm) node[below] {$\frac{1}{2}$};
     \draw (0.75,1mm) -- ++(0,-1mm) node[below] {$1.5$};
+    \draw (1,1mm) -- ++(0,-1mm) node[below] {$2$};
     \ifprintanswers
         \begin{pgfonlayer}{background}
             \fill[red!20] (0,0) rectangle (0.75,0.5);
@@ -153,26 +165,425 @@ The speed graph below represents the motion of a car. How far does the car trave
     \choice \SI{90}{miles}
 \end{randomizechoices}
 
-\question
-An object travels from point A to point B. Find the distance $d$ and displacement $\Delta x$ for the trip.
+\begin{EnvUplevel}
+\textbf{Questions \ref{ZaQdA}--\ref{zcxI0}.} The figure below shows the one-dimensional motion of a particle. The particle completes the trip in 2 seconds.
 
 \begin{center}
-\begin{tikzpicture}[y=1cm,x=1cm]
-    \foreach \x in {-5,-4,...,5} {
+\begin{tikzpicture}[y=3mm,x=8mm]
+    \draw[black!10,xstep=1,ystep=2] (0,0) grid (12,4);
+    \foreach \x in {0,1,...,12} {
         \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
     }
-    \draw[->] (-5,0) -- (5,0) node[below=7mm,pos=0.5] {Position (m)};
-    \fill (4,0) circle (1mm) node[above=1mm] {A};
-    \fill (-3,0) circle (1mm) node[above=1mm] {B};
+    \draw[->] (0,0) -- (12,0) node[right=1mm] {$x$ (m)};
+    \draw[ultra thick,->,rounded corners=0.7mm] (2,1)
+        -- (9,1) 
+        -- (9,2) 
+        -- (4,2) 
+        -- (4,3) 
+        -- (6,3);
+    \node[left] at (2,1) {$x_i$};
+    \node[right] at (6,3) {$x_f$};
+\end{tikzpicture}
+\end{center}
+\end{EnvUplevel}
+
+\question \label{ZaQdA}
+Calculate the total distance traveled.
+
+\begin{randomizechoices}
+    \correctchoice \SI{14}{m}
+    \choice \SI{6}{m}
+    \choice \SI{16}{m}
+    \choice \SI{4}{m}
+\end{randomizechoices}
+
+\question \label{zcxI0}
+What is the particle's average velocity?
+
+\begin{randomizechoices}
+    \correctchoice \SI{2}{m/s}
+    \choice \SI{7}{m/s}
+    \choice \SI{4}{m/s}
+    \choice \SI{14}{m/s}
+\end{randomizechoices}
+
+\vspace{1em} 
+
+\hrule
+
+\ifprintanswers \else \clearpage \fi
+
+
+
+\question
+The side of each grid square below represents 1 meter. A particle travels at a constant speed of 3 meters per second in the positive direction. Which of the following correctly depicts the particle's motion map?
+
+\newcommand{\positionfigureVI}[2]{
+\begin{tikzpicture}[y=5mm,x=5mm]
+    \draw[black!20,step=1] (0,0) grid (24,2);
+    \node[left=5mm] at (0,1) {Figure #2};
+    \foreach \x in {0,#1,...,24}{
+        \fill (\x,1) circle (0.9mm);
+    }
+\end{tikzpicture}
+}
+
+\begin{center}
+\positionfigureVI{1}{A}
+
+\positionfigureVI{8}{B}
+
+\positionfigureVI{6}{C}
+
+{\ifprintanswers \color{red}\fi \positionfigureVI{3}{D}}
+\end{center}
+
+\begin{randomizeoneparchoices}[norandomize]
+    \choice Figure A
+    \choice Figure B
+    \choice Figure C
+    \correctchoice Figure D
+\end{randomizeoneparchoices}
+
+\question
+Identify the figure that correctly shows the person's position vector.
+
+\newcommand{\positionfigureI}[4]{%
+\begin{tikzpicture}[y=1cm,x=1cm]
+    \foreach \x in {-5,-4,...,5} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {$\x$};
+    }
+    \draw[->] (-5,0) -- (5,0) node[right=2mm] {$x$ (m)} node[left=5mm,pos=0] {\bfseries Figure #4};
+    \node[above] at (#1,0) {\Strichmaxerl[2]};
+    \draw[very thick,->] (#2,0.7) -- (#3,0.7) node[above,pos=0.5] {$\vec{x}$};
+\end{tikzpicture} 
+}
+
+\begin{center}
+    \positionfigureI{-3}{-3}{-5}{A}
+
+    \positionfigureI{-3}{5}{-3}{B}
+
+    \positionfigureI{-3}{-3}{0}{C}
+
+    {\ifprintanswers \color{red} \fi 
+    \positionfigureI{-3}{0}{-3}{D}}
+\end{center}
+
+\begin{randomizeoneparchoices}[norandomize]
+    \choice Figure A
+    \choice Figure B
+    \choice Figure C
+    \correctchoice Figure D
+\end{randomizeoneparchoices}
+
+\question 
+A particle's position and velocity vectors are:
+
+\begin{equation*}
+    \vec{x} = -\SI{5}{m}\ , \quad \vec{v} = +\SI{7}{m/s}    
+\end{equation*}
+
+Which of the following best describes its motion?
+
+\begin{randomizechoices}
+    \correctchoice The particle is to the left of the origin and is moving toward the origin.
+    \choice The particle is to the left of the origin and is moving away from the origin.
+    \choice The particle is to the right of the origin and is moving toward the origin.
+    \choice The particle is to the right of the origin and is moving away from the origin.
+\end{randomizechoices}
+
+\ifprintanswers \else \clearpage \fi
+
+\question
+The figure below shows 5 one-dimensional vectors. 
+
+\begin{center}
+%...PRO TIP: Use a random number generator to generate random vectors between -10 and 10
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=1,lightgray] (0,0) grid (10,4);
+    \draw[->,line width=0.6mm,-{Triangle}] (5,4) -- ++(-3,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (0,3) -- ++(10,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (10,2) -- ++(-7,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (7,1) -- ++(-6,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (5,0) -- ++(2,0);
+\end{tikzpicture}
+\end{center}
+
+Which of the following represents the vector sum of those 5 vectors?
+
+\begin{center}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=1,lightgray] (0,0) grid (6,2);
+    \node[above] at (current bounding box.north) {Vector A};
+    \draw[->,line width=0.6mm,-{Triangle}] (1,1) -- ++(4,0);
+\end{tikzpicture}
+\hspace{1mm}
+{\ifprintanswers \color{red} \fi
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=1,lightgray] (0,0) grid (6,2);
+    \node[above] at (current bounding box.north) {Vector B};
+    \draw[->,line width=0.6mm,-{Triangle}] (5,1) -- ++(-4,0);
+\end{tikzpicture}
+}
+\hspace{1mm}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=1,lightgray] (0,0) grid (6,2);
+    \node[above] at (current bounding box.north) {Vector C};
+    \draw[->,line width=0.6mm,-{Triangle}] (0,1) -- ++(6,0);
+\end{tikzpicture}
+\hspace{1mm}
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=1,lightgray] (0,0) grid (6,2);
+    \node[above] at (current bounding box.north) {Vector D};
+    \draw[->,line width=0.6mm,-{Triangle}] (6,1) -- ++(-6,0);
+\end{tikzpicture}
+\end{center}
+
+\question
+Calculate the vector sum of the vectors below.
+
+\begin{center}
+%...PRO TIP: Use a random number generator to generate random vectors between -10 and 10
+\begin{tikzpicture}[x=5mm,y=5mm]
+    \draw[step=1,lightgray] (0,0) grid (8,4);
+    \draw[->,line width=0.6mm,-{Triangle}] (5,4) -- ++(-4,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (3,3) -- ++(1,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (7,2) -- ++(-2,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (1,1) -- ++(5,0);
+    \draw[->,line width=0.6mm,-{Triangle}] (3,0) -- ++(3,0);
 \end{tikzpicture}
 \end{center}
 
 \begin{randomizechoices}
-    \correctchoice $d = \SI{7}{m}\ , \quad \Delta x = \SI{-7}{m}$
-    \choice $d = \SI{-7}{m}\ , \quad \Delta x = \SI{-7}{m}$
-    \choice $d = \SI{-7}{m}\ , \quad \Delta x = \SI{7}{m}$
-    \choice $d = \SI{7}{m}\ , \quad \Delta x = \SI{7}{m}$
+    \correctchoice $+3$
+    \choice $+5$
+    \choice $-4$
+    \choice $-2$
 \end{randomizechoices}
+
+\question 
+Students conducting the Dune Buggy lab record the position-time data below. Assuming the buggy moves with constant velocity, which of the following is the position value missing in the table?
+
+\begin{center}
+\def\arraystretch{1.5}
+\begin{tabular}{|c|c|}
+    \hline
+    \thead{Position (cm)} & \thead{Time (s)} \\ \hline
+    24 & 2 \\ \hline
+    \ans{36} & 3 \\ \hline
+    48 & 4 \\ \hline
+    60 & 5 \\ \hline
+\end{tabular}
+\end{center}
+
+\begin{randomizechoices}
+    \correctchoice 36
+    \choice 32
+    \choice 39
+    \choice 28
+\end{randomizechoices}
+
+\ifprintanswers \else \clearpage \fi
+
+\question
+Find the velocity of the object below.
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[height=6cm,width=6.5cm,
+        axis lines=left,
+        xlabel = {Time (s)},
+        ylabel = {Position (cm)},
+        ymin=0, ymax=100,
+        xmin=0, xmax=10,
+        ytick={0,10,...,100},
+        xtick={0,1,...,10},
+        grid=both,
+        ]
+        \addplot[very thick,domain=0:14] {-15*x + 80};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{randomizechoices}
+    \correctchoice $-\SI{15}{cm/s}$
+    \choice $+\SI{15}{cm/s}$
+    \choice $-\SI{20}{cm/s}$
+    \choice $+\SI{20}{cm/s}$
+\end{randomizechoices}
+
+\question
+The position-vs-time graph shows the motion of 4 objects A through D. 
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[height=5.9cm,width=6.4cm,
+    axis lines=left,
+    xlabel = {Time (s)},
+    ylabel = {Position (m/s)},
+    ymin=0, ymax=10,
+    xmin=0, xmax=10,
+    ytick={0,1,...,10},
+    xtick={0,1,...,10},
+    grid = both,
+    clip=true,
+    legend style={at={(1.1,0.72)}}
+    % set layers
+    ]
+    \addplot[very thick,black,domain=0:10] {1*\x + 0};
+    \addlegendentry{A} % <-- Legend for the first plot
+    
+    \addplot[densely dashed,very thick,black,domain=0:10] {2*\x + 1};
+    \addlegendentry{B} 
+
+    \addplot[only marks, mark=*,mark size=1.5pt,black,domain=0:10,samples=40] {-3*\x + 9};
+    \addlegendentry{C} 
+    \addplot[thick, dash dot,mark size=1.5pt,black,domain=0:10] {-0.5*\x + 5};
+    \addlegendentry{D} 
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+Which object is moving with the greatest speed?
+
+\begin{randomizechoices}[norandomize]
+    \choice A
+    \choice B
+    \correctchoice C
+    \choice D
+\end{randomizechoices}
+
+\ifprintanswers \else \clearpage \fi
+
+\question
+Calculate the total displacement of the object in the graph below.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=8cm,height=6cm,
+    axis y line=left, 
+    axis x line=center,
+    every axis x label/.style={at={(current axis.right of origin)},anchor=west},
+    xlabel = Time (s),
+    ylabel = Velocity (m/s),
+    ymin=-5, ymax=5,
+    xmin=0, xmax=10,
+    ytick={-5,-4,...,5},
+    xtick={0,1,...,10},
+    ymajorgrids=true,
+    xmajorgrids=true,
+]
+    \addplot[color=black, very thick,
+        ]
+        coordinates {
+        (0,-4)(3,-4)(3,3)(10,3)
+        };
+    \ifprintanswers
+    \begin{pgfonlayer}{background}
+        \fill[color=red!12] (0,-4) rectangle (3,0) node[black,pos=0.5] {$A_1$};
+        \fill[color=red!12] (3,0) rectangle (10,3) node[black,pos=0.5] {$A_2$};
+        \addplot[color=black, very thick,
+            ]
+            coordinates {
+            (0,-4)(3,-4)(3,3)(10,3)
+            };
+    \end{pgfonlayer}
+    \fi
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{randomizechoices}
+    \correctchoice $+\SI{9}{m}$
+    \choice $-\SI{12}{m}$
+    \choice $-\SI{1}{m}$
+    \choice $+\SI{33}{m}$
+\end{randomizechoices}
+
+\begin{solution}
+The equation $\Delta x = \bar{v}t$ implies that displacement is the area bounded by the line.
+
+The first bounded area $A_1$ is
+
+\begin{equation*}
+    \Delta x_1 = (\SI{-4}{m/s})(\SI{3}{s}) = \SI{-12}{m}
+\end{equation*}
+
+Note that the ball moves in the negative direction in the first 3 seconds.
+
+The second displacement is
+
+\begin{equation*}
+    \Delta x_2 = (+\SI{3}{m/s})(\SI{7}{s}) = \SI{21}{m}
+\end{equation*}
+
+The total displacement is the sum of these ``areas,'' or
+
+\begin{equation*}
+    \Delta x_\mathrm{tot} = \Delta x_1 + \Delta x_2 = \SI{-12}{m} + \SI{21}{m} = \boxed{\SI{9}{m}}
+\end{equation*}
+\end{solution}
+
+\question
+Which of the following graphs shows an object at rest?
+
+\begin{center}
+\begin{tikzpicture}[y=1.2cm,x=1.8cm]
+    \draw[->] (0,-1.2) -- (0,1.2) node[left,pos=0.9] {$x$};
+    \draw (0,0) -- (1.2,0) node[left,pos=0] {\scriptsize 0} node[right] {$t$};
+    \draw[ultra thick] (0,0) -- (1,1);
+    \node[above] at (current bounding box.north) {Graph A};
+\end{tikzpicture}
+\hspace{5mm}
+{\ifprintanswers \color{red} \fi
+\begin{tikzpicture}[y=1.2cm,x=1.8cm]
+    \draw[->] (0,-1.2) -- (0,1.2) node[left,pos=0.9] {$x$};
+    \draw (0,0) -- (1.2,0) node[left,pos=0] {\scriptsize 0} node[right] {$t$};
+    \draw[ultra thick] (0,0.5) -- (1,0.5);
+    \node[above] at (current bounding box.north) {Graph B};
+\end{tikzpicture}}
+\hspace{5mm}
+\begin{tikzpicture}[y=1.2cm,x=1.8cm]
+    \draw[->] (0,-1.2) -- (0,1.2) node[left,pos=0.9] {$x$};
+    \draw (0,0) -- (1.2,0) node[left,pos=0] {\scriptsize 0} node[right] {$t$};
+    \draw[ultra thick] (0,0.8) -- (1,-0.8);
+    \node[above] at (current bounding box.north) {Graph C};
+\end{tikzpicture}
+\hspace{5mm}
+\begin{tikzpicture}[y=1.2cm,x=1.8cm]
+    \draw[->] (0,-1.2) -- (0,1.2) node[left,pos=0.9] {$x$};
+    \draw (0,0) -- (1.2,0) node[left,pos=0] {\scriptsize 0} node[right] {$t$};
+    \draw[ultra thick,domain=0:1] plot({\x},{\x*\x}); 
+    \node[above] at (current bounding box.north) {Graph D};
+\end{tikzpicture}
+\end{center}
+
+\question
+An object moves away from its starting point and then moves straight back to where it started. Its total displacement is\ldots
+
+\begin{randomizechoices}
+    \correctchoice zero
+    \choice equal to the distance traveled
+    \choice greater than the distance traveled
+    \choice double the distance traveled
+\end{randomizechoices}
+
+
+\question
+If a particle travels with a constant, positive velocity, then\ldots
+
+\begin{randomizechoices}
+    \correctchoice it moves with equal displacements in equal time intervals.
+    \choice it moves with increasing displacements in equal time intervals.
+    \choice it moves with decreasing displacements in equal time intervals.
+    \choice it moves with zero displacement in equal time intervals.
+\end{randomizechoices}
+
+
+\end{questions}
+\end{document}
+
 
 \question
 A particle moves from point A to point B in 12 seconds. Find the particle' average speed and average velocity $\bar{v}$.
@@ -197,95 +608,3 @@ A particle moves from point A to point B in 12 seconds. Find the particle' avera
     \choice $\text{speed} = -\SI{3}{m/s}\ , \quad \bar{v} = \SI{3}{m/s}$
     \choice $\text{speed} = \SI{5}{m/s}\ , \quad \bar{v} = \SI{5}{m/s}$
 \end{randomizechoices}
-
-\question
-The side of each grid square below represents 1 meter. A particle travels at a constant speed of 3 meters per second in the positive direction. Which of the following correctly depicts the particle's motion map?
-
-\newcommand{\positionfigureVI}[2]{
-\begin{tikzpicture}[y=5mm,x=5mm]
-    \draw[black!20,step=1] (0,0) grid (24,2);
-    \node[above] at (12,2) {Figure #2};
-    \ifprintanswers
-    \foreach \x in {0,#1,...,24}{
-        \fill (\x,1) circle (0.9mm);
-    }
-    \fi
-\end{tikzpicture}
-}
-
-\begin{center}
-\positionfigureVI{1}{A}
-
-\positionfigureVI{8}{B}
-
-\positionfigureVI{6}{C}
-
-{\ifprintanswers \color{red}\fi \positionfigureVI{3}{D}}
-\end{center}
-
-\begin{randomizeoneparchoices}[norandomize]
-    \choice Figure A
-    \choice Figure B
-    \choice Figure C
-    \correctchoice Figure D
-\end{randomizeoneparchoices}
-
-\question
-Identify the figure that correct shows the person's position vector.
-
-\newcommand{\positionfigureI}[4]{%
-\begin{tikzpicture}[y=1cm,x=1cm]
-    \foreach \x in {-5,-4,...,5} {
-        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {$\x$};
-    }
-    \draw[->] (-5,0) -- (5,0) node[below=6mm,pos=0.5] {Position (m)} node[left=1cm,pos=0] {\bfseries Figure #4};
-    \node[above] at (#1,0) {\Strichmaxerl[2]};
-    \draw[very thick,->] (#2,0.7) -- (#3,0.7) node[above,pos=0.5] {$\vec{x}$};
-\end{tikzpicture} 
-}
-
-\begin{center}
-    \positionfigureI{-3}{-5}{-3}{A}
-
-    \positionfigureI{-3}{5}{-3}{B}
-
-    \positionfigureI{-3}{-3}{0}{C}
-
-    {\ifprintanswers \color{red} \fi 
-    \positionfigureI{-3}{0}{-3}{D}}
-\end{center}
-
-\begin{randomizeoneparchoices}[norandomize]
-    \choice Figure A
-    \choice Figure B
-    \choice Figure C
-    \correctchoice Figure D
-\end{randomizeoneparchoices}
-
-\question
-The figure below shows 5 one-dimensional vectors. 
-
-\begin{center}
-%...PRO TIP: Use a random number generator to generate random vectors between -10 and 10
-\begin{tikzpicture}[x=5mm,y=5mm]
-    \draw[step=1,lightgray] (0,0) grid (10,4);
-    \draw[->,line width=0.6mm,-{Triangle}] (5,4) -- ++(-3,0);
-    \draw[->,line width=0.6mm,-{Triangle}] (0,3) -- ++(10,0);
-    \draw[->,line width=0.6mm,-{Triangle}] (10,2) -- ++(-7,0);
-    \draw[->,line width=0.6mm,-{Triangle}] (7,1) -- ++(-6,0);
-    \draw[->,line width=0.6mm,-{Triangle}] (5,0) -- ++(2,0);
-\end{tikzpicture}
-\end{center}
-
-Which of the following represents the vector sum of those 5 vectors?
-
-\begin{center}
-    
-\end{center}
-
-
-
-
-
-\end{questions}
-\end{document}

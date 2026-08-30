@@ -43,7 +43,7 @@
 
 \newcommand{\positiongraphI}[3]{
     \begin{tikzpicture}
-        \begin{axis}[height=6cm,width=6.8cm,
+        \begin{axis}[height=5.6cm,width=6.5cm,
             axis lines=left,
             xlabel = {Time (s)},
             ylabel = {Position (m)},
@@ -55,7 +55,7 @@
             minor x tick num=1,
             grid=both,
             ]
-            \addplot[thick,domain=0:14] {#1*x + #2};
+            \addplot[very thick,domain=0:14] {#1*x + #2};
             \ifprintanswers
                 \addplot[red,only marks,mark=*] coordinates{#3};
             \fi
@@ -188,7 +188,7 @@
     % #1 = velocity (slope)
     % #2 = initial position (y-intercept)
 \begin{tikzpicture}
-\begin{axis}[height=6cm,width=6.4cm,
+\begin{axis}[height=5.9cm,width=6.4cm,
     axis lines=left,
     xlabel = {Time (s)},
     ylabel = {Position (m/s)},
@@ -198,6 +198,7 @@
     xtick={0,1,...,10},
     grid = both,
     clip=true,
+    legend style={at={(1.1,0.85)}}
     % set layers
     ]
     \addplot[very thick,black,domain=0:10] {#1*\x + #2};

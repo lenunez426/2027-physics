@@ -1,0 +1,103 @@
+\documentclass[14pt,t,dvipsnames]{beamer}
+\input{slides}
+\usepackage[acronym]{glossaries}
+\usepackage{makecell}
+
+\setbeamerfont{alerted text}{series=\bfseries}
+
+\glsdisablehyper
+
+\makeglossaries
+\input{2027-physics/glossary}
+\input{2027-physics/commands}
+
+\def\mybuggy{\resizebox{6mm}{!}{\reflectbox{\usym{1F699}}}}
+\def\mybuggyII{\resizebox{6mm}{!}{\usym{1F699}}}
+
+\newcommand{\DSTtriangle}[1][]{%
+    % Key-value setup for the shade argument
+    \pgfkeys{/DST/.cd, shade/.store in=\DSTshade, shade=none, #1}%
+    
+    \begin{tikzpicture}[x=1.5cm,y=1.5cm]
+        \coordinate (D) at (0,1);
+        \coordinate (S) at ({cos(210)},{sin(210)});
+        \coordinate (T) at ({cos(330)},{sin(330)});
+        
+        % Midpoints
+        \coordinate (M1) at ($(D)!0.5!(S)$);
+        \coordinate (M2) at ($(D)!0.5!(T)$);
+        \coordinate (M3) at ($(M1)!0.5!(M2)$);
+        \coordinate (M4) at ($(S)!0.5!(T)$);
+        
+        % Variables for comparison
+        \def\shadeD{D}
+        \def\shadeS{S}
+        \def\shadeT{T}
+        
+        % Shading logic (drawn first so lines appear on top)
+        \ifx\DSTshade\shadeD
+            \fill[gray!30] (D) -- (M1) -- (M2) -- cycle;
+        \fi
+        \ifx\DSTshade\shadeS
+            \fill[gray!30] (S) -- (M4) -- (M3) -- (M1) -- cycle;
+        \fi
+        \ifx\DSTshade\shadeT
+            \fill[gray!30] (T) -- (M4) -- (M3) -- (M2) -- cycle;
+        \fi
+        
+        % Triangle outer border
+        \draw (D) -- (S) -- (T) -- cycle;
+        
+        % Lines between midpoints
+        \draw (M1) -- (M2) node[pos=0.5,above=0.03] {D};
+        \draw (M3) -- (M4) node[pos=0.5,left=0.1] {S} node[pos=0.5,right=0.06] {T};
+    \end{tikzpicture}
+}
+
+\begin{document}
+
+\newcommand{\speedometer}[3]{%
+    % #1: X-shift (y is fixed at 2) (e.g., 1)
+    % #2: Needle rotation angle (e.g., 20)
+    % #3: Top label (e.g., \texttt{Speed})
+    % #4: Bottom readout (e.g., \textsf{32.0\,m/s})
+    \begin{scope}[shift={#1},x=1.3cm,y=1.3cm]
+        \draw (0,0) circle (1);
+        \foreach \x in {340,360,...,560} {
+            \coordinate (P) at ({cos(\x)},{sin(\x)});
+            \draw[ultra thick,gray] (P) -- ($(P)!0.16!(0,0)$);
+        }
+        \foreach \x in {350,370,...,550} {
+            \coordinate (P) at ({cos(\x)},{sin(\x)});
+            \draw[thick,gray] (P) -- ($(P)!0.08!(0,0)$);
+        }
+        \fill (0,0) circle (0.02);
+        \draw[fill=lightgray,rotate={#2},red] (0,0.02) rectangle (0.975,-0.02);
+        \node at (0,0.4) {\texttt{Speed}};
+        \draw[rounded corners] (-0.65,-0.75) rectangle ++(1.3,0.5) node[pos=0.5] {\textsf{#3\,m/s}};
+    \end{scope}
+}
+
+
+\begin{frame}
+\textit{Example.} An object starts at $x = \SI{10}{m}$ and travels toward the origin at the speed shown below. What is the direction of the velocity?
+
+\begin{center}
+\begin{tikzpicture}[y=1cm,x=1cm]
+    \foreach \x in {0,1,...,10} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {$\x$};
+    }
+    \draw[->] (0,0) -- (10,0) node[below=6mm,pos=0.5] {Position (m)};
+    \node[above] at (3,0) {\Strichmaxerl[2]};
+    \uncover<2->{\draw[line width=1.2mm,->,red] (2.6,0.5) -- ++(-1.5,0) node[above,pos=0.5] {$v$};}
+    \speedometer{(5,2)}{150}{10}
+\end{tikzpicture} 
+\end{center}
+
+\pause 
+
+{\color{red} \textit{Answer:} Left (or negative direction)}
+\end{frame}
+
+
+\end{document}
