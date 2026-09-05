@@ -1,10 +1,11 @@
 \documentclass[14pt,t,dvipsnames]{beamer}
 \input{slides}
-\usepackage[acronym]{glossaries}
-\makeglossaries
-\input{2027-physics/physics-glossary}
+\input{2027-physics/commands}
 
-\renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}} %...without this, glossary terms are colored blue in Beamer
+\makeglossaries
+\input{2027-physics/glossary}
+
+% \renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}} %...without this, glossary terms are colored blue in Beamer
 
 
 \title{Unit 2: Acceleration}
@@ -25,6 +26,413 @@
 \begin{frame}
 \titlepage
 \end{frame}
+
+\section{velocity-time tables}
+
+\begin{frame}
+\textit{(review)}\; \textbf{speed}: 
+\uncover<2->{\glsdesc{speed}}
+ 
+
+\textit{(review)}\; \textbf{velocity}:
+\uncover<3->{\glsdesc{velocity2}} 
+\uncover<4->{(also, \glsdesc{velocity1})}
+\vspace{-1em}
+
+\begin{center}
+\begin{minipage}[t]{5cm}
+\vspace{0pt}%
+\centering
+
+\uncover<5->{
+\DSTtriangle[shade=S]
+}
+\vspace{-1em}
+
+\uncover<6->{
+\begin{equation*}
+    \text{speed} = \frac{\text{distance}}{\text{time}}
+\end{equation*}
+}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{0pt}%
+\centering
+
+\uncover<7->{
+\XVTtriangle[shade=V]
+}
+\vspace{-1em}
+
+\uncover<8->{
+\begin{equation*}
+    \bar{v} = \frac{\Delta x}{\Delta t}
+\end{equation*}
+}
+\end{minipage}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\textbf{acceleration} ($a$): 
+\uncover<2->{\glsdesc{acceleration}}
+
+\uncover<3->{\textbf{average acceleration} ($\bar{a}$): \glsdesc{average acceleration}}
+\vspace{-2em}
+
+\begin{center}
+\begin{minipage}[t]{4cm}
+\vspace{0pt}%
+\centering
+
+\uncover<4->{
+\VATtriangle[shade=A]
+}
+
+\end{minipage}%
+\begin{minipage}[t]{4cm}
+\vspace{0pt}%
+\centering
+
+\uncover<5->{
+\begin{equation*}
+    \bar{a} = \frac{\Delta v}{\Delta t}
+\end{equation*}
+}
+\end{minipage}%
+\end{center}
+\end{frame}
+
+\begin{frame}[label=E3ngE]
+\textit{Example.} The figure below shows the speed of a scooter accelerating at a constant rate at two different times. Calculate the average acceleration.
+\vspace{-1em}
+
+\begin{center}
+\begin{tikzpicture}
+\uncover<2->{
+\speedometer{(0,0)}{160}{10}
+\node at (0,-1.6cm) {$t = \SI{0}{s}$};
+}
+
+\uncover<3->{
+\speedometer{(5,0)}{90}{25}
+\node at (5,-1.6cm) {$t = \SI{5}{s}$};
+}
+\end{tikzpicture}
+\end{center}
+\vspace{-3em}
+
+{\color{red}
+\begin{equation*}
+    \uncover<4->{\bar{a} = \frac{\Delta v}{\Delta t}} 
+    \uncover<5->{= \frac{\SI{25}{m/s} - \SI{10}{m/s}}{\SI{5}{s}}}
+    \uncover<6->{= \frac{\SI{15}{m/s}}{\SI{5}{s}}}
+    \uncover<7->{= \boxed{\SI{3}{m/s^2}}}
+\end{equation*}
+}
+\end{frame}
+
+
+\begin{frame}
+\textit{Example.} Is the object below accelerating?
+\vspace{-1em}
+
+\begin{center}
+\velocitytableI{0}{5}{0}{1}
+\end{center}
+
+\uncover<2->{\color{red}
+Yes. The velocity is changing with time.
+}
+\end{frame}
+
+\begin{frame}
+\textit{Example. Find the average acceleration of the object below.}
+\vspace{-1em}
+
+\begin{center}
+\velocitytableI{2}{-2}{5}{1}
+\end{center}
+\vspace{-1em}
+
+\uncover<2->{\color{red}
+Average acceleration is $\bar{a} = \SI{-2}{m/s^2}$. With each passing second, the velocity changes by \SI{-2}{m/s}.
+}
+\end{frame}
+
+\section{position-time tables}
+
+\begin{frame}
+\textit{Example.} The motion map below shows positions of a particle at 1-second time intervals. Create a position-time table for the motion.
+\vspace{-1.5em}
+
+\begin{center}
+\begin{tikzpicture}[y=4mm,x=4mm]
+    \draw[black!20,step=1] (0,0) grid (25,2);
+    \node[above,opacity=0] at (0,2) {\scriptsize 0\,s};
+    \foreach \x [evaluate=\x as \t using int(\x-2)] in {2,3,...,7}{
+        \node<\x->[above] at ({(\x-2)^2},2) {\scriptsize \t\,s};
+        \fill<\x-> ({(\x-2)^2},1) circle (3pt);
+    }
+    \foreach \x in {0,1,...,25} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {\scriptsize $\x$};
+    }
+    \draw[->] (0,0) -- (25,0) node[below=6mm,pos=0.95] {$x$ {\small (m)}};
+\end{tikzpicture}
+\vspace{-2em}
+
+\uncover<8->{\small
+\def\arraystretch{1.2}
+\begin{tabular}{|c|c|}
+    \hline
+    \thead{Time (s)} & \thead{Position (m)} \\ \hline
+    0 & \uncover<9->{\textcolor{red}{0}} \\ \hline
+    1 & \uncover<10->{\textcolor{red}{1}} \\ \hline
+    2 & \uncover<11->{\textcolor{red}{4}} \\ \hline
+    3 & \uncover<12->{\textcolor{red}{9}} \\ \hline
+    4 & \uncover<13->{\textcolor{red}{16}} \\ \hline
+    5 & \uncover<14->{\textcolor{red}{25}} \\ \hline
+\end{tabular}}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\textit{Example.} Is the object below traveling with constant velocity?
+\vspace{-1em}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+    \hline
+    \thead{Time (s)} & \thead{Position (m)} \\ \hline
+    0 & 0 \\ \hline
+    1 & 1 \\ \hline
+    2 & 4 \\ \hline
+    3 & 9 \\ \hline
+    4 & 16 \\ \hline
+    5 & 25 \\ \hline
+\end{tabular}
+
+\begin{tikzpicture}[overlay]
+    \node<2->[red,left] at (-1.9cm,3.6cm) {$\Delta t = \SI{1}{s}$ \{ };
+    \node<3->[red,left] at (-1.9cm,2.99cm) {$\Delta t = \SI{1}{s}$ \{ };
+    \node<4->[red,left] at (-1.9cm,2.38cm) {$\Delta t = \SI{1}{s}$ \{ };
+    \node<5->[red,left] at (-1.9cm,1.77cm) {$\Delta t = \SI{1}{s}$ \{ };
+    \node<6->[red,left] at (-1.9cm,1.16cm) {$\Delta t = \SI{1}{s}$ \{ };
+    \node<7->[red,right] at (1.9cm,3.6cm) {\} $\Delta x = \SI{1}{m}$};
+    \node<8->[red,right] at (1.9cm,2.99cm) {\} $\Delta x = \SI{3}{m}$};
+    \node<9->[red,right] at (1.9cm,2.38cm) {\} $\Delta x = \SI{5}{m}$};
+    \node<10->[red,right] at (1.9cm,1.77cm) {\} $\Delta x = \SI{7}{m}$};
+    \node<11->[red,right] at (1.9cm,1.16cm) {\} $\Delta x = \SI{9}{m}$};
+\end{tikzpicture}
+\end{center}
+\vspace{-2.5em}
+
+
+\textcolor{red}{
+\uncover<12->{Average velocity is $\bar{v} = \frac{\Delta x}{\Delta t}$.}
+\uncover<13->{The displacements $\Delta x$ are NOT constant.}
+\uncover<14->{So, the object's velocity is NOT constant.}
+}
+
+\end{frame}
+
+
+\section{velocity vs time graphs}
+
+{\setbeamercolor{background canvas}{bg = black!10}
+\againframe<4>{E3ngE}
+\againframe<7>{E3ngE}
+}
+
+\begin{frame}
+\textit{Example.} Sketch a velocity-vs-time graph of the scooter from the previous problem.
+\vspace{-1em}
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[height=6cm,
+    width=7cm,
+    ylabel={Velocity (m/s)},
+    xlabel={Time (s)},
+    axis lines=left,
+    ymin=0,ymax=30,
+    xmin=0,xmax=6,
+    ytick={0,5,...,30},
+    xtick={0,1,...,6},
+    clip=false,
+    grid=both,
+    ]
+    \fill<2->[red] (0,10) circle (3pt);
+    \fill<3->[red] (5,25) circle (3pt);
+    \draw<4->[very thick,red] (0,10) -- (5,25);
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\textit{Example.} What physical quantity does the slope of the line below represent? 
+\uncover<7->{\textcolor{red}{\textit{Answer:} avg.\,acceleration}}
+\vspace{-1em}
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[height=6cm,
+    width=7cm,
+    ylabel={Velocity (m/s)},
+    xlabel={Time (s)},
+    axis lines=left,
+    ymin=0,ymax=30,
+    xmin=0,xmax=6,
+    ytick={0,5,...,30},
+    xtick={0,1,...,6},
+    clip=false,
+    grid=both,
+    ]
+    \draw<2->[red,very thick] (0,10) -- (0,25) node[pos=0.5,right] {$\Delta v$};
+    \draw<3->[red,very thick] (0,25) -- (5,25) node[pos=0.5,above] {$\Delta t$};
+    \fill (0,10) circle (3pt);
+    \fill (5,25) circle (3pt);
+    \draw[very thick] (0,10) -- (5,25);
+    \node<4->[red,fill=black!6,overlay,right] at (2,18) {$\displaystyle \text{slope} = \frac{\text{rise}}{\text{run}} = \frac{\Delta v}{\Delta t}$};
+    \node<5->[red,fill=black!6,overlay,right] at (2,8) {$\displaystyle \bar{a} = \frac{\Delta v}{\Delta t}$};
+    \node<6->[red,fill=red!8,overlay,right] at (4.5,8) {\Large $\displaystyle \text{slope} = \bar{a}$};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}
+\textit{Example.} Calculate the average acceleration of the object below.
+\vspace{1ex}
+
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+\begin{tikzpicture}
+    \begin{axis}[height=6cm,
+    width=7cm,
+    ylabel={Velocity (m/s)},
+    xlabel={Time (s)},
+    axis lines=left,
+    ymin=0,ymax=30,
+    xmin=0,xmax=6,
+    ytick={0,5,...,30},
+    xtick={0,1,...,6},
+    clip=true,
+    grid=both,
+    ]
+    \addplot[very thick,domain=0:6] {40 - 5*x};
+    \begin{pgfonlayer}{foreground}
+        \draw<3->[thick,densely dashed] (2,30) -- (2,10) node[red,left,pos=0.5] {$\Delta v$};
+        \draw<3->[thick,densely dashed] (2,10) -- (6,10) node[red,below,pos=0.5] {$\Delta t$};
+        \fill<2->[red] (2,30) circle (3pt) node[shift={(0,0.7cm)},align=center] {\small $(t_1,v_1)$\\ \small $(2,30)$};
+        \fill<2->[red] (6,10) circle (3pt) node[shift={(0,-0.7cm)},align=center] {\small $(6,10)$\\ \small $(t_2,v_2)$};
+        \node<4->[red,right] at (3.5,34) {$\displaystyle \bar{a} = \text{slope} = \frac{\Delta v}{\Delta t} = \frac{v_2 - v_1}{t_2 - t_1}$};
+        \node<5->[red,right] at (4,23) {$\displaystyle \bar{a} = \frac{10\,\text{\footnotesize m/s} - 30\,\text{\footnotesize m/s}}{6\,\text{\footnotesize s} - 2\,\text{\footnotesize s}}$};
+        \node<6->[red,right,fill=red!8] at (6.3,14) {$\boxed{\bar{a} = \SI{-5}{m/s^2}}$};
+    \end{pgfonlayer}
+    \end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\section{position vs time graphs}
+
+\begin{frame}
+\textit{Example.} Using the table, graph position vs time.
+\vspace{-1em}
+
+\begin{center}
+\begin{minipage}[t]{2.9cm}
+\vspace{0pt}%
+\def\arraystretch{1.25}
+\begin{tabular}{|c|c|}
+    \hline
+    \thead{$t$ (s)} & \thead{$x$ (m)} \\ \hline
+    0 & 0 \\ \hline
+    1 & 1 \\ \hline
+    2 & 4 \\ \hline
+    3 & 9 \\ \hline
+    4 & 16 \\ \hline
+    5 & 25 \\ \hline
+\end{tabular}
+\end{minipage}%
+\begin{minipage}[t]{7cm}
+\vspace{0pt}%
+\centering
+\begin{tikzpicture}
+    \begin{axis}[height=6.2cm,width=6.6cm,
+        ylabel={\small Position (m)},
+        xlabel={\small Time (s)},
+        ymin=0,ymax=25,
+        xmin=0,xmax=5,
+        ytick={0,5,...,25},
+        xtick={0,1,...,5},
+        grid=both,
+        axis lines=left,
+        clip=false,
+        major grid style={thick, draw=black!60},
+        minor grid style={thin, draw=gray!30},
+        minor y tick num=4,
+        minor x tick num=4,
+    ]
+    \only<2->{
+            \addplot[only marks,mark=*,red] coordinates{(0,0)(1,1)(2,4)(3,9)(4,16)(5,25)};
+    }
+    \only<3->{
+            \addplot[red,smooth,domain=0:5,thick] {x^2};
+        }   
+    \end{axis}
+\end{tikzpicture}
+\end{minipage}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\textit{Example.} What is the shape of the position vs time graph for an object undergoing constant acceleration? Is it linear?
+\vspace{-1em}
+
+\begin{minipage}[t]{4.2cm}
+\vspace{0pt}%
+\begin{tikzpicture}
+    \small 
+    \begin{axis}[height=4cm,width=4cm,
+        ylabel={Position (m)},
+        xlabel={Time (s)},
+        ymin=0,ymax=25,
+        xmin=0,xmax=5,
+        ytick={0,5,...,25},
+        xtick={0,1,...,5},
+        grid=both,
+        axis lines=left,
+        clip=false,
+    ]
+    \addplot[smooth,domain=0:5,very thick] {x^2};
+    \end{axis}
+\end{tikzpicture}
+\end{minipage}%
+\pause
+\begin{minipage}[t]{5.6cm}
+\vspace{0pt}%
+\small\color{red}
+\begin{itemize}[<+->]
+    \setlength{\leftmargini}{1.2em} % Reduces left indent to save width
+    \setlength{\itemsep}{3pt}       % Keeps spacing between points compact
+    \item The shape is not linear.
+    \item Position increases \textbf{\underline{quadratically}} with time.
+    \item The shape of the $x$ vs $t$ graph is quadratic.
+    \item A quadratic shape is the shape of a parabola.
+\end{itemize}
+\end{minipage}
+
+\begin{tikzpicture}[overlay,shift={(6.5cm,-1cm)},y=1.2cm]
+\draw<6->[domain=-1:1,red,very thick] plot({\x,\x*\x});
+\end{tikzpicture}
+\end{frame}
+
+
+\section{Galileo's law of odd numbers}
 
 \begin{frame}
 \vspace{-8mm}
@@ -77,53 +485,8 @@
 \end{center}
 
 \uncover<19->{\textbf{\gls{Galileo's law of odd numbers}}:} \uncover<20->{\glsdesc{Galileo's law of odd numbers}}
-
-% \medskip
-
-% \textbf{Time intervals:} \hfill \phantom{.}
-
-% \begin{tikzpicture}[y=4mm,x=4mm]
-%     \draw[black!20,step=1] (0,0) grid (25,2);
-%     \fill[opacity=0.1] (0,0) rectangle ++(1,2);
-%     \fill[opacity=0.1] (4,0) rectangle ++(5,2);
-%     \fill[opacity=0.1] (16,0) rectangle ++(9,2);
-%     \begin{scope}[opacity=0]
-%         \node[above,shift={(-3mm,0)},overlay] at (0,2) {$\SI{0}{s}$};
-%         \foreach \x in {1,2,...,5}{
-%             \node[above] at (\x*\x,2) {$\SI{\x}{s}$};
-%         }
-%     \end{scope}
-
-%     \draw[|-|] (0,2.3) -- ++(1,0) node[above,pos=0.5] {\small 1\textsuperscript{st}};
-%     \draw[|-|] (1,2.8) -- ++(3,0) node[above,pos=0.5] {2\textsuperscript{nd}};
-%     \draw[|-|] (4,2.3) -- ++(5,0) node[above,pos=0.5] {3\textsuperscript{rd}};
-%     \draw[|-|] (9,2.8) -- ++(7,0) node[above,pos=0.5] {4\textsuperscript{th} interval};
-%     \draw[|-|] (16,2.3) -- ++(9,0) node[above,pos=0.5] {5\textsuperscript{th} interval};
-    
-
-    %     \foreach \x in {2,3,...,7}{
-    %     \fill<\x-> ({(\x-2)^2},1) circle (0.9mm);
-    % }
-    % \uncover<8->{
-    
-    % }
-    % \draw<9->[|-|] (0,-0.3) -- ++(1,0) node[below,pos=0.5] {1};
-    % \draw<10->[|-|] (1,-0.9) -- ++(3,0) node[below,pos=0.5] {3};
-    % \draw<11->[|-|] (4,-0.3) -- ++(5,0) node[below,pos=0.5] {5};
-    % \draw<12->[|-|] (9,-0.9) -- ++(7,0) node[below,pos=0.5] {7};
-    % \draw<13->[|-|] (16,-0.3) -- ++(9,0) node[below,pos=0.5] {9};
-%\end{tikzpicture}
-
-% \begin{tikzpicture}[y=3.8mm,x=4.25mm]
-%     \draw[black!20,step=1] (0,0) grid (36,2);
-%     \draw (0,0) rectangle (1,2);
-%     \draw[<-] (0.5,-0.1) -- (0.5,-1.3) node[below,align=center,shift={(0.9,0)}] {1\textsuperscript{st} time\\interval};
-%     \draw (1,0) rectangle ++(3,2) node[pos=0.5,fill=white] {2\textsuperscript{nd}};
-%     \draw (4,0) rectangle ++(5,2) node[pos=0.5,fill=white] {3\textsuperscript{rd} interval};
-%     \draw (9,0) rectangle ++(7,2) node[pos=0.5,fill=white] {4\textsuperscript{th} time interval};
-%     \draw (16,0) rectangle ++(9,2) node[pos=0.5,fill=white] {5\textsuperscript{th} time interval};
-%     \draw (25,0) rectangle ++(11,2) node[pos=0.5,fill=white] {6\textsuperscript{th} time interval};
-% \end{tikzpicture}
 \end{frame}
+
+
 \end{document}
 

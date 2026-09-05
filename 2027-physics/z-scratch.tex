@@ -7,97 +7,103 @@
 
 \glsdisablehyper
 
-\makeglossaries
-\input{2027-physics/glossary}
-\input{2027-physics/commands}
 
-\def\mybuggy{\resizebox{6mm}{!}{\reflectbox{\usym{1F699}}}}
-\def\mybuggyII{\resizebox{6mm}{!}{\usym{1F699}}}
-
-\newcommand{\DSTtriangle}[1][]{%
-    % Key-value setup for the shade argument
-    \pgfkeys{/DST/.cd, shade/.store in=\DSTshade, shade=none, #1}%
-    
-    \begin{tikzpicture}[x=1.5cm,y=1.5cm]
-        \coordinate (D) at (0,1);
-        \coordinate (S) at ({cos(210)},{sin(210)});
-        \coordinate (T) at ({cos(330)},{sin(330)});
-        
-        % Midpoints
-        \coordinate (M1) at ($(D)!0.5!(S)$);
-        \coordinate (M2) at ($(D)!0.5!(T)$);
-        \coordinate (M3) at ($(M1)!0.5!(M2)$);
-        \coordinate (M4) at ($(S)!0.5!(T)$);
-        
-        % Variables for comparison
-        \def\shadeD{D}
-        \def\shadeS{S}
-        \def\shadeT{T}
-        
-        % Shading logic (drawn first so lines appear on top)
-        \ifx\DSTshade\shadeD
-            \fill[gray!30] (D) -- (M1) -- (M2) -- cycle;
-        \fi
-        \ifx\DSTshade\shadeS
-            \fill[gray!30] (S) -- (M4) -- (M3) -- (M1) -- cycle;
-        \fi
-        \ifx\DSTshade\shadeT
-            \fill[gray!30] (T) -- (M4) -- (M3) -- (M2) -- cycle;
-        \fi
-        
-        % Triangle outer border
-        \draw (D) -- (S) -- (T) -- cycle;
-        
-        % Lines between midpoints
-        \draw (M1) -- (M2) node[pos=0.5,above=0.03] {D};
-        \draw (M3) -- (M4) node[pos=0.5,left=0.1] {S} node[pos=0.5,right=0.06] {T};
-    \end{tikzpicture}
-}
+\setbeamertemplate{itemize items}[circle]
 
 \begin{document}
 
-\newcommand{\speedometer}[3]{%
-    % #1: X-shift (y is fixed at 2) (e.g., 1)
-    % #2: Needle rotation angle (e.g., 20)
-    % #3: Top label (e.g., \texttt{Speed})
-    % #4: Bottom readout (e.g., \textsf{32.0\,m/s})
-    \begin{scope}[shift={#1},x=1.3cm,y=1.3cm]
-        \draw (0,0) circle (1);
-        \foreach \x in {340,360,...,560} {
-            \coordinate (P) at ({cos(\x)},{sin(\x)});
-            \draw[ultra thick,gray] (P) -- ($(P)!0.16!(0,0)$);
-        }
-        \foreach \x in {350,370,...,550} {
-            \coordinate (P) at ({cos(\x)},{sin(\x)});
-            \draw[thick,gray] (P) -- ($(P)!0.08!(0,0)$);
-        }
-        \fill (0,0) circle (0.02);
-        \draw[fill=lightgray,rotate={#2},red] (0,0.02) rectangle (0.975,-0.02);
-        \node at (0,0.4) {\texttt{Speed}};
-        \draw[rounded corners] (-0.65,-0.75) rectangle ++(1.3,0.5) node[pos=0.5] {\textsf{#3\,m/s}};
-    \end{scope}
-}
 
+\section{position vs time graphs}
 
 \begin{frame}
-\textit{Example.} An object starts at $x = \SI{10}{m}$ and travels toward the origin at the speed shown below. What is the direction of the velocity?
+\textit{Example.} Using the table, graph position vs time.
+\vspace{-1em}
 
 \begin{center}
-\begin{tikzpicture}[y=1cm,x=1cm]
-    \foreach \x in {0,1,...,10} {
-        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {$\x$};
+\begin{minipage}[t]{2.9cm}
+\vspace{0pt}%
+\def\arraystretch{1.25}
+\begin{tabular}{|c|c|}
+    \hline
+    \thead{$t$ (s)} & \thead{$x$ (m)} \\ \hline
+    0 & 0 \\ \hline
+    1 & 1 \\ \hline
+    2 & 4 \\ \hline
+    3 & 9 \\ \hline
+    4 & 16 \\ \hline
+    5 & 25 \\ \hline
+\end{tabular}
+\end{minipage}%
+\begin{minipage}[t]{7cm}
+\vspace{0pt}%
+\centering
+\begin{tikzpicture}
+    \begin{axis}[height=6.2cm,width=6.6cm,
+        ylabel={\small Position (m)},
+        xlabel={\small Time (s)},
+        ymin=0,ymax=25,
+        xmin=0,xmax=5,
+        ytick={0,5,...,25},
+        xtick={0,1,...,5},
+        grid=both,
+        axis lines=left,
+        clip=false,
+        major grid style={thick, draw=black!60},
+        minor grid style={thin, draw=gray!30},
+        minor y tick num=4,
+        minor x tick num=4,
+    ]
+    \only<2->{
+            \addplot[only marks,mark=*,red] coordinates{(0,0)(1,1)(2,4)(3,9)(4,16)(5,25)};
     }
-    \draw[->] (0,0) -- (10,0) node[below=6mm,pos=0.5] {Position (m)};
-    \node[above] at (3,0) {\Strichmaxerl[2]};
-    \uncover<2->{\draw[line width=1.2mm,->,red] (2.6,0.5) -- ++(-1.5,0) node[above,pos=0.5] {$v$};}
-    \speedometer{(5,2)}{150}{10}
-\end{tikzpicture} 
+    \only<3->{
+            \addplot[red,smooth,domain=0:5,thick] {x^2};
+        }   
+    \end{axis}
+\end{tikzpicture}
+\end{minipage}
 \end{center}
-
-\pause 
-
-{\color{red} \textit{Answer:} Left (or negative direction)}
 \end{frame}
 
+\begin{frame}
+\textit{Example.} What is the shape of the position vs time graph for an object undergoing constant acceleration? Is it linear?
+\vspace{-1em}
 
+\begin{minipage}[t]{4.2cm}
+\vspace{0pt}%
+\begin{tikzpicture}
+    \small 
+    \begin{axis}[height=4cm,width=4cm,
+        ylabel={Position (m)},
+        xlabel={Time (s)},
+        ymin=0,ymax=25,
+        xmin=0,xmax=5,
+        ytick={0,5,...,25},
+        xtick={0,1,...,5},
+        grid=both,
+        axis lines=left,
+        clip=false,
+    ]
+    \addplot[smooth,domain=0:5,very thick] {x^2};
+    \end{axis}
+\end{tikzpicture}
+\end{minipage}%
+\pause
+\begin{minipage}[t]{5.6cm}
+\vspace{0pt}%
+\small\color{red}
+\begin{itemize}[<+->]
+    \setlength{\leftmargini}{1.2em} % Reduces left indent to save width
+    \setlength{\itemsep}{3pt}       % Keeps spacing between points compact
+    \item The shape is not linear.
+    \item Position increases \textbf{\underline{quadratically}} with time.
+    \item The shape of the $x$ vs $t$ graph is quadratic.
+    \item A quadratic shape is the shape of a parabola.
+\end{itemize}
+\end{minipage}
+
+\begin{tikzpicture}[overlay,shift={(6.5cm,-1cm)},y=1.2cm]
+\draw<6->[domain=-1:1,red,very thick] plot({\x,\x*\x});
+\end{tikzpicture}
+\end{frame}
 \end{document}

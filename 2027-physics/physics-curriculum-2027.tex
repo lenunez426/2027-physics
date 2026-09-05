@@ -14,6 +14,21 @@
 \usepackage{figchild}
 \makenoidxglossaries
 
+\usepackage{tcolorbox}
+% Define macro in preamble
+\newtcbox{\teksbox}{
+  on line, 
+  boxsep=0pt, 
+  left=3pt, 
+  right=3pt, 
+  top=2pt, 
+  bottom=2pt, 
+  colback=gray!15, 
+  colframe=gray!15, 
+  arc=2pt,
+  fontupper=\bfseries
+}
+
 \usepackage{circuitikz}
 \ctikzset{bipoles/battery1/height=0.5}
 \ctikzset{bipoles/battery1/width=0.25}
@@ -67,6 +82,7 @@
 
 
 \section*{Mission Statement}
+\vspace{-1em}
 
 At Cypress Springs High School, we aim to provide students with foundational knowledge in physics. We value a curriculum that\ldots 
 
@@ -82,24 +98,36 @@ At Cypress Springs High School, we aim to provide students with foundational kno
     % \item aims to reduce cognitive overload in students
     \item exposes students to high quality geometric and graphical figures
     \item avoids overloading students' working memory.
-    \item promotes the building of long-term memory and schemas
+    \item promotes the acquiring of long-term memory and schemas
 \end{itemize}
 
 \section*{Scope and Sequence}
+\vspace{-1em}
 
 \begin{center}
 \def\arraystretch{1.5}
 \begin{tabular}{|c|l|c|c|l|}
     \hline
     \thead{\bfseries Unit} & \thead{\bfseries Title} & \thead{\bfseries Dates} & \thead{\bfseries Days} & \thead{\bfseries TEKS} \\ \hline
-    Unit 1 & Constant Velocity & Aug 17 -- Sep 4 & 15 & 5B, 5C, 5A \\ \hline
-    Unit 2 & Constant Acceleration & Sep 8 -- Sep 23 & 12 & 5C, 5A \\ \hline
-    Unit 3 & Newton's 1st and 3rd Laws of Motion & Sep 24 -- Oct 8 & 11 & 5E, 5G \\ \hline
-    Unit 4 & Newton's 2nd Law and Universal Gravitation & Oct 19 -- Nov 2 & 11 & 5F, 5H \\ \hline
-    Unit 5 & One-Dimensional Kinematics & Nov 4 -- Nov 16 & 9 & 5C \\ \hline
-    Unit 6 & Two-Dimensional Motion & Nov 17 -- Dec 11 & 14 & 5D \\ \hline
+    Unit 1 & Constant Motion & Aug 17 -- Sep 4 & 15 & 5B, 5C, 5A \\ \hline
+    Unit 2 & Changing Motion & Sep 8 -- Sep 23 & 12 & 5C, 5A \\ \hline
+    Unit 3 & Force Interactions & Sep 24 -- Oct 8 & 11 & 5E, 5G \\ \hline
+    Unit 4 & Force Analysis & Oct 19 -- Nov 2 & 11 & 5F, 5H \\ \hline
+    Unit 5 & 1D Motion & Nov 4 -- Nov 16 & 9 & 5C \\ \hline
+    Unit 6 & 2D Motion & Nov 17 -- Dec 11 & 14 & 5D \\ \hline
 \end{tabular}
 \end{center}
+
+\section*{TEKS}
+\vspace{-1em}
+
+(5) Science concepts. The student knows and applies the laws governing motion in a variety of situations. The student is expected to:
+
+\begin{itemize}[topsep=-2pt,itemsep=0pt]
+    \item \teksbox{PHYS.5A} analyze different types of motion by generating and interpreting position versus time, velocity versus time, and acceleration versus time using hand graphing and real-time technology such as motion detectors, photogates, or digital applications;
+    \item \teksbox{PHYS.5B} define scalar and vector quantities related to one- and two-dimensional motion and combine vectors using both graphical vector addition and the Pythagorean theorem;
+    \item \teksbox{PHYS.5C} describe and analyze motion in one dimension using equations with the concepts of distance, displacement, speed, velocity, frames of reference, and acceleration;
+\end{itemize}
 
 \clearpage
 
@@ -175,130 +203,36 @@ At Cypress Springs High School, we aim to provide students with foundational kno
 \subsection*{Unit 1 Assessment} %...THE GAME
 
 \begin{enumerate}[topsep=-3pt,itemsep=0pt]
-\item Find the vector sum of all vectors shown below. Each square represents 1 unit of magnitude.
-\begin{center}
-    %...PRO TIP: Use a random number generator to generate random vectors between -10 and 10
-    \begin{tikzpicture}[x=5mm,y=5mm]
-        \draw[step=1,lightgray] (0,0) grid (10,4);
-        \draw[->,line width=0.6mm,-{Triangle}] (5,4) -- ++(-3,0);
-        \draw[->,line width=0.6mm,-{Triangle}] (9,3) -- ++(-8,0);
-        \draw[->,line width=0.6mm,-{Triangle}] (2,2) -- ++(6,0);
-        \draw[->,line width=0.6mm,-{Triangle}] (6,1) -- ++(-4,0);
-        \draw[->,line width=0.6mm,-{Triangle}] (0,0) -- ++(5,0);
-    \end{tikzpicture}
-\end{center}
-
-\item Draw the position vector for the person below.
+\item An object travels from point A to point B. Find the distance $d$ and displacement $\Delta x$ for the trip.
 
 \begin{center}
-    \begin{tikzpicture}[y=1cm,x=1cm]
-        \foreach \x in {-5,-4,...,5} {
-            \draw[ultra thin] (\x,-0.09) -- (\x,0.09) node[below=0.2] {$\x$};
-        }
-        \draw[->] (-5,0) -- (5,0) node[below=0.6,pos=0.5] {Position (m)};
-        \node[above] at (3,0) {\Strichmaxerl[2]};
-    \end{tikzpicture}
-\end{center}
-
-\item Calculate the distance traveled in path C in the figure below.
-
-\begin{center}
-\begin{tikzpicture}[y=6mm,x=8mm]
-    \draw[black!10,step=1] (0,0) grid (12,5);
-    \foreach \x in {0,2,...,12} {
+\begin{tikzpicture}[y=1cm,x=1cm]
+    \foreach \x in {-5,-4,...,5} {
         \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
     }
-    \draw[->] (0,0) -- (12,0) node[below=7mm,pos=0.5] {Position (m)};
-    \draw[->,thick] (0,4) -- ++(7,0) node[above,pos=0.5] {A};
-    \draw[->,thick] (12,3) -- ++(-5,0) node[above,pos=0.5] {B} ;
-    \draw[->,rounded corners=1pt,thick] (2,2) -- ++(8,0) node[above,pos=0.5] {C} -- ++(0,0.2) -- ++(-2,0) -- ++(0,0.2) -- ++(2,0);
-    \draw[->,rounded corners=2pt,thick] (9,1) node[right] {D} -- ++(-6,0) -- ++(0,0.2) -- ++(2,0);
+    \draw[->] (-5,0) -- (5,0) node[below=7mm,pos=0.5] {Position (m)};
+    \fill (4,0) circle (1mm) node[above=1mm] {A};
+    \fill (-3,0) circle (1mm) node[above=1mm] {B};
 \end{tikzpicture}
 \end{center}
 
-\item Charlie moves from point A to point B. Find the distance traveled and the displacement.
+\item A cyclist travels 45 meters in 9 seconds. What is her average speed?
 
-\begin{center}
-    \begin{tikzpicture}[y=1cm,x=1cm]
-        \foreach \x in {-5,-4,...,5} {
-            \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
-        }
-        \draw[->] (-5,0) -- (5,0) node[below=7mm,pos=0.5] {Position (m)};
-        \fill (3,0) circle (0.1) node[above=1mm] {A};
-        \fill (-4,0) circle (0.1) node[above=1mm] {B};
-    \end{tikzpicture}
-\end{center}
+% \begin{center}
+%     \begin{tikzpicture}[y=1cm,x=1cm]
+%         \foreach \x in {-5,-4,...,5} {
+%             \draw[ultra thin] (\x,-0.09) -- (\x,0.09) node[below=0.2] {$\x$};
+%         }
+%         \draw[->] (-5,0) -- (5,0) node[below=0.6,pos=0.5] {Position (m)};
+%         \node[above] at (3,0) {\Strichmaxerl[2]};
+%     \end{tikzpicture}
+% \end{center}
 
-\item Dana moves from point A to point B in 10 seconds. Find the average speed and the average velocity.
-
-\begin{center}
-\begin{tikzpicture}[y=3mm,x=3mm]
-    \foreach \x in {-20,-15,...,20} {
-        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
-    }
-    \draw[->] (-20,0) -- (20,0) node[below=7mm,pos=0.5] {Position (m)};
-    \fill (10,0) circle (1mm) node[above=1mm] {A};
-    \fill (-20,0) circle (1mm) node[above=1mm] {B};
-\end{tikzpicture}
-\end{center}
-
-\item A particle starts at the origin and undergoes the five displacements shown in Figure 1. Using Figure 2, add the five displacement vectors graphically (use the head-to-tail method). Then, algebraically calculate the net displacement. The side of each grid square represents 1 meter.
-
-\begin{center}
-%...PRO TIP: Use a random number generator to generate random vectors between -10 and 10
-\begin{tikzpicture}[x=5mm,y=5mm]
-    \draw[step=1,lightgray] (-5,0) grid (5,4);
-    \draw[->,line width=0.6mm,-{Triangle}] (5,4) -- ++(-9,0) node[left] {$\Delta x_5$};
-    \draw[->,line width=0.6mm,-{Triangle}] (-3,3) -- ++(5,0) node[right] {$\Delta x_4$};
-    \draw[->,line width=0.6mm,-{Triangle}] (-3,2) -- ++(8,0) node[right] {$\Delta x_3$};
-    \draw[->,line width=0.6mm,-{Triangle}] (-4,1) -- ++(6,0) node[right] {$\Delta x_2$};
-    \draw[->,line width=0.6mm,-{Triangle}] (4,0) -- ++(-6,0) node[left] {$\Delta x_1$};
-    \node[below] at (current bounding box.south) {Figure 1};
-\end{tikzpicture}
-\hspace{5mm}
-\begin{tikzpicture}[x=5mm,y=5mm]
-    \draw[step=1,lightgray] (-13,0) grid (13,4);
-    \draw (0,0) node {\scriptsize $|$} node[below=2pt] {$0$};
-    \begin{scope}[red,opacity=0]
-        \draw[->,line width=0.6mm,-{Triangle}] (13,4) -- ++(-9,0) node[left] {$\Delta x_5$};
-        \draw[->,line width=0.6mm,-{Triangle}] (8,3) -- ++(5,0) node[right] {$\Delta x_4$};
-        \draw[->,line width=0.6mm,-{Triangle}] (0,2) -- ++(8,0) node[right] {$\Delta x_3$};
-        \draw[->,line width=0.6mm,-{Triangle}] (-6,1) -- ++(6,0) node[right] {$\Delta x_2$};
-        \draw[->,line width=0.6mm,-{Triangle}] (0,0) -- ++(-6,0) node[left] {$\Delta x_1$};
-    \end{scope}
-    \node[below] at (current bounding box.south) {Figure 2};
-\end{tikzpicture}
-\end{center}
-
-\item A particle's position and velocity vectors are $\vec{x} = -\SI{56}{m}$ and $\vec{v} = \SI{10}{m/s}$, respectively. Is the particle moving toward or away from the origin?
-
-\item Predict the last row of the data table below, assuming constant velocity.
-\begin{center}
-    \begin{tabular}{|c|c|}
-        \hline
-        \thead{Position (m)} & \thead{Time (s)} \\ \hline
-        0 & 0 \\ \hline
-        3 & 1 \\ \hline
-        6 & 2 \\ \hline
-        9 & 3 \\ \hline
-          & 4 \\ \hline
-    \end{tabular}
-\end{center}
-
-\item The side of each grid square in the figure below represents 1 meter. A particle travels at a constant  speed of \SI{2}{m/s} in the negative direction. Draw a motion map for the particle. Label the initial and final positions, and direction of velocity.
-
-\begin{center}
-\begin{tikzpicture}[x=5mm,y=5mm]
-    \draw[step=1,black!25] (0,0) grid (26,2);
-\end{tikzpicture}
-\end{center}
-
-
-\item Find the slope of the following line.
+\item Find the slope of the line in the figure below.
 
 \begin{center}
 \begin{tikzpicture}
-    \begin{axis}[height=8cm,width=9cm,
+    \begin{axis}[height=7.7cm,width=8.5cm,
         axis lines=center,
         ylabel={$y$},
         xlabel={$x$},
@@ -310,56 +244,62 @@ At Cypress Springs High School, we aim to provide students with foundational kno
         minor y tick num=1,
         minor x tick num=1,
     ]
-        % \addplot[thick,domain=-10:10] {x/3 + 2};
-        \addplot[thick,domain=-10:10] {2*x + 1};
-        % \addplot[thick,domain=-10:10] {-3*x - 2};
+        \addplot[thick,domain=-10:10] {2*x + -4};
+        % \ifprintanswers
+        %     \addplot[red,only marks,mark=*] coordinates{#3};
+        % \fi
     \end{axis}
 \end{tikzpicture}
 \end{center}
 
-\item Find the velocity of the particle whose motion is depicted in the graph below.
 
-\begin{center}
-    \begin{tikzpicture}
-    \begin{axis}[width=6cm,height=5cm,
+\item What is the speed of the car, in miles per hour (mi/h)?
+
+\begin{tikzpicture}
+    \begin{axis}[height=6.5cm,width=6.8cm,
         axis lines=left,
-        xlabel = {Time (s)},
-        ylabel = {Position (m)},
-        ymin=0, ymax=8,
-        xmin=0, xmax=8,
-        ytick={0,2,...,8},
-        xtick={0,2,...,8},
-        minor y tick num=1,
+        xlabel = {Time (hours)},
+        ylabel = {Distance (miles)},
+        ymin=0, ymax=100,
+        xmin=0, xmax=5,
+        ytick={0,10,...,100},
+        xtick={0,1,...,5},
         minor x tick num=1,
         grid=both,
         ]
-        \addplot[very thick,domain=0:8] {7 -6/8*x};
-        \end{axis}
-    \end{tikzpicture}
-\end{center}
-
-\item A particle's motion is depicted in the following graph. Calculate the particle's displacement across the entire time interval.
-
-\begin{center}
-\begin{tikzpicture}
-    \begin{axis}[width=6cm,height=5cm,
-        axis lines=left,
-        xlabel = {Time (s)},
-        ylabel = {Velocity (m/s)},
-        ymin=0, ymax=8,
-        xmin=0, xmax=8,
-        ytick={0,2,...,8},
-        xtick={0,2,...,8},
-        grid=both,
-        minor x tick num = 1,
-        minor y tick num = 1,
-    ]
-        \addplot[very thick,black,domain=0:8] {6};
-        \end{axis}
+        \addplot[very thick,domain=0:5] {30*x};
+    \end{axis}
 \end{tikzpicture}
-\end{center}
 
-\clearpage
+\item Find the area of the rectangle.
+\medskip
+
+\begin{tikzpicture}[y=1mm*5,x=1mm*5]
+    \draw[thick,fill=black!10] (0,0) -- (5,0) node[below,pos=0.5] {5} -- (5,6) -- (0,6) -- cycle node[left,pos=0.5] {6};
+\end{tikzpicture}
+
+\item The speed graph below represents the motion of a car. How far does the car travel in\\ \underline{one and a half hours}?
+\medskip
+
+\begin{tikzpicture}[y=3.5cm,x=5cm]
+    \draw (0,0) node[below left=-1mm] {0} -- (0,1) node[rotate=90,pos=0.5,shift={(0,9mm)}] {speed (miles/hour)};
+    \draw (0,0.5) -- ++(-1mm,0) node[left] {70};
+    \draw (0,0) -- (1.1,0) node[below=5mm,pos=0.5] {time (hours)};
+    \draw (0.5,1mm) -- ++(0,-1mm) node[below] {1};
+    \draw[very thick] (0,0.5) -- (1,0.5);
+    \draw (0.25,1mm) -- ++(0,-1mm) node[below] {$\frac{1}{2}$};
+    \draw (0.75,1mm) -- ++(0,-1mm) node[below] {$1.5$};
+    \draw (1,1mm) -- ++(0,-1mm) node[below] {$2$};
+    % \ifprintanswers
+    %     \begin{pgfonlayer}{background}
+    %         \fill[red!20] (0,0) rectangle (0.75,0.5);
+    %         \draw[line width=0.4mm,{Triangle}-] (0.38,0.3) -- ++(0,0.3) node[above,shift={(9mm,0)}] {Area = 105 miles};
+    %     \end{pgfonlayer}
+    % \fi
+\end{tikzpicture}
+
+
+
 
 \end{enumerate}
 
@@ -478,6 +418,66 @@ At Cypress Springs High School, we aim to provide students with foundational kno
 
 \section{Acceleration}
 
+\subsection*{Unit 2 Learning Goals}
+
+\begin{enumerate}[itemsep=0pt,topsep=-3pt]
+\item \textbf{Indicate} whether or not an object is accelerating, and \textbf{calculate} acceleration, given a data table of velocity and time.
+\item \textbf{Indicate} whether or not an object is accelerating given a data table of position and time.
+\item \textbf{Indicate} whether an object is speeding up or slowing down from a motion map.
+\item \textbf{Identify} whether or not an object is accelerating from a velocity vs.\,time graph.
+\item \textbf{Identify} whether or not an object is accelerating from a position vs.\,time graph.
+\item \textbf{Identify} the direction of acceleration from a velocity vs.\,time graph.
+\item \textbf{Identify} the sign (positive or negative) of the slope of a point in a position vs.\,time graph, and associate it with the direction of the object's velocity.
+\item \textbf{Estimate} changes (increasing or decreasing) in slope across time in a position vs.\,time to \textbf{determine}  whether an object is speeding up or slowing down.
+\item \textbf{Estimate} changes (increasing or decreasing) in slope across time in a position vs.\,time to \textbf{determine} the direction (sign) of acceleration.
+\item \textbf{Pair} position vs.\,time and velocity vs.\,time graphs of a common object undergoing acceleration.
+\item \textbf{Calculate} change in velocity given a particle's initial and final velocities.
+\item \textbf{Calculate} average acceleration given a particle's initial and final velocities and the time of travel.
+\item \textbf{Calculate} average acceleration by finding the slope in a velocity vs.\,time graph.
+\item \textbf{Calculate} distance traveled in successive time intervals using Galileo's law of odd numbers.
+\item \textbf{Calculate} the area of a triangle.
+\item \textbf{Shade} the region between a curve and the $x$-axis over a given interval.
+\item \textbf{Calculate} displacement of an accelerating object by finding the triangular area bounded by a line in a velocity vs.\,time graph.
+\item \textbf{Calculate} change in velocity ($\Delta v$) on an acceleration vs.\,time graph by finding the rectangular area bounded by the line.
+\item \textbf{Calculate} distance traveled in successive time intervals, given the distance traveled in any one time interval, using Galileo's law of odd numbers.
+
+\begin{center}
+\begin{tikzpicture}[x=2cm,y=2cm]
+    \draw[->] (0,0) -- (0,1.2) node[left,pos=0.5] {$v$};
+    \draw[->] (0,0) -- (1.2,0) node[below,pos=0.5] {$t$};
+    \draw[thick] (0,0) -- ($(0,0)!1.1!(1,0.8)$);
+    \fill (0.4,0.32) circle (0.03);
+    \fill (0.9,0.72) circle (0.03);
+    \draw (0.4,0.32) -- (0.4,0.72) node[pos=0.5,left] {$\Delta v$} -- (0.9,0.72) node[above,pos=0.5] {$\Delta t$};
+    \node[overlay] at (1.1,0.4) {$\displaystyle \bar{a} = \frac{\Delta v}{\Delta x}$};
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[x=2cm,y=2cm]
+    \fill[black!10] (0,0) -- (0.8,0) -- ($(0,0)!0.8!(1,0.8)$) -- cycle;
+    \draw[->] (0,0) -- (0,1) node[left,pos=0.5] {$v$};
+    \draw[->] (0,0) -- (1,0) node[below,pos=0.5] {$t$};
+    \draw[thick] (0,0) -- ($(0,0)!0.8!(1,0.8)$);
+    \node at (0.57,0.2) {$\Delta x$};
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[x=2cm,y=2cm]
+    \fill[black!10] (0,0.5) -- (1,0.5) -- (1,0) -- (0,0) -- cycle;
+    \node at (0.5,0.25) {$\Delta v$};
+    \draw[->] (0,0) -- (0,1) node[left,pos=0.8] {$a$};
+    \draw[->] (0,0) -- (1.2,0) node[below,pos=0.5] {$t$};
+    \draw[thick] (0,0.5) -- (1,0.5);
+\end{tikzpicture}
+\end{center}
+
+
+\end{enumerate}
+
+\clearpage
+
 \subsection*{Vocabulary}
 
 \begin{itemize}[itemsep=0pt,topsep=-3pt]
@@ -553,65 +553,7 @@ At Cypress Springs High School, we aim to provide students with foundational kno
 
 \clearpage
 
-\subsection*{Unit 2 Learning Goals}
 
-\begin{enumerate}[itemsep=0pt,topsep=-3pt]
-\item \textbf{Indicate} whether or not an object is accelerating, and \textbf{calculate} acceleration, given a data table of velocity and time.
-\item \textbf{Indicate} whether or not an object is accelerating given a data table of position and time.
-\item \textbf{Indicate} whether an object is speeding up or slowing down from a motion map.
-\item \textbf{Identify} whether or not an object is accelerating from a velocity vs.\,time graph.
-\item \textbf{Identify} whether or not an object is accelerating from a position vs.\,time graph.
-\item \textbf{Identify} the direction of acceleration from a velocity vs.\,time graph.
-\item \textbf{Identify} the sign (positive or negative) of the slope of a point in a position vs.\,time graph, and associate it with the direction of the object's velocity.
-\item \textbf{Estimate} changes (increasing or decreasing) in slope across time in a position vs.\,time to \textbf{determine}  whether an object is speeding up or slowing down.
-\item \textbf{Estimate} changes (increasing or decreasing) in slope across time in a position vs.\,time to \textbf{determine} the direction (sign) of acceleration.
-\item \textbf{Pair} position vs.\,time and velocity vs.\,time graphs of a common object undergoing acceleration.
-\item \textbf{Calculate} change in velocity given a particle's initial and final velocities.
-\item \textbf{Calculate} average acceleration given a particle's initial and final velocities and the time of travel.
-\item \textbf{Calculate} average acceleration by finding the slope in a velocity vs.\,time graph.
-\item \textbf{Calculate} distance traveled in successive time intervals using Galileo's law of odd numbers.
-\item \textbf{Calculate} the area of a triangle.
-\item \textbf{Shade} the region between a curve and the $x$-axis over a given interval.
-\item \textbf{Calculate} displacement of an accelerating object by finding the triangular area bounded by a line in a velocity vs.\,time graph.
-\item \textbf{Calculate} change in velocity ($\Delta v$) on an acceleration vs.\,time graph by finding the rectangular area bounded by the line.
-\item \textbf{Calculate} distance traveled in successive time intervals, given the distance traveled in any one time interval, using Galileo's law of odd numbers.
-
-\begin{center}
-\begin{tikzpicture}[x=2cm,y=2cm]
-    \draw[->] (0,0) -- (0,1.2) node[left,pos=0.5] {$v$};
-    \draw[->] (0,0) -- (1.2,0) node[below,pos=0.5] {$t$};
-    \draw[thick] (0,0) -- ($(0,0)!1.1!(1,0.8)$);
-    \fill (0.4,0.32) circle (0.03);
-    \fill (0.9,0.72) circle (0.03);
-    \draw (0.4,0.32) -- (0.4,0.72) node[pos=0.5,left] {$\Delta v$} -- (0.9,0.72) node[above,pos=0.5] {$\Delta t$};
-    \node[overlay] at (1.1,0.4) {$\displaystyle \bar{a} = \frac{\Delta v}{\Delta x}$};
-\end{tikzpicture}
-\end{center}
-
-\begin{center}
-\begin{tikzpicture}[x=2cm,y=2cm]
-    \fill[black!10] (0,0) -- (0.8,0) -- ($(0,0)!0.8!(1,0.8)$) -- cycle;
-    \draw[->] (0,0) -- (0,1) node[left,pos=0.5] {$v$};
-    \draw[->] (0,0) -- (1,0) node[below,pos=0.5] {$t$};
-    \draw[thick] (0,0) -- ($(0,0)!0.8!(1,0.8)$);
-    \node at (0.57,0.2) {$\Delta x$};
-\end{tikzpicture}
-\end{center}
-
-\begin{center}
-\begin{tikzpicture}[x=2cm,y=2cm]
-    \fill[black!10] (0,0.5) -- (1,0.5) -- (1,0) -- (0,0) -- cycle;
-    \node at (0.5,0.25) {$\Delta v$};
-    \draw[->] (0,0) -- (0,1) node[left,pos=0.8] {$a$};
-    \draw[->] (0,0) -- (1.2,0) node[below,pos=0.5] {$t$};
-    \draw[thick] (0,0.5) -- (1,0.5);
-\end{tikzpicture}
-\end{center}
-
-
-\end{enumerate}
-
-\clearpage
 
 \subsection*{Fundamental Principles}
 
@@ -1990,3 +1932,164 @@ Two objects undergo an elastic collision. The momentum of one object as a functi
 
 
 \end{document}
+
+% \item Charlie moves from point A to point B. Find the distance traveled and the displacement.
+
+% \begin{center}
+%     \begin{tikzpicture}[y=1cm,x=1cm]
+%         \foreach \x in {-5,-4,...,5} {
+%             \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+%         }
+%         \draw[->] (-5,0) -- (5,0) node[below=7mm,pos=0.5] {Position (m)};
+%         \fill (3,0) circle (0.1) node[above=1mm] {A};
+%         \fill (-4,0) circle (0.1) node[above=1mm] {B};
+%     \end{tikzpicture}
+% \end{center}
+
+% \item Dana moves from point A to point B in 10 seconds. Find the average speed and the average velocity.
+
+% \begin{center}
+% \begin{tikzpicture}[y=3mm,x=3mm]
+%     \foreach \x in {-20,-15,...,20} {
+%         \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+%     }
+%     \draw[->] (-20,0) -- (20,0) node[below=7mm,pos=0.5] {Position (m)};
+%     \fill (10,0) circle (1mm) node[above=1mm] {A};
+%     \fill (-20,0) circle (1mm) node[above=1mm] {B};
+% \end{tikzpicture}
+% \end{center}
+
+% \item A particle starts at the origin and undergoes the five displacements shown in Figure 1. Using Figure 2, add the five displacement vectors graphically (use the head-to-tail method). Then, algebraically calculate the net displacement. The side of each grid square represents 1 meter.
+
+% \begin{center}
+% %...PRO TIP: Use a random number generator to generate random vectors between -10 and 10
+% \begin{tikzpicture}[x=5mm,y=5mm]
+%     \draw[step=1,lightgray] (-5,0) grid (5,4);
+%     \draw[->,line width=0.6mm,-{Triangle}] (5,4) -- ++(-9,0) node[left] {$\Delta x_5$};
+%     \draw[->,line width=0.6mm,-{Triangle}] (-3,3) -- ++(5,0) node[right] {$\Delta x_4$};
+%     \draw[->,line width=0.6mm,-{Triangle}] (-3,2) -- ++(8,0) node[right] {$\Delta x_3$};
+%     \draw[->,line width=0.6mm,-{Triangle}] (-4,1) -- ++(6,0) node[right] {$\Delta x_2$};
+%     \draw[->,line width=0.6mm,-{Triangle}] (4,0) -- ++(-6,0) node[left] {$\Delta x_1$};
+%     \node[below] at (current bounding box.south) {Figure 1};
+% \end{tikzpicture}
+% \hspace{5mm}
+% \begin{tikzpicture}[x=5mm,y=5mm]
+%     \draw[step=1,lightgray] (-13,0) grid (13,4);
+%     \draw (0,0) node {\scriptsize $|$} node[below=2pt] {$0$};
+%     \begin{scope}[red,opacity=0]
+%         \draw[->,line width=0.6mm,-{Triangle}] (13,4) -- ++(-9,0) node[left] {$\Delta x_5$};
+%         \draw[->,line width=0.6mm,-{Triangle}] (8,3) -- ++(5,0) node[right] {$\Delta x_4$};
+%         \draw[->,line width=0.6mm,-{Triangle}] (0,2) -- ++(8,0) node[right] {$\Delta x_3$};
+%         \draw[->,line width=0.6mm,-{Triangle}] (-6,1) -- ++(6,0) node[right] {$\Delta x_2$};
+%         \draw[->,line width=0.6mm,-{Triangle}] (0,0) -- ++(-6,0) node[left] {$\Delta x_1$};
+%     \end{scope}
+%     \node[below] at (current bounding box.south) {Figure 2};
+% \end{tikzpicture}
+% \end{center}
+
+% \item A particle's position and velocity vectors are $\vec{x} = -\SI{56}{m}$ and $\vec{v} = \SI{10}{m/s}$, respectively. Is the particle moving toward or away from the origin?
+
+% \item Predict the last row of the data table below, assuming constant velocity.
+% \begin{center}
+%     \begin{tabular}{|c|c|}
+%         \hline
+%         \thead{Position (m)} & \thead{Time (s)} \\ \hline
+%         0 & 0 \\ \hline
+%         3 & 1 \\ \hline
+%         6 & 2 \\ \hline
+%         9 & 3 \\ \hline
+%           & 4 \\ \hline
+%     \end{tabular}
+% \end{center}
+
+% \item The side of each grid square in the figure below represents 1 meter. A particle travels at a constant  speed of \SI{2}{m/s} in the negative direction. Draw a motion map for the particle. Label the initial and final positions, and direction of velocity.
+
+% \begin{center}
+% \begin{tikzpicture}[x=5mm,y=5mm]
+%     \draw[step=1,black!25] (0,0) grid (26,2);
+% \end{tikzpicture}
+% \end{center}
+
+
+% \item Find the slope of the following line.
+
+% \begin{center}
+% \begin{tikzpicture}
+%     \begin{axis}[height=8cm,width=9cm,
+%         axis lines=center,
+%         ylabel={$y$},
+%         xlabel={$x$},
+%         ymin=-10,ymax=10,
+%         xmin=-10,xmax=10,
+%         ytick={-10,-8,...,10},
+%         xtick={-10,-8,...,10},
+%         grid=both, 
+%         minor y tick num=1,
+%         minor x tick num=1,
+%     ]
+%         % \addplot[thick,domain=-10:10] {x/3 + 2};
+%         \addplot[thick,domain=-10:10] {2*x + 1};
+%         % \addplot[thick,domain=-10:10] {-3*x - 2};
+%     \end{axis}
+% \end{tikzpicture}
+% \end{center}
+
+% \item Find the velocity of the particle whose motion is depicted in the graph below.
+
+% \begin{center}
+%     \begin{tikzpicture}
+%     \begin{axis}[width=6cm,height=5cm,
+%         axis lines=left,
+%         xlabel = {Time (s)},
+%         ylabel = {Position (m)},
+%         ymin=0, ymax=8,
+%         xmin=0, xmax=8,
+%         ytick={0,2,...,8},
+%         xtick={0,2,...,8},
+%         minor y tick num=1,
+%         minor x tick num=1,
+%         grid=both,
+%         ]
+%         \addplot[very thick,domain=0:8] {7 -6/8*x};
+%         \end{axis}
+%     \end{tikzpicture}
+% \end{center}
+
+% \item A particle's motion is depicted in the following graph. Calculate the particle's displacement across the entire time interval.
+
+% \begin{center}
+% \begin{tikzpicture}
+%     \begin{axis}[width=6cm,height=5cm,
+%         axis lines=left,
+%         xlabel = {Time (s)},
+%         ylabel = {Velocity (m/s)},
+%         ymin=0, ymax=8,
+%         xmin=0, xmax=8,
+%         ytick={0,2,...,8},
+%         xtick={0,2,...,8},
+%         grid=both,
+%         minor x tick num = 1,
+%         minor y tick num = 1,
+%     ]
+%         \addplot[very thick,black,domain=0:8] {6};
+%         \end{axis}
+% \end{tikzpicture}
+% \end{center}
+
+% \clearpage
+
+% Calculate the distance traveled in path C in the figure below.
+
+% \begin{center}
+% \begin{tikzpicture}[y=6mm,x=8mm]
+%     \draw[black!10,step=1] (0,0) grid (12,5);
+%     \foreach \x in {0,2,...,12} {
+%         \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=3mm] {$\x$};
+%     }
+%     \draw[->] (0,0) -- (12,0) node[below=7mm,pos=0.5] {Position (m)};
+%     \draw[->,thick] (0,4) -- ++(7,0) node[above,pos=0.5] {A};
+%     \draw[->,thick] (12,3) -- ++(-5,0) node[above,pos=0.5] {B} ;
+%     \draw[->,rounded corners=1pt,thick] (2,2) -- ++(8,0) node[above,pos=0.5] {C} -- ++(0,0.2) -- ++(-2,0) -- ++(0,0.2) -- ++(2,0);
+%     \draw[->,rounded corners=2pt,thick] (9,1) node[right] {D} -- ++(-6,0) -- ++(0,0.2) -- ++(2,0);
+% \end{tikzpicture}
+% \end{center}

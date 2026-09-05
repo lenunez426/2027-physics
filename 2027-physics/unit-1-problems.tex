@@ -5,13 +5,13 @@
 % \usepackage{makecell}
 \usepackage{fontawesome5}
 
-\newcommand{\ans}[1]{%
-  \ifprintanswers
-    \textcolor{red}{#1}%
-  \else
-    \textcolor{white}{#1}%
-  \fi
-}
+% \newcommand{\ans}[1]{%
+%   \ifprintanswers
+%     \textcolor{red}{#1}%
+%   \else
+%     \textcolor{white}{#1}%
+%   \fi
+% }
 
 % \setlength{\columnsep}{-5mm}
 
@@ -2305,13 +2305,16 @@ Predict the last row of the data table below, assuming constant velocity.
 \end{itemize}
 
 \begin{solutionorbox}[2cm]
-    
+
+\positionfigureI{3}
+
 \end{solutionorbox}
 
 
 \part Explain what $x$ and $\Delta x$ represent.
 
 \ifprintanswers
+\textcolor{red}{$x$ is position, the location of an object on the number line. $\Delta x$ is displacement, net the change in position between initial and final points.}
 \else
 \fillwithlines{21mm}
 \fi
@@ -2337,24 +2340,36 @@ Using the position-vs-time graphs below, sketch a graph for each of the followin
     \draw[->] (0,-1.2) -- (0,1.2) node[left,pos=0.9] {$x$};
     \draw (0,0) -- (1.2,0) node[left,pos=0] {\scriptsize 0} node[right] {$t$};
     \node[above] at (current bounding box.north) {Graph A};
+    \ifprintanswers
+        \draw[red,ultra thick] (0,-0.5) -- (1,-0.5);
+    \fi
 \end{tikzpicture}
 \hspace{5mm}
 \begin{tikzpicture}[y=1.2cm,x=1.8cm]
     \draw[->] (0,-1.2) -- (0,1.2) node[left,pos=0.9] {$x$};
     \draw (0,0) -- (1.2,0) node[left,pos=0] {\scriptsize 0} node[right] {$t$};
     \node[above] at (current bounding box.north) {Graph B};
+    \ifprintanswers
+        \draw[red,very thick] (0,1) -- (1,-1);
+    \fi
 \end{tikzpicture}
 \hspace{5mm}
 \begin{tikzpicture}[y=1.2cm,x=1.8cm]
     \draw[->] (0,-1.2) -- (0,1.2) node[left,pos=0.9] {$x$};
     \draw (0,0) -- (1.2,0) node[left,pos=0] {\scriptsize 0} node[right] {$t$};
     \node[above] at (current bounding box.north) {Graph C};
+    \ifprintanswers
+        \draw[red,very thick] (0,-1) -- (1,1);
+    \fi
 \end{tikzpicture}
 \hspace{5mm}
 \begin{tikzpicture}[y=1.2cm,x=1.8cm]
     \draw[->] (0,-1.2) -- (0,1.2) node[left,pos=0.9] {$x$};
     \draw (0,0) -- (1.2,0) node[left,pos=0] {\scriptsize 0} node[right] {$t$};
     \node[above] at (current bounding box.north) {Graph D};
+    \ifprintanswers
+        \draw[red,very thick] (0,1) -- (0.8,0) -- (1,1);
+    \fi
 \end{tikzpicture}
 \end{center}
 
@@ -2381,12 +2396,12 @@ Label 2 points below as $\left(x_1,y_1\right)$ and $\left(x_2,y_2\right)$, the c
         minor x tick num=1,
     ]
         \addplot[thick,domain=-10:10] {-2/3*x + 7/3};
-        \ifprintanswers
-            \fill (-4,5) circle (3pt);
-            \fill (2,1) circle (3pt);
-            \node[red,align=center,right=2mm] at (-4,5) {$(x_1,y_1)$\\[1ex]$(-4,5)$};
-            \node[red,align=center,above left=-2mm] at (2,1) {$(x_2,y_2)$\\[1ex]$(2,1)$};
-        \fi
+        % \ifprintanswers
+        %     \fill (-4,5) circle (3pt);
+        %     \fill (2,1) circle (3pt);
+        %     \node[red,align=center,right=2mm] at (-4,5) {$(x_1,y_1)$\\[1ex]$(-4,5)$};
+        %     \node[red,align=center,above left=-2mm] at (2,1) {$(x_2,y_2)$\\[1ex]$(2,1)$};
+        % \fi
     \end{axis}
 \end{tikzpicture}
 \end{minipage}%
@@ -2435,6 +2450,12 @@ Calculate the magnitude and direction of the vector sum of the vectors shown bel
     \draw[->,line width=0.6mm,-{Triangle}] (2,0) -- ++(2,0);
 \end{tikzpicture}
 % \end{center}
+
+\begin{solution}
+\begin{equation*}
+    \text{vector sum} = 2 + (-1) + 3 + (-5) + 3 = \boxed{2}
+\end{equation*}
+\end{solution}
 
 \question
 A group of students is working on the Dune Buggy lab when a clumsy teacher accidentally spills coffee on their data table. 
@@ -2802,95 +2823,76 @@ The velocity of the object is \fillin[][4em]. It moves at a speed of \fillin[][4
 \begin{multicols}{2}
 
 \question \label{Zo6wp}
-\textit{Rank.}\quad \fillin[][4cm]
+\textit{Rank.}\quad \fillin[C, B, A][4cm]
 
-\textit{Directions.} A: \fillin[][2em]\quad 
-B: \fillin[][2em]\quad
-C: \fillin[][2em]
+\textit{Directions.} A: \fillin[$\rightarrow$][2em]\quad 
+B: \fillin[$\rightarrow$][2em]\quad
+C: \fillin[$\rightarrow$][2em]
 \smallskip
 
 \positiongraphIII{3}{0}{2}{0}{1}{0}
 
-\ifprintanswers
-\textcolor{red}{C, B, A}
-\fi
 
 \question
-\textit{Rank.}\quad \fillin[][4cm]
+\textit{Rank.}\quad \fillin[B, C, A][4cm]
 
-\textit{Directions.} A: \fillin[][2em]\quad 
-B: \fillin[][2em]\quad
-C: \fillin[][2em]
+\textit{Directions.} A: \fillin[$\rightarrow$][2em]\quad 
+B: \fillin[$\leftarrow$][2em]\quad
+C: \fillin[$\rightarrow$][2em]
 \smallskip
 
 \positiongraphIII{3/2}{2}{-2/3}{8}{1}{0}
 
-\ifprintanswers
-\textcolor{red}{B, C, A}
-\columnbreak
-\fi
 
 
 \question
-\textit{Rank.}\quad \fillin[][4cm]
+\textit{Rank.}\quad \fillin[C, A, B][4cm]
 
-\textit{Directions.} A: \fillin[][2em]\quad 
-B: \fillin[][2em]\quad
-C: \fillin[][2em]
+\textit{Directions.} A: \fillin[$\leftarrow$][2em]\quad 
+B: \fillin[$\leftarrow$][2em]\quad
+C: \fillin[$\leftarrow$][2em]
 \smallskip
 
 \positiongraphIII{-3/2}{9}{-2}{9}{-4/3}{9}
 
-\ifprintanswers
-\textcolor{red}{C, A, B}
-\fi
 
 \vspace*{\fill}
 \columnbreak
 
 
 \question
-\textit{Rank.}\quad \fillin[][4cm]
+\textit{Rank.}\quad \fillin[C, A, B][4cm]
 
-\textit{Directions.} A: \fillin[][2em]\quad 
-B: \fillin[][2em]\quad
-C: \fillin[][2em]
+\textit{Directions.} A: \fillin[$\rightarrow$][2em]\quad 
+B: \fillin[$\rightarrow$][2em]\quad
+C: \fillin[$\rightarrow$][2em]
 \smallskip
 
 \positiongraphIII{1}{0}{1.5}{2}{0.5}{4}
 
-\ifprintanswers
-\textcolor{red}{C, A, B}
-\columnbreak
-\fi
 
 \question
-\textit{Rank.}\quad \fillin[][4cm]
+\textit{Rank.}\quad \fillin[C, B, A][4cm]
 
-\textit{Directions.} A: \fillin[][2em]\quad 
-B: \fillin[][2em]\quad
-C: \fillin[][2em]
+\textit{Directions.} A: \fillin[$\leftarrow$][2em]\quad 
+B: \fillin[$\leftarrow$][2em]\quad
+C: \fillin[$\leftarrow$][2em]
 \smallskip
 
 \positiongraphIII{-2}{10}{-1}{8}{-0.5}{6}
 
-\ifprintanswers
-\textcolor{red}{C, B, A}
-\fi
 
 \question \label{Wi6U8}
-\textit{Rank.}\quad \fillin[][4cm]
+\textit{Rank.}\quad \fillin[A, B, C][4cm]
 
-\textit{Directions.} A: \fillin[][2em]\quad 
-B: \fillin[][2em]\quad
-C: \fillin[][2em]
+\textit{Directions.} A: \fillin[$\rightarrow$][2em]\quad 
+B: \fillin[$\rightarrow$][2em]\quad
+C: \fillin[$\rightarrow$][2em]
 \smallskip
 
 \positiongraphIII{0.5}{0}{1}{1}{2}{2}
 
-\ifprintanswers
-\textcolor{red}{A, B, C}
-\fi
+
 
 
 \end{multicols}

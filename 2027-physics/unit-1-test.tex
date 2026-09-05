@@ -1,4 +1,4 @@
-\documentclass[]{exam}
+\documentclass[answers]{exam}
 \input{global}
 \input{problem-sets}
 
@@ -457,73 +457,80 @@ Which object is moving with the greatest speed?
 \ifprintanswers \else \clearpage \fi
 
 \question
-Calculate the total displacement of the object in the graph below.
+A person starts at the origin.
+
+\begin{center}
+\begin{tikzpicture}[y=1cm,x=1cm]
+    \foreach \x in {-5,-4,...,5} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {$\x$};
+    }
+    \draw[->] (-5,0) -- (5,0) node[below=6mm,pos=0.5] {Position (m)};
+    \node[above] at (0,0) {\Strichmaxerl[2]};
+    % \ifprintanswers
+    %     \draw[very thick,->,red] (0,0.7) -- ++(#1,0) node[above,pos=0.5] {$\vec{x}$};
+    % \fi
+\end{tikzpicture}  
+\end{center}
+
+Then, they travel in one dimension with the motion shown in the graph below.
 
 \begin{center}
 \begin{tikzpicture}
-\begin{axis}[width=8cm,height=6cm,
-    axis y line=left, 
-    axis x line=center,
-    every axis x label/.style={at={(current axis.right of origin)},anchor=west},
-    xlabel = Time (s),
-    ylabel = Velocity (m/s),
-    ymin=-5, ymax=5,
-    xmin=0, xmax=10,
-    ytick={-5,-4,...,5},
-    xtick={0,1,...,10},
-    ymajorgrids=true,
-    xmajorgrids=true,
-]
-    \addplot[color=black, very thick,
-        ]
-        coordinates {
-        (0,-4)(3,-4)(3,3)(10,3)
-        };
+    \begin{axis}[width=8cm,height=6cm,
+        axis y line=left, 
+        axis x line=center,
+        every axis x label/.style={at={(current axis.right of origin)},anchor=west},
+        xlabel = Time (s),
+        ylabel = Velocity (m/s),
+        ymin=-5, ymax=5,
+        xmin=0, xmax=10,
+        ytick={-5,-4,...,5},
+        xtick={0,1,...,10},
+        ymajorgrids=true,
+        xmajorgrids=true,
+    ]
+    \draw[ultra thick] (0,-4) -- (5,-4);
     \ifprintanswers
     \begin{pgfonlayer}{background}
-        \fill[color=red!12] (0,-4) rectangle (3,0) node[black,pos=0.5] {$A_1$};
-        \fill[color=red!12] (3,0) rectangle (10,3) node[black,pos=0.5] {$A_2$};
-        \addplot[color=black, very thick,
-            ]
-            coordinates {
-            (0,-4)(3,-4)(3,3)(10,3)
-            };
+        \fill[color=red!12] (0,-4) rectangle (5,0) node[black,pos=0.5] {$\Delta x$};
     \end{pgfonlayer}
     \fi
 \end{axis}
 \end{tikzpicture}
 \end{center}
 
+What is their displacement from the origin?
+
 \begin{randomizechoices}
-    \correctchoice $+\SI{9}{m}$
-    \choice $-\SI{12}{m}$
-    \choice $-\SI{1}{m}$
-    \choice $+\SI{33}{m}$
+    \correctchoice 20 meters to the left of the origin
+    \choice 20 meters to the right of the origin
+    \choice 4 meters to the left of the origin
+    \choice 4 meters to the right of the origin
 \end{randomizechoices}
 
-\begin{solution}
-The equation $\Delta x = \bar{v}t$ implies that displacement is the area bounded by the line.
+% \begin{solution}
+% The equation $\Delta x = \bar{v}t$ implies that displacement is the area bounded by the line.
 
-The first bounded area $A_1$ is
+% The first bounded area $A_1$ is
 
-\begin{equation*}
-    \Delta x_1 = (\SI{-4}{m/s})(\SI{3}{s}) = \SI{-12}{m}
-\end{equation*}
+% \begin{equation*}
+%     \Delta x_1 = (\SI{-4}{m/s})(\SI{3}{s}) = \SI{-12}{m}
+% \end{equation*}
 
-Note that the ball moves in the negative direction in the first 3 seconds.
+% Note that the ball moves in the negative direction in the first 3 seconds.
 
-The second displacement is
+% The second displacement is
 
-\begin{equation*}
-    \Delta x_2 = (+\SI{3}{m/s})(\SI{7}{s}) = \SI{21}{m}
-\end{equation*}
+% \begin{equation*}
+%     \Delta x_2 = (+\SI{3}{m/s})(\SI{7}{s}) = \SI{21}{m}
+% \end{equation*}
 
-The total displacement is the sum of these ``areas,'' or
+% The total displacement is the sum of these ``areas,'' or
 
-\begin{equation*}
-    \Delta x_\mathrm{tot} = \Delta x_1 + \Delta x_2 = \SI{-12}{m} + \SI{21}{m} = \boxed{\SI{9}{m}}
-\end{equation*}
-\end{solution}
+% \begin{equation*}
+%     \Delta x_\mathrm{tot} = \Delta x_1 + \Delta x_2 = \SI{-12}{m} + \SI{21}{m} = \boxed{\SI{9}{m}}
+% \end{equation*}
+% \end{solution}
 
 \question
 Which of the following graphs shows an object at rest?

@@ -1,28 +1,202 @@
-\documentclass[]{exam}
+\documentclass[answers]{exam}
 \input{global}
 \input{problem-sets}
 \input{2027-physics/commands}
 
-\firstpageheader{{Name:\enspace\makebox[6cm]{\hrulefill}}\\Physics}{}{Problems\\Unit 2: Acceleration}
-\runningheader{Physics}{}{Problems on Unit 2: Acceleration}
+\firstpageheader{{Name:\enspace\makebox[6cm]{\hrulefill}}\\Physics}{}{Problems\\Unit 2: Changing Motion}
+\runningheader{Physics}{}{Problems on Unit 2: Changing Motion}
 
 \setlength{\columnseprule}{0pt}
 
 \usepackage{adjustbox}
 \usepackage{xfp}
 
-\usepackage[explicit]{titlesec}
-\renewcommand{\thesubsection}{\arabic{subsection}}
-\titleformat{\subsection}
-  {\normalfont\large\bfseries} % The font styling (bold, large)
-  {}                           % Leave the standard label empty
-  {0pt}                        % Spacing between label and title
-  {#1 \thesubsection}
+% \usepackage[explicit]{titlesec}
+% \renewcommand{\thesubsection}{\arabic{subsection}}
+% \titleformat{\subsection}
+%   {\normalfont\large\bfseries} % The font styling (bold, large)
+%   {}                           % Leave the standard label empty
+%   {0pt}                        % Spacing between label and title
+%   {#1 \thesubsection}
 
 
 \begin{document}
 
-\subsection{Practice}
+\subsection*{Lab: Galileo's Ramp Experiment}
+
+\noindent \textit{Materials:} 
+\vspace{1ex}
+
+track, steel ball, metronome, tape strips, meterstick
+
+\begin{center}
+\begin{tikzpicture}[x=8cm]
+    \begin{scope}[rotate=-5]
+        \draw[fill=lightgray] (0,-0.1) rectangle (1,0.1);
+        \fill (0.01,0.3) circle (5pt);
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\noindent \textit{Procedure:}
+
+\begin{enumerate}[itemsep=0pt,topsep=2pt]
+\item Incline the track so that the origin (\SI{0}{cm}) is at a greater vertical position than the track's end (\SI{120}{cm}).
+\item The teacher sets a metronome at 60\,BPM, yielding 1 beat per second.
+\item Release the ball from rest at 0\,cm, exactly on the sound of a beat. Call this ``Beat 0.''
+\item For each subsequent beat, place a tape strip on the track, at the ball’s location for that beat. Once the ball's positions are all marked, \textbf{call your teacher} to inspect your tape strips.
+\item After teacher approval, sketch a prediction of what the the ball's position $x$ and velocity $v$ could look like as a functions of time $t$, based on the distribution of tape across the track.
+
+\begin{center}
+\begin{tikzpicture}[x=3cm,y=3cm]
+    \draw[->] (0,0) -- (0,1.2) node[left,pos=0.9] {\large $x$};
+    \draw[->] (0,0) -- (1.2,0) node[right] {\large $t$};
+    \ifprintanswers
+        \draw[ultra thick,smooth,domain=0:1,red] plot(\x,\x*\x);
+    \fi
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[x=3cm,y=3cm]
+    \draw[->] (0,0) -- (0,1.2) node[left,pos=0.9] {\large $v$};
+    \draw[->] (0,0) -- (1.2,0) node[right] {\large $t$};
+    \ifprintanswers
+        \draw[ultra thick,smooth,domain=0:1,red] plot(\x,\x);
+    \fi
+\end{tikzpicture}
+\end{center}
+
+\item Record tape positions in the table below. Then, graph your data. (Remember, each metronome beat represents 1 second of time.)
+
+\begin{center}
+\begin{minipage}{4cm}
+\centering
+\def\arraystretch{1.8}
+\begin{tabular}{|w{c}{1.5cm}|w{c}{1.5cm}|}
+    \hline
+    \thead{\bfseries Time\\ \bfseries (s)} & \thead{\bfseries Position\\ \bfseries (cm)} \\ \hline
+    0 & 0 \\ \hline 
+    1 & \ans{5} \\ \hline 
+    2 & \ans{19} \\ \hline 
+    3 & \ans{41} \\ \hline 
+    4 & \ans{72} \\ \hline 
+    5 & \ans{118} \\ \hline 
+\end{tabular}
+\vspace{5mm}
+\end{minipage}%
+\hspace{5mm}
+\begin{minipage}{10.5cm}
+\centering
+\begin{tikzpicture}
+    \begin{axis}[height=8cm,width=9cm,
+        ylabel={Position (cm)},
+        xlabel={Time (s)},
+        ymin=0,ymax=120,
+        xmin=0,xmax=5,
+        ytick={0,20,...,120},
+        xtick={0,1,...,5},
+        axis lines=left,
+        grid=both,
+        minor y tick num=1,
+        minor x tick num=1,
+        clip=false
+    ]
+    \ifprintanswers
+    \addplot[mark=*,only marks,red] coordinates{(0,0)(1,5)(2,19)(3,41)(4,72)(5,118)};
+    \fi
+    \end{axis}
+\end{tikzpicture}
+\end{minipage}
+\end{center}
+
+\clearpage
+
+\item Use a meterstick to measure displacements $\left(\Delta x\right)$ between adjacent tape strips, from left to right. Record your data below. In column 3, calculate the ratio of subsequent displacements to the first one.
+\end{enumerate}
+
+
+
+\vspace{-1.5em}
+
+\begin{EnvUplevel}
+\def\arraystretch{1.8}
+\begin{center}
+\begin{tabular}{|w{c}{3cm}|w{l}{5cm}|w{l}{4cm}|}
+    \hline
+    \thead{\bfseries Time Interval} & \thead{\bfseries Interval Displacement (cm)} & \thead{\bfseries Ratio $\Delta x_n/\Delta x_1$} \\ \hline
+    Beat 0 to 1 & $\Delta x_1 =$ \ans{5} & $\Delta x_1 \div \Delta x_1 = 1.0$ \\[1ex] \hline 
+    Beat 1 to 2 & $\Delta x_2 =$ \ans{14} & $\Delta x_2 \div \Delta x_1 = \ans{2.8}$ \\[1ex] \hline 
+    Beat 2 to 3 & $\Delta x_3 =$ \ans{22} & $\Delta x_3 \div \Delta x_1 = \ans{4.4}$ \\[1ex] \hline 
+    Beat 3 to 4 & $\Delta x_4 =$ \ans{31} & $\Delta x_4 \div \Delta x_1 = \ans{6.2}$ \\[1ex] \hline 
+    Beat 4 to 5 & $\Delta x_5 =$ \ans{46} & $\Delta x_5 \div \Delta x_1 = \ans{9.2}$ \\[1ex] \hline 
+\end{tabular}
+\end{center}
+\end{EnvUplevel}
+
+\noindent \textit{Analysis:}
+
+\begin{questions}
+\question
+In \textit{Procedure} step 6, is the position changing at a constant rate? What does this indicate about velocity?
+
+\ifprintanswers
+\textcolor{red}{No. While position is increasing, the gaps between each position are increasing with time. This means velocity is increasing with time.}
+\else
+\fillwithlines{21mm}
+\fi
+
+\question 
+Acceleration is the rate at which velocity changes with time. Is the steel ball accelerating? How do you know?
+
+\ifprintanswers
+\textcolor{red}{We know the velocity is changing with time because we observed it go from rest to moving at a faster speed towards the end of the track.}
+\else
+\fillwithlines{21mm}
+\fi
+
+
+\question 
+Describe the shape of the position-vs-time graph. Is it linear, like with the Dune Buggy from Unit 1?
+
+\ifprintanswers
+\textcolor{red}{The shape of the graph is curved, like a parabola. It's not linear like the Dune Buggy lab, but quadratic.}
+\else
+\fillwithlines{21mm}
+\fi
+
+\question
+Notice the patterns in \textit{Procedure} step 7. Use those trends to complete the sentences below. 
+
+\begin{itemize}[itemsep=2pt]
+    \item The interval displacements \fillin[are increasing][8cm]\ as the beats of time increase from 0 to 5.
+    \item The ratios of displacements $\left(\Delta x_n/\Delta x_1\right)$ \fillin[are also increasing][7cm] with time.
+    \item These observations indicate that velocity \fillin[is increasing with time][8cm].
+\end{itemize}
+
+\question
+\begin{parts}
+\part In what ways are the motion of the Steel Ball different than the motion of the Dune Buggy?
+
+\ifprintanswers
+\textcolor{red}{The Steel Ball started from rest and increased in velocity throughout the track. The Dune Buggy started with and maintained constant velocity throughout its motion. Also, the ball's position-vs-time graph is curved (quadratic), whereas the Dune Buggy's graph is linear.}
+\else
+\fillwithlines{14mm}
+\fi
+
+\part In what ways are the motions similar?
+
+
+\ifprintanswers
+\textcolor{red}{Both objects changed position over time, as they moved across the track. Both objects moved in the positive direction. Both objects were subject to measurements of time.}
+\else
+\fillwithlines{14mm}
+\fi
+\end{parts}
+\end{questions}
+
+
+\clearpage
+
+\subsection*{Practice}
 
 \textbf{Questions \ref{gqigC}--\ref{U8WJ1}.} Determine whether or not the object in the table is accelerating. Then calculate the acceleration.
 
@@ -62,7 +236,7 @@
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{Practice}
 
 \textbf{Questions \ref{bkoxL}--\ref{SGatV}.} Identify whether or not the object in the table is accelerating, and state whether the acceleration is positive, negative, or zero.
 
@@ -96,7 +270,7 @@
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{Practice}
 
 \begin{questions}
 \question
@@ -183,7 +357,7 @@ The object below moves with negative velocity.
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{Practice}
 
 \textbf{Questions.} Determine whether or not the following graph represents accelerating motion.
 
@@ -226,7 +400,7 @@ The object below moves with negative velocity.
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{Practice}
 
 \textbf{Questions \ref{H2UaC}--\ref{IMwAV}.} Indicate whether or not the following objects are accelerating based on the position vs.\,time graph. Justify your answer.
 
@@ -269,7 +443,7 @@ The object below moves with negative velocity.
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{Practice}
 
 
 \begin{questions}
@@ -299,7 +473,7 @@ What is the direction of acceleration for the object shown below?
 \clearpage
 
 
-\subsection{Practice}
+\subsection*{Practice}
 
 \textbf{Questions \ref{jpyYo}--\ref{OK5PY}.} For each of the following questions, at the specified point, (a) draw the tangent line to the curve at the given point, (b) state whether the object is on the right side or left side of the origin, and (c) determine the direction of the object's velocity at that point.
 
@@ -523,7 +697,7 @@ What is the direction of acceleration for the object shown below?
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{Practice}
 
 \textbf{Questions \ref{z3gVy}--\ref{aC3i2}.} Determine whether the object is speeding up or slowing down across the position curve. Justify your answer.
 
@@ -709,7 +883,7 @@ What is the direction of acceleration for the object shown below?
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{Practice}
 
 \textbf{Questions.} Determine the direction of the object's acceleration. Justify your answer.
 
@@ -853,7 +1027,7 @@ What is the direction of acceleration for the object shown below?
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{Practice}
 
 \textbf{Questions \ref{3VzZd}--\ref{NXcZ5}.} Each of the position graphs A--D corresponds to one of the velocity graphs E--H. Match each position graph to one of the corresponding velocity graphs.
 
@@ -970,7 +1144,7 @@ Sketch a position vs.\,time graph that matches the given velocity graph.
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{Practice}
 
 \begin{questions}
 \question
@@ -1021,7 +1195,7 @@ A particle starts at a speed of \SI{8}{m/s} in the negative $x$-direction. Some 
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{Practice}
 
 \begin{questions}
 \question 
@@ -1092,7 +1266,7 @@ An accelerating particle starts at a speed of \SI{6}{m/s} in the negative $x$ di
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{Practice}
 
 \begin{questions}
 \begin{multicols}{2}
@@ -1158,7 +1332,7 @@ Calculate the acceleration of the object.
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{Practice}
 
 \begin{center}
 \begin{tikzpicture}[y=5mm,x=6mm]
@@ -1234,7 +1408,7 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{Practice}
 
 \textbf{Questions \ref{J9AJz}--\ref{AaqNN}.} Calculate the area of the triangle.
 
@@ -1288,7 +1462,7 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{Practice}
 
 \textbf{Questions.} Shade the region between the curve and the $x$-axis over a given interval. Use one color for regions above the $x$-axis, and a different color for regions below.
 
@@ -1616,7 +1790,7 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{Practice}
 
 \textbf{Questions \ref{PFTW6}--\ref{Ajdle}.} For each of the velocity-time graphs below, calculate the object's net displacement across the entire time shown.
 
@@ -1669,7 +1843,7 @@ Find the displacement.
 
 \clearpage
 
-\subsection{Practice}
+\subsection*{Practice}
 
 \newcommand{\accelerationgraph}[2]{
 \begin{tikzpicture}
