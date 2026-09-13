@@ -3,13 +3,37 @@
 \input{problem-sets}
 \input{2027-physics/commands}
 
-\firstpageheader{{Name:\enspace\makebox[6cm]{\hrulefill}}\\Physics}{}{Problems\\Unit 2: Changing Motion}
+\firstpageheader{{Name:\enspace\makebox[6cm]{\hrulefill}}\\Physics}{}
+{Problems\\Unit 2: Changing Motion}
 \runningheader{Physics}{}{Problems on Unit 2: Changing Motion}
 
 \setlength{\columnseprule}{0pt}
 
 \usepackage{adjustbox}
 \usepackage{xfp}
+
+%...Speedometer
+\newcommand{\speedometer}[3]{%
+    % #1: X-shift (y is fixed at 2) (e.g., 1)
+    % #2: Needle rotation angle (e.g., 20)
+    % #3: Top label (e.g., \texttt{Speed})
+    % #4: Bottom readout (e.g., \textsf{32.0\,m/s})
+    \begin{scope}[shift={#1},x=1cm,y=1cm,scale=0.8,transform shape,overlay]
+        \draw (0,0) circle (1);
+        \foreach \x in {340,360,...,560} {
+            \coordinate (P) at ({cos(\x)},{sin(\x)});
+            \draw[ultra thick,gray] (P) -- ($(P)!0.16!(0,0)$);
+        }
+        \foreach \x in {350,370,...,550} {
+            \coordinate (P) at ({cos(\x)},{sin(\x)});
+            \draw[thick,gray] (P) -- ($(P)!0.08!(0,0)$);
+        }
+        \fill (0,0) circle (0.02);
+        \draw[fill=lightgray,rotate={#2},red!60] (0,0.02) rectangle (0.975,-0.02);
+        \node at (0,0.4) {\texttt{Speed}};
+        \draw[rounded corners] (-0.65,-0.75) rectangle ++(1.3,0.5) node[pos=0.5] {\textsf{#3\,m/s}};
+    \end{scope}
+}
 
 % \usepackage[explicit]{titlesec}
 % \renewcommand{\thesubsection}{\arabic{subsection}}
@@ -196,292 +220,1730 @@ Notice the patterns in \textit{Procedure} step 7. Use those trends to complete t
 
 \clearpage
 
-\subsection*{Practice}
+\noindent {\bfseries Part II: Ramp Experiment with Vernier}. 
 
-\textbf{Questions \ref{gqigC}--\ref{U8WJ1}.} Determine whether or not the object in the table is accelerating. Then calculate the acceleration.
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Step 1: Go to \href{https://graphicalanalysis.app/}{\texttt{graphicalanalysis.app}}. Click \textsf{Sensor Data Collection} and connect cart with \textsf{WIRELESS}. 
+    \item Step 2: Click 
+        \tikz{\draw[thick] (0,0) rectangle (2.4mm,2.4mm); 
+            \draw[thick] (1.2mm,2.4mm) -- ++(0,-2.4mm);
+            \draw[thick] (1.2mm,1.2mm) -- ++(1.2mm,0);
+            }
+        and set \textsf{Number of Graphs} to \textsf{3 graphs}.
+    \item Step 3: Click \tikz{\node at (0,0) {\large \bfseries \ldots};}, click \textsf{App Preferences}, and click 
+    \tikz[x=1mm,y=1mm]{\fill (0,0) circle (1);
+        \begin{scope}[x=1.15mm,y=1.15mm]
+            \foreach \x in {0,45,...,315}{
+            \draw[thick,rotate around={\x:({cos(\x)},{sin(\x)})}] ({cos(\x)},{sin(\x)}) -- ++(0.4,0);}
+        \end{scope}
+        ;} (toggle light mode).
+\end{itemize}
+
+\vspace{2pt}
 
 \begin{questions}
-\question \label{gqigC}
-\phantom{.}
+\question
+Click \textsf{COLLECT}. Release the cart from rest at 0\,cm.
 
+
+\begin{center}
+\begin{tikzpicture}[y=0.6mm,x=0.8mm,rotate=-8,transform shape]
+    \draw[fill=black!8] (0,-1mm) rectangle (120,1mm);
+    \foreach \x in {0,10,...,120} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {\scriptsize $\x$};
+    }
+    \foreach \x in {0,2,...,120} {
+        \draw[ultra thin] (\x,-0.5mm) -- (\x,0.5mm);
+    }
+    \draw[->] (0,0) -- (120,0) node[below=4mm,pos=0.5] {\small Position (cm)};
+    \node at (5,4.2mm) {\resizebox{1cm}{!}{\reflectbox{\usym{1F699}}}};
+    \draw[line width=1mm,-{Triangle[scale=0.7]}] (14,10) -- ++(10,0) node[below,pos=0.3] {\textsf{x}\footnotesize +};
+\end{tikzpicture} 
+\end{center}
+
+
+\begin{parts}
+\part Is the cart speeding up or slowing down? \fillin[speeding up][6cm]
+
+\part Draw a motion map for the cart. 
+\tikz[x=7mm,y=7mm]{
+    \draw (-1.6,-0.3) rectangle (12,0.3);
+    \node at (-1,0) {\SI{0}{cm}};
+    \node at (11.2,0) {\SI{120}{cm}};
+    \ifprintanswers
+    \draw[red,domain=0:10,mark=*,only marks, samples=10,mark size=2pt] plot({0.1*\x^2},0);
+    \else
+    \draw[white,domain=0:10,mark=*,only marks, samples=10,mark size=2pt] plot({0.1*\x^2},0);
+    \fi
+}
+
+
+\part Sketch the position vs.\,time, the velocity vs.\,time, and acceleration vs.\,time graphs.
+
+\begin{center}
+\begin{tikzpicture}[x=2.5cm,y=2.5cm]
+        \draw (0,-0.6) -- (0,0.6) node[rotate=90,pos=0.5,above] {Position (m)};
+        \draw (0,0) -- (1.2,0);
+        \node[below] at (0.6,-0.6) {Time (s)};
+    % \ifprintanswers
+    %     \draw[very thick,red,domain=0:1,smooth] plot(\x,\x^2);
+    % \fi
+    \begin{scope}[shift={(2,0)}]
+        \draw (0,-0.6) -- (0,0.6) node[rotate=90,pos=0.5,above] {Velocity (m/s)};
+        \draw (0,0) -- (1.2,0);
+        \node[below] at (0.6,-0.6) {Time (s)};
+        \ifprintanswers
+            \draw[very thick,red,domain=0:1,smooth] plot(\x,0.5*\x);
+        \fi
+    \end{scope}
+    \begin{scope}[shift={(4,0)}]
+        \draw (0,-0.6) -- (0,0.6) node[rotate=90,pos=0.5,above] {Acceleration (\SI{}{m/s^2})};
+        \draw (0,0) -- (1.2,0);
+        \node[below] at (0.6,-0.6) {Time (s)};
+        \ifprintanswers
+            \draw[very thick,red,domain=0:1,smooth] plot(\x,0.25);
+        \fi
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\part Is the velocity positive or negative? How do you know? 
+
+\begin{solution}
+    Positive. The object moves away from the origin.
+\end{solution}
+
+\ifprintanswers
+\else
+\fillwithlines{7mm}
+\fi
+
+
+% \fillin[positive; motion is away from the origin][6cm]
+\end{parts}
+
+\question
+Click \textsf{COLLECT}. Give the cart an initial push up the ramp and stop it at its highest point.
+
+
+\begin{center}
+\begin{tikzpicture}[y=0.6mm,x=0.8mm,rotate=8,transform shape]
+    \draw[fill=black!8] (0,-1mm) rectangle (120,1mm);
+    \foreach \x in {0,10,...,120} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {\scriptsize $\x$};
+    }
+    \foreach \x in {0,2,...,120} {
+        \draw[ultra thin] (\x,-0.5mm) -- (\x,0.5mm);
+    }
+    \draw[->] (0,0) -- (120,0) node[below=4mm,pos=0.5] {\small Position (cm)};
+    \node at (5,4.2mm) {\resizebox{1cm}{!}{\reflectbox{\usym{1F699}}}};
+    \draw[line width=1mm,-{Triangle[scale=0.7]}] (14,10) -- ++(10,0) node[below,pos=0.3] {\textsf{x}\footnotesize +};
+\end{tikzpicture} 
+\end{center}
+
+
+\begin{parts}
+\part Is the cart speeding up or slowing down? \fillin[slowing down][6cm]
+
+\part Draw a motion map for the cart.
+\tikz[x=7mm,y=7mm]{
+    \draw (2,-0.3) rectangle (-11.8,0.3);
+    \node at (1.1,0) {120\,cm};
+    \node at (-11,0) {0\,cm};
+    \ifprintanswers
+    \draw[red,domain=0:10,mark=*,only marks, samples=10,mark size=2pt] plot({-0.1*\x^2},0);
+    \else
+    \draw[white,domain=0:10,mark=*,only marks, samples=10,mark size=2pt] plot({-0.1*\x^2},0);
+    \fi
+}
+
+\part Draw the position vs.\,time, the velocity vs.\,time, and acceleration vs.\,time graphs.
+
+\begin{center}
+\begin{tikzpicture}[x=2.5cm,y=2.5cm]
+        \draw (0,-0.6) -- (0,0.6) node[rotate=90,pos=0.5,above] {Position (m)};
+        \draw (0,0) -- (1.2,0);
+        \node[below] at (0.6,-0.6) {Time (s)};
+    % \ifprintanswers
+    %     \draw[very thick,red,domain=0:1,smooth] plot(\x,{-(\x-1)^2+1});
+    % \fi
+\begin{scope}[shift={(2,0)}]
+    \draw (0,-0.6) -- (0,0.6) node[rotate=90,pos=0.5,above] {Velocity (m/s)};
+    \draw (0,0) -- (1.2,0);
+    \node[below] at (0.6,-0.6) {Time (s)};
+    \ifprintanswers
+        \draw[very thick,red,domain=0:1,smooth] plot(\x,-0.5*\x+0.5);
+    \fi
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+    \draw (0,-0.6) -- (0,0.6) node[rotate=90,pos=0.5,above] {Acceleration (\SI{}{m/s^2})};
+    \draw (0,0) -- (1.2,0);
+    \node[below] at (0.6,-0.6) {Time (s)};
+    \ifprintanswers
+        \draw[very thick,red,domain=0:1,smooth] plot(\x,-0.25);
+    \fi
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+\part Is the velocity positive or negative? How do you know? 
+
+\begin{solution}
+    Positive. The object moves away from the origin.
+\end{solution}
+
+\ifprintanswers
+\else
+\fillwithlines{7mm}
+\clearpage
+\fi
+
+\end{parts}
+
+
+\question
+Click \textsf{COLLECT}. Roll the cart from 0\,cm to 120\,cm. Then, release it from rest at 120\,cm. 
+
+\begin{center}
+\begin{tikzpicture}[y=0.6mm,x=0.8mm,rotate=8,transform shape]
+    \draw[fill=black!8] (0,-1mm) rectangle (120,1mm);
+    \foreach \x in {0,10,...,120} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {\scriptsize $\x$};
+    }
+    \foreach \x in {0,2,...,120} {
+        \draw[ultra thin] (\x,-0.5mm) -- (\x,0.5mm);
+    }
+    \draw[->] (0,0) -- (120,0) node[below=4mm,pos=0.5] {\small Position (cm)};
+    \node at (115,4.2mm) {\resizebox{1cm}{!}{\reflectbox{\usym{1F699}}}};
+    \draw[line width=1mm,-{Triangle[scale=0.7]}] (95,10) -- ++(10,0) node[below,pos=0.3] {\textsf{x}\footnotesize +};
+\end{tikzpicture} 
+\end{center}
+
+
+\begin{parts}
+\part Is the cart speeding up or slowing down? \fillin[speeding up][6cm]
+
+\part Draw a motion map for the cart.
+\tikz[x=7mm,y=7mm]{
+    \draw (2,-0.3) rectangle (-11.8,0.3);
+    \node at (1.1,0) {120\,cm};
+    \node at (-11,0) {0\,cm};
+    \ifprintanswers
+    \draw[red,domain=0:10,mark=*,only marks, samples=10,mark size=2pt] plot({-0.1*\x^2},0);
+    \else
+    \draw[white,domain=0:10,mark=*,only marks, samples=10,mark size=2pt] plot({-0.1*\x^2},0);
+    \fi
+}
+
+\part Draw the position vs.\,time, the velocity vs.\,time, and acceleration vs.\,time graphs.
+
+\begin{center}
+\begin{tikzpicture}[x=2.5cm,y=2.5cm]
+        \draw (0,-0.6) -- (0,0.6) node[rotate=90,pos=0.5,above] {Position (m)};
+        \draw (0,0) -- (1.2,0);
+        \node[below] at (0.6,-0.6) {Time (s)};
+    % \ifprintanswers
+    %     \draw[very thick,red,domain=0:1,smooth] plot(\x,{-\x^2+1});
+    % \fi
+\begin{scope}[shift={(2,0)}]
+    \draw (0,-0.6) -- (0,0.6) node[rotate=90,pos=0.5,above] {Velocity (m/s)};
+    \draw (0,0) -- (1.2,0);
+    \node[below] at (0.6,-0.6) {Time (s)};
+    \ifprintanswers
+        \draw[very thick,red,domain=0:1,smooth] plot(\x,-0.5*\x);
+    \fi
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+    \draw (0,-0.6) -- (0,0.6) node[rotate=90,pos=0.5,above] {Acceleration (\SI{}{m/s^2})};
+    \draw (0,0) -- (1.2,0);
+    \node[below] at (0.6,-0.6) {Time (s)};
+    \ifprintanswers
+        \draw[very thick,red,domain=0:1,smooth] plot(\x,-0.25);
+    \fi
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+\part Is the velocity positive or negative? How do you know? 
+
+\begin{solution}
+    Negative. The object moves towards the origin.
+\end{solution}
+
+\ifprintanswers
+\else
+\fillwithlines{7mm}
+\fi
+
+\end{parts}
+
+\question
+Click \textsf{COLLECT}. Roll the cart from 0\,cm to 120\,cm. Then, give it an initial push up the ramp and stop it at its highest point.
+
+
+\begin{center}
+\begin{tikzpicture}[y=0.6mm,x=0.8mm,rotate=-8,transform shape]
+    \draw[fill=black!8] (0,-1mm) rectangle (120,1mm);
+    \foreach \x in {0,10,...,120} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {\scriptsize $\x$};
+    }
+    \foreach \x in {0,2,...,120} {
+        \draw[ultra thin] (\x,-0.5mm) -- (\x,0.5mm);
+    }
+    \draw[->] (0,0) -- (120,0) node[below=4mm,pos=0.5] {\small Position (cm)};
+    \node at (115,4.2mm) {\resizebox{1cm}{!}{\reflectbox{\usym{1F699}}}};
+    \draw[line width=1mm,-{Triangle[scale=0.7]}] (95,10) -- ++(10,0) node[below,pos=0.3] {\textsf{x}\footnotesize +};
+\end{tikzpicture} 
+\end{center}
+
+\begin{parts}
+\part Is the cart speeding up or slowing down? \fillin[slowing down][6cm]
+
+\part Draw a motion map for the cart.
+\tikz[x=7mm,y=7mm]{
+    \draw (-1.6,-0.3) rectangle (12,0.3);
+    \node at (-1,0) {\SI{0}{cm}};
+    \node at (11.2,0) {\SI{120}{cm}};
+    \ifprintanswers
+    \draw[red,domain=0:10,mark=*,only marks, samples=10,mark size=2pt] plot({0.1*\x^2},0);
+    \else
+    \draw[white,domain=0:10,mark=*,only marks, samples=10,mark size=2pt] plot({0.1*\x^2},0);
+    \fi
+}
+
+
+\part Draw the position vs.\,time, the velocity vs.\,time, and acceleration vs.\,time graphs.
+
+\begin{center}
+\begin{tikzpicture}[x=2.5cm,y=2.5cm]
+        \draw (0,-0.6) -- (0,0.6) node[rotate=90,pos=0.5,above] {Position (m)};
+        \draw (0,0) -- (1.2,0);
+        \node[below] at (0.6,-0.6) {Time (s)};
+    % \ifprintanswers
+    %     \draw[very thick,red,domain=0:1,smooth]  plot(\x,{(\x-1)^2});
+    % \fi
+\begin{scope}[shift={(2,0)}]
+    \draw (0,-0.6) -- (0,0.6) node[rotate=90,pos=0.5,above] {Velocity (m/s)};
+    \draw (0,0) -- (1.2,0);
+    \node[below] at (0.6,-0.6) {Time (s)};
+    \ifprintanswers
+        \draw[very thick,red,domain=0:1,smooth] plot(\x,0.5*\x-0.5);
+    \fi
+\end{scope}
+\begin{scope}[shift={(4,0)}]
+    \draw (0,-0.6) -- (0,0.6) node[rotate=90,pos=0.5,above] {Acceleration (\SI{}{m/s^2})};
+    \draw (0,0) -- (1.2,0);
+    \node[below] at (0.6,-0.6) {Time (s)};
+    % \ifprintanswers
+    %     \draw[very thick,red,domain=0:1,smooth] plot(\x,0.25);
+    % \fi
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+\part Is the velocity positive or negative? How do you know? 
+
+\begin{solution}
+    Negative. The object moves towards the origin.
+\end{solution}
+
+\ifprintanswers
+\else
+\fillwithlines{7mm}
+\fi
+
+\end{parts}
+\end{questions}
+
+\subsection*{LG 1 Practice}
+
+\begin{questions}
+\question % LG 1
+The object below moves with positive velocity. 
+
+\begin{center}
+\begin{tikzpicture}[y=5mm,x=6mm]
+    \draw[black!20,step=1] (0,0) grid (25,2);
+        \foreach \x in {0,1,...,5}{
+        \fill ({\x^2},1) circle (1mm);
+    }
+    \node[left=1mm,overlay] at (0,1) {$x_i$};
+    \draw[very thick,->] (0,2) -- ++(1.5,0) node[left,pos=0,overlay] {$\vec{v}$};
+    
+    \foreach \x in {0,1,...,25} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {\scriptsize $\x$};
+    }
+    \draw[->] (0,0) -- (25,0) node[below=6mm,pos=0.5] {$x$ {\small (m)}};
+\end{tikzpicture}
+\end{center}
+
+\begin{parts}
+\part Is the object speeding up or slowing down?
+
+\begin{oneparchoices}
+    \correctchoice speeding up
+    \choice slowing down
+\end{oneparchoices}
+
+\part What is the direction of the object's acceleration? 
+
+\begin{oneparchoices}
+    \correctchoice rightward (positive)
+    \choice leftward (negative)
+\end{oneparchoices}
+\end{parts}
+
+
+
+\question % LG 1
+The object below moves with negative velocity. 
+
+\begin{center}
+\begin{tikzpicture}[y=5mm,x=6mm]
+    \draw[black!20,step=1] (0,0) grid (25,2);
+        \foreach \x in {0,1,...,5}{
+        \fill ({\x^2},1) circle (1mm);
+    }
+    \node[right=1mm,overlay] at (25,1) {$x_i$};
+    \draw[very thick,->] (25,2) -- ++(-1.5,0) node[right,pos=0,overlay] {$\vec{v}$};
+    
+    \foreach \x in {0,1,...,25} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {\scriptsize $\x$};
+    }
+    \draw[->] (0,0) -- (25,0) node[below=6mm,pos=0.5] {$x$ {\small (m)}};
+\end{tikzpicture}
+\end{center}
+
+\begin{parts}
+\part Is the object speeding up or slowing down?
+
+\begin{oneparchoices}
+    \choice speeding up
+    \correctchoice slowing down
+\end{oneparchoices}
+
+\part What is the direction of the object's acceleration? 
+
+\begin{oneparchoices}
+    \correctchoice rightward (positive)
+    \choice leftward (negative)
+\end{oneparchoices}
+\end{parts}
+
+
+\question % LG 1
+The object below moves with positive velocity. 
+
+\begin{center}
+\begin{tikzpicture}[y=5mm,x=6mm]
+    \draw[black!20,step=1] (0,0) grid (25,2);
+    % Loop from 0 to 5 and subtract the square from 25
+    \foreach \x in {0,1,...,5}{
+        \fill ({25 - \x^2},1) circle (1mm);
+    }
+    \node[left=1mm,overlay] at (0,1) {$x_i$};
+    
+    \draw[very thick,->] (0,2) -- ++(1.5,0) node[left,pos=0,overlay] {$\vec{v}$};
+
+    \foreach \x in {0,1,...,25} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {\scriptsize $\x$};
+    }
+    \draw[->] (0,0) -- (25,0) node[below=6mm,pos=0.5] {$x$ {\small (m)}};
+\end{tikzpicture}
+\end{center}
+
+\begin{parts}
+\part Is the object speeding up or slowing down?
+
+\begin{oneparchoices}
+    \choice speeding up
+    \correctchoice slowing down
+\end{oneparchoices}
+
+\part What is the direction of the object's acceleration? 
+
+\begin{oneparchoices}
+    \choice rightward (positive)
+    \correctchoice leftward (negative)
+\end{oneparchoices}
+\end{parts}
+
+
+\question % LG 1
+The object below moves with negative velocity. 
+
+
+\begin{center}
+\begin{tikzpicture}[y=5mm,x=6mm]
+    \draw[black!20,step=1] (0,0) grid (25,2);
+    % Loop from 0 to 5 and subtract the square from 25
+    \foreach \x in {0,1,...,5}{
+        \fill ({25 - \x^2},1) circle (1mm);
+    }
+    \node[right=1mm,overlay] at (25,1) {$x_i$};
+    \draw[very thick,->] (25,2) -- ++(-1.5,0) node[right,pos=0,overlay] {$\vec{v}$};
+
+    \foreach \x in {0,1,...,25} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {\scriptsize $\x$};
+    }
+    \draw[->] (0,0) -- (25,0) node[below=6mm,pos=0.5] {$x$ {\small (m)}};
+\end{tikzpicture}
+\end{center}
+
+\begin{parts}
+\part Is the object speeding up or slowing down?
+
+\begin{oneparchoices}
+    \correctchoice speeding up
+    \choice slowing down
+\end{oneparchoices}
+
+\part What is the direction of the object's acceleration? 
+
+\begin{oneparchoices}
+    \choice rightward (positive)
+    \correctchoice leftward (negative)
+\end{oneparchoices}
+\end{parts}
+
+\end{questions}
+
+\clearpage
+
+\subsection*{LG 2 Practice}
+
+
+\begin{questions}
+\question \label{gqigC} % LG 2
+  
+\begin{minipage}[t]{8cm}
+\vspace{-1.7ex}%
+
+\begin{parts}
+\part The object is\ldots
+
+\begin{choices}
+    \correctchoice speeding up.
+    \choice slowing down.
+    \choice speeding up, then slowing down.
+    \choice slowing down, then speeding up.
+    \choice not accelerating.
+\end{choices}
+
+\part The direction of acceleration is
+
+\begin{choices}
+    \correctchoice rightward (positive).
+    \choice leftward (negative).
+    \choice none (acceleration is zero).
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{0pt}%
+\centering
+
+
+{\ifprintanswers \color{red} \else \color{white} \fi
+
+\begin{equation*}
+    v(t) = 2t
+\end{equation*}
+}
+
+\vspace{-1em}
+
+\def\arraystretch{1.5}
 \velocitytableI{0}{2}{0}{1}
+\end{minipage}
 
-\question
-\phantom{.}
+\question  % LG 2
+  
+\begin{minipage}[t]{8cm}
+\vspace{-1.7ex}%
 
-\velocitytableI{16}{0}{0}{1}
+\begin{parts}
+\part The object is\ldots
 
-\question
-\phantom{.}
+\begin{choices}
+    \correctchoice speeding up.
+    \choice slowing down.
+    \choice speeding up, then slowing down.
+    \choice slowing down, then speeding up.
+    \choice not accelerating.
+\end{choices}
 
-\velocitytableI{22}{6}{5}{2}
+\part The direction of acceleration is
 
-\question
-\phantom{.}
+\begin{choices}
+    \choice rightward (positive).
+    \correctchoice leftward (negative).
+    \choice none (acceleration is zero).
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{0em}%
+\centering
 
-\velocitytableI{10}{-5}{16}{1}
+{\ifprintanswers \color{red} \else \color{white} \fi
 
-\question
-\phantom{.}
+\begin{equation*}
+    v(t) = -6 - 3t
+\end{equation*}
+}
 
-\velocitytableI{-12}{0}{7}{3}
+\vspace{-1em}
+
+\def\arraystretch{1.5}
+\velocitytableI{-6}{-3}{0}{1}
+\end{minipage}
+
+\question % LG 2
+  
+\begin{minipage}[t]{8cm}
+\vspace{-1.7ex}%
+
+\begin{parts}
+\part The object is\ldots
+
+\begin{choices}
+    \choice speeding up.
+    \correctchoice slowing down.
+    \choice speeding up, then slowing down.
+    \choice slowing down, then speeding up.
+    \choice not accelerating.
+\end{choices}
+
+\part The direction of acceleration is
+
+\begin{choices}
+    \choice rightward (positive).
+    \correctchoice leftward (negative).
+    \choice none (acceleration is zero).
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{0em}%
+\centering
+
+{\ifprintanswers \color{red} \else \color{white} \fi
+
+\begin{equation*}
+    v(t) = 40 - 5t
+\end{equation*}
+}
+
+\vspace{-1em}
+
+\def\arraystretch{1.5}
+\velocitytableI{40}{-5}{0}{2}
+\end{minipage}
+
+\question % LG 2
+  
+\begin{minipage}[t]{8cm}
+\vspace{-1.7ex}%
+
+\begin{parts}
+\part The object is\ldots
+
+\begin{choices}
+    \choice speeding up.
+    \correctchoice slowing down.
+    \choice speeding up, then slowing down.
+    \choice slowing down, then speeding up.
+    \choice not accelerating.
+\end{choices}
+
+\part The direction of acceleration is
+
+\begin{choices}
+    \correctchoice rightward (positive).
+    \choice leftward (negative).
+    \choice none (acceleration is zero).
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{0em}%
+\centering
+
+{\ifprintanswers \color{red} \else \color{white} \fi
+
+\begin{equation*}
+    v(t) = -9 + t
+\end{equation*}
+}
+
+\vspace{-1em}
+
+\def\arraystretch{1.5}
+\velocitytableI{-9}{1}{0}{1}
+\end{minipage}
+
+\question % LG 2
+  
+\begin{minipage}[t]{8cm}
+\vspace{-1.7ex}%
+
+\begin{parts}
+\part The object is\ldots
+
+\begin{choices}
+    \choice speeding up.
+    \choice slowing down.
+    \choice speeding up, then slowing down.
+    \choice slowing down, then speeding up.
+    \correctchoice not accelerating.
+\end{choices}
+
+\part The direction of acceleration is
+
+\begin{choices}
+    \choice rightward (positive).
+    \choice leftward (negative).
+    \correctchoice none (acceleration is zero).
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{0em}%
+\centering
+
+{\ifprintanswers \color{red} \else \color{white} \fi
+
+\begin{equation*}
+    v(t) = 3
+\end{equation*}
+}
+
+\def\arraystretch{1.5}
+\velocitytableI{3}{0}{0}{1}
+\end{minipage}
+
+\question % LG 2
+  
+\begin{minipage}[t]{8cm}
+\vspace{-1.7ex}%
+
+\begin{parts}
+\part The object is\ldots
+
+\begin{choices}
+    \choice speeding up.
+    \choice slowing down.
+    \choice speeding up, then slowing down.
+    \correctchoice slowing down, then speeding up.
+    \choice not accelerating.
+\end{choices}
+
+\part The direction of acceleration is
+
+\begin{choices}
+    \choice rightward (positive).
+    \correctchoice leftward (negative).
+    \choice none (acceleration is zero).
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{0em}%
+\centering
+\def\arraystretch{1.5}
+
+{\ifprintanswers \color{red} \else \color{white} \fi
+
+\begin{equation*}
+    v(t) = 8 - 4t
+\end{equation*}
+}
+
+\velocitytableI{8}{-4}{0}{1}
+\end{minipage}
+
+\question % LG 2
+  
+\begin{minipage}[t]{8cm}
+\vspace{-1.7ex}%
+
+\begin{parts}
+\part The object is\ldots
+
+\begin{choices}
+    \choice speeding up.
+    \choice slowing down.
+    \choice speeding up, then slowing down.
+    \correctchoice slowing down, then speeding up.
+    \choice not accelerating.
+\end{choices}
+
+\part The direction of acceleration is
+
+\begin{choices}
+    \correctchoice rightward (positive).
+    \choice leftward (negative).
+    \choice none (acceleration is zero).
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{0em}%
+\centering
+
+{\ifprintanswers \color{red} \else \color{white} \fi
+
+\begin{equation*}
+    v(t) = -10 + 6t
+\end{equation*}
+}
 
 
-\question \label{U8WJ1}
-\phantom{.}
+\def\arraystretch{1.5}
+\velocitytableI{-10}{6}{0}{1}
+\end{minipage}
 
-\velocitytableI{-20}{12}{15}{3}
+
+
 
 \end{questions}
 
 \clearpage
 
-\subsection*{Practice}
 
-\textbf{Questions \ref{bkoxL}--\ref{SGatV}.} Identify whether or not the object in the table is accelerating, and state whether the acceleration is positive, negative, or zero.
+
+\subsection*{LG 3 Practice}
+
+% \textbf{Questions \ref{bkoxL}--\ref{SGatV}.} Identify whether or not the object in the table is accelerating, and state whether the acceleration is positive, negative, or zero.
 
 \begin{questions}
-\question \label{bkoxL}
-\phantom{.}
 
+\question \label{bkoxL} % LG 3
+
+\begin{minipage}[t]{8cm}
+\vspace{-1.7ex}%
+
+\begin{parts}
+\part The object is\ldots
+
+\begin{choices}
+    \correctchoice speeding up.
+    \choice slowing down.
+    \choice speeding up, then slowing down.
+    \choice slowing down, then speeding up.
+    \choice not accelerating.
+\end{choices}
+
+
+\part The direction of acceleration is
+
+\begin{choices}
+    \correctchoice rightward (positive).
+    \choice leftward (negative).
+    \choice none (acceleration is zero).
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{0em}%
+\centering
+
+{\ifprintanswers \color{red} \else \color{white} \fi
+
+\begin{align*}
+    v(t) &= 2t \\[1ex]
+    x(t) &= t^2
+\end{align*}
+}
+
+\vspace{-1em}
+
+\def\arraystretch{1.5}
 \positiontableI{0}{0}{0}{1}{2}
+\end{minipage}
 
-\question
-\phantom{.}
+\question \label{bkoxL} % LG 3
 
+\begin{minipage}[t]{8cm}
+\vspace{-1.7ex}%
+
+\begin{parts}
+\part The object is\ldots
+
+\begin{choices}
+    \correctchoice speeding up.
+    \choice slowing down.
+    \choice speeding up, then slowing down.
+    \choice slowing down, then speeding up.
+    \choice not accelerating.
+\end{choices}
+
+
+\part The direction of acceleration is
+
+\begin{choices}
+    \choice rightward (positive).
+    \correctchoice leftward (negative).
+    \choice none (acceleration is zero).
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{0em}%
+\centering
+
+{\ifprintanswers \color{red} \else \color{white} \fi
+
+\begin{align*}
+    v(t) &= -6 - 3t \\
+    x(t) &= 48 - 6t -\frac{3}{2}t^2
+\end{align*}
+}
+
+\vspace{-1ex}
+
+\def\arraystretch{1.5}
+\positiontableI{48}{-6}{0}{2}{-3}
+\end{minipage}
+
+\question % LG 3
+
+\begin{minipage}[t]{8cm}
+\vspace{-1.7ex}%
+
+\begin{parts}
+\part The object is\ldots
+
+\begin{choices}
+    \choice speeding up.
+    \correctchoice slowing down.
+    \choice speeding up, then slowing down.
+    \choice slowing down, then speeding up.
+    \choice not accelerating.
+\end{choices}
+
+
+\part The direction of acceleration is
+
+\begin{choices}
+    \choice rightward (positive).
+    \correctchoice leftward (negative).
+    \choice none (acceleration is zero).
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{0em}%
+\centering
+
+{\ifprintanswers \color{red} \else \color{white} \fi
+
+\begin{align*}
+    v(t) &= 40 - 5t \\
+    x(t) &= -80 + 40t - \frac{5}{2}t^2
+\end{align*}
+}
+
+\vspace{-1ex}
+
+\def\arraystretch{1.5}
+\positiontableI{-80}{40}{0}{2}{-5}
+\end{minipage}
+
+\question % LG 3
+
+\begin{minipage}[t]{8cm}
+\vspace{-1.7ex}%
+
+\begin{parts}
+\part The object is\ldots
+
+\begin{choices}
+    \choice speeding up.
+    \correctchoice slowing down.
+    \choice speeding up, then slowing down.
+    \choice slowing down, then speeding up.
+    \choice not accelerating.
+\end{choices}
+
+
+\part The direction of acceleration is
+
+\begin{choices}
+    \correctchoice rightward (positive).
+    \choice leftward (negative).
+    \choice none (acceleration is zero).
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{-1ex}%
+\centering
+
+{\ifprintanswers \color{red} \else \color{white} \fi
+
+\begin{align*}
+    v(t) &= -9 + t \\
+    x(t) &= 48 - 9t + \frac{1}{2}t^2
+\end{align*}
+}
+
+\vspace{-1ex}
+
+\def\arraystretch{1.5}
+\positiontableI{48}{-9}{0}{2}{1}
+\end{minipage}
+
+\question % LG 3
+
+\begin{minipage}[t]{8cm}
+\vspace{-1.7ex}%
+
+\begin{parts}
+\part The object is\ldots
+
+\begin{choices}
+    \choice speeding up.
+    \choice slowing down.
+    \choice speeding up, then slowing down.
+    \choice slowing down, then speeding up.
+    \correctchoice not accelerating.
+\end{choices}
+
+\part The direction of acceleration is
+
+\begin{choices}
+    \choice rightward (positive).
+    \choice leftward (negative).
+    \correctchoice none (acceleration is zero).
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{-1ex}%
+\centering
+
+{\ifprintanswers \color{red} \else \color{white} \fi
+
+\begin{align*}
+    v(t) &= 3 \\[1ex]
+    x(t) &= 3t   
+\end{align*}
+}
+
+\vspace{-1em}
+
+\def\arraystretch{1.5}
 \positiontableI{0}{3}{0}{1}{0}
+\end{minipage}
 
-\question
-\phantom{.}
+\question  % LG 3
 
-\positiontableI{-12}{2}{0}{1}{4}
+\begin{minipage}[t]{8cm}
+\vspace{-1.7ex}%
 
-\question
-\phantom{.}
+\begin{parts}
+\part The object is\ldots
 
-\positiontableI{4}{-3}{6}{2}{0}
+\begin{choices}
+    \choice speeding up.
+    \choice slowing down.
+    \choice speeding up, then slowing down.
+    \correctchoice slowing down, then speeding up.
+    \choice not accelerating.
+\end{choices}
 
-\question \label{SGatV}
-\phantom{.}
+\part The direction of acceleration is
 
-\positiontableI{0}{20}{0}{1}{-10}
+\begin{choices}
+    \choice rightward (positive).
+    \correctchoice leftward (negative).
+    \choice none (acceleration is zero).
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{-1ex}%
+\centering
+
+{\ifprintanswers \color{red} \else \color{white} \fi
+
+\begin{align*}  
+    v(t) &= 8 - 4t \\[1ex]
+    x(t) &= 8t - 2t^2
+\end{align*}
+}
+
+\vspace{-1em}
+
+\def\arraystretch{1.5}
+\positiontableI{0}{8}{0}{1}{-4}
+\end{minipage}
+
+\question  % LG 3
+
+\begin{minipage}[t]{8cm}
+\vspace{-1.7ex}%
+
+\begin{parts}
+\part The object is\ldots
+
+\begin{choices}
+    \choice speeding up.
+    \choice slowing down.
+    \choice speeding up, then slowing down.
+    \correctchoice slowing down, then speeding up.
+    \choice not accelerating.
+\end{choices}
+
+\part The direction of acceleration is
+
+\begin{choices}
+    \correctchoice rightward (positive).
+    \choice leftward (negative).
+    \choice none (acceleration is zero).
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{-1ex}%
+\centering
+
+{\ifprintanswers \color{red} \else \color{white} \fi
+
+\begin{align*}  
+    v(t) &= -10 + 6t \\[1ex]
+    x(t) &= 12 -10t - 3t^2
+\end{align*}
+}
+
+\vspace{-1em}
+
+\def\arraystretch{1.5}
+\positiontableI{12}{-10}{0}{1}{6}
+\end{minipage}
+
+
+
+
+
+
+
+
 
 \end{questions}
 
 \clearpage
 
-\subsection*{Practice}
-
-\begin{questions}
-\question
-The object below moves with positive velocity. 
-
-\begin{parts}
-    \part What is the direction of acceleration? 
-    \part Is it speeding up or slowing down?
-\end{parts}
-
-\begin{center}
-\begin{tikzpicture}[y=5mm,x=6mm]
-    \draw[black!20,step=1] (0,0) grid (25,2);
-        \foreach \x in {0,1,...,5}{
-        \fill ({\x^2},1) circle (1mm);
-    }
-    \node[below] at (0,0) {$x_i$};
-    \draw[thick,->] (0,2.5) -- ++(1.5,0) node[above,pos=0.5] {$\vec{v}$};
-\end{tikzpicture}
-\end{center}
-
-\question
-The object below moves with negative velocity. 
-
-\begin{parts}
-    \part What is the direction of acceleration? 
-    \part Is it speeding up or slowing down?
-\end{parts}
-
-\begin{center}
-\begin{tikzpicture}[y=5mm,x=6mm]
-    \draw[black!20,step=1] (0,0) grid (25,2);
-        \foreach \x in {0,1,...,5}{
-        \fill ({\x^2},1) circle (1mm);
-    }
-    \node[below] at (25,0) {$x_i$};
-    \draw[thick,->] (25,2.5) -- ++(-1.5,0) node[above,pos=0.5] {$\vec{v}$};
-\end{tikzpicture}
-\end{center}
-
-\question
-The object below moves with positive velocity. 
-
-\begin{parts}
-    \part What is the direction of acceleration? 
-    \part Is it speeding up or slowing down?
-\end{parts}
 
 
 
-\begin{center}
-\begin{tikzpicture}[y=5mm,x=6mm]
-    \draw[black!20,step=1] (0,0) grid (25,2);
-    % Loop from 0 to 5 and subtract the square from 25
-    \foreach \x in {0,1,...,5}{
-        \fill ({25 - \x^2},1) circle (1mm);
-    }
-    \node[below] at (0,0) {$x_i$};
-    \draw[thick,->] (0,2.5) -- ++(1.5,0) node[above,pos=0.5] {$\vec{v}$};
-\end{tikzpicture}
-\end{center}
+\subsection*{LG 4,5 Practice}
 
-\question
-The object below moves with negative velocity. 
-
-\begin{parts}
-    \part What is the direction of acceleration? 
-    \part Is it speeding up or slowing down?
-\end{parts}
-
-\begin{center}
-\begin{tikzpicture}[y=5mm,x=6mm]
-    \draw[black!20,step=1] (0,0) grid (25,2);
-    % Loop from 0 to 5 and subtract the square from 25
-    \foreach \x in {0,1,...,5}{
-        \fill ({25 - \x^2},1) circle (1mm);
-    }
-    \node[below] at (25,0) {$x_i$};
-    \draw[thick,->] (25,2.5) -- ++(-1.5,0) node[above,pos=0.5] {$\vec{v}$};
-\end{tikzpicture}
-\end{center}
-
-\end{questions}
-
-\clearpage
-
-\subsection*{Practice}
-
-\textbf{Questions.} Determine whether or not the following graph represents accelerating motion.
-
-\begin{questions}
-\begin{multicols}{2}
-\question
-\phantom{.}
-
-\velocitygraphI{0}{-6}
-
-\question
-\phantom{.}
-
-\velocitygraphI{1}{0}
-
-
-\question
-\phantom{.}
-
-\velocitygraphI{-2}{2}
-
-\question
-\phantom{.}
-
-\velocitygraphI{0}{3}
-
-\question
-\phantom{.}
-
-\velocitygraphI{-0.1}{6}
-
-\question
-\phantom{.}
-
-\velocitygraphI{1.8}{-5}
-
-\end{multicols}
-\end{questions}
-
-
-\clearpage
-
-\subsection*{Practice}
-
-\textbf{Questions \ref{H2UaC}--\ref{IMwAV}.} Indicate whether or not the following objects are accelerating based on the position vs.\,time graph. Justify your answer.
+\textbf{Questions.} Determine whether or not each of the following graphs represents accelerating motion.
 
 \begin{questions}
 \begin{multicols}{2}
 
-\question \label{H2UaC}
-\phantom{.}
-
-\positiongraphII{-1}{-1}{1}
-
-\question
-\phantom{.}
+\question %...LG 5 H
+Accelerating? Yes or No?
 
 \positiongraphII{1}{1}{-1}
 
-\question
-\phantom{.}
+\ifprintanswers 
+\textcolor{red}{Yes, accelerating. Position is changing quadratically with time.}
+\else \textit{Reasoning:} \fillin[][0.73\linewidth]
+\fillwithlines{7mm}
+\fi
 
-\positiongraphII{0}{1}{0}
+\question %...LG 4 C
+Accelerating? Yes or No?
 
-\question
-\phantom{.}
+\velocitygraphI{-2}{2}
+
+\ifprintanswers 
+\textcolor{red}{Yes, accelerating. Velocity is changing linearly with time.}
+\else \textit{Reasoning:} \fillin[][0.73\linewidth]
+\fillwithlines{7mm}
+\fi
+
+
+\question \label{IMwAV} %...LG 5 L
+Accelerating? Yes or No?
+
+\positiongraphII{3}{-2}{0}
+
+\ifprintanswers 
+\textcolor{red}{No, not accelerating. Since position is changing linearly with time, the velocity must be constant ($a = 0$).}
+\else \textit{Reasoning:} \fillin[][0.73\linewidth]
+\fillwithlines{7mm}
+\fi
+
+
+\vspace*{\fill}
+\columnbreak
+
+\question %...LG 4 A
+Accelerating? Yes or No?
+
+\velocitygraphI{0}{-6}
+
+\ifprintanswers \else \textit{Reasoning:} \fillin[][0.73\linewidth]
+\fillwithlines{7mm}
+\fi
+
+\question %...LG 4 F
+Accelerating? Yes or No?
+
+\velocitygraphI{1.8}{-5}
+
+\ifprintanswers \else \textit{Reasoning:} \fillin[][0.73\linewidth]
+\fillwithlines{7mm}
+\fi
+
+\question %...LG 5 J
+Accelerating? Yes or No?
 
 \positiongraphII{0}{4}{-2}
 
-\question
-\phantom{.}
+\ifprintanswers \else \textit{Reasoning:} \fillin[][0.73\linewidth]
+\fillwithlines{7mm}
+\fi
+
+\clearpage
+
+\question %...LG 4 D
+Accelerating? Yes or No?
+
+\velocitygraphI{0}{3}
+
+\ifprintanswers \else \textit{Reasoning:} \fillin[][0.73\linewidth]
+\fillwithlines{7mm}
+\fi
+
+\question %...LG 5 K
+Accelerating? Yes or No?
 
 \positiongraphII{2}{-6}{2.5}
 
+\ifprintanswers \else \textit{Reasoning:} \fillin[][0.73\linewidth]
+\fillwithlines{7mm}
+\fi
 
-\question \label{IMwAV}
-\phantom{.}
+\question %...LG 4 B
+Accelerating? Yes or No?
 
-\positiongraphII{3}{-2}{0}
+\velocitygraphI{1}{0}
+
+\ifprintanswers \else \textit{Reasoning:} \fillin[][0.73\linewidth]
+\fillwithlines{7mm}
+\fi
+
+\question %...LG 5 I
+Accelerating? Yes or No?
+
+\positiongraphII{0}{1}{0}
+
+\ifprintanswers \else \textit{Reasoning:} \fillin[][0.73\linewidth]
+\fillwithlines{7mm}
+\fi
+
+\question \label{H2UaC} %...LG 5 G
+Accelerating? Yes or No?
+
+\positiongraphII{-1}{-1}{1}
+
+\ifprintanswers \else \textit{Reasoning:} \fillin[][0.73\linewidth]
+\fillwithlines{7mm}
+\fi
+
+\question %...LG 4 E
+Accelerating? Yes or No?
+
+\velocitygraphI{-0.1}{6}
+
+\ifprintanswers \else \textit{Reasoning:} \fillin[][0.73\linewidth]
+\fillwithlines{7mm}
+\fi
+
+
+
+% \end{multicols}
+% \end{questions}
+
+
+% \clearpage
+
+% \subsection*{LG 5 Practice}
+
+% \textbf{Questions \ref{H2UaC}--\ref{IMwAV}.} Indicate whether or not the following objects are accelerating based on the position vs.\,time graph. Justify your answer.
+
+% \begin{questions}
+% \begin{multicols}{2}
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{multicols}
 \end{questions}
 
 \clearpage
 
-\subsection*{Practice}
+\subsection*{LG 6 Practice}
+
+For each velocity-vs-time graph below, determine the direction (right or left) of the object. If there's no acceleration, write ``not accelerating.''
 
 
 \begin{questions}
+\begin{multicols}{2}
+
 \question
-What is the direction of acceleration for the object shown below?
+\textit{Direction of acceleration:} \fillin[][3cm]
+
+\velocitygraphII{-4}{1}
+
+    
+
+\question
+\textit{Direction of acceleration:} \fillin[][3cm]
 
 \velocitygraphII{3}{-1.5}
 
 
 \question
-What is the direction of acceleration for the object shown below?
+\textit{Direction of acceleration:} \fillin[][3cm]
 
 \velocitygraphII{-3}{1.5}
 
 \question
-What is the direction of acceleration for the object shown below?
+\textit{Direction of acceleration:} \fillin[][3cm]
 
 \velocitygraphII{2}{0}
 
+\vspace*{\fill}
+\columnbreak
+
+
+
+\question \textit{Direction of acceleration:} \fillin[leftward][3cm]
+\velocitygraphII{4}{-1}
+
 \question
-What is the direction of acceleration for the object shown below?
+\textit{Direction of acceleration:} \fillin[][3cm]
 
 \velocitygraphII{-2}{0}
 
+\question
+\textit{Direction of acceleration:} \fillin[][3cm]
+
+\velocitygraphII{3}{-0.15}
+
+\question
+\textit{Direction of acceleration:} \fillin[][3cm]
+
+\velocitygraphII{-2}{0.1}
+
+
+
+
+
+\end{multicols}
 \end{questions}
+
+
 
 \clearpage
 
-
-\subsection*{Practice}
-
-\textbf{Questions \ref{jpyYo}--\ref{OK5PY}.} For each of the following questions, at the specified point, (a) draw the tangent line to the curve at the given point, (b) state whether the object is on the right side or left side of the origin, and (c) determine the direction of the object's velocity at that point.
+\subsection*{Review LG 1--6}
 
 \begin{questions}
+\question
+Fill in the table below.
+\vspace{-1em}
+
+\begin{EnvUplevel}
+\def\arraystretch{1.5}
+\begin{center}
+\begin{tabular}{|w{c}{1cm}|w{c}{4cm}||w{c}{5cm}|w{c}{1.5cm}||w{c}{2cm}|}
+    \hline
+    \thead{\bfseries Symbol} & \thead{\bfseries Quantity} & \thead{\bfseries SI Unit} & \thead{\bfseries Unit\\ \bfseries Symbol} & \thead{\bfseries Example}\\ \hline
+    $x$ & \ans{position} & meters & m & $x = \SI{5}{m}$ \\ \hline 
+    $\Delta t$ & (change in) time & \ans{seconds} & s & \ans{$\Delta t = \SI{45}{s}$} \\ \hline 
+    \ans{$v$} & \ans{velocity} & meters per second & \ans{m/s} & \ans{$v = -\SI{4}{m/s}$} \\ \hline 
+    $a$ & \ans{acceleration} & meters per second squared & \ans{\SI{}{m/s^2}} & \ans{$a = +\SI{3}{m/s^2}$} \\ \hline 
+\end{tabular}
+\end{center}
+\end{EnvUplevel}
+
+
+
+\question 
+The number that shows an object's location on a horizontal track is called the \fillin[position][3cm].
+
+\begin{center}
+\begin{tikzpicture}[x=1.2mm]
+    \draw[fill=black!10] (0,-1.5mm) rectangle (120,1.5mm);
+    \foreach \x in {0,10,...,120} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {\small $\x$};
+    }
+    \foreach \x in {0,2,...,120} {
+        \draw[ultra thin] (\x,-0.5mm) -- (\x,0.5mm);
+    }
+    \draw[->] (0,0) -- (120,0) node[below=6mm,pos=0.5] {Horizontal track};
+    \draw[very thick,fill=black!40] (30,3.5mm) circle (2mm);
+\end{tikzpicture} 
+\end{center}
+
+
+\question 
+Velocity is the rate at which \fillin[position][3cm]\ changes with time.
+
+\question
+Acceleration is the rate at which \fillin[velocity][3cm]\ changes with time.
+
+\question
+Label 2 points below as $\left(x_1,y_1\right)$ and $\left(x_2,y_2\right)$. Then, find the slope of the line. Show all your work. 
+
+\begin{EnvUplevel}
+\centering
+
+\begin{minipage}[t]{8cm}
+\vspace{0pt}%
+\centering
+\begin{tikzpicture}
+    \begin{axis}[height=6.2cm,width=7cm,
+        axis y line=left,
+        axis x line = center,
+        ylabel={$y$},
+        xlabel={$x$},
+        ylabel style ={rotate=-90,at={(axis description cs:-0.1,0.9)}},
+        ymin=-4,ymax=4,
+        xmin=0,xmax=8,
+        ytick={-4,-3,...,4},
+        xtick={0,1,...,8},
+        grid=both, 
+        % minor y tick num=1,
+        % minor x tick num=1,
+    ]
+        \addplot[very thick,domain=1:6] {2*x-7};
+        \ifprintanswers
+        \fill[red] (2,-3) circle (3pt);
+        \fill[red] (5,3) circle (3pt);
+        \node[red,align=center,right=2mm] at (2,-3) {$(x_1,y_1)$\\[1ex]$(2,-3)$};
+        \node[red,align=left,shift={(8mm,-1mm)}] at (5,3) {$(x_2,y_2)$\\[1ex]$(5,3)$};
+        \fi
+    \end{axis}
+\end{tikzpicture}
+\end{minipage}%
+\fbox{
+\begin{minipage}[t]{7.5cm}
+\vspace{0pt}%
+\centering
+\vspace{1ex}
+{\ifprintanswers \color{red} \else \color{white} \fi
+\begin{align*}
+    \text{slope} = m &= \mathrm{\frac{rise}{run}} \\[1ex]
+    &= \frac{y_2 - y_1}{x_2 - x_1} \\[1ex]
+    &= \frac{3 - (-3)}{5 - 2} \\[1ex]
+    &= \frac{6}{3} \\[1ex]
+    &= \boxed{2}
+\end{align*}
+}
+\vspace{-1em}
+\end{minipage}}
+\end{EnvUplevel}
+
+\question
+Each box below shows a steel ball's velocity vector. Below this vector, draw an acceleration vector that matches the description below the box of the ball's change in speed.
+
+\begin{EnvUplevel}
+\centering
+\begin{minipage}{3.5cm}
+\centering
+\begin{tikzpicture}
+    \draw (0,0) rectangle (3,2);
+    \draw[line width=1mm,-{Triangle[scale=1]}] (0.5,1.5) -- ++(2,0) node[above,pos=0.5] {$v$};
+    {\ifprintanswers \color{red} \else \color{white} \fi
+    \draw[line width=1mm,-{Triangle[scale=1]}] (0.5,0.5) -- ++(2,0) node[above,pos=0.5] {$a$};}
+    \node[below] at (current bounding box.south) {speeding up};
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{3.5cm}
+\centering
+\begin{tikzpicture}
+    \draw (0,0) rectangle (3,2);
+    \draw[line width=1mm,-{Triangle[scale=1]}] (0.5,1.5) -- ++(2,0) node[above,pos=0.5] {$v$};
+    {\ifprintanswers \color{red} \else \color{white} \fi
+    \draw[line width=1mm,{Triangle[scale=1]}-] (0.5,0.5) -- ++(2,0) node[above,pos=0.5] {$a$};}
+    \node[below] at (current bounding box.south) {slowing down};
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{3.5cm}
+\centering
+\begin{tikzpicture}
+    \draw (0,0) rectangle (3,2);
+    \draw[line width=1mm,{Triangle[scale=1]}-] (0.5,1.5) -- ++(2,0) node[above,pos=0.5] {$v$};
+    {\ifprintanswers \color{red} \else \color{white} \fi
+    \draw[line width=1mm,{Triangle[scale=1]}-] (0.5,0.5) -- ++(2,0) node[above,pos=0.5] {$a$};}
+    \node[below] at (current bounding box.south) {speeding up};
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{3.5cm}
+\centering
+\begin{tikzpicture}
+    \draw (0,0) rectangle (3,2);
+    \draw[line width=1mm,{Triangle[scale=1]}-] (0.5,1.5) -- ++(2,0) node[above,pos=0.5] {$v$};
+    {\ifprintanswers \color{red} \else \color{white} \fi
+    \draw[line width=1mm,-{Triangle[scale=1]}] (0.5,0.5) -- ++(2,0) node[above,pos=0.5] {$a$};}
+    \node[below] at (current bounding box.south) {slowing down};
+\end{tikzpicture}
+\end{minipage}%
+\end{EnvUplevel}
+
+\question
+When an object's velocity and acceleration are in \underline{opposite} directions, the object \fillin[slows down][3cm].\\[1em]
+When an object's velocity and acceleration are in the \underline{same} direction, the object \fillin[speeds up][3cm].
+
+\clearpage
+
+\question
+Create a velocity table for an object undergoing constant acceleration.
+
+\begin{minipage}[t]{5cm}
+\vspace{0pt}%
+\def\arraystretch{1.3}
+\begin{tabular}{|c|c|}
+    \hline
+    \thead{\bfseries Time (s)} & \thead{\bfseries Velocity (m/s)} \\ \hline
+    0 & \ans{0} \\ \hline
+    1 & \ans{2} \\ \hline
+    2 & \ans{4} \\ \hline
+    3 & \ans{6} \\ \hline
+    4 & \ans{8} \\ \hline
+    5 & \ans{10} \\ \hline
+\end{tabular}
+\end{minipage}%
+\begin{minipage}[t]{10cm}
+\vspace{0pt}%
+\begin{parts}
+\part In your own words, what does acceleration mean?
+
+\ifprintanswers
+\textcolor{red}{Acceleration is the rate at which velocity changes with time.}
+\else 
+\fillwithlines{14mm}
+\fi
+
+\part Why does your table represent acceleration?
+
+\ifprintanswers
+\textcolor{red}{The velocities are not constant but changing with time.}
+\else 
+\fillwithlines{14mm}
+\fi
+\end{parts}
+\end{minipage}
+
+\question
+\begin{parts}
+\part Using the table, graph position vs time.
+
+\begin{center}
+\begin{minipage}[t]{3cm}
+\vspace{0pt}%
+\def\arraystretch{2}
+\begin{tabular}{|c|c|}
+    \hline
+    \thead{$t$ (s)} & \thead{$x$ (m)} \\ \hline
+    0 & 0 \\ \hline
+    1 & 1 \\ \hline
+    2 & 4 \\ \hline
+    3 & 9 \\ \hline
+    4 & 16 \\ \hline
+    5 & 25 \\ \hline
+\end{tabular}
+\end{minipage}%
+\begin{minipage}[t]{10cm}
+\vspace{0pt}%
+\centering
+\begin{tikzpicture}
+    \begin{axis}[height=7cm,width=9cm,
+        ylabel={\small Position (m)},
+        xlabel={\small Time (s)},
+        ymin=0,ymax=25,
+        xmin=0,xmax=5,
+        ytick={0,5,...,25},
+        xtick={0,1,...,5},
+        grid=both,
+        axis lines=left,
+        clip=false,
+        major grid style={thick, draw=black!60},
+        minor grid style={thin, draw=gray!30},
+        minor y tick num=4,
+        minor x tick num=4,
+    ]
+        \ifprintanswers
+            \addplot[only marks,mark=*,red] coordinates{(0,0)(1,1)(2,4)(3,9)(4,16)(5,25)};
+            \addplot[red,smooth,domain=0:5,thick] {x^2}; 
+        \fi
+    \end{axis}
+\end{tikzpicture}
+\end{minipage}
+\end{center}
+
+\part What is the shape of this $x$ vs $t$ graph?\ \fillin[quadratic][4cm]
+\end{parts}
+
+
+
+\question
+\begin{parts}
+\part In the velocity vs time graphs below, indicate the direction (leftward/rightward) of acceleration.
+\vspace{-1ex}
+
+\begin{EnvUplevel}
+\centering
+\fbox{
+\begin{minipage}[t]{3cm}
+\vspace{0pt}%
+\begin{tikzpicture}[y=2.5cm,x=2cm]
+    \draw[->] (0,0) -- (1.2,0) node[above,pos=0.9] {\large $t$} node[left,pos=0] {\scriptsize 0};
+    \draw[->] (0,-0.6) -- (0,0.6) node[left,pos=0.9] {\large $v$};
+    \draw[ultra thick] (0,-0.4) -- (0.9,0.4);
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}[t]{4.5cm}
+\vspace{7mm}%
+\raggedleft
+\begin{tikzpicture}
+    \node[above] at (0,0) {positive slope};
+    \draw[line width=1mm,-{Triangle[scale=0.5]}] (0,0) -- ++(0,-0.5);
+    \node[below] at (0,-0.5) {\fillin[rightward][2.2cm] acceleration};
+\end{tikzpicture}
+\end{minipage}}%
+\hspace{5mm}
+\fbox{
+\begin{minipage}[t]{3cm}
+\vspace{0pt}%
+\begin{tikzpicture}[y=2.5cm,x=2cm]
+    \draw[->] (0,0) -- (1.2,0) node[above,pos=0.9] {\large $t$} node[left,pos=0] {\scriptsize 0};
+    \draw[->] (0,-0.6) -- (0,0.6) node[left,pos=0.9] {\large $v$};
+    \draw[ultra thick] (0,0.4) -- (0.9,-0.4);
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}[t]{4.5cm}
+\vspace{7mm}%
+\raggedleft
+\begin{tikzpicture}
+    \node[above] at (0,0) {negative slope};
+    \draw[line width=1mm,-{Triangle[scale=0.5]}] (0,0) -- ++(0,-0.5);
+    \node[below] at (0,-0.5) {\fillin[leftward][2.2cm] acceleration};
+\end{tikzpicture}
+\end{minipage}}%
+\end{EnvUplevel}
+
+\vspace{1em}
+
+\part For the position vs time graphs below, fill in the blanks using words from the following list: 
+\vspace{1ex}
+
+\begin{center}
+\bfseries
+acceleration,\quad constant,\quad linear,\quad quadratic,\quad velocity,\quad zero
+\end{center}
+
+\begin{EnvUplevel}
+\centering
+\fbox{
+\begin{minipage}[t]{3cm}
+\vspace{0pt}%
+\centering
+\begin{tikzpicture}[y=2.5cm,x=2cm]
+    \draw[->] (0,0) -- (1.2,0) node[below,pos=0.9] {\large $t$} node[left,pos=0] {\scriptsize 0};
+    \draw[->] (0,-0.6) -- (0,0.6) node[left,pos=0.9] {\large $x$};
+    \draw[ultra thick,domain=0:0.9] plot({\x},{\x^2-0.4});
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}[t]{4.5cm}
+\vspace{5mm}%
+\raggedleft
+\fillin[quadratic]\ shape\, \\[1em]
+changing \fillin[velocity]\,  \\[1em]
+constant \fillin[acceleration]\, 
+\end{minipage}}%
+\hspace{5mm}
+\fbox{
+\begin{minipage}[t]{3cm}
+\vspace{0pt}%
+\centering
+\begin{tikzpicture}[y=2.5cm,x=2cm]
+    \draw[->] (0,0) -- (1.2,0) node[below,pos=0.9] {\large $t$} node[left,pos=0] {\scriptsize 0};
+    \draw[->] (0,-0.6) -- (0,0.6) node[left,pos=0.9] {\large $x$};
+    \draw[ultra thick] (0,-0.5) -- (1,0.5);
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}[t]{4.5cm}
+\vspace{5mm}%
+\raggedleft
+\fillin[linear]\ shape\, \\[1em]
+\fillin[constant]\ velocity \\[1em]
+\fillin[zero][2cm]\ acceleration
+\end{minipage}}%
+\end{EnvUplevel}
+\end{parts}
+
+\end{questions}
+\clearpage
+
+
+\subsection*{LG 7 Practice}
+
+% \textbf{Questions \ref{jpyYo}--\ref{OK5PY}.} For each of the following questions, at the specified point, (a) draw the tangent line to the curve at the given point, (b) state whether the object is on the right side or left side of the origin, and (c) determine the direction of the object's velocity at that point.
+
+
+The figure below shows an object on the right side of the origin, moving with leftward velocity.
+
+\begin{center}
+\begin{tikzpicture}[x=1.2cm]
+    \foreach \x in {-4,-3,...,4} {
+        \draw[ultra thin] (\x,-1mm) -- (\x,1mm) node[below=2mm] {$\x$};
+    }
+    \draw[->] (-4,0) -- (4,0) node[pos=0.5,below=5mm] {$x = \text{Position (m)}$};
+    \node at (3,0.32) {\resizebox{1cm}{!}{\usym{1F699}}};
+    \draw[line width=1mm,-{Triangle[scale=0.7]}] (0,0.8) -- (0,0.2) node[above,pos=0] {origin};
+    \draw[very thick,->] (2.5,0.5) -- ++(-0.6,0) node[above,pos=0.5] {$\vec{v}$};
+    \speedometer{(5,0.5)}{60}{12}
+\end{tikzpicture}
+\end{center}
+
+\noindent The motion of such object could be represented by all of the position vs time graphs in the questions below. For each question:
+
+\begin{itemize}[topsep=0pt,itemsep=0pt]
+    \item Draw the tangent line to the curve at the point shown.
+    \item Identify the direction of the object's position vector at the point. (What is the  direction of location relative to the origin?)
+    \item Identify the direction of the object's velocity at the point. (In what direction is the object moving?)
+\end{itemize}
+
+\begin{questions}
+
 \begin{multicols}{2} % Start 2-column layout
 
 \question \label{jpyYo}
-\phantom{.}
+\begin{parts}
+\part Draw the tangent line to curve at the specified point.
+\part At the point, the object is on the \fillin[left][3cm]\ side of the origin.
+\part At the point, the object's velocity vector points to the \fillin[right][3cm].
+\vspace{1em}
 
 \begin{tikzpicture}[x=3cm,y=2cm,
         declare function={
@@ -490,8 +1952,8 @@ What is the direction of acceleration for the object shown below?
             }
     ]
     
-    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
-    \draw[->] (0,0) -- (1,0) node[right] {$t$};
+    \draw[->] (0,-1) -- (0,1) node[left,pos=0.95] {\large $x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,0) -- (1,0) node[right] {\large $t$};
     \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
     % % 1. Define your tangent point t_0 here
@@ -505,13 +1967,20 @@ What is the direction of acceleration for the object shown below?
         \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {df(\tzero)*(\t-\tzero) + f(\tzero});
     \fi
 \end{tikzpicture}
+\end{parts}
 
-\ifprintanswers
-\textcolor{red}{(b) The object is on the left side of the origin, since the position $x$ is negative.\\ (c) The direction of the object's velocity is to the right, because the slope of the tangent line is positive.}
-\fi
+
+
+% \ifprintanswers
+% \textcolor{red}{(b) The object is on the left side of the origin, since the position $x$ is negative.\\ (c) The direction of the object's velocity is to the right, because the slope of the tangent line is positive.}
+% \fi
 
 \question
-\phantom{.}
+\begin{parts}
+\part Draw the tangent line to curve at the specified point.
+\part At the point, the object is on the \fillin[right][3cm]\ side of the origin.
+\part At the point, the object's velocity vector points to the \fillin[left][3cm].
+\vspace{1em}
 
 \begin{tikzpicture}[x=3cm,y=2cm,
         declare function={
@@ -520,7 +1989,7 @@ What is the direction of acceleration for the object shown below?
             }
     ]
     
-    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,-1) -- (0,1) node[left,pos=0.95] {\large $x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
     \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
@@ -535,9 +2004,17 @@ What is the direction of acceleration for the object shown below?
         \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {df(\tzero)*(\t-\tzero) + f(\tzero)}); 
     \fi
 \end{tikzpicture}
+\end{parts}
+
+\vspace*{\fill}
+\columnbreak
 
 \question
-\phantom{.}
+\begin{parts}
+\part Draw the tangent line to curve at the specified point.
+\part At the point, the object is on the \fillin[left][3cm]\ side of the origin.
+\part At the point, the object's velocity vector points to the \fillin[left][3cm].
+\vspace{1em}
 
 \begin{tikzpicture}[x=3cm,y=2cm,
         declare function={
@@ -546,7 +2023,7 @@ What is the direction of acceleration for the object shown below?
             }
     ]
 
-    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,-1) -- (0,1) node[left,pos=0.95] {\large $x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
     \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
@@ -561,9 +2038,16 @@ What is the direction of acceleration for the object shown below?
         \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {df(\tzero)*(\t-\tzero) + f(\tzero)}); 
     \fi
 \end{tikzpicture}
+\end{parts}
+
+
 
 \question
-\phantom{.}
+\begin{parts}
+\part Draw the tangent line to curve at the specified point.
+\part At the point, the object is on the \fillin[right][3cm]\ side of the origin.
+\part At the point, the object's velocity vector points to the \fillin[right][3cm].
+\vspace{1em}
 
 \begin{tikzpicture}[x=3cm,y=2cm,
         declare function={
@@ -572,7 +2056,7 @@ What is the direction of acceleration for the object shown below?
             }
     ]
     
-    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,-1) -- (0,1) node[left,pos=0.95] {\large $x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
     \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
@@ -587,9 +2071,17 @@ What is the direction of acceleration for the object shown below?
         \draw[thick,red,domain=-0.2:1,variable=\t]  plot(\t, {df(\tzero)*(\t-\tzero) + f(\tzero)}); 
     \fi
 \end{tikzpicture}
+\end{parts}
+
+\vspace*{\fill}
+\columnbreak
 
 \question
-\phantom{.}
+\begin{parts}
+\part Draw the tangent line to curve at the specified point.
+\part At the point, the object is on the \fillin[right][3cm]\ side of the origin.
+\part At the point, the object's velocity vector points to the \fillin[right][3cm].
+\vspace{1em}
 
 \begin{tikzpicture}[x=3cm,y=2cm,
         declare function={
@@ -598,7 +2090,7 @@ What is the direction of acceleration for the object shown below?
             }
     ]
     
-    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,-1) -- (0,1) node[left,pos=0.95] {\large $x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
     \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
@@ -613,9 +2105,14 @@ What is the direction of acceleration for the object shown below?
         \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {df(\tzero)*(\t - \tzero) + f(\tzero)});
     \fi
 \end{tikzpicture}
+\end{parts}
 
 \question
-\phantom{.}
+\begin{parts}
+\part Draw the tangent line to curve at the specified point.
+\part At the point, the object is on the \fillin[left][3cm]\ side of the origin.
+\part At the point, the object's velocity vector points to the \fillin[left][3cm].
+\vspace{1em}
 
 \begin{tikzpicture}[x=3cm,y=2cm,
         declare function={
@@ -624,7 +2121,7 @@ What is the direction of acceleration for the object shown below?
             }
     ]
     
-    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,-1) -- (0,1) node[left,pos=0.95] {\large $x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
     \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
@@ -639,9 +2136,15 @@ What is the direction of acceleration for the object shown below?
         \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {df(\tzero)*(\t - \tzero) + f(\tzero)});
     \fi
 \end{tikzpicture}
+\end{parts}
+
 
 \question
-\phantom{.}
+\begin{parts}
+\part Draw the tangent line to curve at the specified point.
+\part At the point, the object is on the \fillin[right][3cm]\ side of the origin.
+\part At the point, the object's velocity vector points to the \fillin[left][3cm].
+\vspace{1em}
 
 \begin{tikzpicture}[x=3cm,y=2cm,
         declare function={
@@ -650,7 +2153,7 @@ What is the direction of acceleration for the object shown below?
             }
     ]
     
-    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,-1) -- (0,1) node[left,pos=0.95] {\large $x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
     \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
@@ -666,8 +2169,15 @@ What is the direction of acceleration for the object shown below?
     \fi
 \end{tikzpicture}
 
+\end{parts}
+
+
 \question \label{OK5PY}
-\phantom{.}
+\begin{parts}
+\part Draw the tangent line to curve at the specified point.
+\part At the point, the object is on the \fillin[left][3cm]\ side of the origin.
+\part At the point, the object's velocity vector points to the \fillin[right][3cm].
+\vspace{1em}
 
 \begin{tikzpicture}[x=3cm,y=2cm,
         declare function={
@@ -676,7 +2186,7 @@ What is the direction of acceleration for the object shown below?
             }
     ]
     
-    \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
+    \draw[->] (0,-1) -- (0,1) node[left,pos=0.95] {\large $x$}node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
     \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
@@ -691,13 +2201,33 @@ What is the direction of acceleration for the object shown below?
         \draw[thick,red,domain=-0.2:1,variable=\t] plot(\t, {df(\tzero)*(\t - \tzero) + f(\tzero)});
     \fi
 \end{tikzpicture}
+\end{parts}
 
 \end{multicols}
+
+\question
+Which of the 8 position-vs-time graphs above represent an object undergoing acceleration? Which represent constant velocity? How do you know? 
+
+\ifprintanswers
+\textcolor{red}{All the $x$ vs $t$ graphs represent accelerating motion because they all quadratically change over time.}
+\else
+\fillwithlines{21mm}
+\fi
+
+\question
+What does the tangent line to a point on the curve of a position-vs-time graph represent?
+
+\ifprintanswers
+\textcolor{red}{The tangent line is the instantaneous velocity of the object at that point.}
+\else
+\fillwithlines{21mm}
+\fi
+
 \end{questions}
 
 \clearpage
 
-\subsection*{Practice}
+\subsection*{LG 8 Practice}
 
 \textbf{Questions \ref{z3gVy}--\ref{aC3i2}.} Determine whether the object is speeding up or slowing down across the position curve. Justify your answer.
 
@@ -705,7 +2235,16 @@ What is the direction of acceleration for the object shown below?
 \begin{multicols}{2} % Start 2-column layout
 
 \question \label{z3gVy}
-\phantom{.}
+\begin{parts}
+    \part Draw tangent lines to the curve at two separate points.
+    \part As you move along the curve, is the magnitude of the slope increasing or decreasing?
+
+    \fillin[decreasing][6cm]
+    
+    \part Is the object speeding up \hfill \\ or slowing down?
+
+    \fillin[slowing down][6cm]
+\end{parts}
 
 \begin{tikzpicture}[x=3cm,y=2cm,
         declare function={
@@ -716,22 +2255,34 @@ What is the direction of acceleration for the object shown below?
     \draw[->] (0,-1) -- (0,1) node[left] {$x$} node[pos=0.5,left] {\footnotesize $0$};
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
     \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
-    
+
+    \ifprintanswers
     \foreach \tzero in {0.1,0.7}{
         \coordinate (P) at (\tzero, {f(\tzero)});
         
         % Define a secondary point to establish the slope/direction (Moving 1 unit right, and 'm' units up/down)
         \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
+        
         \draw[very thick,red] ($(P)!-1cm!(Dir)$) -- ($(P)!1cm!(Dir)$);
     }
+    \fi
 \end{tikzpicture}
 
-\ifprintanswers
-\textcolor{red}{The lines tangent to the curve are becoming flatter (the magnitude of the slope is decreasing). Therefore, the object is slowing down.}
-\fi
+% \ifprintanswers
+% \textcolor{red}{The lines tangent to the curve are becoming flatter (the magnitude of the slope is decreasing). Therefore, the object is slowing down.}
+% \fi
 
 \question
-\phantom{.}
+\begin{parts}
+    \part Draw tangent lines to the curve at two separate points.
+    \part As you move along the curve, is the magnitude of the slope increasing or decreasing?
+
+    \fillin[decreasing][6cm]
+    
+    \part Is the object speeding up \hfill \\ or slowing down?
+
+    \fillin[slowing down][6cm]
+\end{parts}
 
 \begin{tikzpicture}[x=3cm,y=2cm,
         declare function={
@@ -743,6 +2294,7 @@ What is the direction of acceleration for the object shown below?
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
     \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
+    \ifprintanswers
     \foreach \tzero in {0.1,0.7}{
         \coordinate (P) at (\tzero, {f(\tzero)});
         
@@ -750,10 +2302,23 @@ What is the direction of acceleration for the object shown below?
         \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
         \draw[very thick,red] ($(P)!-1cm!(Dir)$) -- ($(P)!1cm!(Dir)$);
     }
+    \fi
 \end{tikzpicture}
 
+\vspace*{\fill}
+\columnbreak
+
 \question
-\phantom{.}
+\begin{parts}
+    \part Draw tangent lines to the curve at two separate points.
+    \part As you move along the curve, is the magnitude of the slope increasing or decreasing?
+
+    \fillin[increasing][6cm]
+    
+    \part Is the object speeding up \hfill \\ or slowing down?
+
+    \fillin[speeding up][6cm]
+\end{parts}
 
 \begin{tikzpicture}[x=3cm,y=2cm,
     declare function={
@@ -764,6 +2329,7 @@ What is the direction of acceleration for the object shown below?
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
     \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
+    \ifprintanswers
     \foreach \tzero in {0.1,0.7}{
         \coordinate (P) at (\tzero, {f(\tzero)});
         
@@ -771,10 +2337,20 @@ What is the direction of acceleration for the object shown below?
         \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
         \draw[very thick,red] ($(P)!-1cm!(Dir)$) -- ($(P)!1cm!(Dir)$);
     }
+    \fi
 \end{tikzpicture}
 
 \question
-\phantom{.}
+\begin{parts}
+    \part Draw tangent lines to the curve at two separate points.
+    \part As you move along the curve, is the magnitude of the slope increasing or decreasing?
+
+    \fillin[increasing][6cm]
+    
+    \part Is the object speeding up \hfill \\ or slowing down?
+
+    \fillin[speeding up][6cm]
+\end{parts}
 
 \begin{tikzpicture}[x=3cm,y=2cm,
     declare function={
@@ -785,6 +2361,7 @@ What is the direction of acceleration for the object shown below?
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
     \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
+    \ifprintanswers
     \foreach \tzero in {0.1,0.7}{
         \coordinate (P) at (\tzero, {f(\tzero)});
         
@@ -792,10 +2369,23 @@ What is the direction of acceleration for the object shown below?
         \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
         \draw[very thick,red] ($(P)!-1cm!(Dir)$) -- ($(P)!1cm!(Dir)$);
     }
+    \fi
 \end{tikzpicture}
 
+\vspace*{\fill}
+\columnbreak
+
 \question
-\phantom{.}
+\begin{parts}
+    \part Draw tangent lines to the curve at two separate points.
+    \part As you move along the curve, is the magnitude of the slope increasing or decreasing?
+
+    \fillin[decreasing][6cm]
+    
+    \part Is the object speeding up \hfill \\ or slowing down?
+
+    \fillin[slowing down][6cm]
+\end{parts}
 
 \begin{tikzpicture}[x=3cm,y=2cm,
     declare function={
@@ -806,6 +2396,7 @@ What is the direction of acceleration for the object shown below?
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
     \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
+    \ifprintanswers
     \foreach \tzero in {0.1,0.7}{
         \coordinate (P) at (\tzero, {f(\tzero)});
         
@@ -813,10 +2404,20 @@ What is the direction of acceleration for the object shown below?
         \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
         \draw[very thick,red] ($(P)!-1cm!(Dir)$) -- ($(P)!1cm!(Dir)$);
     }
+    \fi
 \end{tikzpicture}
 
 \question
-\phantom{.}
+\begin{parts}
+    \part Draw tangent lines to the curve at two separate points.
+    \part As you move along the curve, is the magnitude of the slope increasing or decreasing?
+
+    \fillin[decreasing][6cm]
+    
+    \part Is the object speeding up \hfill \\ or slowing down?
+
+    \fillin[slowing down][6cm]
+\end{parts}
 
 \begin{tikzpicture}[x=3cm,y=2cm,
     declare function={
@@ -827,6 +2428,7 @@ What is the direction of acceleration for the object shown below?
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
     \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
+    \ifprintanswers
     \foreach \tzero in {0.1,0.7}{
         \coordinate (P) at (\tzero, {f(\tzero)});
         
@@ -834,10 +2436,21 @@ What is the direction of acceleration for the object shown below?
         \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
         \draw[very thick,red] ($(P)!-1cm!(Dir)$) -- ($(P)!1cm!(Dir)$);
     }
+    \fi
 \end{tikzpicture}
 
+
 \question
-\phantom{.}
+\begin{parts}
+    \part Draw tangent lines to the curve at two separate points.
+    \part As you move along the curve, is the magnitude of the slope increasing or decreasing?
+
+    \fillin[increasing][6cm]
+    
+    \part Is the object speeding up \hfill \\ or slowing down?
+
+    \fillin[speeding up][6cm]
+\end{parts}
 
 \begin{tikzpicture}[x=3cm,y=2cm,
     declare function={
@@ -848,6 +2461,7 @@ What is the direction of acceleration for the object shown below?
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
     \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
+    \ifprintanswers
     \foreach \tzero in {0.1,0.7}{
         \coordinate (P) at (\tzero, {f(\tzero)});
         
@@ -855,10 +2469,20 @@ What is the direction of acceleration for the object shown below?
         \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
         \draw[very thick,red] ($(P)!-1cm!(Dir)$) -- ($(P)!1cm!(Dir)$);
     }
+    \fi
 \end{tikzpicture}
 
 \question \label{aC3i2}
-\phantom{.}
+\begin{parts}
+    \part Draw tangent lines to the curve at two separate points.
+    \part As you move along the curve, is the magnitude of the slope increasing or decreasing?
+
+    \fillin[increasing][6cm]
+    
+    \part Is the object speeding up \hfill \\ or slowing down?
+
+    \fillin[speeding up][6cm]
+\end{parts}
 
 \begin{tikzpicture}[x=3cm,y=2cm,
     declare function={
@@ -869,6 +2493,7 @@ What is the direction of acceleration for the object shown below?
     \draw[->] (0,0) -- (1,0) node[right] {$t$};
     \draw[very thick,domain=0:0.8,smooth,variable=\t] plot(\t,{f(\t)});
 
+    \ifprintanswers
     \foreach \tzero in {0.1,0.7}{
         \coordinate (P) at (\tzero, {f(\tzero)});
         
@@ -876,6 +2501,7 @@ What is the direction of acceleration for the object shown below?
         \coordinate (Dir) at (\tzero + 1, {f(\tzero) + df(\tzero)});
         \draw[very thick,red] ($(P)!-1cm!(Dir)$) -- ($(P)!1cm!(Dir)$);
     }
+    \fi
 \end{tikzpicture}
 
 \end{multicols}
@@ -883,7 +2509,7 @@ What is the direction of acceleration for the object shown below?
 
 \clearpage
 
-\subsection*{Practice}
+\subsection*{LG 9 Practice}
 
 \textbf{Questions.} Determine the direction of the object's acceleration. Justify your answer.
 
@@ -1027,7 +2653,7 @@ What is the direction of acceleration for the object shown below?
 
 \clearpage
 
-\subsection*{Practice}
+\subsection*{LG 10 Practice}
 
 \textbf{Questions \ref{3VzZd}--\ref{NXcZ5}.} Each of the position graphs A--D corresponds to one of the velocity graphs E--H. Match each position graph to one of the corresponding velocity graphs.
 
@@ -1144,7 +2770,7 @@ Sketch a position vs.\,time graph that matches the given velocity graph.
 
 \clearpage
 
-\subsection*{Practice}
+\subsection*{LG 11 Practice}
 
 \begin{questions}
 \question
@@ -1195,7 +2821,7 @@ A particle starts at a speed of \SI{8}{m/s} in the negative $x$-direction. Some 
 
 \clearpage
 
-\subsection*{Practice}
+\subsection*{LG 12 Practice}
 
 \begin{questions}
 \question 
@@ -1266,7 +2892,7 @@ An accelerating particle starts at a speed of \SI{6}{m/s} in the negative $x$ di
 
 \clearpage
 
-\subsection*{Practice}
+\subsection*{LG 13 Practice}
 
 \begin{questions}
 \begin{multicols}{2}
@@ -1332,7 +2958,7 @@ Calculate the acceleration of the object.
 
 \clearpage
 
-\subsection*{Practice}
+\subsection*{LG 14 Practice}
 
 \begin{center}
 \begin{tikzpicture}[y=5mm,x=6mm]
@@ -1408,7 +3034,7 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
 
 \clearpage
 
-\subsection*{Practice}
+\subsection*{LG 15 Practice}
 
 \textbf{Questions \ref{J9AJz}--\ref{AaqNN}.} Calculate the area of the triangle.
 
@@ -1462,7 +3088,7 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
 
 \clearpage
 
-\subsection*{Practice}
+\subsection*{LG 16 Practice}
 
 \textbf{Questions.} Shade the region between the curve and the $x$-axis over a given interval. Use one color for regions above the $x$-axis, and a different color for regions below.
 
@@ -1790,7 +3416,7 @@ There are four 1-second time intervals from $t = 0$ to $t = \SI{4}{s}$ correspon
 
 \clearpage
 
-\subsection*{Practice}
+\subsection*{LG 17 Practice}
 
 \textbf{Questions \ref{PFTW6}--\ref{Ajdle}.} For each of the velocity-time graphs below, calculate the object's net displacement across the entire time shown.
 
@@ -1843,7 +3469,7 @@ Find the displacement.
 
 \clearpage
 
-\subsection*{Practice}
+\subsection*{LG 18 Practice}
 
 \newcommand{\accelerationgraph}[2]{
 \begin{tikzpicture}
@@ -1916,5 +3542,256 @@ At $t = 0$, the object's velocity is \SI{-50}{m/s}. What is the object's final v
 \end{multicols}
 \end{questions}
 
+\clearpage
 
-\end{document}
+\subsection*{Additional Problems}
+
+\begin{questions}
+\question % LG 2
+\begin{minipage}[t]{8cm}
+\vspace{0pt}%
+
+\begin{parts}
+\part Is the object is accelerating?
+
+\begin{choices}
+    \choice Yes
+    \choice No
+\end{choices}
+
+\part The object is\ldots
+
+\begin{choices}
+    \choice speeding up.
+    \choice slowing down.
+    \choice speeding up and slowing down.
+    \choice None of the above
+\end{choices}
+
+\part The direction of acceleration is
+
+\begin{choices}
+    \choice rightward (positive).
+    \choice leftward (negative).
+    \choice None of the above
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{1em}%
+\centering
+
+\def\arraystretch{1.5}
+\velocitytableI{22}{6}{5}{2}
+\end{minipage}
+
+\question % LG 2
+  
+\begin{minipage}[t]{8cm}
+\vspace{0pt}%
+
+\begin{parts}
+\part Is the object is accelerating?
+
+\begin{choices}
+    \choice Yes
+    \choice No
+\end{choices}
+
+\part The object is\ldots
+
+\begin{choices}
+    \choice speeding up.
+    \choice slowing down.
+    \choice speeding up and slowing down.
+    \choice None of the above
+\end{choices}
+
+\part The direction of acceleration is
+
+\begin{choices}
+    \choice rightward (positive).
+    \choice leftward (negative).
+    \choice None of the above
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{1em}%
+\centering
+\def\arraystretch{1.5}
+\velocitytableI{-12}{0}{7}{3}
+\end{minipage}
+
+\question % LG 3
+
+\begin{minipage}[t]{8cm}
+\vspace{0pt}%
+
+\begin{parts}
+\part Is the object is accelerating?
+
+\begin{choices}
+    \correctchoice Yes
+    \choice No
+\end{choices}
+
+\part The object is\ldots
+
+\begin{choices}
+    \correctchoice speeding up.
+    \choice slowing down.
+    \choice speeding up and slowing down.
+    \choice None of the above
+\end{choices}
+
+\part The direction of acceleration is
+
+\begin{choices}
+    \correctchoice rightward (positive).
+    \choice leftward (negative).
+    \choice None of the above
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{1em}%
+\centering
+\def\arraystretch{1.5}
+\positiontableI{0}{3}{0}{1}{0}
+\end{minipage}
+
+\question % LG 3
+
+\begin{minipage}[t]{8cm}
+\vspace{-1.7ex}%
+
+\begin{parts}
+\part The object is\ldots
+
+\begin{choices}
+    \correctchoice speeding up.
+    \choice slowing down.
+    \choice speeding up, then slowing down.
+    \choice slowing down, then speeding up.
+    \choice not accelerating.
+\end{choices}
+
+\part The direction of acceleration is
+
+\begin{choices}
+    \correctchoice rightward (positive).
+    \choice leftward (negative).
+    \choice none (acceleration is zero).
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{0em}%
+\centering
+
+{\ifprintanswers \color{red} \else \color{white} \fi
+
+\begin{align*}
+    x(t) &= -12 + 2t + 2t^2  \\[1ex]
+    v(t) &= 2 + 4t
+\end{align*}
+}
+
+\vspace{-1em}
+
+\def\arraystretch{1.5}
+\positiontableI{-12}{2}{0}{1}{4}
+\end{minipage}
+
+\question % LG 3
+
+\begin{minipage}[t]{8cm}
+\vspace{-1.7ex}%
+
+\begin{parts}
+\part The object is\ldots
+
+\begin{choices}
+    \correctchoice speeding up.
+    \choice slowing down.
+    \choice speeding up, then slowing down.
+    \choice slowing down, then speeding up.
+    \choice not accelerating.
+\end{choices}
+
+\part The direction of acceleration is
+
+\begin{choices}
+    \correctchoice rightward (positive).
+    \choice leftward (negative).
+    \choice none (acceleration is zero).
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{0em}%
+\centering
+
+{\ifprintanswers \color{red} \else \color{white} \fi
+
+\begin{align*}
+    x(t) &= -12 + 2t + 2t^2  \\[1ex]
+    v(t) &= 2 + 4t
+\end{align*}
+}
+
+\vspace{-1em}
+
+\def\arraystretch{1.5}
+\positiontableI{-12}{2}{0}{1}{4}
+\end{minipage}
+
+\question \label{SGatV} % LG 3
+
+\begin{minipage}[t]{8cm}
+\vspace{-1.7ex}%
+
+\begin{parts}
+\part The object is\ldots
+
+\begin{choices}
+    \choice speeding up.
+    \choice slowing down.
+    \choice speeding up, then slowing down.
+    \correctchoice slowing down, then speeding up.
+    \choice not accelerating.
+\end{choices}
+
+\part The direction of acceleration is
+
+\begin{choices}
+    \choice rightward (positive).
+    \correctchoice leftward (negative).
+    \choice none (acceleration is zero).
+\end{choices}
+\end{parts}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{1em}%
+\centering
+
+{\ifprintanswers \color{red} \else \color{white} \fi
+
+\begin{align*}
+    x(t) &= 20t - 5t^2  \\[1ex]
+    v(t) &= 20 - 10t
+\end{align*}
+}
+
+\vspace{-1em}
+
+\def\arraystretch{1.5}
+\positiontableI{0}{20}{0}{1}{-10}
+\end{minipage}
+
+\end{questions}
+
+
+\end{document} %%%%%%%%%%%%%
+

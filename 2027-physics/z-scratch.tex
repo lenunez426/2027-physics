@@ -8,102 +8,52 @@
 \glsdisablehyper
 
 
-\setbeamertemplate{itemize items}[circle]
+
 
 \begin{document}
 
-
-\section{position vs time graphs}
-
 \begin{frame}
-\textit{Example.} Using the table, graph position vs time.
-\vspace{-1em}
-
-\begin{center}
-\begin{minipage}[t]{2.9cm}
-\vspace{0pt}%
-\def\arraystretch{1.25}
-\begin{tabular}{|c|c|}
-    \hline
-    \thead{$t$ (s)} & \thead{$x$ (m)} \\ \hline
-    0 & 0 \\ \hline
-    1 & 1 \\ \hline
-    2 & 4 \\ \hline
-    3 & 9 \\ \hline
-    4 & 16 \\ \hline
-    5 & 25 \\ \hline
-\end{tabular}
-\end{minipage}%
-\begin{minipage}[t]{7cm}
-\vspace{0pt}%
 \centering
-\begin{tikzpicture}
-    \begin{axis}[height=6.2cm,width=6.6cm,
-        ylabel={\small Position (m)},
-        xlabel={\small Time (s)},
-        ymin=0,ymax=25,
-        xmin=0,xmax=5,
-        ytick={0,5,...,25},
-        xtick={0,1,...,5},
-        grid=both,
-        axis lines=left,
-        clip=false,
-        major grid style={thick, draw=black!60},
-        minor grid style={thin, draw=gray!30},
-        minor y tick num=4,
-        minor x tick num=4,
-    ]
-    \only<2->{
-            \addplot[only marks,mark=*,red] coordinates{(0,0)(1,1)(2,4)(3,9)(4,16)(5,25)};
-    }
-    \only<3->{
-            \addplot[red,smooth,domain=0:5,thick] {x^2};
-        }   
-    \end{axis}
-\end{tikzpicture}
-\end{minipage}
-\end{center}
-\end{frame}
 
-\begin{frame}
-\textit{Example.} What is the shape of the position vs time graph for an object undergoing constant acceleration? Is it linear?
-\vspace{-1em}
-
-\begin{minipage}[t]{4.2cm}
+\begin{minipage}[t]{5cm}
 \vspace{0pt}%
-\begin{tikzpicture}
-    \small 
-    \begin{axis}[height=4cm,width=4cm,
-        ylabel={Position (m)},
-        xlabel={Time (s)},
-        ymin=0,ymax=25,
-        xmin=0,xmax=5,
-        ytick={0,5,...,25},
-        xtick={0,1,...,5},
-        grid=both,
-        axis lines=left,
-        clip=false,
-    ]
-    \addplot[smooth,domain=0:5,very thick] {x^2};
-    \end{axis}
+\begin{tikzpicture}[y=3cm,x=2.5cm]
+    \draw[->] (0,0) -- (1.2,0) node[below,pos=0.9] {$t$};
+    \draw[->] (0,-0.6) -- (0,0.6) node[left,pos=0.9] {$x$};
+    \draw<2->[ultra thick,red] (0,0.4) -- (0.9,-0.4);
 \end{tikzpicture}
 \end{minipage}%
-\pause
-\begin{minipage}[t]{5.6cm}
+\begin{minipage}[t]{5cm}
 \vspace{0pt}%
-\small\color{red}
-\begin{itemize}[<+->]
-    \setlength{\leftmargini}{1.2em} % Reduces left indent to save width
-    \setlength{\itemsep}{3pt}       % Keeps spacing between points compact
-    \item The shape is not linear.
-    \item Position increases \textbf{\underline{quadratically}} with time.
-    \item The shape of the $x$ vs $t$ graph is quadratic.
-    \item A quadratic shape is the shape of a parabola.
-\end{itemize}
-\end{minipage}
-
-\begin{tikzpicture}[overlay,shift={(6.5cm,-1cm)},y=1.2cm]
-\draw<6->[domain=-1:1,red,very thick] plot({\x,\x*\x});
+\begin{tikzpicture}
+    \uncover<3->{\node at (0,2.4) {linear shape};}
+    \uncover<4->{\draw[line width=1mm,-{Triangle[scale=0.5]}] (0,2.1) -- ++(0,-0.5);}
+    \uncover<4->{\node at (0,1.2) {constant velocity};}
+    \uncover<5->{\draw[line width=1mm,-{Triangle[scale=0.5]}] (0,0.8) -- ++(0,-0.5);}
+    \uncover<5->{\node at (0,0) {zero acceleration};}
 \end{tikzpicture}
+\end{minipage}%
+
+
+\begin{minipage}[t]{5cm}
+\vspace{0pt}%
+\begin{tikzpicture}[y=3cm,x=2.5cm]
+    \draw[->] (0,0) -- (1.2,0) node[below,pos=0.9] {$t$};
+    \draw[->] (0,-0.6) -- (0,0.6) node[left,pos=0.9] {$x$};
+    \draw<6->[ultra thick,red,domain=0:0.9] plot({\x},{\x^2-0.4});
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}[t]{5cm}
+\vspace{0pt}%
+\begin{tikzpicture}
+    \uncover<7->{\node at (0,2.4) {quadratic shape};}
+    \uncover<8->{\draw[line width=1mm,-{Triangle[scale=0.5]}] (0,2.1) -- ++(0,-0.5);}
+    \uncover<8->{\node at (0,1.2) {changing velocity};}
+    \uncover<9->{\draw[line width=1mm,-{Triangle[scale=0.5]}] (0,0.8) -- ++(0,-0.5);}
+    \uncover<9->{\node at (0,0) {constant acceleration};}
+\end{tikzpicture}
+\end{minipage}%
+
 \end{frame}
+
 \end{document}
